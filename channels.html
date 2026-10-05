@@ -94,6 +94,17 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
     <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
   </div>
+
+  <div class="rndm-burger-section">v24 Mega</div>
+  <div class="rndm-burger-grid">
+    <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
+    <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
+    <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
+    <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
+    <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
+    <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
+    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html"><span class="bi">🛡️</span>Админка</a>
+  </div>
 </aside><main class="page"><section class="hero"><div><div class="sub">RNDM CLOUD • REALTIME</div><h1>Каналы</h1><p>Создавайте публичные каналы, подписывайтесь, публикуйте посты и общайтесь в комментариях. Данные хранятся в Supabase и видны на разных устройствах.</p></div><div class="toolbar"><button class="btn primary" id="newChannel">＋ Создать канал</button></div></section><div id="cloudErr" class="notice" style="display:none;margin-bottom:12px"></div><div id="auth" class="notice" style="display:none">🔐 Сначала <a href="profile.html"><u>войдите в аккаунт</u></a>.</div><section class="layout" id="app" style="display:none"><aside class="card side"><input class="search" id="search" placeholder="Поиск каналов…"><div class="channel-list" id="channelList"></div></aside><section class="card feed" id="feed"><div class="empty">Выберите канал</div></section></section></main><div class="modal" id="newModal"><div class="modal-card"><h2>📣 Новый канал</h2><label>Название</label><input id="newName" maxlength="80" placeholder="Например, RNDM Новости"><label>Описание</label><textarea id="newDesc" rows="3" maxlength="500" placeholder="О чём канал?"></textarea><label>Эмодзи</label><input id="newEmoji" maxlength="4" value="📡"><div class="row" style="margin-top:16px"><button class="btn primary" id="createNew">Создать</button><button class="btn" id="cancelNew">Отмена</button></div></div></div>
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js"></script><script src="rndm-state-sync.js"></script>
 <script>
@@ -146,4 +157,5 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
   }
   if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(syncAccount,120));else setTimeout(syncAccount,120);
 })();
-</script></body></html>
+</script><script id="rndm-v24-guard">(async()=>{try{if(!window.RNDMCloud?.configured?.())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);if(!p)return;if(p.is_banned&&(!p.banned_until||new Date(p.banned_until)>new Date())&&!location.pathname.endsWith('/banned.html')){location.href='banned.html';return}if(['owner','admin','moderator'].includes(p.app_role)){document.querySelectorAll('.v24-admin-link').forEach(x=>x.classList.add('show'));const a=document.getElementById('rndmUnifiedAccount');if(a)a.innerHTML=`<span>@${RNDMCloud.esc(p.username||'я')} ${p.app_role==='owner'?'👑':p.app_role==='admin'?'🛡️':'🔧'}</span> 👤`}}catch(e){}})();</script>
+</body></html>

@@ -397,6 +397,17 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
     <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
   </div>
+
+  <div class="rndm-burger-section">v24 Mega</div>
+  <div class="rndm-burger-grid">
+    <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
+    <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
+    <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
+    <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
+    <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
+    <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
+    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html"><span class="bi">🛡️</span>Админка</a>
+  </div>
 </aside>
 
 <header class="topbar"><a class="brand" href="index.html">RNDM Chat</a><nav><a href="chat.html">Чаты</a><a href="contacts.html">Контакты</a><a href="channels.html">Каналы</a><a href="explore.html">Ещё</a><a href="profile.html">Профиль</a></nav></header><main class="container"><section class="hero compact"><span class="eyebrow">RNDM LAB</span><h1>Все возможности</h1><p>Истории, звонки, AI, магазин, рекомендации и игровые функции.</p></section><div class="story-strip" id="storyStrip"></div><section class="v13-grid"><article class="v13-card"><h3>📞 Звонки</h3><p>Демо аудио/видео звонка с камерой, микрофоном и таймером.</p><div class="v13-actions"><button class="v13-btn" id="audioCall">Аудио</button><button class="v13-btn" id="videoCall">Видео</button></div></article><article class="v13-card"><h3>🤖 RNDM AI</h3><p>Локальный AI-демо собеседник, который учитывает тему последних сообщений.</p><button class="v13-btn" id="openAI">Открыть AI</button></article><article class="v13-card"><h3>📖 Истории</h3><p>Создавай историю на 24 часа, просмотры и реакции сохраняются локально.</p><input id="storyFile" type="file" accept="image/*,video/*"><button class="v13-btn" id="addStory">Добавить</button></article><article class="v13-card"><h3>🎨 Тема чата</h3><select id="chatTheme"><option value="default">RNDM</option><option value="violet">Violet</option><option value="ocean">Ocean</option><option value="sunset">Sunset</option></select><button class="v13-btn" id="saveChatTheme">Применить</button></article><article class="v13-card"><h3>📍 Геолокация</h3><p>Создаёт карточку местоположения для отправки в чат.</p><button class="v13-btn" id="sendLocation">Создать карточку</button><p id="locationResult"></p></article><article class="v13-card"><h3>📊 Опрос</h3><input id="pollQ" placeholder="Вопрос"><input id="pollA" placeholder="Вариант 1"><input id="pollB" placeholder="Вариант 2"><button class="v13-btn" id="makePoll">Создать</button><div id="pollPreview"></div></article><article class="v13-card"><h3>🔥 Рекомендации</h3><div id="recommendations"></div></article><article class="v13-card"><h3>🔐 Приватные чаты</h3><p>Локальная PIN-блокировка скрытых переписок.</p><input id="pinSet" type="password" maxlength="6" placeholder="PIN"><button class="v13-btn" id="savePin">Сохранить PIN</button><button class="v13-btn alt" id="lockNow">Заблокировать</button></article></section></main><div class="call-overlay" id="callOverlay"><div class="call-card"><span class="v13-badge" id="callType">VIDEO</span><div class="call-video" id="callVideo">👤</div><h2 id="callName">RNDM Demo Call</h2><p id="callTimer">00:00</p><div class="v13-actions" style="justify-content:center"><button class="v13-btn alt" id="callMic">🎙 Микрофон</button><button class="v13-btn alt" id="callCam">📷 Камера</button><button class="v13-btn" id="endCall">Завершить</button></div></div></div><script>
@@ -942,4 +953,5 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
 })();
 </script>
 
+<script id="rndm-v24-guard">(async()=>{try{if(!window.RNDMCloud?.configured?.())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);if(!p)return;if(p.is_banned&&(!p.banned_until||new Date(p.banned_until)>new Date())&&!location.pathname.endsWith('/banned.html')){location.href='banned.html';return}if(['owner','admin','moderator'].includes(p.app_role)){document.querySelectorAll('.v24-admin-link').forEach(x=>x.classList.add('show'));const a=document.getElementById('rndmUnifiedAccount');if(a)a.innerHTML=`<span>@${RNDMCloud.esc(p.username||'я')} ${p.app_role==='owner'?'👑':p.app_role==='admin'?'🛡️':'🔧'}</span> 👤`}}catch(e){}})();</script>
 </body></html>

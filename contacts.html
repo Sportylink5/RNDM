@@ -99,6 +99,17 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
     <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
   </div>
+
+  <div class="rndm-burger-section">v24 Mega</div>
+  <div class="rndm-burger-grid">
+    <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
+    <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
+    <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
+    <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
+    <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
+    <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
+    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html"><span class="bi">🛡️</span>Админка</a>
+  </div>
 </aside>
 
 <div class="shell"><header class="top"><a href="index.html" class="logo">R</a><div class="brand">RNDM Chat <span style="font-size:11px;color:#31e6a1">LIVE</span></div><div class="spacer"></div><a href="contacts.html" class="desktop-only">Контакты</a><a href="profile.html" id="topAccount">Аккаунт</a></header>
@@ -148,4 +159,5 @@ await load();sb.channel('friends-live').on('postgres_changes',{event:'*',schema:
 })();
 </script>
 
+<script id="rndm-v24-guard">(async()=>{try{if(!window.RNDMCloud?.configured?.())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);if(!p)return;if(p.is_banned&&(!p.banned_until||new Date(p.banned_until)>new Date())&&!location.pathname.endsWith('/banned.html')){location.href='banned.html';return}if(['owner','admin','moderator'].includes(p.app_role)){document.querySelectorAll('.v24-admin-link').forEach(x=>x.classList.add('show'));const a=document.getElementById('rndmUnifiedAccount');if(a)a.innerHTML=`<span>@${RNDMCloud.esc(p.username||'я')} ${p.app_role==='owner'?'👑':p.app_role==='admin'?'🛡️':'🔧'}</span> 👤`}}catch(e){}})();</script>
 </body></html>

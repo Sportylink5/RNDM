@@ -101,6 +101,17 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
     <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
   </div>
+
+  <div class="rndm-burger-section">v24 Mega</div>
+  <div class="rndm-burger-grid">
+    <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
+    <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
+    <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
+    <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
+    <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
+    <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
+    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html"><span class="bi">🛡️</span>Админка</a>
+  </div>
 </aside>
 
 <header class="topbar"><a class="brand" href="index.html"><span class="logo">R</span><span>RNDM Chat</span></a><nav><a href="index.html">Главная</a><a href="chat.html">Чаты</a><a href="videos.html" class="">Видео</a><a href="paint.html" class="">Paint</a><a href="games.html" class="active">Игры</a><a href="channels.html">Каналы</a><a href="profile.html">Профиль</a></nav><button class="theme-toggle" id="themeToggle">🌙</button></header><main class="wrap"><section class="hero"><div><span class="eyebrow">RNDM ARCADE</span><h1>Мини‑игры 🎮</h1><p>Играй прямо в мессенджере, ставь рекорды и получай XP.</p></div></section><div class="card reward-bar"><div><b>Игровой прогресс</b><div style="color:var(--muted);font-size:13px">Лучшие результаты сохраняются на устройстве</div></div><span class="pill" id="gameXP">XP 0</span></div><section class="game-grid"><article class="card game"><h2>⚡ Реакция</h2><p>Нажми после того, как поле станет зелёным.</p><div class="reaction-pad" id="reactPad">Нажми, чтобы начать</div><div class="game-status" id="reactStatus">Рекорд: —</div></article><article class="card game"><h2>🔢 Угадай число</h2><p>Я загадал число от 1 до 100. Чем меньше попыток — тем лучше.</p><div class="guess-row"><div class="field"><input id="guessInput" inputmode="numeric" placeholder="1–100"></div><button class="btn" id="guessBtn">OK</button></div><div class="score" id="guessTries">0</div><div class="game-status" id="guessStatus">Введи первое число</div><button class="btn secondary" id="guessNew">Новая игра</button></article><article class="card game"><h2>✊ Камень • ножницы • бумага</h2><p>Серия побед сохраняется.</p><div class="rps"><button class="btn secondary" data-rps="rock">✊</button><button class="btn secondary" data-rps="scissors">✌️</button><button class="btn secondary" data-rps="paper">✋</button></div><div class="score" id="rpsWins">0</div><div class="game-status" id="rpsStatus">Выбери ход</div></article></section></main><div class="toast" id="toast"></div><script>
@@ -134,4 +145,5 @@ const xpEl=document.querySelector('#gameXP');function xp(n=0){let x=+(localStora
 })();
 </script>
 
+<script id="rndm-v24-guard">(async()=>{try{if(!window.RNDMCloud?.configured?.())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);if(!p)return;if(p.is_banned&&(!p.banned_until||new Date(p.banned_until)>new Date())&&!location.pathname.endsWith('/banned.html')){location.href='banned.html';return}if(['owner','admin','moderator'].includes(p.app_role)){document.querySelectorAll('.v24-admin-link').forEach(x=>x.classList.add('show'));const a=document.getElementById('rndmUnifiedAccount');if(a)a.innerHTML=`<span>@${RNDMCloud.esc(p.username||'я')} ${p.app_role==='owner'?'👑':p.app_role==='admin'?'🛡️':'🔧'}</span> 👤`}}catch(e){}})();</script>
 </body></html>
