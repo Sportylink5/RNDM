@@ -291,6 +291,13 @@ img{max-width:100%}
   .mobile-more-grid{grid-template-columns:repeat(3,1fr)}
 }
 
+
+/* ===== RNDM v17 REFERRALS ===== */
+.referral-card{margin-top:18px;padding:18px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(135deg,rgba(124,92,255,.14),rgba(0,229,168,.08))}.referral-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}.referral-head h3{margin:3px 0;font-size:23px}.referral-level{padding:7px 10px;border-radius:999px;background:var(--panel-strong);font-size:12px;color:var(--muted)}.referral-link{display:grid;grid-template-columns:1fr auto;gap:8px;margin:14px 0}.referral-link input{font-size:13px;overflow:hidden}.referral-actions{display:flex;gap:8px;flex-wrap:wrap}.referral-actions .btn{flex:1}.referral-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:14px}.referral-stats div{padding:11px;border-radius:15px;background:var(--panel-strong);text-align:center}.referral-stats b,.referral-stats span{display:block}.referral-stats b{font-size:20px}.referral-stats span{font-size:10px;color:var(--muted)}.referral-note{margin:12px 0 0;color:var(--muted);font-size:12px;line-height:1.5}@media(max-width:560px){.referral-link{grid-template-columns:1fr}.referral-stats{grid-template-columns:1fr 1fr 1fr}.referral-head{flex-direction:column}.referral-actions .btn{min-width:120px}}
+
+
+/* v17 account badge */
+.account-mini{display:inline-flex;align-items:center;gap:6px;padding:9px 11px;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--text);font-size:12px;font-weight:800}.account-mini i{width:8px;height:8px;border-radius:50%;background:#777}.account-mini.on i{background:var(--accent2);box-shadow:0 0 10px var(--accent2)}@media(max-width:820px){.account-mini span{display:none}.account-mini{padding:10px}}
 </style>
 <meta name="theme-color" content="#0b0d14">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -306,7 +313,19 @@ img{max-width:100%}
 <div class="cat-progress"><div><span>До следующей эволюции</span><b id="catNextEvolution">500 монет</b></div><div class="cat-track"><i id="catEvolutionBar"></i></div></div><p class="save-note" id="catMessage">Тапай по котику. Прогресс сохраняется автоматически.</p>
 <div class="cat-mini"><span>🔥 Комбо <b id="catCombo">x1</b></span><span>💥 Крит <b id="catCrit">5%</b></span><span>🎁 Бонус ⭐ <b id="catBonus">1%</b></span></div>
 </section>
-<section class="cat-upgrades"><div class="cat-upgrade-head"><div><p class="eyebrow">Прокачка</p><h2>Лаборатория улучшений</h2></div><button class="btn ghost small" id="catReset">Сбросить</button></div><div class="upgrade-grid" id="upgradeGrid"></div><div class="cat-tip">💡 Автотап работает, пока страница открыта. Редкие улучшения покупаются за ⭐, остальные — за 🪙 монеты.</div></section></main>
+<section class="cat-upgrades"><div class="cat-upgrade-head"><div><p class="eyebrow">Прокачка</p><h2>Лаборатория улучшений</h2></div><button class="btn ghost small" id="catReset">Сбросить</button></div><div class="upgrade-grid" id="upgradeGrid"></div><div class="cat-tip">💡 Автотап работает, пока страница открыта. Редкие улучшения покупаются за ⭐, остальные — за 🪙 монеты.</div>
+<div class="referral-card" id="catReferralCard">
+  <div class="referral-head"><div><span class="eyebrow">Приглашай друзей</span><h3>🔗 Реферальная ссылка</h3></div><span class="referral-level" id="referralAccountState">Нужен аккаунт</span></div>
+  <p class="account-note">Друг открывает ссылку → регистрируется → получает бонус. За приглашение: <b>+1000 🪙 и +50 ⭐</b>; другу: <b>+250 🪙 и +25 ⭐</b>.</p>
+  <div id="referralLoggedOut"><a class="btn primary wide" href="profile.html#accountCenter">Создать аккаунт для реферальной ссылки</a></div>
+  <div id="referralLoggedIn" style="display:none">
+    <div class="referral-link"><input id="referralUrl" readonly><button class="btn ghost" id="copyReferral" type="button">📋 Копировать</button></div>
+    <div class="referral-actions"><button class="btn primary" id="shareReferral" type="button">↗️ Поделиться</button><a class="btn ghost" href="profile.html#accountCenter">👤 Аккаунт</a></div>
+    <div class="referral-stats"><div><b id="referralCount">0</b><span>приглашено</span></div><div><b id="referralCoins">0</b><span>🪙 заработано</span></div><div><b id="referralStars">0</b><span>⭐ заработано</span></div></div>
+  </div>
+  <p class="referral-note" id="referralNote">На GitHub Pages система работает локально. Для синхронизации приглашений между разными телефонами понадобится серверная база данных.</p>
+</div>
+</section></main>
 <footer>RNDM Chat © 2026 • учебный проект</footer><script>
 /* app.js — встроено в страницу */
 const body = document.body;
@@ -827,7 +846,7 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
     ['channels.html','📣','Каналы']
   ];
   const moreItems=[
-    ['contacts.html','👥','Контакты'],['friends.html','🤝','Друзья'],['cat.html','🐱','Котик'],
+    ['contacts.html','👥','Контакты'],['friends.html','🤝','Друзья'],['paint.html','🎨','Paint'],['games.html','🎮','Игры'],['videos.html','📺','Видео'],['cat.html','🐱','Котик'],
     ['activity.html','🔔','Активность'],['shop.html','⭐','Магазин'],['profile.html','👤','Профиль'],
     ['explore.html','✨','Ещё'],['about.html','ℹ️','О проекте']
   ];
@@ -859,4 +878,22 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
 })();
 </script>
 
-</body></html>
+
+<script>
+/* ===== RNDM v17 referral ===== */
+(()=>{
+ const AKEY='rndm-accounts-v17',SKEY='rndm-session-v17',CAT='rndmCatV2',STAROBJ='rndmStarsV1';
+ const $=id=>document.getElementById(id); const db=()=>{try{return JSON.parse(localStorage.getItem(AKEY)||'{}')}catch{return {}}}; const saveDb=x=>localStorage.setItem(AKEY,JSON.stringify(x));
+ function starBalance(){try{const x=JSON.parse(localStorage.getItem(STAROBJ)||'null');if(typeof x==='number')return x;if(x&&typeof x.balance==='number')return x.balance}catch{}return Number(localStorage.getItem('rndmStars')||0)}
+ function setStarBalance(n){n=Math.max(0,Math.floor(n));localStorage.setItem(STAROBJ,JSON.stringify({balance:n,updated:Date.now()}));localStorage.setItem('rndmStars',String(n));localStorage.setItem('rndm-stars-v1',String(n))}
+ function applyPending(a,u,d){let changed=false;if(a.pendingCoins||a.pendingStars){let cat={};try{cat=JSON.parse(localStorage.getItem(CAT)||'{}')}catch{};cat.coins=Number(cat.coins||0)+Number(a.pendingCoins||0);cat.totalCoins=Number(cat.totalCoins||0)+Number(a.pendingCoins||0);cat.totalTaps=Number(cat.totalTaps||0);cat.bestCombo=Number(cat.bestCombo||1);cat.up=cat.up||{power:0,auto:0,combo:0,crit:0,starLuck:0,offline:0};cat.lastSeen=Date.now();localStorage.setItem(CAT,JSON.stringify(cat));if(a.pendingStars)setStarBalance(starBalance()+Number(a.pendingStars||0));const msg=`Начислена реферальная награда: +${a.pendingCoins||0} 🪙, +${a.pendingStars||0} ⭐`;a.pendingCoins=0;a.pendingStars=0;d[u]=a;saveDb(d);$('referralNote').textContent=msg;changed=true}return changed}
+ function render(){const d=db(),u=localStorage.getItem(SKEY)||'',a=d[u],on=$('referralLoggedIn'),off=$('referralLoggedOut'),state=$('referralAccountState');if(!a){on.style.display='none';off.style.display='block';state.textContent='Нужен аккаунт';return}applyPending(a,u,d);on.style.display='block';off.style.display='none';state.textContent='@'+a.username;const url=new URL('profile.html',location.href);url.searchParams.set('ref',a.refCode);url.hash='accountCenter';$('referralUrl').value=url.href;$('referralCount').textContent=a.referrals||0;$('referralCoins').textContent=Number(a.referralCoins||0).toLocaleString('ru-RU');$('referralStars').textContent=a.referralStars||0}
+ $('copyReferral')?.addEventListener('click',async()=>{const v=$('referralUrl').value;try{await navigator.clipboard.writeText(v);$('referralNote').textContent='Ссылка скопирована ✅'}catch{$('referralUrl').select();document.execCommand('copy');$('referralNote').textContent='Ссылка скопирована ✅'}});
+ $('shareReferral')?.addEventListener('click',async()=>{const url=$('referralUrl').value,text='Заходи в RNDM Chat по моей ссылке 🐱';if(navigator.share){try{await navigator.share({title:'RNDM Chat',text,url})}catch{}}else{try{await navigator.clipboard.writeText(url);$('referralNote').textContent='Ссылка скопирована — отправь её другу.'}catch{}}});
+ render();
+})();
+</script>
+
+
+<script>(()=>{const h=document.querySelector('.topbar');if(!h||h.querySelector('.account-mini'))return;let db={};try{db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}')}catch{};const u=localStorage.getItem('rndm-session-v17')||'',a=db[u];const link=document.createElement('a');link.href='profile.html#accountCenter';link.className='account-mini'+(a?' on':'');link.innerHTML='<i></i><span>'+(a?'@'+a.username:'Войти')+'</span>';const t=h.querySelector('.theme-toggle');if(t)h.insertBefore(link,t);else h.appendChild(link)})();</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js"></script><script>(async()=>{try{if(!RNDMCloud.configured())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);document.querySelectorAll('.account-mini span').forEach(x=>x.textContent='@'+(p?.username||'я'));RNDMCloud.heartbeat()}catch(e){}})();</script><script>(()=>{const n=document.querySelector('.topbar nav');if(!n)return;const items=[['videos.html','Видео 📺'],['paint.html','Paint 🎨'],['games.html','Игры 🎮']];items.forEach(([h,l])=>{if(!n.querySelector(`[href="${h}"]`)){const a=document.createElement('a');a.href=h;a.textContent=l;n.appendChild(a)}})})();</script></body></html>

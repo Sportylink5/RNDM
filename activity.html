@@ -291,6 +291,9 @@ img{max-width:100%}
   .mobile-more-grid{grid-template-columns:repeat(3,1fr)}
 }
 
+
+/* v17 account badge */
+.account-mini{display:inline-flex;align-items:center;gap:6px;padding:9px 11px;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--text);font-size:12px;font-weight:800}.account-mini i{width:8px;height:8px;border-radius:50%;background:#777}.account-mini.on i{background:var(--accent2);box-shadow:0 0 10px var(--accent2)}@media(max-width:820px){.account-mini span{display:none}.account-mini{padding:10px}}
 </style>
 <meta name="theme-color" content="#0b0d14">
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -787,7 +790,7 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
     ['channels.html','📣','Каналы']
   ];
   const moreItems=[
-    ['contacts.html','👥','Контакты'],['friends.html','🤝','Друзья'],['cat.html','🐱','Котик'],
+    ['contacts.html','👥','Контакты'],['friends.html','🤝','Друзья'],['paint.html','🎨','Paint'],['games.html','🎮','Игры'],['videos.html','📺','Видео'],['cat.html','🐱','Котик'],
     ['activity.html','🔔','Активность'],['shop.html','⭐','Магазин'],['profile.html','👤','Профиль'],
     ['explore.html','✨','Ещё'],['about.html','ℹ️','О проекте']
   ];
@@ -819,4 +822,6 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
 })();
 </script>
 
-</body></html>
+
+<script>(()=>{const h=document.querySelector('.topbar');if(!h||h.querySelector('.account-mini'))return;let db={};try{db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}')}catch{};const u=localStorage.getItem('rndm-session-v17')||'',a=db[u];const link=document.createElement('a');link.href='profile.html#accountCenter';link.className='account-mini'+(a?' on':'');link.innerHTML='<i></i><span>'+(a?'@'+a.username:'Войти')+'</span>';const t=h.querySelector('.theme-toggle');if(t)h.insertBefore(link,t);else h.appendChild(link)})();</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js"></script><script>(async()=>{try{if(!RNDMCloud.configured())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);document.querySelectorAll('.account-mini span').forEach(x=>x.textContent='@'+(p?.username||'я'));RNDMCloud.heartbeat()}catch(e){}})();</script><script>(()=>{const n=document.querySelector('.topbar nav');if(!n)return;const items=[['videos.html','Видео 📺'],['paint.html','Paint 🎨'],['games.html','Игры 🎮']];items.forEach(([h,l])=>{if(!n.querySelector(`[href="${h}"]`)){const a=document.createElement('a');a.href=h;a.textContent=l;n.appendChild(a)}})})();</script></body></html>
