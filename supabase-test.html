@@ -55,7 +55,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <nav class="rndm-core-nav" aria-label="Основные разделы">
       <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
       <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
-      <a href="contacts.html" data-rndm-page="contacts.html"><span class="ni">👥</span><span class="nl">Контакты</span></a>
+      <a href="random.html" data-rndm-page="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
       <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
       <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
     </nav>
@@ -72,6 +72,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
   <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
   <div class="rndm-burger-section">Сообщество</div>
   <div class="rndm-burger-grid">
+    <a href="contacts.html" data-rndm-page="contacts.html"><span class="bi">👥</span>Контакты</a>
     <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
     <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
     <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
@@ -89,10 +90,10 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
     <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
   </div>
-</aside><main class="page"><h1>Проверка Supabase</h1><p class="muted">Эта страница быстро показывает, какие таблицы уже установлены.</p><button id="run">Проверить подключение</button><div class="card" id="out">Нажми «Проверить подключение».</div></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js"></script><script>const tests=[['profiles','profiles'],['messages','messages'],['Clips','clips'],['Market','marketplace_listings'],['Bank','game_wallets'],['Channels v22','rndm_channels'],['Video v22','rndm_videos'],['Cloud state v22','user_state']];document.querySelector('#run').onclick=async()=>{const out=document.querySelector('#out');out.innerHTML='Проверка…';try{const sb=RNDMCloud.getClient();if(!sb)throw new Error('rndm-cloud.js не настроен');const u=await RNDMCloud.user();let rows=[`<div class="row"><b>Project URL</b><span class="ok">✓ настроен</span></div>`,`<div class="row"><b>Аккаунт</b><span class="${u?'ok':'bad'}">${u?'✓ вход выполнен':'✕ не выполнен вход'}</span></div>`];for(const [label,table] of tests){const {error}=await sb.from(table).select('*').limit(1);rows.push(`<div class="row"><b>${label}</b><span class="${error?'bad':'ok'}">${error?'✕ '+error.message:'✓ работает'}</span></div>`)}out.innerHTML=rows.join('')}catch(e){out.innerHTML='<span class="bad">'+String(e.message||e)+'</span>'}};</script><script id="rndm-unified-nav-script">
+</aside><main class="page"><h1>Проверка Supabase</h1><p class="muted">Эта страница быстро показывает, какие таблицы уже установлены.</p><button id="run">Проверить подключение</button><div class="card" id="out">Нажми «Проверить подключение».</div></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js"></script><script>const tests=[['profiles','profiles'],['messages','messages'],['Clips','clips'],['Market','marketplace_listings'],['Bank','game_wallets'],['Channels v22','rndm_channels'],['Video v22','rndm_videos'],['Cloud state v22','user_state'],['Random Chat v23','random_queue']];document.querySelector('#run').onclick=async()=>{const out=document.querySelector('#out');out.innerHTML='Проверка…';try{const sb=RNDMCloud.getClient();if(!sb)throw new Error('rndm-cloud.js не настроен');const u=await RNDMCloud.user();let rows=[`<div class="row"><b>Project URL</b><span class="ok">✓ настроен</span></div>`,`<div class="row"><b>Аккаунт</b><span class="${u?'ok':'bad'}">${u?'✓ вход выполнен':'✕ не выполнен вход'}</span></div>`];for(const [label,table] of tests){const {error}=await sb.from(table).select('*').limit(1);rows.push(`<div class="row"><b>${label}</b><span class="${error?'bad':'ok'}">${error?'✕ '+error.message:'✓ работает'}</span></div>`)}out.innerHTML=rows.join('')}catch(e){out.innerHTML='<span class="bad">'+String(e.message||e)+'</span>'}};</script><script id="rndm-unified-nav-script">
 (()=>{
   const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-  const core=new Set(['index.html','chat.html','contacts.html','channels.html','clips.html']);
+  const core=new Set(['index.html','random.html','chat.html','channels.html','clips.html']);
   document.querySelectorAll('[data-rndm-page]').forEach(a=>{if((a.getAttribute('data-rndm-page')||'').toLowerCase()===current)a.classList.add('active')});
   const burger=document.getElementById('rndmBurgerButton'),menu=document.getElementById('rndmBurgerMenu'),backdrop=document.getElementById('rndmNavBackdrop'),close=document.getElementById('rndmBurgerClose');
   if(!core.has(current)) burger?.classList.add('active');

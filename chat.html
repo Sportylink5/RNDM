@@ -56,7 +56,11 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
 }
 </style>
 
-</head><body>
+<style id="rndm-v23-chat-random-css">
+.random-live-launch{display:grid;grid-template-columns:46px 1fr auto;gap:11px;align-items:center;margin:10px 10px 6px;padding:12px;border-radius:17px;border:1px solid rgba(124,92,255,.42);background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(0,229,168,.09));color:inherit;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.12)}
+.random-live-launch .rl-icon{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:24px;background:linear-gradient(135deg,#7657ff,#24d8b0);box-shadow:0 8px 22px rgba(104,84,255,.28)}
+.random-live-launch b{display:block;font-size:14px}.random-live-launch small{display:block;color:var(--muted,#9aa3b8);font-size:11px;margin-top:3px}.random-live-launch em{font-style:normal;font-size:9px;font-weight:900;color:#42ebb4;border:1px solid rgba(66,235,180,.35);padding:5px 7px;border-radius:999px}
+</style></head><body>
 
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
   <div class="rndm-unified-inner">
@@ -64,7 +68,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <nav class="rndm-core-nav" aria-label="Основные разделы">
       <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
       <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
-      <a href="contacts.html" data-rndm-page="contacts.html"><span class="ni">👥</span><span class="nl">Контакты</span></a>
+      <a href="random.html" data-rndm-page="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
       <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
       <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
     </nav>
@@ -81,6 +85,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
   <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
   <div class="rndm-burger-section">Сообщество</div>
   <div class="rndm-burger-grid">
+    <a href="contacts.html" data-rndm-page="contacts.html"><span class="bi">👥</span>Контакты</a>
     <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
     <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
     <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
@@ -106,13 +111,13 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
 <div class="grid show-list" id="chatGrid">
   <aside class="card sidebar">
     <div class="side-head"><div style="display:flex;align-items:center;gap:8px"><div><h2>Чаты</h2><div class="muted">Реальные сообщения между устройствами</div></div><div class="spacer"></div><button class="icon-btn" id="newGroup" title="Новая группа">＋</button></div></div>
-    <div class="list" id="dialogList"><div class="empty">Загрузка…</div></div>
+    <a class="random-live-launch" href="random.html"><span class="rl-icon">🎲</span><span><b>Случайный чат</b><small>Найти нового человека прямо сейчас</small></span><em>LIVE</em></a><div class="list" id="dialogList"><div class="empty">Загрузка…</div></div>
   </aside>
   <section class="card chat-card"><div class="chat" id="chatPane"><div class="empty"><div><div style="font-size:52px">💬</div><h2>Выберите чат</h2><p>Или найдите человека в Контактах.</p><a class="btn" href="contacts.html">Открыть контакты</a></div></div></div></section>
 </div>
 <input type="file" id="fileInput" hidden accept="image/*,video/*,audio/*,.pdf,.zip,.doc,.docx,.txt">
 <div class="modal" id="groupModal"><div class="modal-card"><h2>👥 Новая группа</h2><div class="field"><label>Название</label><input id="groupTitle" maxlength="80" placeholder="Например, Наша группа"></div><div id="groupPeople"></div><div class="toolbar" style="margin-top:16px"><button class="btn" id="createGroup">Создать</button><button class="btn secondary" data-close="#groupModal">Отмена</button></div></div></div>
-</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html" class="on"><b>💬</b>Чаты</a><a href="contacts.html"><b>👥</b>Контакты</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js"></script><script src="rndm-state-sync.js"></script><script>
+</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html" class="on"><b>💬</b>Чаты</a><a href="random.html"><b>🎲</b>Рандом</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js"></script><script src="rndm-state-sync.js"></script><script>
 (async()=>{
 const C=RNDMCloud, sb=C.getClient(), cfg=C.configured();
 const q=s=>document.querySelector(s), esc=C.esc; let me=null,myProfile=null,active=null,activeInfo=null,rt=[],typingTimer=null,lastTypingSent=0,contacts=[];
@@ -154,7 +159,7 @@ sb.channel('dialog-refresh').on('postgres_changes',{event:'*',schema:'public',ta
 <script id="rndm-unified-nav-script">
 (()=>{
   const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-  const core=new Set(['index.html','chat.html','contacts.html','channels.html','clips.html']);
+  const core=new Set(['index.html','random.html','chat.html','channels.html','clips.html']);
   document.querySelectorAll('[data-rndm-page]').forEach(a=>{if((a.getAttribute('data-rndm-page')||'').toLowerCase()===current)a.classList.add('active')});
   const burger=document.getElementById('rndmBurgerButton'),menu=document.getElementById('rndmBurgerMenu'),backdrop=document.getElementById('rndmNavBackdrop'),close=document.getElementById('rndmBurgerClose');
   if(!core.has(current)) burger?.classList.add('active');

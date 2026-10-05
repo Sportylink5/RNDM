@@ -64,7 +64,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <nav class="rndm-core-nav" aria-label="Основные разделы">
       <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
       <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
-      <a href="contacts.html" data-rndm-page="contacts.html"><span class="ni">👥</span><span class="nl">Контакты</span></a>
+      <a href="random.html" data-rndm-page="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
       <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
       <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
     </nav>
@@ -81,6 +81,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
   <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
   <div class="rndm-burger-section">Сообщество</div>
   <div class="rndm-burger-grid">
+    <a href="contacts.html" data-rndm-page="contacts.html"><span class="bi">👥</span>Контакты</a>
     <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
     <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
     <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
@@ -114,7 +115,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
  <div class="toolbar"><button class="btn" id="saveProfile">Сохранить профиль</button><a class="btn secondary" href="chat.html">Открыть чаты</a><button class="btn danger" id="logout">Выйти</button></div><div id="profileMessage"></div>
  <div class="notice"><b>Локальный прогресс v17 сохранён:</b><div id="localProgress" class="muted"></div></div>
  </div></section>
-</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html"><b>💬</b>Чаты</a><a href="contacts.html"><b>👥</b>Контакты</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html" class="on"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js"></script><script src="rndm-state-sync.js"></script><script>
+</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html"><b>💬</b>Чаты</a><a href="random.html"><b>🎲</b>Рандом</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html" class="on"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js"></script><script src="rndm-state-sync.js"></script><script>
 (async()=>{const C=RNDMCloud,sb=C.getClient(),q=s=>document.querySelector(s),esc=C.esc;q('#notConfigured').style.display=C.configured()?'none':'block';if(!sb){q('#authBox').style.display='block';return}
 function msg(t,ok=false){q('#authMessage').innerHTML=`<div class="${ok?'notice':'error'}">${esc(t)}</div>`}
 q('#tabLogin').onclick=()=>{q('#loginForm').style.display='block';q('#registerForm').style.display='none';q('#tabLogin').className='btn';q('#tabRegister').className='btn secondary'};q('#tabRegister').onclick=()=>{q('#loginForm').style.display='none';q('#registerForm').style.display='block';q('#tabLogin').className='btn secondary';q('#tabRegister').className='btn'};
@@ -129,7 +130,7 @@ q('#localProgress').textContent=`⭐ ${localStorage.getItem('rndm-stars-v1')||0}
 <script id="rndm-unified-nav-script">
 (()=>{
   const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-  const core=new Set(['index.html','chat.html','contacts.html','channels.html','clips.html']);
+  const core=new Set(['index.html','random.html','chat.html','channels.html','clips.html']);
   document.querySelectorAll('[data-rndm-page]').forEach(a=>{if((a.getAttribute('data-rndm-page')||'').toLowerCase()===current)a.classList.add('active')});
   const burger=document.getElementById('rndmBurgerButton'),menu=document.getElementById('rndmBurgerMenu'),backdrop=document.getElementById('rndmNavBackdrop'),close=document.getElementById('rndmBurgerClose');
   if(!core.has(current)) burger?.classList.add('active');

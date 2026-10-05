@@ -370,7 +370,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <nav class="rndm-core-nav" aria-label="Основные разделы">
       <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
       <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
-      <a href="contacts.html" data-rndm-page="contacts.html"><span class="ni">👥</span><span class="nl">Контакты</span></a>
+      <a href="random.html" data-rndm-page="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
       <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
       <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
     </nav>
@@ -387,6 +387,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
   <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
   <div class="rndm-burger-section">Сообщество</div>
   <div class="rndm-burger-grid">
+    <a href="contacts.html" data-rndm-page="contacts.html"><span class="bi">👥</span>Контакты</a>
     <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
     <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
     <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
@@ -412,7 +413,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <nav class="nav">
       <a href="index.html" class="active">Главная</a>
       <a href="chat.html">Чаты</a>
-      <a href="friends.html">Друзья</a>
+      <a href="random.html">Рандом</a>
       <a href="channels.html">Каналы</a>
       <a href="cat.html">Котик 🐱</a>
       <a href="profile.html">Профиль</a>
@@ -428,7 +429,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
         <h1>Мессенджер RNDM Chat для быстрых диалогов и новых знакомств</h1>
         <p class="lead">Проект объединяет личные сообщения, случайные комнаты, профиль пользователя, достижения и удобный адаптивный интерфейс для телефона и ПК.</p>
         <div class="hero-actions">
-          <a href="chat.html" class="btn primary">Открыть демо-чата</a>
+          <a href="random.html" class="btn primary">🎲 Найти случайного человека</a>
           <a href="cat.html">Котик 🐱</a>
       <a href="profile.html" class="btn ghost">Создать профиль</a>
         </div>
@@ -452,7 +453,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
       <h2>Что есть в проекте</h2>
       <div class="grid cards">
         <article class="card"><span>💬</span><h3>Личные чаты</h3><p>Быстрые сообщения, реакции, статусы и список последних диалогов.</p></article>
-        <article class="card"><span>🎲</span><h3>Случайные комнаты</h3><p>Пользователь может перейти в рандомную комнату по интересам.</p></article>
+        <article class="card"><span>🎲</span><h3>Реальный случайный чат</h3><p>Supabase подбирает другого свободного пользователя и создаёт настоящий диалог между аккаунтами.</p><a href="random.html">Запустить рулетку →</a></article>
         <article class="card"><span>👥</span><h3>Друзья</h3><p>Добавление друзей, онлайн-статус и быстрый переход к переписке.</p></article>
         <article class="card"><span>🏆</span><h3>Достижения</h3><p>Награды за активность, оформление профиля и участие в комнатах.</p></article>
       </div>
@@ -993,7 +994,7 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
 <script id="rndm-unified-nav-script">
 (()=>{
   const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-  const core=new Set(['index.html','chat.html','contacts.html','channels.html','clips.html']);
+  const core=new Set(['index.html','random.html','chat.html','channels.html','clips.html']);
   document.querySelectorAll('[data-rndm-page]').forEach(a=>{if((a.getAttribute('data-rndm-page')||'').toLowerCase()===current)a.classList.add('active')});
   const burger=document.getElementById('rndmBurgerButton'),menu=document.getElementById('rndmBurgerMenu'),backdrop=document.getElementById('rndmNavBackdrop'),close=document.getElementById('rndmBurgerClose');
   if(!core.has(current)) burger?.classList.add('active');
