@@ -52,4 +52,4 @@ q('#createGroup').onclick=async()=>{const title=q('#groupTitle').value.trim();co
 await loadDialogs();const qs=new URLSearchParams(location.search),cid=qs.get('chat');if(cid)openConversation(cid);
 sb.channel('dialog-refresh').on('postgres_changes',{event:'*',schema:'public',table:'friendships'},loadDialogs).subscribe();
 })();
-</script><script>(()=>{const n=document.querySelector('.topbar nav');if(!n)return;const items=[['videos.html','Видео 📺'],['paint.html','Paint 🎨'],['games.html','Игры 🎮']];items.forEach(([h,l])=>{if(!n.querySelector(`[href="${h}"]`)){const a=document.createElement('a');a.href=h;a.textContent=l;n.appendChild(a)}})})();</script></body></html>
+</script><script>(()=>{const n=document.querySelector('.topbar nav');if(!n)return;const items=[['videos.html','Видео 📺'],['paint.html','Paint 🎨'],['games.html','Игры 🎮'],['market.html','Market 🛍️'],['bank.html','Банк 💳'],['estate.html','Квартиры 🏠']];items.forEach(([h,l])=>{if(!n.querySelector(`[href="${h}"]`)){const a=document.createElement('a');a.href=h;a.textContent=l;n.appendChild(a)}})})();</script></body></html>
