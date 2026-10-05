@@ -1,21 +1,11 @@
-RNDM CHAT v15 — READY MULTIPAGE
+RNDM Chat v16 — mobile navigation fixed
 
-Готовая многостраничная версия без папок.
+Upload ALL .html files to the root of your GitHub Pages repository.
+No CSS/JS folders are required: styles and scripts are embedded in each page.
 
-Загрузите ВСЕ файлы из этой папки в корень GitHub-репозитория:
-- index.html
-- chat.html
-- contacts.html
-- friends.html
-- channels.html
-- clips.html
-- cat.html
-- activity.html
-- explore.html
-- shop.html
-- profile.html
-- about.html
+Mobile navigation:
+- compact top bar
+- fixed bottom navigation: Home / Chats / Clips / Channels / More
+- More opens Contacts, Friends, Cat, Activity, Shop, Profile, Explore and About
 
-CSS и JavaScript уже встроены внутрь каждой HTML-страницы.
-Папки css/js/assets не нужны.
-Все переходы между страницами используют относительные ссылки и работают на GitHub Pages.
+GitHub Pages: Settings -> Pages -> Deploy from a branch -> main -> /(root).
