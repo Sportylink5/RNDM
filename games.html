@@ -4,10 +4,133 @@
 @media(max-width:820px){body{padding-bottom:calc(82px + env(safe-area-inset-bottom,0px))}.topbar{padding:max(10px,env(safe-area-inset-top,0px)) 14px 10px;gap:8px}.topbar nav{display:none}.brand span:last-child{font-size:17px}.wrap{width:min(100% - 20px,1180px);padding-top:20px}.hero{align-items:start;flex-direction:column}.mobile-bottom-nav{position:fixed;display:grid!important;grid-template-columns:repeat(5,1fr);left:0;right:0;bottom:0;z-index:2500;padding:7px 8px max(7px,env(safe-area-inset-bottom,0px));background:rgba(9,12,21,.94);border-top:1px solid var(--line);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px)}.mobile-nav-item{border:0;background:transparent;color:var(--muted);min-height:57px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:14px;font-weight:750;font-size:10px}.mobile-nav-item .mi{font-size:20px}.mobile-nav-item.active{color:#fff;background:linear-gradient(135deg,rgba(124,92,255,.95),rgba(77,141,255,.85))}.mobile-more-backdrop{display:block;position:fixed;inset:0;z-index:2590;background:rgba(0,0,0,.5);opacity:0;pointer-events:none;transition:.2s}.mobile-more-backdrop.open{opacity:1;pointer-events:auto}.mobile-more-sheet{display:block;position:fixed;left:10px;right:10px;bottom:calc(75px + env(safe-area-inset-bottom,0px));z-index:2600;background:#121726;border:1px solid var(--line);border-radius:25px;padding:12px;transform:translateY(calc(100% + 110px));opacity:0;pointer-events:none;transition:.22s;box-shadow:0 30px 90px #0008}.mobile-more-sheet.open{transform:none;opacity:1;pointer-events:auto}.mobile-more-head{display:flex;align-items:center;justify-content:space-between;padding:3px 4px 10px}.mobile-more-close{width:36px;height:36px;border-radius:12px;border:1px solid var(--line);background:var(--panel2);color:#fff;font-size:20px}.mobile-more-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.mobile-more-grid a{min-height:72px;border-radius:17px;background:var(--panel2);border:1px solid var(--line);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;font-size:11px;font-weight:800}.mobile-more-grid a span{font-size:22px}.mobile-more-grid a.active{outline:2px solid #7c5cff;background:#241d4c}}
 
 .game-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.game{padding:18px;min-height:300px;display:flex;flex-direction:column;gap:13px}.game h2{margin:0}.game p{color:var(--muted);margin:0}.score{font-size:42px;font-weight:900}.reaction-pad{flex:1;min-height:150px;border-radius:18px;border:1px solid var(--line);display:grid;place-items:center;text-align:center;padding:15px;background:#272e3e;font-weight:850;user-select:none}.reaction-pad.ready{background:#1bbb83}.reaction-pad.bad{background:#b62e52}.guess-row{display:flex;gap:8px}.guess-row input{width:100%;font-size:18px}.rps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.rps button{font-size:35px;padding:18px 8px}.game-status{min-height:44px;color:#dbe1f4}.reward-bar{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:12px 16px;margin-bottom:16px}@media(max-width:900px){.game-grid{grid-template-columns:1fr}.game{min-height:260px}}
-</style></head><body><header class="topbar"><a class="brand" href="index.html"><span class="logo">R</span><span>RNDM Chat</span></a><nav><a href="index.html">Главная</a><a href="chat.html">Чаты</a><a href="videos.html" class="">Видео</a><a href="paint.html" class="">Paint</a><a href="games.html" class="active">Игры</a><a href="channels.html">Каналы</a><a href="profile.html">Профиль</a></nav><button class="theme-toggle" id="themeToggle">🌙</button></header><main class="wrap"><section class="hero"><div><span class="eyebrow">RNDM ARCADE</span><h1>Мини‑игры 🎮</h1><p>Играй прямо в мессенджере, ставь рекорды и получай XP.</p></div></section><div class="card reward-bar"><div><b>Игровой прогресс</b><div style="color:var(--muted);font-size:13px">Лучшие результаты сохраняются на устройстве</div></div><span class="pill" id="gameXP">XP 0</span></div><section class="game-grid"><article class="card game"><h2>⚡ Реакция</h2><p>Нажми после того, как поле станет зелёным.</p><div class="reaction-pad" id="reactPad">Нажми, чтобы начать</div><div class="game-status" id="reactStatus">Рекорд: —</div></article><article class="card game"><h2>🔢 Угадай число</h2><p>Я загадал число от 1 до 100. Чем меньше попыток — тем лучше.</p><div class="guess-row"><div class="field"><input id="guessInput" inputmode="numeric" placeholder="1–100"></div><button class="btn" id="guessBtn">OK</button></div><div class="score" id="guessTries">0</div><div class="game-status" id="guessStatus">Введи первое число</div><button class="btn secondary" id="guessNew">Новая игра</button></article><article class="card game"><h2>✊ Камень • ножницы • бумага</h2><p>Серия побед сохраняется.</p><div class="rps"><button class="btn secondary" data-rps="rock">✊</button><button class="btn secondary" data-rps="scissors">✌️</button><button class="btn secondary" data-rps="paper">✋</button></div><div class="score" id="rpsWins">0</div><div class="game-status" id="rpsStatus">Выбери ход</div></article></section></main><div class="toast" id="toast"></div><script>
+</style>
+<style id="rndm-unified-nav-style">
+/* === RNDM v21 unified navigation === */
+body > header:not(.rndm-unified-header){display:none!important}
+nav.mobile-bottom-nav,nav.mobile,nav.mobile-nav,nav.bottom,.mobile-more-sheet,.mobile-more-backdrop{display:none!important}
+.rndm-unified-header{
+  position:sticky!important;top:0!important;z-index:2147483000!important;width:100%!important;
+  background:rgba(10,12,20,.92)!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.09)!important;
+  backdrop-filter:blur(20px) saturate(145%)!important;-webkit-backdrop-filter:blur(20px) saturate(145%)!important;
+  box-shadow:0 10px 35px rgba(0,0,0,.18)!important;color:#f5f7ff!important;
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+}
+body.light .rndm-unified-header{background:rgba(249,250,255,.94)!important;border-bottom-color:rgba(22,25,40,.1)!important;color:#171925!important}
+.rndm-unified-inner{max-width:1480px!important;margin:0 auto!important;min-height:66px!important;padding:8px 18px!important;display:flex!important;align-items:center!important;gap:14px!important;box-sizing:border-box!important}
+.rndm-unified-brand{display:flex!important;align-items:center!important;gap:10px!important;color:inherit!important;text-decoration:none!important;white-space:nowrap!important;flex:0 0 auto!important;font-weight:900!important;letter-spacing:-.02em!important}
+.rndm-unified-logo{width:38px!important;height:38px!important;border-radius:13px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#7657ff,#3f8cff)!important;color:#fff!important;font-size:19px!important;box-shadow:0 8px 24px rgba(104,84,255,.32)!important}
+.rndm-unified-brandtext{font-size:17px!important}.rndm-live-dot{font-size:9px!important;color:#36e6a1!important;margin-left:3px!important;vertical-align:top!important}
+.rndm-core-nav{display:flex!important;align-items:center!important;gap:5px!important;flex:1 1 auto!important;min-width:0!important;overflow-x:auto!important;scrollbar-width:none!important;-webkit-overflow-scrolling:touch!important}
+.rndm-core-nav::-webkit-scrollbar{display:none!important}
+.rndm-core-nav a{display:flex!important;align-items:center!important;gap:7px!important;min-height:40px!important;padding:0 12px!important;border-radius:12px!important;color:#aeb4c9!important;text-decoration:none!important;font-size:13px!important;font-weight:760!important;white-space:nowrap!important;border:1px solid transparent!important;box-sizing:border-box!important;transition:.18s ease!important}
+.rndm-core-nav a:hover{background:rgba(255,255,255,.06)!important;color:#fff!important}
+.rndm-core-nav a.active{color:#fff!important;background:linear-gradient(135deg,rgba(118,87,255,.95),rgba(63,140,255,.9))!important;box-shadow:0 7px 20px rgba(92,83,255,.22)!important}
+body.light .rndm-core-nav a{color:#555c72!important}body.light .rndm-core-nav a:hover{background:#eef0f7!important;color:#171925!important}body.light .rndm-core-nav a.active{color:#fff!important}
+.rndm-unified-actions{display:flex!important;align-items:center!important;gap:7px!important;margin-left:auto!important;flex:0 0 auto!important}
+.rndm-nav-icon,.rndm-account-chip,.rndm-page-action{height:40px!important;border:1px solid rgba(255,255,255,.1)!important;background:rgba(255,255,255,.055)!important;color:#eef1ff!important;border-radius:12px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;text-decoration:none!important;font:750 13px/1 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;cursor:pointer!important;box-sizing:border-box!important}
+.rndm-nav-icon{width:40px!important;padding:0!important;font-size:19px!important}.rndm-account-chip{padding:0 11px!important}.rndm-page-action{padding:0 12px!important;background:linear-gradient(135deg,#7657ff,#3f8cff)!important;color:#fff!important;border:0!important}
+body.light .rndm-nav-icon,body.light .rndm-account-chip{background:#fff!important;border-color:#dfe2ec!important;color:#272a38!important}
+.rndm-burger-button.active{outline:2px solid rgba(118,87,255,.72)!important;outline-offset:1px!important}
+.rndm-nav-backdrop{position:fixed!important;inset:0!important;background:rgba(0,0,0,.44)!important;z-index:2147482998!important;opacity:0!important;pointer-events:none!important;transition:.18s ease!important}
+.rndm-nav-backdrop.open{opacity:1!important;pointer-events:auto!important}
+.rndm-burger-menu{position:fixed!important;z-index:2147482999!important;right:max(14px,env(safe-area-inset-right))!important;top:74px!important;width:min(430px,calc(100vw - 28px))!important;max-height:calc(100dvh - 90px)!important;overflow:auto!important;padding:13px!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:22px!important;background:rgba(16,18,29,.985)!important;color:#f5f7ff!important;box-shadow:0 25px 80px rgba(0,0,0,.48)!important;backdrop-filter:blur(25px)!important;-webkit-backdrop-filter:blur(25px)!important;opacity:0!important;transform:translateY(-8px) scale(.985)!important;pointer-events:none!important;transition:.18s ease!important;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
+body.light .rndm-burger-menu{background:rgba(250,251,255,.99)!important;border-color:#e0e3ed!important;color:#181a27!important}
+.rndm-burger-menu.open{opacity:1!important;transform:none!important;pointer-events:auto!important}
+.rndm-burger-head{display:flex!important;align-items:center!important;justify-content:space-between!important;padding:2px 3px 11px!important}.rndm-burger-head b{font-size:17px!important}.rndm-burger-close{width:34px!important;height:34px!important;border-radius:11px!important;border:1px solid rgba(255,255,255,.11)!important;background:rgba(255,255,255,.06)!important;color:inherit!important;font-size:20px!important;cursor:pointer!important}
+body.light .rndm-burger-close{background:#fff!important;border-color:#dfe2ec!important}
+.rndm-burger-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+.rndm-burger-grid a{min-height:82px!important;padding:10px 6px!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:16px!important;background:rgba(255,255,255,.045)!important;color:inherit!important;text-decoration:none!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:6px!important;text-align:center!important;font-size:11px!important;font-weight:760!important;box-sizing:border-box!important}
+.rndm-burger-grid a .bi{font-size:24px!important}.rndm-burger-grid a.active{background:rgba(118,87,255,.18)!important;border-color:rgba(118,87,255,.7)!important;box-shadow:inset 0 0 0 1px rgba(118,87,255,.18)!important}
+body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!important}.rndm-burger-section{font-size:10px!important;text-transform:uppercase!important;letter-spacing:.11em!important;color:#8990a8!important;font-weight:900!important;margin:14px 3px 8px!important}
+.rndm-unified-header *{box-sizing:border-box!important}
+@media(max-width:900px){
+  .rndm-unified-inner{min-height:0!important;padding:8px 10px 7px!important;gap:8px!important;flex-wrap:wrap!important}
+  .rndm-unified-brand{order:1!important}.rndm-unified-actions{order:2!important;margin-left:auto!important}.rndm-core-nav{order:3!important;flex:0 0 100%!important;width:100%!important;padding:1px 0 0!important;gap:5px!important}
+  .rndm-core-nav a{min-height:36px!important;padding:0 10px!important;font-size:12px!important;border-radius:11px!important}
+  .rndm-account-chip span{display:none!important}.rndm-account-chip{width:40px!important;padding:0!important}.rndm-page-action span{display:none!important}.rndm-page-action{width:40px!important;padding:0!important;font-size:18px!important}
+  .rndm-burger-menu{top:105px!important;max-height:calc(100dvh - 118px)!important}
+}
+@media(max-width:430px){
+ .rndm-unified-brandtext{font-size:15px!important}.rndm-unified-logo{width:36px!important;height:36px!important;border-radius:12px!important}
+ .rndm-core-nav a{padding:0 9px!important;gap:5px!important}.rndm-core-nav .ni{font-size:15px!important}.rndm-core-nav .nl{font-size:11px!important}
+ .rndm-burger-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}.rndm-burger-grid a{min-height:75px!important}
+}
+</style>
+
+</head><body>
+
+<header class="rndm-unified-header" id="rndmUnifiedHeader">
+  <div class="rndm-unified-inner">
+    <a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
+    <nav class="rndm-core-nav" aria-label="Основные разделы">
+      <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
+      <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
+      <a href="contacts.html" data-rndm-page="contacts.html"><span class="ni">👥</span><span class="nl">Контакты</span></a>
+      <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
+      <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
+    </nav>
+    <div class="rndm-unified-actions">
+      <button class="rndm-page-action" id="rndmClipAction" type="button" title="Добавить клип" style="display:none!important">＋<span>Клип</span></button>
+      <a class="rndm-account-chip" id="rndmUnifiedAccount" href="profile.html"><span>Профиль</span> 👤</a>
+      <button class="rndm-nav-icon" id="rndmUnifiedTheme" type="button" aria-label="Сменить тему">🌙</button>
+      <button class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button" aria-label="Открыть дополнительное меню">☰</button>
+    </div>
+  </div>
+</header>
+<div class="rndm-nav-backdrop" id="rndmNavBackdrop"></div>
+<aside class="rndm-burger-menu" id="rndmBurgerMenu" aria-label="Дополнительные разделы">
+  <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
+  <div class="rndm-burger-section">Сообщество</div>
+  <div class="rndm-burger-grid">
+    <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
+    <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
+    <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
+    <a href="explore.html" data-rndm-page="explore.html"><span class="bi">✨</span>Рекомендации</a>
+    <a href="profile.html" data-rndm-page="profile.html"><span class="bi">👤</span>Профиль</a>
+    <a href="about.html" data-rndm-page="about.html"><span class="bi">ℹ️</span>О проекте</a>
+  </div>
+  <div class="rndm-burger-section">Сервисы</div>
+  <div class="rndm-burger-grid">
+    <a href="market.html" data-rndm-page="market.html"><span class="bi">🛍️</span>Market</a>
+    <a href="bank.html" data-rndm-page="bank.html"><span class="bi">💳</span>Банк</a>
+    <a href="estate.html" data-rndm-page="estate.html"><span class="bi">🏠</span>Квартиры</a>
+    <a href="shop.html" data-rndm-page="shop.html"><span class="bi">⭐</span>Магазин</a>
+    <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
+    <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
+    <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
+  </div>
+</aside>
+
+<header class="topbar"><a class="brand" href="index.html"><span class="logo">R</span><span>RNDM Chat</span></a><nav><a href="index.html">Главная</a><a href="chat.html">Чаты</a><a href="videos.html" class="">Видео</a><a href="paint.html" class="">Paint</a><a href="games.html" class="active">Игры</a><a href="channels.html">Каналы</a><a href="profile.html">Профиль</a></nav><button class="theme-toggle" id="themeToggle">🌙</button></header><main class="wrap"><section class="hero"><div><span class="eyebrow">RNDM ARCADE</span><h1>Мини‑игры 🎮</h1><p>Играй прямо в мессенджере, ставь рекорды и получай XP.</p></div></section><div class="card reward-bar"><div><b>Игровой прогресс</b><div style="color:var(--muted);font-size:13px">Лучшие результаты сохраняются на устройстве</div></div><span class="pill" id="gameXP">XP 0</span></div><section class="game-grid"><article class="card game"><h2>⚡ Реакция</h2><p>Нажми после того, как поле станет зелёным.</p><div class="reaction-pad" id="reactPad">Нажми, чтобы начать</div><div class="game-status" id="reactStatus">Рекорд: —</div></article><article class="card game"><h2>🔢 Угадай число</h2><p>Я загадал число от 1 до 100. Чем меньше попыток — тем лучше.</p><div class="guess-row"><div class="field"><input id="guessInput" inputmode="numeric" placeholder="1–100"></div><button class="btn" id="guessBtn">OK</button></div><div class="score" id="guessTries">0</div><div class="game-status" id="guessStatus">Введи первое число</div><button class="btn secondary" id="guessNew">Новая игра</button></article><article class="card game"><h2>✊ Камень • ножницы • бумага</h2><p>Серия побед сохраняется.</p><div class="rps"><button class="btn secondary" data-rps="rock">✊</button><button class="btn secondary" data-rps="scissors">✌️</button><button class="btn secondary" data-rps="paper">✋</button></div><div class="score" id="rpsWins">0</div><div class="game-status" id="rpsStatus">Выбери ход</div></article></section></main><div class="toast" id="toast"></div><script>
 (()=>{const current=location.pathname.split('/').pop()||'index.html';const navItems=[['index.html','⌂','Главная'],['chat.html','💬','Чаты'],['videos.html','📺','Видео'],['clips.html','▶','Clips']];const moreItems=[['contacts.html','👥','Контакты'],['friends.html','🤝','Друзья'],['channels.html','📣','Каналы'],['paint.html','🎨','Paint'],['games.html','🎮','Игры'],['cat.html','🐱','Котик'],['activity.html','🔔','Активность'],['shop.html','⭐','Магазин'],['profile.html','👤','Профиль'],['explore.html','✨','Ещё'],['about.html','ℹ️','О проекте']];const morePages=new Set(moreItems.map(x=>x[0]));function close(){sheet?.classList.remove('open');back?.classList.remove('open')}const nav=document.createElement('nav');nav.className='mobile-bottom-nav';nav.innerHTML=navItems.map(([h,i,l])=>`<a class="mobile-nav-item ${current===h?'active':''}" href="${h}"><span class="mi">${i}</span>${l}</a>`).join('')+`<button class="mobile-nav-item ${morePages.has(current)?'active':''}" id="moreBtn"><span class="mi">☰</span>Ещё</button>`;document.body.append(nav);const back=document.createElement('div');back.className='mobile-more-backdrop';document.body.append(back);const sheet=document.createElement('section');sheet.className='mobile-more-sheet';sheet.innerHTML=`<div class="mobile-more-head"><b>Разделы RNDM</b><button class="mobile-more-close">×</button></div><div class="mobile-more-grid">${moreItems.map(([h,i,l])=>`<a class="${current===h?'active':''}" href="${h}"><span>${i}</span>${l}</a>`).join('')}</div>`;document.body.append(sheet);document.querySelector('#moreBtn').onclick=()=>{sheet.classList.add('open');back.classList.add('open')};back.onclick=close;sheet.querySelector('button').onclick=close;const t=document.getElementById('themeToggle');if(t)t.onclick=()=>document.body.classList.toggle('light')})();
 
 const toast=(m)=>{const t=document.querySelector('#toast');t.textContent=m;t.classList.add('on');clearTimeout(window.__tt);window.__tt=setTimeout(()=>t.classList.remove('on'),1800)};
 
 const xpEl=document.querySelector('#gameXP');function xp(n=0){let x=+(localStorage.getItem('rndm-xp-v1')||0)+n;localStorage.setItem('rndm-xp-v1',x);localStorage.setItem('rndm-xp-v13',x);xpEl.textContent='XP '+x;if(n)toast('+'+n+' XP 🎮');return x}xp();let rt=null,rs='idle',startAt=0;const pad=document.querySelector('#reactPad'),rstat=document.querySelector('#reactStatus');const best=()=>localStorage.getItem('rndm-game-reaction-best');function showBest(){rstat.textContent='Рекорд: '+(best()?best()+' мс':'—')}showBest();pad.onclick=()=>{if(rs==='idle'||rs==='done'||rs==='bad'){rs='wait';pad.className='reaction-pad';pad.textContent='Жди зелёный…';rt=setTimeout(()=>{rs='go';startAt=performance.now();pad.classList.add('ready');pad.textContent='ЖМИ!'},900+Math.random()*2400)}else if(rs==='wait'){clearTimeout(rt);rs='bad';pad.className='reaction-pad bad';pad.textContent='Слишком рано 😅';setTimeout(()=>{pad.textContent='Нажми, чтобы начать';showBest()},800)}else if(rs==='go'){const ms=Math.round(performance.now()-startAt);rs='done';pad.className='reaction-pad';pad.textContent=ms+' мс';let b=+(best()||9999);if(ms<b){localStorage.setItem('rndm-game-reaction-best',ms);xp(10);toast('Новый рекорд! ⚡')}showBest()}};let target=1+Math.floor(Math.random()*100),tries=0;function newGuess(){target=1+Math.floor(Math.random()*100);tries=0;document.querySelector('#guessTries').textContent=0;document.querySelector('#guessStatus').textContent='Новое число загадано'}document.querySelector('#guessBtn').onclick=()=>{const v=+document.querySelector('#guessInput').value;if(v<1||v>100)return toast('Введите число 1–100');tries++;document.querySelector('#guessTries').textContent=tries;if(v===target){document.querySelector('#guessStatus').textContent='Угадал! 🎉 Было '+target;xp(Math.max(3,15-tries));setTimeout(newGuess,1200)}else document.querySelector('#guessStatus').textContent=v<target?'Больше ⬆️':'Меньше ⬇️'};document.querySelector('#guessNew').onclick=newGuess;let wins=+(localStorage.getItem('rndm-game-rps-wins')||0);document.querySelector('#rpsWins').textContent=wins;const beats={rock:'scissors',scissors:'paper',paper:'rock'},icons={rock:'✊',scissors:'✌️',paper:'✋'};document.querySelectorAll('[data-rps]').forEach(b=>b.onclick=()=>{const me=b.dataset.rps,arr=['rock','scissors','paper'],cpu=arr[Math.floor(Math.random()*3)];let msg;if(me===cpu)msg='Ничья '+icons[cpu];else if(beats[me]===cpu){wins++;localStorage.setItem('rndm-game-rps-wins',wins);document.querySelector('#rpsWins').textContent=wins;msg='Победа! '+icons[me]+' > '+icons[cpu];if(wins%5===0)xp(5)}else msg='Проигрыш '+icons[cpu]+' > '+icons[me];document.querySelector('#rpsStatus').textContent=msg});
-</script></body></html>
+</script>
+<script id="rndm-unified-nav-script">
+(()=>{
+  const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  const core=new Set(['index.html','chat.html','contacts.html','channels.html','clips.html']);
+  document.querySelectorAll('[data-rndm-page]').forEach(a=>{if((a.getAttribute('data-rndm-page')||'').toLowerCase()===current)a.classList.add('active')});
+  const burger=document.getElementById('rndmBurgerButton'),menu=document.getElementById('rndmBurgerMenu'),backdrop=document.getElementById('rndmNavBackdrop'),close=document.getElementById('rndmBurgerClose');
+  if(!core.has(current)) burger?.classList.add('active');
+  const shut=()=>{menu?.classList.remove('open');backdrop?.classList.remove('open');burger?.setAttribute('aria-expanded','false')};
+  const toggle=()=>{const open=!menu?.classList.contains('open');menu?.classList.toggle('open',open);backdrop?.classList.toggle('open',open);burger?.setAttribute('aria-expanded',open?'true':'false')};
+  burger?.addEventListener('click',toggle);close?.addEventListener('click',shut);backdrop?.addEventListener('click',shut);document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()});
+  const theme=document.getElementById('rndmUnifiedTheme');
+  const syncTheme=()=>{if(theme)theme.textContent=document.body.classList.contains('light')?'☀️':'🌙'};syncTheme();
+  theme?.addEventListener('click',()=>{document.body.classList.toggle('light');localStorage.setItem('rndm-theme',document.body.classList.contains('light')?'light':'dark');syncTheme();const old=document.getElementById('themeToggle');if(old&&old!==theme)old.textContent=theme.textContent});
+  const clipAction=document.getElementById('rndmClipAction');
+  if(current==='clips.html'&&clipAction){clipAction.style.setProperty('display','inline-flex','important');clipAction.addEventListener('click',()=>document.getElementById('uploadClip')?.click())}
+  async function syncAccount(){
+    const link=document.getElementById('rndmUnifiedAccount');if(!link)return;
+    try{if(window.RNDMCloud?.configured?.()){const u=await window.RNDMCloud.user();if(u){const p=await window.RNDMCloud.profile(u.id);const n=p?.username||'я';link.innerHTML=`<span>@${String(n).replace(/[<>&]/g,'')}</span> 👤`;return}}}catch(e){}
+    try{const db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}'),id=localStorage.getItem('rndm-session-v17')||'',a=db[id];if(a?.username)link.innerHTML=`<span>@${String(a.username).replace(/[<>&]/g,'')}</span> 👤`}catch(e){}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(syncAccount,120));else setTimeout(syncAccount,120);
+})();
+</script>
+
+</body></html>

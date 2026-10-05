@@ -2,7 +2,105 @@
 :root{--bg:#080b14;--panel:#111725;--panel2:#182132;--text:#f7f8ff;--muted:#98a2b9;--line:#283247;--accent:#7b61ff;--accent2:#28e6b7;--danger:#ff5f75}
 *{box-sizing:border-box}html,body{margin:0;background:radial-gradient(circle at 20% 0,#17142d 0,#080b14 45%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100%;font-size:16px}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}.shell{max-width:1260px;margin:auto;padding:18px 18px 110px}.top{display:flex;align-items:center;gap:12px;padding:10px 0 18px;position:sticky;top:0;z-index:20;background:linear-gradient(#080b14f4,#080b14cc 80%,transparent);backdrop-filter:blur(18px)}.logo{width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,#8d63ff,#21e6b7);display:grid;place-items:center;font-weight:900}.brand{font-size:22px;font-weight:900}.spacer{flex:1}.top a,.top button{border:1px solid var(--line);background:#121827;color:var(--text);border-radius:14px;padding:10px 13px}.grid{display:grid;grid-template-columns:330px minmax(0,1fr);gap:16px;min-height:72dvh}.card{background:linear-gradient(180deg,#121827,#0e1420);border:1px solid var(--line);border-radius:24px;box-shadow:0 20px 50px #0005;overflow:hidden}.side-head,.chat-head{padding:18px;border-bottom:1px solid var(--line)}.side-head h2,.chat-head h2{margin:0 0 5px}.muted{color:var(--muted);font-size:13px}.list{padding:8px;max-height:calc(100dvh - 210px);overflow:auto}.row{display:flex;gap:11px;align-items:center;padding:12px;border-radius:17px;cursor:pointer;border:1px solid transparent}.row:hover,.row.active{background:#1a2233;border-color:#303b51}.avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7b61ff,#28e6b7);display:grid;place-items:center;overflow:hidden;flex:0 0 auto;font-weight:900}.avatar img{width:100%;height:100%;object-fit:cover}.row-main{min-width:0;flex:1}.row-title{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.row-sub{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.badge{background:#7b61ff;padding:3px 8px;border-radius:999px;font-size:11px}.chat{display:flex;flex-direction:column;height:calc(100dvh - 120px);min-height:620px}.chat-head{display:flex;align-items:center;gap:12px}.head-info{min-width:0}.head-actions{margin-left:auto;display:flex;gap:7px}.icon-btn{border:1px solid var(--line);background:#182132;color:#fff;border-radius:12px;padding:9px 12px}.messages{flex:1;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:10px;background:linear-gradient(180deg,#0c111b,#0b1018)}.msg-wrap{display:flex;gap:8px;align-items:flex-end}.msg-wrap.me{justify-content:flex-end}.bubble{max-width:min(75%,620px);padding:11px 13px;border-radius:18px;background:#20293a;border:1px solid #303b51;word-break:break-word}.me .bubble{background:linear-gradient(135deg,#7358f6,#3e80ff);border-color:transparent}.meta{font-size:10px;color:#c5cce0aa;margin-top:5px;text-align:right}.sender{font-size:11px;font-weight:800;color:#a998ff;margin-bottom:3px}.attachment{margin-top:8px;max-width:100%;border-radius:14px;overflow:hidden;background:#0d1422}.attachment img,.attachment video{display:block;max-width:100%;max-height:360px}.file-link{display:flex;gap:9px;align-items:center;padding:12px;background:#151d2a;border-radius:12px}.reactions{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.react{border:1px solid #ffffff22;background:#0003;color:#fff;border-radius:999px;padding:3px 7px;font-size:12px}.typing{height:24px;padding:2px 18px;color:#9aa6bf;font-size:12px}.composer{padding:12px;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr auto;gap:8px}.composer textarea{resize:none;max-height:130px;min-height:44px;border:1px solid var(--line);background:#141c2a;color:#fff;border-radius:15px;padding:11px 13px;outline:none}.composer textarea:focus{border-color:#7364ff}.send{border:0;border-radius:15px;padding:0 18px;background:linear-gradient(135deg,#7b61ff,#28e6b7);font-weight:900}.empty{height:100%;display:grid;place-items:center;text-align:center;color:var(--muted);padding:35px}.pill{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:999px;background:#1d2739;font-size:12px}.online-dot{width:8px;height:8px;background:#31e6a1;border-radius:50%;display:inline-block}.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:99}.modal.open{display:flex}.modal-card{width:min(560px,100%);max-height:85dvh;overflow:auto;background:#121827;border:1px solid var(--line);border-radius:24px;padding:20px}.field{display:grid;gap:6px;margin:12px 0}.field input,.field textarea,.field select{width:100%;padding:12px;border-radius:13px;border:1px solid var(--line);background:#0d1420;color:#fff}.btn{border:0;background:linear-gradient(135deg,#745bff,#29e5b7);color:#071016;font-weight:900;padding:12px 16px;border-radius:14px;cursor:pointer}.btn.secondary{background:#1a2332;color:#fff;border:1px solid var(--line)}.btn.danger{background:#3b1822;color:#ff98a8;border:1px solid #6b2a3a}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.notice{padding:13px;border-radius:14px;background:#211d36;border:1px solid #493f78;color:#dcd7ff}.error{padding:13px;border-radius:14px;background:#321920;border:1px solid #6d2d3c;color:#ffc2cb}.auth{max-width:680px;margin:30px auto}.auth h1{font-size:36px;margin:5px 0}.tabs{display:flex;gap:7px;margin:16px 0}.tabs button{flex:1}.profile-card{padding:22px;display:grid;gap:16px}.profile-top{display:flex;gap:16px;align-items:center}.profile-top .avatar{width:86px;height:86px;font-size:28px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{padding:13px;border:1px solid var(--line);border-radius:14px;text-align:center;background:#0d1420}.bottom{display:none}
 @media(max-width:760px){.shell{padding:10px 10px 90px}.top{padding-top:max(8px,env(safe-area-inset-top));}.brand{font-size:19px}.grid{display:block}.sidebar{display:none}.grid.show-list .sidebar{display:block}.grid.show-list .chat-card{display:none}.grid.show-chat .sidebar{display:none}.grid.show-chat .chat-card{display:block}.chat{height:calc(100dvh - 92px);min-height:0}.bubble{max-width:86%}.head-actions .optional{display:none}.bottom{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;bottom:0;left:0;right:0;z-index:40;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:#0c111bf4;border-top:1px solid #283247;backdrop-filter:blur(18px)}.bottom a{display:grid;place-items:center;gap:3px;color:#a7b0c3;font-size:11px}.bottom b{font-size:20px}.bottom a.on{color:#fff}.auth h1{font-size:29px}.stats{grid-template-columns:1fr 1fr}.desktop-only{display:none}}
-</style></head><body><div class="shell"><header class="top"><a href="index.html" class="logo">R</a><div class="brand">RNDM Chat <span style="font-size:11px;color:#31e6a1">LIVE</span></div><div class="spacer"></div><a href="contacts.html" class="desktop-only">Контакты</a><a href="profile.html" id="topAccount">Аккаунт</a></header>
+</style>
+<style id="rndm-unified-nav-style">
+/* === RNDM v21 unified navigation === */
+body > header:not(.rndm-unified-header){display:none!important}
+nav.mobile-bottom-nav,nav.mobile,nav.mobile-nav,nav.bottom,.mobile-more-sheet,.mobile-more-backdrop{display:none!important}
+.rndm-unified-header{
+  position:sticky!important;top:0!important;z-index:2147483000!important;width:100%!important;
+  background:rgba(10,12,20,.92)!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.09)!important;
+  backdrop-filter:blur(20px) saturate(145%)!important;-webkit-backdrop-filter:blur(20px) saturate(145%)!important;
+  box-shadow:0 10px 35px rgba(0,0,0,.18)!important;color:#f5f7ff!important;
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+}
+body.light .rndm-unified-header{background:rgba(249,250,255,.94)!important;border-bottom-color:rgba(22,25,40,.1)!important;color:#171925!important}
+.rndm-unified-inner{max-width:1480px!important;margin:0 auto!important;min-height:66px!important;padding:8px 18px!important;display:flex!important;align-items:center!important;gap:14px!important;box-sizing:border-box!important}
+.rndm-unified-brand{display:flex!important;align-items:center!important;gap:10px!important;color:inherit!important;text-decoration:none!important;white-space:nowrap!important;flex:0 0 auto!important;font-weight:900!important;letter-spacing:-.02em!important}
+.rndm-unified-logo{width:38px!important;height:38px!important;border-radius:13px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#7657ff,#3f8cff)!important;color:#fff!important;font-size:19px!important;box-shadow:0 8px 24px rgba(104,84,255,.32)!important}
+.rndm-unified-brandtext{font-size:17px!important}.rndm-live-dot{font-size:9px!important;color:#36e6a1!important;margin-left:3px!important;vertical-align:top!important}
+.rndm-core-nav{display:flex!important;align-items:center!important;gap:5px!important;flex:1 1 auto!important;min-width:0!important;overflow-x:auto!important;scrollbar-width:none!important;-webkit-overflow-scrolling:touch!important}
+.rndm-core-nav::-webkit-scrollbar{display:none!important}
+.rndm-core-nav a{display:flex!important;align-items:center!important;gap:7px!important;min-height:40px!important;padding:0 12px!important;border-radius:12px!important;color:#aeb4c9!important;text-decoration:none!important;font-size:13px!important;font-weight:760!important;white-space:nowrap!important;border:1px solid transparent!important;box-sizing:border-box!important;transition:.18s ease!important}
+.rndm-core-nav a:hover{background:rgba(255,255,255,.06)!important;color:#fff!important}
+.rndm-core-nav a.active{color:#fff!important;background:linear-gradient(135deg,rgba(118,87,255,.95),rgba(63,140,255,.9))!important;box-shadow:0 7px 20px rgba(92,83,255,.22)!important}
+body.light .rndm-core-nav a{color:#555c72!important}body.light .rndm-core-nav a:hover{background:#eef0f7!important;color:#171925!important}body.light .rndm-core-nav a.active{color:#fff!important}
+.rndm-unified-actions{display:flex!important;align-items:center!important;gap:7px!important;margin-left:auto!important;flex:0 0 auto!important}
+.rndm-nav-icon,.rndm-account-chip,.rndm-page-action{height:40px!important;border:1px solid rgba(255,255,255,.1)!important;background:rgba(255,255,255,.055)!important;color:#eef1ff!important;border-radius:12px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;text-decoration:none!important;font:750 13px/1 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;cursor:pointer!important;box-sizing:border-box!important}
+.rndm-nav-icon{width:40px!important;padding:0!important;font-size:19px!important}.rndm-account-chip{padding:0 11px!important}.rndm-page-action{padding:0 12px!important;background:linear-gradient(135deg,#7657ff,#3f8cff)!important;color:#fff!important;border:0!important}
+body.light .rndm-nav-icon,body.light .rndm-account-chip{background:#fff!important;border-color:#dfe2ec!important;color:#272a38!important}
+.rndm-burger-button.active{outline:2px solid rgba(118,87,255,.72)!important;outline-offset:1px!important}
+.rndm-nav-backdrop{position:fixed!important;inset:0!important;background:rgba(0,0,0,.44)!important;z-index:2147482998!important;opacity:0!important;pointer-events:none!important;transition:.18s ease!important}
+.rndm-nav-backdrop.open{opacity:1!important;pointer-events:auto!important}
+.rndm-burger-menu{position:fixed!important;z-index:2147482999!important;right:max(14px,env(safe-area-inset-right))!important;top:74px!important;width:min(430px,calc(100vw - 28px))!important;max-height:calc(100dvh - 90px)!important;overflow:auto!important;padding:13px!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:22px!important;background:rgba(16,18,29,.985)!important;color:#f5f7ff!important;box-shadow:0 25px 80px rgba(0,0,0,.48)!important;backdrop-filter:blur(25px)!important;-webkit-backdrop-filter:blur(25px)!important;opacity:0!important;transform:translateY(-8px) scale(.985)!important;pointer-events:none!important;transition:.18s ease!important;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
+body.light .rndm-burger-menu{background:rgba(250,251,255,.99)!important;border-color:#e0e3ed!important;color:#181a27!important}
+.rndm-burger-menu.open{opacity:1!important;transform:none!important;pointer-events:auto!important}
+.rndm-burger-head{display:flex!important;align-items:center!important;justify-content:space-between!important;padding:2px 3px 11px!important}.rndm-burger-head b{font-size:17px!important}.rndm-burger-close{width:34px!important;height:34px!important;border-radius:11px!important;border:1px solid rgba(255,255,255,.11)!important;background:rgba(255,255,255,.06)!important;color:inherit!important;font-size:20px!important;cursor:pointer!important}
+body.light .rndm-burger-close{background:#fff!important;border-color:#dfe2ec!important}
+.rndm-burger-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+.rndm-burger-grid a{min-height:82px!important;padding:10px 6px!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:16px!important;background:rgba(255,255,255,.045)!important;color:inherit!important;text-decoration:none!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:6px!important;text-align:center!important;font-size:11px!important;font-weight:760!important;box-sizing:border-box!important}
+.rndm-burger-grid a .bi{font-size:24px!important}.rndm-burger-grid a.active{background:rgba(118,87,255,.18)!important;border-color:rgba(118,87,255,.7)!important;box-shadow:inset 0 0 0 1px rgba(118,87,255,.18)!important}
+body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!important}.rndm-burger-section{font-size:10px!important;text-transform:uppercase!important;letter-spacing:.11em!important;color:#8990a8!important;font-weight:900!important;margin:14px 3px 8px!important}
+.rndm-unified-header *{box-sizing:border-box!important}
+@media(max-width:900px){
+  .rndm-unified-inner{min-height:0!important;padding:8px 10px 7px!important;gap:8px!important;flex-wrap:wrap!important}
+  .rndm-unified-brand{order:1!important}.rndm-unified-actions{order:2!important;margin-left:auto!important}.rndm-core-nav{order:3!important;flex:0 0 100%!important;width:100%!important;padding:1px 0 0!important;gap:5px!important}
+  .rndm-core-nav a{min-height:36px!important;padding:0 10px!important;font-size:12px!important;border-radius:11px!important}
+  .rndm-account-chip span{display:none!important}.rndm-account-chip{width:40px!important;padding:0!important}.rndm-page-action span{display:none!important}.rndm-page-action{width:40px!important;padding:0!important;font-size:18px!important}
+  .rndm-burger-menu{top:105px!important;max-height:calc(100dvh - 118px)!important}
+}
+@media(max-width:430px){
+ .rndm-unified-brandtext{font-size:15px!important}.rndm-unified-logo{width:36px!important;height:36px!important;border-radius:12px!important}
+ .rndm-core-nav a{padding:0 9px!important;gap:5px!important}.rndm-core-nav .ni{font-size:15px!important}.rndm-core-nav .nl{font-size:11px!important}
+ .rndm-burger-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}.rndm-burger-grid a{min-height:75px!important}
+}
+</style>
+
+</head><body>
+
+<header class="rndm-unified-header" id="rndmUnifiedHeader">
+  <div class="rndm-unified-inner">
+    <a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
+    <nav class="rndm-core-nav" aria-label="Основные разделы">
+      <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
+      <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
+      <a href="contacts.html" data-rndm-page="contacts.html"><span class="ni">👥</span><span class="nl">Контакты</span></a>
+      <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
+      <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
+    </nav>
+    <div class="rndm-unified-actions">
+      <button class="rndm-page-action" id="rndmClipAction" type="button" title="Добавить клип" style="display:none!important">＋<span>Клип</span></button>
+      <a class="rndm-account-chip" id="rndmUnifiedAccount" href="profile.html"><span>Профиль</span> 👤</a>
+      <button class="rndm-nav-icon" id="rndmUnifiedTheme" type="button" aria-label="Сменить тему">🌙</button>
+      <button class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button" aria-label="Открыть дополнительное меню">☰</button>
+    </div>
+  </div>
+</header>
+<div class="rndm-nav-backdrop" id="rndmNavBackdrop"></div>
+<aside class="rndm-burger-menu" id="rndmBurgerMenu" aria-label="Дополнительные разделы">
+  <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
+  <div class="rndm-burger-section">Сообщество</div>
+  <div class="rndm-burger-grid">
+    <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
+    <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
+    <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
+    <a href="explore.html" data-rndm-page="explore.html"><span class="bi">✨</span>Рекомендации</a>
+    <a href="profile.html" data-rndm-page="profile.html"><span class="bi">👤</span>Профиль</a>
+    <a href="about.html" data-rndm-page="about.html"><span class="bi">ℹ️</span>О проекте</a>
+  </div>
+  <div class="rndm-burger-section">Сервисы</div>
+  <div class="rndm-burger-grid">
+    <a href="market.html" data-rndm-page="market.html"><span class="bi">🛍️</span>Market</a>
+    <a href="bank.html" data-rndm-page="bank.html"><span class="bi">💳</span>Банк</a>
+    <a href="estate.html" data-rndm-page="estate.html"><span class="bi">🏠</span>Квартиры</a>
+    <a href="shop.html" data-rndm-page="shop.html"><span class="bi">⭐</span>Магазин</a>
+    <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
+    <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
+    <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
+  </div>
+</aside>
+
+<div class="shell"><header class="top"><a href="index.html" class="logo">R</a><div class="brand">RNDM Chat <span style="font-size:11px;color:#31e6a1">LIVE</span></div><div class="spacer"></div><a href="contacts.html" class="desktop-only">Контакты</a><a href="profile.html" id="topAccount">Аккаунт</a></header>
 <div id="notConfigured" class="notice" style="display:none;margin-bottom:12px">⚙️ Облако ещё не подключено. Открой <b>rndm-cloud.js</b>, вставь URL и Publishable/anon key из Supabase и загрузи файл на GitHub.</div>
 <div id="authNeeded" class="notice" style="display:none;margin-bottom:12px">🔐 Для настоящей переписки войди в аккаунт. <a href="profile.html" style="text-decoration:underline">Открыть вход</a></div>
 <div class="grid show-list" id="chatGrid">
@@ -52,4 +150,29 @@ q('#createGroup').onclick=async()=>{const title=q('#groupTitle').value.trim();co
 await loadDialogs();const qs=new URLSearchParams(location.search),cid=qs.get('chat');if(cid)openConversation(cid);
 sb.channel('dialog-refresh').on('postgres_changes',{event:'*',schema:'public',table:'friendships'},loadDialogs).subscribe();
 })();
-</script><script>(()=>{const n=document.querySelector('.topbar nav');if(!n)return;const items=[['videos.html','Видео 📺'],['paint.html','Paint 🎨'],['games.html','Игры 🎮'],['market.html','Market 🛍️'],['bank.html','Банк 💳'],['estate.html','Квартиры 🏠']];items.forEach(([h,l])=>{if(!n.querySelector(`[href="${h}"]`)){const a=document.createElement('a');a.href=h;a.textContent=l;n.appendChild(a)}})})();</script></body></html>
+</script>
+<script id="rndm-unified-nav-script">
+(()=>{
+  const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  const core=new Set(['index.html','chat.html','contacts.html','channels.html','clips.html']);
+  document.querySelectorAll('[data-rndm-page]').forEach(a=>{if((a.getAttribute('data-rndm-page')||'').toLowerCase()===current)a.classList.add('active')});
+  const burger=document.getElementById('rndmBurgerButton'),menu=document.getElementById('rndmBurgerMenu'),backdrop=document.getElementById('rndmNavBackdrop'),close=document.getElementById('rndmBurgerClose');
+  if(!core.has(current)) burger?.classList.add('active');
+  const shut=()=>{menu?.classList.remove('open');backdrop?.classList.remove('open');burger?.setAttribute('aria-expanded','false')};
+  const toggle=()=>{const open=!menu?.classList.contains('open');menu?.classList.toggle('open',open);backdrop?.classList.toggle('open',open);burger?.setAttribute('aria-expanded',open?'true':'false')};
+  burger?.addEventListener('click',toggle);close?.addEventListener('click',shut);backdrop?.addEventListener('click',shut);document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()});
+  const theme=document.getElementById('rndmUnifiedTheme');
+  const syncTheme=()=>{if(theme)theme.textContent=document.body.classList.contains('light')?'☀️':'🌙'};syncTheme();
+  theme?.addEventListener('click',()=>{document.body.classList.toggle('light');localStorage.setItem('rndm-theme',document.body.classList.contains('light')?'light':'dark');syncTheme();const old=document.getElementById('themeToggle');if(old&&old!==theme)old.textContent=theme.textContent});
+  const clipAction=document.getElementById('rndmClipAction');
+  if(current==='clips.html'&&clipAction){clipAction.style.setProperty('display','inline-flex','important');clipAction.addEventListener('click',()=>document.getElementById('uploadClip')?.click())}
+  async function syncAccount(){
+    const link=document.getElementById('rndmUnifiedAccount');if(!link)return;
+    try{if(window.RNDMCloud?.configured?.()){const u=await window.RNDMCloud.user();if(u){const p=await window.RNDMCloud.profile(u.id);const n=p?.username||'я';link.innerHTML=`<span>@${String(n).replace(/[<>&]/g,'')}</span> 👤`;return}}}catch(e){}
+    try{const db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}'),id=localStorage.getItem('rndm-session-v17')||'',a=db[id];if(a?.username)link.innerHTML=`<span>@${String(a.username).replace(/[<>&]/g,'')}</span> 👤`}catch(e){}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(syncAccount,120));else setTimeout(syncAccount,120);
+})();
+</script>
+
+</body></html>
