@@ -414,7 +414,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
     <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
     <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
-    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html"><span class="bi">🛡️</span>Админка</a>
+    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html" hidden aria-hidden="true"><span class="bi">🛡️</span>Админка</a>
   </div>
 </aside>
 
@@ -974,6 +974,6 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
 })();
 </script>
 
-<script id="rndm-v24-guard">(async()=>{try{if(!window.RNDMCloud?.configured?.())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);if(!p)return;if(p.is_banned&&(!p.banned_until||new Date(p.banned_until)>new Date())&&!location.pathname.endsWith('/banned.html')){location.href='banned.html';return}if(['owner','admin','moderator'].includes(p.app_role)){document.querySelectorAll('.v24-admin-link').forEach(x=>x.classList.add('show'));const a=document.getElementById('rndmUnifiedAccount');if(a)a.innerHTML=`<span>@${RNDMCloud.esc(p.username||'я')} ${p.app_role==='owner'?'👑':p.app_role==='admin'?'🛡️':'🔧'}</span> 👤`}}catch(e){}})();</script>
+<script id="rndm-v24-guard">(async()=>{try{if(!window.RNDMCloud?.configured?.())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);if(!p)return;if(p.is_banned&&(!p.banned_until||new Date(p.banned_until)>new Date())&&!location.pathname.endsWith('/banned.html')){location.href='banned.html';return}if(['owner','admin','moderator'].includes(p.app_role)){document.querySelectorAll('.v24-admin-link').forEach(x=>{x.hidden=false;x.setAttribute('aria-hidden','false');x.classList.add('show')});const a=document.getElementById('rndmUnifiedAccount');if(a)a.innerHTML=`<span>@${RNDMCloud.esc(p.username||'я')} ${p.app_role==='owner'?'👑':p.app_role==='admin'?'🛡️':'🔧'}</span> 👤`}}catch(e){}})();</script>
 </body>
 </html>
