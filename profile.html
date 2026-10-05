@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Профиль — RNDM Chat</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+<header class="topbar"><a class="brand" href="index.html"><span class="logo">R</span><span>RNDM Chat</span></a><nav class="nav"><a href="index.html">Главная</a><a href="chat.html">Чаты</a><a href="contacts.html">Контакты</a><a href="friends.html">Друзья</a>
+      <a href="channels.html">Каналы</a><a href="cat.html">Котик 🐱</a>
+      <a href="profile.html" class="active">Профиль</a><a href="about.html">О проекте</a></nav><button class="theme-toggle" id="themeToggle">🌙</button></header>
+<main class="profile-layout">
+  <section class="profile-card big">
+    <div class="avatar-editor">
+      <button class="avatar large avatar-upload" id="avatarUploadButton" type="button" aria-label="Изменить аватар"><span id="profileAvatar">S</span><span class="avatar-edit-badge">📷</span></button>
+      <input id="avatarFile" type="file" accept="image/png,image/jpeg,image/webp,image/gif" hidden />
+      <div class="avatar-actions"><button class="btn ghost small" id="chooseAvatar" type="button">Выбрать фото</button><button class="btn ghost small" id="removeAvatar" type="button">Удалить</button></div>
+      <small class="avatar-hint">PNG, JPG, WEBP или GIF • сохраняется на этом устройстве</small>
+    </div>
+    <h1 id="profileDisplayName">Sergey_RNDM</h1>
+    <p id="profileDisplayStatus">Статус: тестирую новый мессенджер</p>
+    <div class="profile-actions"><button class="btn primary" id="saveProfile">Сохранить</button><a class="btn ghost" href="chat.html">Перейти в чат</a></div>
+  </section>
+  <section class="settings-card">
+    <h2>Настройки профиля</h2>
+    <label>Имя<input id="profileName" type="text" value="Сергей" /></label>
+    <label>Никнейм<input id="profileNick" type="text" value="Sergey_RNDM" /></label>
+    <label>Возраст<input id="profileAge" type="number" min="13" max="99" value="17" /></label>
+    <label>Город<input id="profileCity" type="text" value="Москва" /></label>
+    <label>Статус<input id="profileStatus" type="text" value="тестирую новый мессенджер" /></label>
+    <label>О себе<textarea id="profileBio">Люблю игры, сайты и новые проекты.</textarea></label>
+    <label>Тема<select id="profileTheme"><option value="dark">Тёмная</option><option value="light">Светлая</option></select></label>
+    <p class="save-note" id="profileSaveNote">Данные сохраняются на этом устройстве.</p>
+  </section>
+  <section class="v15-profile-panel">
+    <div class="section-head"><div><span class="eyebrow">RNDM PROFILE 2.0</span><h2>Моя статистика</h2></div><a class="btn ghost small" href="activity.html">Все достижения</a></div>
+    <div class="profile-stat-grid" id="v15ProfileStats"></div>
+    <div class="showcase-card"><div><h3>🎁 Витрина подарков</h3><p>Выбери до трёх любимых предметов из коллекции.</p></div><div id="giftShowcase" class="gift-showcase"></div></div>
+    <h3>Коллекция</h3><div id="v15Inventory" class="inventory-grid"></div>
+  </section>
+  <section class="achievements">
+    <h2>Достижения</h2>
+    <div class="grid badges"><span>🔥 Первый вход</span><span>💬 10 сообщений</span><span>🎲 Комната дня</span><span>👥 3 друга</span></div>
+  </section>
+</main>
+<script src="js/app.js"></script>
+<script src="js/v13.js"></script><script src="js/v15.js"></script></body>
+</html>

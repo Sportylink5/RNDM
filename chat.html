@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Чат — RNDM Chat</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="index.html"><span class="logo">R</span><span>RNDM Chat</span></a>
+    <nav class="nav"><a href="index.html">Главная</a><a href="chat.html" class="active">Чаты</a><a href="contacts.html">Контакты</a><a href="friends.html">Друзья</a>
+      <a href="channels.html">Каналы</a><a href="cat.html">Котик 🐱</a>
+      <a href="profile.html">Профиль</a><a href="about.html">О проекте</a></nav>
+    <button class="theme-toggle" id="themeToggle">🌙</button>
+  </header>
+  <main class="app-shell v12">
+    <aside class="sidebar chats-sidebar">
+      <div class="sidebar-title"><h2>Чаты</h2><a class="mini-btn" href="contacts.html">👥 Контакты</a></div><div class="stories-row" id="storiesRow"></div><button class="btn ghost" id="createGroup">👥 Создать группу</button>
+      <input class="sidebar-search" id="dialogSearch" placeholder="🔎 Поиск чатов">
+      <div id="dialogList" class="dialog-list"></div>
+      <div class="random-actions">
+        <button class="btn purple" id="randomPerson">🎲 Случайный человек</button>
+        <button class="btn ghost" id="openRoulette">📹 Чат-рулетка</button>
+      </div>
+    </aside>
+    <section class="messenger">
+      <div class="messenger-head">
+        <div><h1 id="roomTitle">RNDM Chat</h1><p id="chatPresence">Выберите диалог слева или контакт</p></div>
+        <span class="badge">LIVE</span>
+      </div>
+      <div class="powerbar"><input id="chatSearch" placeholder="🔎 Поиск по сообщениям"><button class="mini-btn" id="pinChat">📌 Закрепить</button><button class="mini-btn" id="muteChat">🔔 Уведомления</button><button class="mini-btn" id="clearChat">🧹 Очистить</button><button class="mini-btn" id="giftOpen">🎁 Подарок</button><button class="mini-btn dock-toggle" id="dockToggle">🗒 Панель</button></div><div class="messages" id="messages">
+        <div class="message other"><b>Аня</b><p>Кто уже тестировал RNDM Chat?</p></div>
+        <div class="message me"><b>Я</b><p>Интерфейс уже работает, можно писать сообщения.</p></div>
+        <div class="message other"><b>Макс</b><p>Круто, ещё бы случайные комнаты.</p></div>
+      </div>
+      <form class="composer" id="messageForm">
+        <input id="messageInput" type="text" placeholder="Написать сообщение..." autocomplete="off" />
+        <input id="attachmentInput" type="file" hidden accept="image/*,video/*,.pdf,.doc,.docx,.txt,.zip,.rar,.ppt,.pptx,.xls,.xlsx" />
+        <button class="btn ghost" id="attachButton" type="button">📎 Файл</button><button class="btn ghost voice-btn" id="voiceButton" type="button">🎙 Голос</button>
+        <button class="btn primary" type="submit">Отправить</button>
+      </form>
+      <div id="attachmentPreview" class="attachment-preview hidden"></div>
+    </section>
+    <section class="messenger roulette-picker" id="pickerPanel">
+      <div class="messenger-head"><div><h1>🎲 Рулетка пользователей</h1><p>Случайный выбор собеседника</p></div><span class="badge" id="pickerBadge">READY</span></div>
+      <div class="user-reel-wrap"><div class="reel-pointer">▼</div><div class="user-reel" id="userReel"></div></div>
+      <p class="roulette-status" id="pickerStatus">Нажми «Крутить», чтобы выбрать случайного пользователя</p>
+      <div class="roulette-controls"><button class="btn primary" id="spinUsers">Крутить рулетку</button><button class="btn ghost" id="cancelPicker">Назад</button><div class="history-box" style="width:100%"><b>Недавние собеседники</b><div id="rouletteHistory"></div></div></div>
+    </section>
+    <section class="messenger roulette" id="roulettePanel">
+      <div class="messenger-head">
+        <div><h1>📹 Чат-рулетка</h1><p id="rouletteSub">Найди случайного собеседника</p></div>
+        <span class="badge" id="rouletteBadge">READY</span>
+      </div>
+      <p class="roulette-status" id="rouletteStatus">Нажми «Начать», чтобы найти собеседника</p>
+      <div class="roulette-stage">
+        <div class="video-card" id="strangerVideo"><div class="video-avatar" id="strangerAvatar">?</div><span class="video-label" id="strangerLabel">Собеседник</span></div>
+        <div class="video-card me-video"><div class="video-avatar">🙂</div><span class="video-label">Вы</span></div>
+      </div>
+      <div class="roulette-controls">
+        <button class="btn primary" id="startRoulette">Начать</button>
+        <button class="btn purple" id="nextRoulette">Следующий</button>
+        <button class="btn ghost" id="toggleMic">🎙 Микрофон</button>
+        <button class="btn ghost" id="toggleCam">📷 Камера</button>
+        <button class="btn danger" id="stopRoulette">Стоп</button>
+        <button class="btn ghost" id="backToChat">← В чаты</button>
+      </div>
+    </section>
+
+    <aside class="right-dock" id="rightDock">
+      <div class="dock-card level-card"><div class="story-ring" id="dockAvatar">🙂</div><div><b id="dockName">Профиль</b><div><span id="levelText">Уровень 1</span> • <span id="xpText">0 XP</span></div><div class="xp-track"><div class="xp-fill" id="xpFill" style="width:0%"></div></div></div></div>
+      <div class="dock-card"><h3>🎬 Моё видео</h3><video id="personalVideo" class="personal-video" controls playsinline></video><input id="personalVideoInput" type="file" accept="video/*" hidden><div class="row"><button class="mini-btn" id="chooseVideo">Выбрать видео</button><button class="mini-btn" id="removeVideo">Убрать</button></div><small id="videoInfo">Видео не выбрано</small></div>
+      <div class="dock-card"><h3>🗒 Блокнот</h3><textarea class="note-area" id="notepad" placeholder="Личные заметки…"></textarea><small id="noteSaved">Автосохранение включено</small></div>
+      <div class="dock-card"><h3>🎁 Мои подарки</h3><div id="myGifts">Пока нет подарков</div></div>
+    </aside>
+  </main>
+  <div class="gift-modal hidden" id="giftModal"><div class="gift-box"><h2>🎁 Отправить подарок</h2><p>Подарки покупаются за демо-звёзды ⭐</p><div class="gift-grid" id="giftGrid"></div><button class="btn ghost" id="giftClose">Закрыть</button></div></div>
+  <script src="js/app.js"></script>
+<script src="js/v13.js"></script><script src="js/v15.js"></script></body>
+</html>
