@@ -1,10 +1,16 @@
-// RNDM Chat v22 — Supabase cloud connection
-// Safe for browser: use ONLY Publishable/anon key here. Never use sb_secret/service_role.
+// RNDM Chat v24.1 — fast Supabase cloud connection
+// Browser-safe: publishable key only. Never put sb_secret/service_role here.
 window.RNDM_SUPABASE_URL = 'https://rijqlmrcnshswtoweoai.supabase.co';
 window.RNDM_SUPABASE_KEY = 'sb_publishable_Ay6EBRfZx1-Shj1FdMg7ZQ_P61Rii2A';
 
 window.RNDMCloud = (() => {
   let client = null;
+  let sessionPromise = null;
+  let cachedSession = undefined;
+  const profileCache = new Map();
+  const profilePromises = new Map();
+  const PROFILE_TTL = 30000;
+
   const configured = () => /^https:\/\/.+\.supabase\.co$/i.test(window.RNDM_SUPABASE_URL || '') &&
     !!window.RNDM_SUPABASE_KEY && !String(window.RNDM_SUPABASE_KEY).includes('PASTE_');
 
@@ -13,32 +19,61 @@ window.RNDMCloud = (() => {
     if(!client){
       if(!window.supabase?.createClient) throw new Error('Supabase library not loaded');
       client = window.supabase.createClient(window.RNDM_SUPABASE_URL, window.RNDM_SUPABASE_KEY, {
-        auth:{persistSession:true, autoRefreshToken:true, detectSessionInUrl:true}
+        auth:{persistSession:true, autoRefreshToken:true, detectSessionInUrl:true},
+        realtime:{params:{eventsPerSecond:10}}
+      });
+      client.auth.onAuthStateChange((_event,session)=>{
+        cachedSession = session || null;
+        sessionPromise = null;
+        if(!session) profileCache.clear();
       });
     }
     return client;
   }
 
+  // getSession reads the locally persisted session first and is much faster than
+  // auth.getUser(), which performs a network validation request every call.
+  async function session(force=false){
+    const c=getClient(); if(!c) return null;
+    if(!force && cachedSession !== undefined) return cachedSession;
+    if(!force && sessionPromise) return sessionPromise;
+    sessionPromise = c.auth.getSession().then(({data})=>{
+      cachedSession = data?.session || null;
+      sessionPromise = null;
+      return cachedSession;
+    }).catch(()=>{sessionPromise=null;return null});
+    return sessionPromise;
+  }
+
   async function user(){
+    const s=await session();
+    return s?.user || null;
+  }
+
+  async function validateUser(){
     const c=getClient(); if(!c) return null;
     const {data,error}=await c.auth.getUser();
     if(error) return null;
-    return data?.user||null;
+    return data?.user || null;
   }
 
-  async function session(){
-    const c=getClient(); if(!c) return null;
-    const {data}=await c.auth.getSession();
-    return data?.session||null;
-  }
-
-  async function profile(uid){
+  async function profile(uid,force=false){
     const c=getClient(); if(!c||!uid) return null;
-    const {data}=await c.from('profiles').select('*').eq('id',uid).maybeSingle();
-    return data||null;
+    const hit=profileCache.get(uid);
+    if(!force && hit && (Date.now()-hit.at)<PROFILE_TTL) return hit.data;
+    if(!force && profilePromises.has(uid)) return profilePromises.get(uid);
+    const p=c.from('profiles').select('*').eq('id',uid).maybeSingle().then(({data,error})=>{
+      profilePromises.delete(uid);
+      if(error) return null;
+      profileCache.set(uid,{data:data||null,at:Date.now()});
+      return data||null;
+    }).catch(()=>{profilePromises.delete(uid);return null});
+    profilePromises.set(uid,p);
+    return p;
   }
 
-  async function myProfile(){ const u=await user(); return u ? profile(u.id) : null; }
+  function invalidateProfile(uid){ if(uid) profileCache.delete(uid); else profileCache.clear(); }
+  async function myProfile(force=false){ const u=await user(); return u ? profile(u.id,force) : null; }
 
   function esc(s=''){
     return String(s).replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m]));
@@ -53,6 +88,7 @@ window.RNDMCloud = (() => {
 
   async function heartbeat(){
     const c=getClient(), u=await user(); if(!c||!u)return;
+    // Do not await this from page startup; callers can fire-and-forget.
     await c.from('profiles').update({last_seen:new Date().toISOString()}).eq('id',u.id);
   }
 
@@ -84,9 +120,14 @@ window.RNDMCloud = (() => {
 
   function onAuth(callback){
     const c=getClient(); if(!c) return {unsubscribe(){}};
-    const {data}=c.auth.onAuthStateChange((event,session)=>callback?.(event,session));
+    const {data}=c.auth.onAuthStateChange((event,s)=>{
+      cachedSession=s||null;
+      sessionPromise=null;
+      if(!s)profileCache.clear();
+      callback?.(event,s);
+    });
     return data?.subscription||{unsubscribe(){}};
   }
 
-  return {configured,getClient,user,session,profile,myProfile,esc,time,heartbeat,stateGet,stateSet,upload,onAuth};
+  return {configured,getClient,user,validateUser,session,profile,myProfile,invalidateProfile,esc,time,heartbeat,stateGet,stateSet,upload,onAuth};
 })();

@@ -1,5 +1,5 @@
-// RNDM v22 — syncs selected local progress/settings to Supabase user_state.
-// Social content (messages/clips/channels/videos/market) uses normalized cloud tables separately.
+// RNDM v24.1 — FAST cloud state sync.
+// One SELECT + at most one UPSERT instead of dozens of sequential requests.
 (()=>{
   const KEYS = [
     'rndm-theme','rndm-stars-v1','rndm-star-log-v1','rndm-xp-v1','rndm-xp-v13',
@@ -9,7 +9,10 @@
     'rndm-v15-saved-clips','rndm-v15-following','rndm-v15-collectibles','rndm-v15-showcase',
     'rndm-game-reaction-best','rndm-game-rps-wins','rndm-paint-draft'
   ];
-  let ready=false, pulling=false, timers=new Map();
+  let ready=false, pulling=false;
+  const timers=new Map();
+  const pending=new Map();
+  let flushTimer=null;
   const originalSet=Storage.prototype.setItem;
 
   function decode(raw){
@@ -20,34 +23,59 @@
     if(value && typeof value==='object' && Object.prototype.hasOwnProperty.call(value,'__raw')) return String(value.__raw);
     return JSON.stringify(value);
   }
-  async function push(key,raw){
+
+  async function flush(){
+    flushTimer=null;
+    if(!ready||pulling||!pending.size||!window.RNDMCloud?.configured?.()) return;
+    const batch=[...pending.entries()]; pending.clear();
+    try{
+      const sb=RNDMCloud.getClient(),u=await RNDMCloud.user(); if(!sb||!u)return;
+      const now=new Date().toISOString();
+      await sb.from('user_state').upsert(batch.map(([key,value])=>({user_id:u.id,key:'ls:'+key,value,updated_at:now})),{onConflict:'user_id,key'});
+    }catch(e){}
+  }
+
+  function queuePush(key,raw){
     if(!ready||pulling||!KEYS.includes(key)||!window.RNDMCloud?.configured?.()) return;
-    const old=timers.get(key); if(old) clearTimeout(old);
-    timers.set(key,setTimeout(async()=>{try{await RNDMCloud.stateSet('ls:'+key,decode(raw))}catch(e){}},500));
+    pending.set(key,decode(raw));
+    clearTimeout(flushTimer);
+    flushTimer=setTimeout(flush,650);
   }
 
   Storage.prototype.setItem=function(key,value){
     originalSet.call(this,key,value);
-    if(this===localStorage) push(String(key),String(value));
+    if(this===localStorage) queuePush(String(key),String(value));
   };
 
   async function init(){
     try{
       if(!window.RNDMCloud?.configured?.()) return;
-      const u=await RNDMCloud.user(); if(!u) return;
+      const sb=RNDMCloud.getClient(),u=await RNDMCloud.user(); if(!sb||!u){ready=true;return}
       pulling=true;
+      const cloudKeys=KEYS.map(k=>'ls:'+k);
+      const {data,error}=await sb.from('user_state').select('key,value,updated_at').eq('user_id',u.id).in('key',cloudKeys);
+      if(error) throw error;
+      const map=new Map((data||[]).map(r=>[String(r.key).slice(3),r.value]));
+      const missing=[];
+      const now=new Date().toISOString();
       for(const key of KEYS){
-        const cloud=await RNDMCloud.stateGet('ls:'+key);
-        const local=localStorage.getItem(key);
-        if(cloud?.value!==undefined && cloud?.value!==null){
-          originalSet.call(localStorage,key,encode(cloud.value));
-        }else if(local!==null){
-          await RNDMCloud.stateSet('ls:'+key,decode(local));
+        if(map.has(key)){
+          originalSet.call(localStorage,key,encode(map.get(key)));
+        }else{
+          const local=localStorage.getItem(key);
+          if(local!==null) missing.push({user_id:u.id,key:'ls:'+key,value:decode(local),updated_at:now});
         }
+      }
+      if(missing.length){
+        await sb.from('user_state').upsert(missing,{onConflict:'user_id,key'});
       }
       pulling=false; ready=true;
       document.dispatchEvent(new CustomEvent('rndm-cloud-state-ready'));
-    }catch(e){pulling=false;ready=true;}
+    }catch(e){
+      pulling=false; ready=true;
+      console.warn('RNDM cloud state sync:',e?.message||e);
+    }
   }
-  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>setTimeout(init,50)); else setTimeout(init,50);
+
+  if(document.readyState==='loading') document.addEventListener('DOMContentLoaded',()=>setTimeout(init,20)); else setTimeout(init,20);
 })();
