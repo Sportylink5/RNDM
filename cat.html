@@ -305,7 +305,7 @@ img{max-width:100%}
 <meta name="apple-mobile-web-app-title" content="RNDM Chat">
 <meta name="format-detection" content="telephone=no">
 
-<link rel="stylesheet" href="rndm-shell.css?v=25.5"></head><body>
+<link rel="stylesheet" href="rndm-shell.css?v=25.6"></head><body>
 
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
   <div class="rndm-unified-inner">
@@ -348,10 +348,8 @@ img{max-width:100%}
     <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
     <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
     <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
-  </div>
+  
 
-  <div class="rndm-burger-section">v24 Mega</div>
-  <div class="rndm-burger-grid">
     <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
     <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
     <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
@@ -941,10 +939,10 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
 
 
 <script>(()=>{const h=document.querySelector('.topbar');if(!h||h.querySelector('.account-mini'))return;let db={};try{db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}')}catch{};const u=localStorage.getItem('rndm-session-v17')||'',a=db[u];const link=document.createElement('a');link.href='profile.html#accountCenter';link.className='account-mini'+(a?' on':'');link.innerHTML='<i></i><span>'+(a?'@'+a.username:'Войти')+'</span>';const t=h.querySelector('.theme-toggle');if(t)h.insertBefore(link,t);else h.appendChild(link)})();</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.4"></script><script src="rndm-state-sync.js?v=25.1"></script><script id="rndm-v25-referrals">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.7"></script><script src="rndm-censor.js?v=25.7"></script><script src="rndm-state-sync.js?v=25.1"></script><script id="rndm-v25-referrals">
 (async()=>{const $=id=>document.getElementById(id);if(!window.RNDMCloud?.configured?.())return;const sb=RNDMCloud.getClient();const u=await RNDMCloud.user();const on=$('referralLoggedIn'),off=$('referralLoggedOut'),state=$('referralAccountState'),note=$('referralNote');if(!u){if(on)on.style.display='none';if(off)off.style.display='block';if(state)state.textContent='Нужен аккаунт';return}if(on)on.style.display='block';if(off)off.style.display='none';const {data:code,error:ce}=await sb.rpc('ensure_referral_code');if(ce){if(note)note.textContent='Ошибка рефералки: '+ce.message;return}const {data:p,error}=await sb.from('profiles').select('username,referral_count,referral_coins_earned,referral_stars_earned').eq('id',u.id).single();if(error){if(note)note.textContent=error.message;return}if(state)state.textContent='@'+(p.username||'я');const url=new URL('profile.html',location.href);url.searchParams.set('ref',code);url.hash='accountCenter';if($('referralUrl'))$('referralUrl').value=url.href;if($('referralCount'))$('referralCount').textContent=p.referral_count||0;if($('referralCoins'))$('referralCoins').textContent=Number(p.referral_coins_earned||0).toLocaleString('ru-RU');if($('referralStars'))$('referralStars').textContent=p.referral_stars_earned||0;
 $('copyReferral')?.addEventListener('click',async()=>{const v=$('referralUrl').value;try{await navigator.clipboard.writeText(v);note.textContent='Ссылка скопирована ✅'}catch{$('referralUrl').select();document.execCommand('copy');note.textContent='Ссылка скопирована ✅'}});
 $('shareReferral')?.addEventListener('click',async()=>{const url=$('referralUrl').value,text='Заходи в RNDM Chat по моей ссылке 🐱';if(navigator.share){try{await navigator.share({title:'RNDM Chat',text,url})}catch{}}else{try{await navigator.clipboard.writeText(url);note.textContent='Ссылка скопирована — отправь её другу.'}catch{}}});
 })();
 </script><script>(async()=>{try{if(!RNDMCloud.configured())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);document.querySelectorAll('.account-mini span').forEach(x=>x.textContent='@'+(p?.username||'я'));RNDMCloud.heartbeat()}catch(e){}})();</script>
-<script src="rndm-shell.js?v=25.5"></script></body></html>
+<script src="rndm-shell.js?v=25.7"></script></body></html>

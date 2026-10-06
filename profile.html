@@ -10,11 +10,32 @@
 /* ===== RNDM v24 MEGA ===== */
 .v24-wrap{width:min(1180px,calc(100% - 28px));margin:34px auto 90px}.v24-hero,.v24-card{border:1px solid var(--line);background:var(--panel);border-radius:26px;box-shadow:var(--shadow)}.v24-hero{padding:26px;margin-bottom:18px}.v24-hero h1{margin:4px 0 8px;font-size:clamp(32px,6vw,62px)}.v24-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.v24-card{padding:18px}.v24-card h2,.v24-card h3{margin:0 0 10px}.v24-muted{color:var(--muted)}.v24-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.v24-btn{border:1px solid var(--line);border-radius:14px;background:var(--panel-strong);color:var(--text);padding:11px 14px;font-weight:800;cursor:pointer}.v24-btn.primary{background:linear-gradient(135deg,var(--accent),#4d8dff);color:#fff;border:0}.v24-btn.green{background:linear-gradient(135deg,var(--accent2),#9cff66);color:#06110d;border:0}.v24-btn.danger{background:#ff476c22;color:#ff8fa7;border-color:#ff476c55}.v24-btn.warn{background:#ffc85722;color:#ffd982;border-color:#ffc85755}.v24-input{width:100%;border:1px solid var(--line);background:var(--panel);color:var(--text);border-radius:14px;padding:12px 13px;font-size:16px}.v24-list{display:grid;gap:10px}.v24-item{padding:14px;border:1px solid var(--line);border-radius:18px;background:var(--panel-strong)}.v24-badge{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:999px;background:var(--panel-strong);font-size:12px;font-weight:800}.v24-badge.owner{background:#ffd54a22;color:#ffe488}.v24-badge.admin{background:#ff567a22;color:#ff9ab0}.v24-badge.mod{background:#45c5ff22;color:#8edfff}.v24-badge.ok{background:#19e6a522;color:#7dffd7}.v24-tabs{display:flex;gap:8px;overflow:auto;padding-bottom:8px}.v24-tabs button{white-space:nowrap}.v24-table{width:100%;border-collapse:collapse}.v24-table td,.v24-table th{padding:10px;border-bottom:1px solid var(--line);text-align:left}.v24-avatar{width:46px;height:46px;border-radius:16px;object-fit:cover;background:linear-gradient(135deg,var(--accent),var(--accent2));display:grid;place-items:center;font-weight:900}.v24-story-strip{display:flex;gap:10px;overflow:auto;padding:6px 0 12px}.v24-story{flex:0 0 92px;text-align:center}.v24-story .ring{width:70px;height:70px;border-radius:50%;padding:3px;background:linear-gradient(135deg,#ff4eb8,#7c5cff,#00e5a8);margin:auto}.v24-story .ring>div,.v24-story .ring img{width:100%;height:100%;border-radius:50%;object-fit:cover;background:#111;display:grid;place-items:center}.v24-story small{display:block;margin-top:5px;overflow:hidden;text-overflow:ellipsis}.v24-search-results{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.v24-rank{font-size:28px;font-weight:900;min-width:45px}.v24-event{display:grid;gap:8px}.v24-admin-user{display:grid;grid-template-columns:auto 1fr auto;gap:12px;align-items:center}.v24-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}.v24-kpi{padding:14px;border-radius:18px;background:var(--panel-strong);text-align:center}.v24-kpi b{display:block;font-size:24px}.v24-call-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.v24-video{width:100%;aspect-ratio:16/10;border-radius:22px;background:#000;object-fit:cover}.v24-toast{position:fixed;left:50%;bottom:28px;transform:translateX(-50%);z-index:99999;padding:12px 16px;border-radius:14px;background:#111827;color:white;box-shadow:0 15px 50px #0008;display:none}.v24-toast.show{display:block}.v24-admin-link,.v24-admin-link[hidden]{display:none!important}.v24-admin-link.show:not([hidden]){display:flex!important}
 @media(max-width:850px){.v24-grid{grid-template-columns:1fr}.v24-search-results{grid-template-columns:1fr}.v24-kpis{grid-template-columns:1fr 1fr}.v24-call-grid{grid-template-columns:1fr}.v24-admin-user{grid-template-columns:auto 1fr}.v24-admin-user>.v24-row{grid-column:1/-1}.v24-wrap{margin-top:20px}}
+
+/* ===== RNDM v25.6 profile customization ===== */
+.profile-cover{
+  position:relative;height:170px;border-radius:22px;overflow:hidden;border:1px solid var(--line);
+  background:linear-gradient(135deg,#765bff,#2dd4bf);background-size:cover;background-position:center;
+  box-shadow:inset 0 -70px 90px #0005;
+}
+.profile-cover::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,transparent 35%,#080b1499 100%);pointer-events:none}
+.profile-cover-badge{position:absolute;left:14px;bottom:12px;z-index:2;padding:7px 10px;border-radius:999px;background:#080b14aa;border:1px solid #ffffff26;font-size:12px;font-weight:800;backdrop-filter:blur(10px)}
+.profile-customizer{display:grid;gap:14px;padding:16px;border:1px solid var(--line);border-radius:20px;background:#0d1420}
+.profile-customizer h3{margin:0}
+.profile-bg-presets{display:grid;grid-template-columns:repeat(5,1fr);gap:8px}
+.profile-bg-preset{height:52px;border-radius:14px;border:2px solid transparent;cursor:pointer;box-shadow:inset 0 0 0 1px #ffffff18}
+.profile-bg-preset.active{border-color:#fff;outline:2px solid var(--accent)}
+.profile-custom-row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.profile-custom-row input[type="color"]{width:54px;height:42px;padding:3px;border-radius:12px}
+.profile-custom-row .muted{flex:1;min-width:180px}
+@media(max-width:600px){
+  .profile-cover{height:145px}
+  .profile-bg-presets{grid-template-columns:repeat(3,1fr)}
+}
 </style>
 <style id="rndm-avatar-editor-style">
 .avatar-editor{display:flex;align-items:center;gap:16px;padding:14px;border:1px solid var(--line);border-radius:18px;background:#0d1420}.avatar-preview-button{position:relative;width:92px;height:92px;border-radius:50%;padding:0;border:2px solid #745bff;background:linear-gradient(135deg,#745bff,#29e5b7);overflow:hidden;display:grid;place-items:center;color:#fff;font-size:30px;font-weight:900;cursor:pointer;flex:0 0 auto}.avatar-preview-button img{width:100%;height:100%;object-fit:cover;display:block}.avatar-camera{position:absolute;right:2px;bottom:2px;width:29px;height:29px;border-radius:50%;background:#111827;border:2px solid #fff3;display:grid;place-items:center;font-size:14px}.avatar-actions{display:grid;gap:8px;min-width:0}.avatar-actions .btn{width:max-content}.avatar-uploading{opacity:.65;pointer-events:none}@media(max-width:560px){.avatar-editor{align-items:flex-start}.avatar-preview-button{width:78px;height:78px}.avatar-actions .btn{width:100%}}
 </style>
-<link rel="stylesheet" href="rndm-shell.css?v=25.5"></head><body>
+<link rel="stylesheet" href="rndm-shell.css?v=25.6"></head><body>
 
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
   <div class="rndm-unified-inner">
@@ -57,10 +78,8 @@
     <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
     <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
     <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
-  </div>
+  
 
-  <div class="rndm-burger-section">v24 Mega</div>
-  <div class="rndm-burger-grid">
     <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
     <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
     <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
@@ -80,7 +99,40 @@
  <form id="registerForm" style="display:none"><div class="field"><label>Имя</label><input id="regName" maxlength="40" required placeholder="Сергей"></div><div class="field"><label>Username</label><input id="regUsername" pattern="[A-Za-z0-9_]{3,24}" required placeholder="sporty_link5"></div><div class="field"><label>Email</label><input id="regEmail" type="email" required></div><div class="field"><label>Пароль (минимум 6 символов)</label><input id="regPassword" type="password" minlength="6" required></div><button class="btn" style="width:100%">Создать аккаунт</button></form><div id="authMessage" style="margin-top:12px"></div></div>
 </section>
 <section class="card auth" id="profileBox" style="display:none"><div class="profile-card"><div class="profile-top"><div class="avatar" id="bigAvatar">?</div><div><h1 id="displayName" style="margin:0">Профиль</h1><div class="muted" id="username"></div><div class="pill" id="onlineStatus"><span class="online-dot"></span> в сети</div></div></div>
- <div class="stats"><div class="stat"><b id="statFriends">0</b><br><span class="muted">друзей</span></div><div class="stat"><b id="statChats">0</b><br><span class="muted">чатов</span></div><div class="stat"><b id="statMessages">0</b><br><span class="muted">сообщений</span></div></div>
+ 
+<div class="profile-cover" id="profileCoverPreview"><span class="profile-cover-badge">Обложка профиля</span></div>
+<div class="profile-customizer">
+  <h3>🎨 Оформление профиля</h3>
+  <div class="muted">Выбери фон, свою обложку и акцентный цвет. Настройки сохраняются в облаке.</div>
+  <div class="profile-bg-presets" id="profileBgPresets">
+    <button type="button" class="profile-bg-preset" data-preset="violet" title="Фиолетовый" style="background:linear-gradient(135deg,#7b61ff,#2dd4bf)"></button>
+    <button type="button" class="profile-bg-preset" data-preset="sunset" title="Закат" style="background:linear-gradient(135deg,#ff6a88,#ff9a44)"></button>
+    <button type="button" class="profile-bg-preset" data-preset="ocean" title="Океан" style="background:linear-gradient(135deg,#1479ff,#25d7e8)"></button>
+    <button type="button" class="profile-bg-preset" data-preset="night" title="Ночь" style="background:linear-gradient(135deg,#14172a,#5533aa)"></button>
+    <button type="button" class="profile-bg-preset" data-preset="mint" title="Мята" style="background:linear-gradient(135deg,#0f766e,#5eead4)"></button>
+  </div>
+  <div class="profile-custom-row">
+    <button class="btn secondary" type="button" id="coverChoose">🖼 Своя обложка</button>
+    <button class="btn secondary" type="button" id="coverRemove">↩ Убрать фото</button>
+    <input type="file" id="coverFile" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden>
+  </div>
+  <div class="profile-custom-row">
+    <label for="profileAccent"><b>Акцент</b></label>
+    <input id="profileAccent" type="color" value="#7b61ff">
+    <span class="muted">Цвет кнопок и выделений на странице профиля.</span>
+  </div>
+  <button class="btn" type="button" id="saveProfileStyle">Сохранить оформление</button>
+</div>
+<div class="profile-customizer censorship-settings">
+  <h3>🛡️ Цензура</h3>
+  <div class="muted">Нецензурные слова скрываются звёздочками. Это работает и для старых сообщений/постов — оригинал в базе не удаляется.</div>
+  <label class="profile-custom-row" style="cursor:pointer">
+    <input id="censorshipToggle" type="checkbox" checked style="width:22px;height:22px">
+    <b>Скрывать плохие слова</b>
+  </label>
+  <div class="muted" id="censorshipGlobalState"></div>
+</div>
+<div class="stats"><div class="stat"><b id="statFriends">0</b><br><span class="muted">друзей</span></div><div class="stat"><b id="statChats">0</b><br><span class="muted">чатов</span></div><div class="stat"><b id="statMessages">0</b><br><span class="muted">сообщений</span></div></div>
  <div class="field"><label>Имя</label><input id="pName" maxlength="40"></div><div class="field"><label>Username</label><input id="pUsername" maxlength="24"></div><div class="field"><label>О себе</label><textarea id="pBio" rows="3" maxlength="240"></textarea></div><div class="field"><label>Статус</label><select id="pStatus"><option value="online">В сети</option><option value="busy">Не беспокоить</option><option value="away">Недавно</option></select></div><div class="field"><label>Аватар</label>
   <div class="avatar-editor">
     <button class="avatar-preview-button" id="avatarPick" type="button" aria-label="Выбрать аватар"><span id="avatarEditPreview">👤</span><span class="avatar-camera">📷</span></button>
@@ -93,9 +145,8 @@
   </div>
 </div>
  <div class="toolbar"><button class="btn" id="saveProfile">Сохранить профиль</button><a class="btn secondary" href="chat.html">Открыть чаты</a><button class="btn danger" id="logout">Выйти</button></div><div id="profileMessage"></div>
- <div class="notice"><b>Локальный прогресс v17 сохранён:</b><div id="localProgress" class="muted"></div></div>
- </div></section>
-</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html"><b>💬</b>Чаты</a><a href="random.html"><b>🎲</b>Рандом</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html" class="on"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.4"></script><script src="rndm-state-sync.js?v=25.1"></script><script>
+</div></section>
+</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html"><b>💬</b>Чаты</a><a href="random.html"><b>🎲</b>Рандом</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html" class="on"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.7"></script><script src="rndm-censor.js?v=25.7"></script><script src="rndm-state-sync.js?v=25.1"></script><script>
 (async()=>{const C=RNDMCloud,sb=C.getClient(),q=s=>document.querySelector(s),esc=C.esc;q('#notConfigured').style.display=C.configured()?'none':'block';if(!sb){q('#authBox').style.display='block';return}
 const REFKEY='rndm-pending-referral-v25';const refNow=(new URLSearchParams(location.search).get('ref')||'').trim().toUpperCase();if(refNow)localStorage.setItem(REFKEY,refNow);const pendingRef=()=>localStorage.getItem(REFKEY)||(null);
 async function claimPendingReferral(user){const code=pendingRef()||String(user?.user_metadata?.referral_code||'').trim().toUpperCase();if(!code)return null;const {data,error}=await sb.rpc('claim_referral',{ref_code:code});if(error){console.warn('Referral:',error.message);return {error:error.message}}localStorage.removeItem(REFKEY);return data;}
@@ -111,8 +162,94 @@ function chooseAvatar(){q('#avatarFile').click()}
 q('#avatarChoose').onclick=chooseAvatar;q('#avatarPick').onclick=chooseAvatar;
 q('#avatarFile').onchange=()=>{const f=q('#avatarFile').files?.[0];if(!f)return;const allowed=['image/jpeg','image/png','image/webp','image/gif','image/avif'];if(!allowed.includes(f.type)){q('#profileMessage').innerHTML='<div class="error">Поддерживаются JPG, PNG, WebP, GIF и AVIF</div>';q('#avatarFile').value='';return}if(f.size>5*1024*1024){q('#profileMessage').innerHTML='<div class="error">Аватар должен быть не больше 5 МБ</div>';q('#avatarFile').value='';return}if(previewUrl&&previewUrl.startsWith('blob:'))URL.revokeObjectURL(previewUrl);pendingAvatarFile=f;removeAvatar=false;previewUrl=URL.createObjectURL(f);renderAvatarEditor();q('#profileMessage').innerHTML='<div class="notice">Фото выбрано. Нажми «Сохранить профиль».</div>'};
 q('#avatarRemove').onclick=()=>{if(previewUrl&&previewUrl.startsWith('blob:'))URL.revokeObjectURL(previewUrl);previewUrl=null;pendingAvatarFile=null;removeAvatar=true;q('#avatarFile').value='';renderAvatarEditor();q('#profileMessage').innerHTML='<div class="notice">Аватар будет удалён после сохранения профиля.</div>'};
-q('#saveProfile').onclick=async()=>{const btn=q('#saveProfile');try{btn.disabled=true;q('#profileBox').classList.add('avatar-uploading');let avatar=removeAvatar?null:(p?.avatar_url||null),newAvatar=null;if(pendingAvatarFile){q('#profileMessage').innerHTML='<div class="notice">⏳ Загружаю аватар...</div>';newAvatar=await C.uploadAvatar(pendingAvatarFile);avatar=newAvatar.url}const payload={display_name:q('#pName').value.trim(),username:q('#pUsername').value.trim().toLowerCase(),bio:q('#pBio').value.trim(),status:q('#pStatus').value,avatar_url:avatar,last_seen:new Date().toISOString()};const {error}=await sb.from('profiles').update(payload).eq('id',me.id);if(error){if(newAvatar)await sb.storage.from('avatars').remove([newAvatar.path]).catch(()=>{});throw error}const oldAvatar=p?.avatar_url||null;if((newAvatar||removeAvatar)&&oldAvatar&&oldAvatar!==avatar)await C.deleteOwnAvatar(oldAvatar);p={...p,...payload};C.invalidateProfile(me.id);pendingAvatarFile=null;removeAvatar=false;if(previewUrl&&previewUrl.startsWith('blob:'))URL.revokeObjectURL(previewUrl);previewUrl=null;q('#avatarFile').value='';render();renderAvatarEditor();q('#profileMessage').innerHTML='<div class="notice">Аватар и профиль сохранены ✓</div>'}catch(e){q('#profileMessage').innerHTML='<div class="error">'+esc(e.message)+'</div>'}finally{btn.disabled=false;q('#profileBox').classList.remove('avatar-uploading')}};q('#logout').onclick=async()=>{await sb.auth.signOut();location.reload()};
-q('#localProgress').textContent=`⭐ ${localStorage.getItem('rndm-stars-v1')||0} · XP ${localStorage.getItem('rndm-xp-v1')||localStorage.getItem('rndm-xp-v13')||0} · тапов ${localStorage.getItem('rndm-cat-taps')||0}`;
+q('#saveProfile').onclick=async()=>{const btn=q('#saveProfile');try{btn.disabled=true;q('#profileBox').classList.add('avatar-uploading');let avatar=removeAvatar?null:(p?.avatar_url||null),newAvatar=null;if(pendingAvatarFile){q('#profileMessage').innerHTML='<div class="notice">⏳ Загружаю аватар...</div>';newAvatar=await C.uploadAvatar(pendingAvatarFile);avatar=newAvatar.url}const payload={display_name:q('#pName').value.trim(),username:q('#pUsername').value.trim().toLowerCase(),bio:q('#pBio').value.trim(),status:q('#pStatus').value,avatar_url:avatar,last_seen:new Date().toISOString()};const {error}=await sb.from('profiles').update(payload).eq('id',me.id);if(error){if(newAvatar)await sb.storage.from('avatars').remove([newAvatar.path]).catch(()=>{});throw error}const oldAvatar=p?.avatar_url||null;if((newAvatar||removeAvatar)&&oldAvatar&&oldAvatar!==avatar)await C.deleteOwnAvatar(oldAvatar);p={...p,...payload};C.invalidateProfile(me.id);pendingAvatarFile=null;removeAvatar=false;if(previewUrl&&previewUrl.startsWith('blob:'))URL.revokeObjectURL(previewUrl);previewUrl=null;q('#avatarFile').value='';render();renderAvatarEditor();q('#profileMessage').innerHTML='<div class="notice">Аватар и профиль сохранены ✓</div>'}catch(e){q('#profileMessage').innerHTML='<div class="error">'+esc(e.message)+'</div>'}finally{btn.disabled=false;q('#profileBox').classList.remove('avatar-uploading')}};
+const STYLE_KEY='profile-customization-v26';
+const PRESETS={
+  violet:'linear-gradient(135deg,#7b61ff,#2dd4bf)',
+  sunset:'linear-gradient(135deg,#ff6a88,#ff9a44)',
+  ocean:'linear-gradient(135deg,#1479ff,#25d7e8)',
+  night:'linear-gradient(135deg,#14172a,#5533aa)',
+  mint:'linear-gradient(135deg,#0f766e,#5eead4)'
+};
+let profileStyle={preset:'violet',accent:'#7b61ff'};
+let pendingCoverFile=null,removeCover=false,coverPreviewUrl=null;
+const styleCloud=await C.stateGet(STYLE_KEY);
+if(styleCloud?.value&&typeof styleCloud.value==='object') profileStyle={...profileStyle,...styleCloud.value};
+function validHex(v){return /^#[0-9a-f]{6}$/i.test(String(v||''))?v:'#7b61ff'}
+function applyProfileStyle(){
+  const cover=q('#profileCoverPreview');
+  const accent=validHex(profileStyle.accent);
+  document.documentElement.style.setProperty('--accent',accent);
+  q('#profileAccent').value=accent;
+  const img=coverPreviewUrl||(!removeCover?p?.cover_url:null);
+  cover.style.backgroundImage=img?`linear-gradient(180deg,transparent,#080b1466),url("${String(img).replace(/"/g,'')}")`:(PRESETS[profileStyle.preset]||PRESETS.violet);
+  cover.style.backgroundSize='cover';
+  cover.style.backgroundPosition='center';
+  document.querySelectorAll('[data-preset]').forEach(b=>b.classList.toggle('active',!img&&b.dataset.preset===profileStyle.preset));
+  q('#coverRemove').style.display=(img||p?.cover_url)?'inline-flex':'none';
+}
+applyProfileStyle();
+q('#profileBgPresets').onclick=e=>{
+  const b=e.target.closest('[data-preset]');if(!b)return;
+  if(coverPreviewUrl&&coverPreviewUrl.startsWith('blob:'))URL.revokeObjectURL(coverPreviewUrl);
+  coverPreviewUrl=null;pendingCoverFile=null;removeCover=!!p?.cover_url;
+  profileStyle.preset=b.dataset.preset||'violet';q('#coverFile').value='';applyProfileStyle();
+};
+q('#profileAccent').oninput=e=>{profileStyle.accent=validHex(e.target.value);applyProfileStyle()};
+q('#coverChoose').onclick=()=>q('#coverFile').click();
+q('#coverFile').onchange=()=>{
+  const f=q('#coverFile').files?.[0];if(!f)return;
+  const allowed=['image/jpeg','image/png','image/webp','image/gif','image/avif'];
+  if(!allowed.includes(f.type)){q('#profileMessage').innerHTML='<div class="error">Для обложки нужны JPG, PNG, WebP, GIF или AVIF</div>';return}
+  if(f.size>5*1024*1024){q('#profileMessage').innerHTML='<div class="error">Обложка должна быть не больше 5 МБ</div>';return}
+  if(coverPreviewUrl&&coverPreviewUrl.startsWith('blob:'))URL.revokeObjectURL(coverPreviewUrl);
+  pendingCoverFile=f;removeCover=false;coverPreviewUrl=URL.createObjectURL(f);applyProfileStyle();
+};
+q('#coverRemove').onclick=()=>{
+  if(coverPreviewUrl&&coverPreviewUrl.startsWith('blob:'))URL.revokeObjectURL(coverPreviewUrl);
+  coverPreviewUrl=null;pendingCoverFile=null;removeCover=!!p?.cover_url;q('#coverFile').value='';applyProfileStyle();
+};
+q('#saveProfileStyle').onclick=async()=>{
+  const btn=q('#saveProfileStyle');btn.disabled=true;
+  let uploaded=null;
+  try{
+    let cover=removeCover?null:(p?.cover_url||null);
+    if(pendingCoverFile){
+      q('#profileMessage').innerHTML='<div class="notice">⏳ Загружаю обложку...</div>';
+      uploaded=await C.uploadProfileImage(pendingCoverFile,'cover');
+      cover=uploaded.url;
+    }
+    const {error}=await sb.from('profiles').update({cover_url:cover}).eq('id',me.id);
+    if(error){if(uploaded)await sb.storage.from('avatars').remove([uploaded.path]);throw error}
+    const oldCover=p?.cover_url||null;
+    if((uploaded||removeCover)&&oldCover&&oldCover!==cover)await C.deleteOwnProfileImage(oldCover);
+    await C.stateSet(STYLE_KEY,{preset:profileStyle.preset,accent:validHex(profileStyle.accent)});
+    p={...p,cover_url:cover};C.invalidateProfile(me.id);
+    pendingCoverFile=null;removeCover=false;
+    if(coverPreviewUrl&&coverPreviewUrl.startsWith('blob:'))URL.revokeObjectURL(coverPreviewUrl);
+    coverPreviewUrl=null;q('#coverFile').value='';applyProfileStyle();
+    q('#profileMessage').innerHTML='<div class="notice">Оформление профиля сохранено ✓</div>';
+  }catch(e){q('#profileMessage').innerHTML='<div class="error">'+esc(e.message)+'</div>'}
+  finally{btn.disabled=false}
+};
+q('#logout').onclick=async()=>{await sb.auth.signOut();location.reload()};
 })();
 </script>
-<section id="v24ProfileCloud" class="v24-card" style="margin:18px 6vw 80px"><h2>✨ Профиль v24</h2><div id="v24Badges" class="v24-row"></div><p class="v24-muted">Интересы используются в рекомендациях и Random 2.0.</p><div class="v24-row"><input id="v24Interests" class="v24-input" style="flex:1" placeholder="games, music, study"><button id="v24SaveInterests" class="v24-btn primary">Сохранить интересы</button></div></section><script id="v24-profile-script">(async()=>{try{const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);const b=document.getElementById('v24Badges');if(b)b.innerHTML=`<span class="v24-badge ${p.app_role==='owner'?'owner':p.app_role==='admin'?'admin':p.app_role==='moderator'?'mod':''}">${p.app_role==='owner'?'👑 Owner':p.app_role==='admin'?'🛡️ Admin':p.app_role==='moderator'?'🔧 Moderator':'👤 '+p.app_role}</span>${p.is_verified?'<span class="v24-badge ok">✓ Verified</span>':''}${p.is_premium?'<span class="v24-badge">⭐ Premium</span>':''}<span class="v24-badge">🏆 XP ${p.xp||0}</span><span class="v24-badge">⭐ ${p.stars||0}</span><span class="v24-badge">🤝 Rep ${p.reputation||0}</span>`;const {data}=await RNDMCloud.getClient().from('profile_interests').select('interest').eq('user_id',u.id);document.getElementById('v24Interests').value=(data||[]).map(x=>x.interest).join(', ');document.getElementById('v24SaveInterests').onclick=async()=>{const vals=document.getElementById('v24Interests').value.split(',').map(x=>x.trim().toLowerCase()).filter(Boolean).slice(0,12);const c=RNDMCloud.getClient();await c.from('profile_interests').delete().eq('user_id',u.id);if(vals.length){const {error}=await c.from('profile_interests').insert(vals.map(interest=>({user_id:u.id,interest})));if(error)return alert(error.message)}alert('Интересы сохранены')}}catch(e){console.warn(e)}})();</script><script src="rndm-shell.js?v=25.5"></script></body></html>
+<section id="v24ProfileCloud" class="v24-card" style="margin:18px 6vw 80px"><h2>✨ Профиль</h2><div id="v24Badges" class="v24-row"></div><p class="v24-muted">Интересы используются в рекомендациях и Random 2.0.</p><div class="v24-row"><input id="v24Interests" class="v24-input" style="flex:1" placeholder="games, music, study"><button id="v24SaveInterests" class="v24-btn primary">Сохранить интересы</button></div></section><script id="v24-profile-script">(async()=>{try{const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);const b=document.getElementById('v24Badges');if(b)b.innerHTML=`<span class="v24-badge ${p.app_role==='owner'?'owner':p.app_role==='admin'?'admin':p.app_role==='moderator'?'mod':''}">${p.app_role==='owner'?'👑 Owner':p.app_role==='admin'?'🛡️ Admin':p.app_role==='moderator'?'🔧 Moderator':'👤 '+p.app_role}</span>${p.is_verified?'<span class="v24-badge ok">✓ Verified</span>':''}${p.is_premium?'<span class="v24-badge">⭐ Premium</span>':''}<span class="v24-badge">🏆 XP ${p.xp||0}</span><span class="v24-badge">⭐ ${p.stars||0}</span><span class="v24-badge">🤝 Rep ${p.reputation||0}</span>`;const {data}=await RNDMCloud.getClient().from('profile_interests').select('interest').eq('user_id',u.id);document.getElementById('v24Interests').value=(data||[]).map(x=>x.interest).join(', ');document.getElementById('v24SaveInterests').onclick=async()=>{const vals=document.getElementById('v24Interests').value.split(',').map(x=>x.trim().toLowerCase()).filter(Boolean).slice(0,12);const c=RNDMCloud.getClient();await c.from('profile_interests').delete().eq('user_id',u.id);if(vals.length){const {error}=await c.from('profile_interests').insert(vals.map(interest=>({user_id:u.id,interest})));if(error)return alert(error.message)}alert('Интересы сохранены')}}catch(e){console.warn(e)}})();</script>
+<script>
+document.addEventListener('DOMContentLoaded',()=>{
+  const toggle=document.getElementById('censorshipToggle');
+  const state=document.getElementById('censorshipGlobalState');
+  if(!toggle)return;
+  const sync=()=>{
+    const s=window.RNDMCensor?.status?.()||{userEnabled:true,globalEnabled:true};
+    toggle.checked=!!s.userEnabled;
+    toggle.disabled=!s.globalEnabled;
+    if(state) state.textContent=s.globalEnabled?'Глобальная цензура включена администратором.':'Глобальная цензура сейчас выключена администратором.';
+  };
+  window.addEventListener('rndm-censorship-ready',sync,{once:true});
+  setTimeout(sync,500);
+  toggle.addEventListener('change',()=>window.RNDMCensor?.setUserEnabled?.(toggle.checked));
+});
+</script>
+<script src="rndm-shell.js?v=25.7"></script></body></html>

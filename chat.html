@@ -7,7 +7,7 @@
 .random-live-launch{display:grid;grid-template-columns:46px 1fr auto;gap:11px;align-items:center;margin:10px 10px 6px;padding:12px;border-radius:17px;border:1px solid rgba(124,92,255,.42);background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(0,229,168,.09));color:inherit;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.12)}
 .random-live-launch .rl-icon{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:24px;background:linear-gradient(135deg,#7657ff,#24d8b0);box-shadow:0 8px 22px rgba(104,84,255,.28)}
 .random-live-launch b{display:block;font-size:14px}.random-live-launch small{display:block;color:var(--muted,#9aa3b8);font-size:11px;margin-top:3px}.random-live-launch em{font-style:normal;font-size:9px;font-weight:900;color:#42ebb4;border:1px solid rgba(66,235,180,.35);padding:5px 7px;border-radius:999px}
-</style><link rel="stylesheet" href="rndm-shell.css?v=25.5"></head><body>
+</style><link rel="stylesheet" href="rndm-shell.css?v=25.6"></head><body>
 
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
   <div class="rndm-unified-inner">
@@ -50,10 +50,8 @@
     <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
     <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
     <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
-  </div>
+  
 
-  <div class="rndm-burger-section">v24 Mega</div>
-  <div class="rndm-burger-grid">
     <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
     <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
     <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
@@ -76,7 +74,7 @@
 </div>
 <input type="file" id="fileInput" hidden accept="image/*,video/*,audio/*,.pdf,.zip,.doc,.docx,.txt">
 <div class="modal" id="groupModal"><div class="modal-card"><h2>👥 Новая группа</h2><div class="field"><label>Название</label><input id="groupTitle" maxlength="80" placeholder="Например, Наша группа"></div><div id="groupPeople"></div><div class="toolbar" style="margin-top:16px"><button class="btn" id="createGroup">Создать</button><button class="btn secondary" data-close="#groupModal">Отмена</button></div></div></div>
-</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html" class="on"><b>💬</b>Чаты</a><a href="random.html"><b>🎲</b>Рандом</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.4"></script><script src="rndm-state-sync.js?v=25.1"></script><script>
+</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html" class="on"><b>💬</b>Чаты</a><a href="random.html"><b>🎲</b>Рандом</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.7"></script><script src="rndm-censor.js?v=25.7"></script><script src="rndm-state-sync.js?v=25.1"></script><script>
 (async()=>{
 const C=RNDMCloud, sb=C.getClient(), cfg=C.configured();
 const q=s=>document.querySelector(s), esc=C.esc; let me=null,myProfile=null,active=null,activeInfo=null,rt=[],typingTimer=null,typingClearTimer=null,lastTypingSent=0,contacts=[];
@@ -115,4 +113,4 @@ await loadDialogs();const qs=new URLSearchParams(location.search),cid=qs.get('ch
 sb.channel('dialog-refresh').on('postgres_changes',{event:'*',schema:'public',table:'friendships'},loadDialogs).subscribe();
 })();
 </script>
-<script src="rndm-shell.js?v=25.5"></script></body></html>
+<script src="rndm-shell.js?v=25.7"></script></body></html>

@@ -184,6 +184,27 @@ window.RNDMCloud = (() => {
     return !error;
   }
 
+
+  async function uploadProfileImage(file,kind='cover'){
+    const c=getClient(),u=await user();
+    if(!c||!u) throw new Error('Нужно войти в аккаунт');
+    if(!file) throw new Error('Изображение не выбрано');
+    const allowed=new Set(['image/jpeg','image/png','image/webp','image/gif','image/avif']);
+    if(!allowed.has(String(file.type||'').toLowerCase())) throw new Error('Поддерживаются JPG, PNG, WebP, GIF и AVIF');
+    if(file.size>5*1024*1024) throw new Error('Изображение должно быть не больше 5 МБ');
+    const ext=({'image/jpeg':'jpg','image/png':'png','image/webp':'webp','image/gif':'gif','image/avif':'avif'})[file.type]||'jpg';
+    const safeKind=String(kind||'image').replace(/[^a-z0-9_-]/gi,'').slice(0,20)||'image';
+    const path=`${u.id}/${safeKind}-${Date.now()}-${crypto.randomUUID()}.${ext}`;
+    const {error}=await c.storage.from('avatars').upload(path,file,{contentType:file.type,cacheControl:'3600',upsert:false});
+    if(error) throw error;
+    const {data}=c.storage.from('avatars').getPublicUrl(path);
+    return {path,url:data.publicUrl+'?v='+Date.now()};
+  }
+
+  async function deleteOwnProfileImage(url){
+    return deleteOwnAvatar(url);
+  }
+
   async function upload(bucket,file,prefix='files',maxBytes=100*1024*1024){
     const c=getClient(),u=await user();
     if(!c||!u) throw new Error('Нужно войти в аккаунт');
@@ -208,5 +229,5 @@ window.RNDMCloud = (() => {
     return data?.subscription||{unsubscribe(){}};
   }
 
-  return {configured,getClient,user,validateUser,session,profile,myProfile,invalidateProfile,esc,time,heartbeat,stateGet,stateSet,upload,uploadAvatar,deleteOwnAvatar,onAuth};
+  return {configured,getClient,user,validateUser,session,profile,myProfile,invalidateProfile,esc,time,heartbeat,stateGet,stateSet,upload,uploadAvatar,deleteOwnAvatar,uploadProfileImage,deleteOwnProfileImage,onAuth};
 })();

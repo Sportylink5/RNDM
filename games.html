@@ -5,7 +5,7 @@
 
 .game-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.game{padding:18px;min-height:300px;display:flex;flex-direction:column;gap:13px}.game h2{margin:0}.game p{color:var(--muted);margin:0}.score{font-size:42px;font-weight:900}.reaction-pad{flex:1;min-height:150px;border-radius:18px;border:1px solid var(--line);display:grid;place-items:center;text-align:center;padding:15px;background:#272e3e;font-weight:850;user-select:none}.reaction-pad.ready{background:#1bbb83}.reaction-pad.bad{background:#b62e52}.guess-row{display:flex;gap:8px}.guess-row input{width:100%;font-size:18px}.rps{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.rps button{font-size:35px;padding:18px 8px}.game-status{min-height:44px;color:#dbe1f4}.reward-bar{display:flex;align-items:center;gap:10px;justify-content:space-between;padding:12px 16px;margin-bottom:16px}@media(max-width:900px){.game-grid{grid-template-columns:1fr}.game{min-height:260px}}
 </style>
-<link rel="stylesheet" href="rndm-shell.css?v=25.5"></head><body>
+<link rel="stylesheet" href="rndm-shell.css?v=25.6"></head><body>
 
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
   <div class="rndm-unified-inner">
@@ -48,10 +48,8 @@
     <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
     <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
     <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
-  </div>
+  
 
-  <div class="rndm-burger-section">v24 Mega</div>
-  <div class="rndm-burger-grid">
     <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
     <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
     <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
@@ -69,4 +67,4 @@ const toast=(m)=>{const t=document.querySelector('#toast');t.textContent=m;t.cla
 
 const xpEl=document.querySelector('#gameXP');function xp(n=0){let x=+(localStorage.getItem('rndm-xp-v1')||0)+n;localStorage.setItem('rndm-xp-v1',x);localStorage.setItem('rndm-xp-v13',x);xpEl.textContent='XP '+x;if(n)toast('+'+n+' XP 🎮');return x}xp();let rt=null,rs='idle',startAt=0;const pad=document.querySelector('#reactPad'),rstat=document.querySelector('#reactStatus');const best=()=>localStorage.getItem('rndm-game-reaction-best');function showBest(){rstat.textContent='Рекорд: '+(best()?best()+' мс':'—')}showBest();pad.onclick=()=>{if(rs==='idle'||rs==='done'||rs==='bad'){rs='wait';pad.className='reaction-pad';pad.textContent='Жди зелёный…';rt=setTimeout(()=>{rs='go';startAt=performance.now();pad.classList.add('ready');pad.textContent='ЖМИ!'},900+Math.random()*2400)}else if(rs==='wait'){clearTimeout(rt);rs='bad';pad.className='reaction-pad bad';pad.textContent='Слишком рано 😅';setTimeout(()=>{pad.textContent='Нажми, чтобы начать';showBest()},800)}else if(rs==='go'){const ms=Math.round(performance.now()-startAt);rs='done';pad.className='reaction-pad';pad.textContent=ms+' мс';let b=+(best()||9999);if(ms<b){localStorage.setItem('rndm-game-reaction-best',ms);xp(10);toast('Новый рекорд! ⚡')}showBest()}};let target=1+Math.floor(Math.random()*100),tries=0;function newGuess(){target=1+Math.floor(Math.random()*100);tries=0;document.querySelector('#guessTries').textContent=0;document.querySelector('#guessStatus').textContent='Новое число загадано'}document.querySelector('#guessBtn').onclick=()=>{const v=+document.querySelector('#guessInput').value;if(v<1||v>100)return toast('Введите число 1–100');tries++;document.querySelector('#guessTries').textContent=tries;if(v===target){document.querySelector('#guessStatus').textContent='Угадал! 🎉 Было '+target;xp(Math.max(3,15-tries));setTimeout(newGuess,1200)}else document.querySelector('#guessStatus').textContent=v<target?'Больше ⬆️':'Меньше ⬇️'};document.querySelector('#guessNew').onclick=newGuess;let wins=+(localStorage.getItem('rndm-game-rps-wins')||0);document.querySelector('#rpsWins').textContent=wins;const beats={rock:'scissors',scissors:'paper',paper:'rock'},icons={rock:'✊',scissors:'✌️',paper:'✋'};document.querySelectorAll('[data-rps]').forEach(b=>b.onclick=()=>{const me=b.dataset.rps,arr=['rock','scissors','paper'],cpu=arr[Math.floor(Math.random()*3)];let msg;if(me===cpu)msg='Ничья '+icons[cpu];else if(beats[me]===cpu){wins++;localStorage.setItem('rndm-game-rps-wins',wins);document.querySelector('#rpsWins').textContent=wins;msg='Победа! '+icons[me]+' > '+icons[cpu];if(wins%5===0)xp(5)}else msg='Проигрыш '+icons[cpu]+' > '+icons[me];document.querySelector('#rpsStatus').textContent=msg});
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.4"></script><script src="rndm-state-sync.js?v=25.1"></script><script src="rndm-shell.js?v=25.5"></script></body></html>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.7"></script><script src="rndm-censor.js?v=25.7"></script><script src="rndm-state-sync.js?v=25.1"></script><script src="rndm-shell.js?v=25.7"></script></body></html>
