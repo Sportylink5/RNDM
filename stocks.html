@@ -1,0 +1,114 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#090b13"><title>RNDM Биржа</title>
+<link rel="stylesheet" href="rndm-shell.css?v=25.5">
+<style>
+:root{--bg:#090b13;--panel:#141824;--panel2:#1b2130;--line:#ffffff15;--text:#f7f8ff;--muted:#9da7bd;--green:#29df9f;--red:#ff627d;--accent:#7c5cff;--blue:#4b91ff}
+*{box-sizing:border-box}body{margin:0;min-height:100dvh;background:radial-gradient(circle at 12% 0%,#2b1e6640,transparent 32%),radial-gradient(circle at 90% 14%,#074a5f40,transparent 30%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:96px}button,input{font:inherit}a{color:inherit}.wrap{width:min(1180px,calc(100% - 28px));margin:0 auto;padding:30px 0 70px}.hero{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin-bottom:18px}.hero h1{margin:5px 0 6px;font-size:clamp(34px,6vw,62px);letter-spacing:-.04em}.hero p{margin:0;color:var(--muted);max-width:680px}.tag{display:inline-flex;gap:7px;padding:7px 10px;border-radius:999px;background:#7657ff1c;border:1px solid #8b72ff44;color:#b8aaff;font-size:12px;font-weight:900}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0}.stat{background:linear-gradient(180deg,#1b2030,#121722);border:1px solid var(--line);border-radius:20px;padding:16px}.stat small{color:var(--muted)}.stat b{display:block;font-size:25px;margin-top:5px}.tabs{display:flex;gap:8px;overflow:auto;margin:20px 0 14px}.tab{border:1px solid var(--line);background:#ffffff08;color:var(--muted);border-radius:14px;padding:10px 14px;font-weight:850;white-space:nowrap}.tab.active{color:white;background:linear-gradient(135deg,var(--accent),var(--blue));border-color:transparent}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:13px}.stock{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:22px;padding:16px;box-shadow:0 16px 45px #0002}.stock.off{opacity:.68}.stock-head{display:flex;gap:12px;align-items:center}.icon{width:48px;height:48px;display:grid;place-items:center;border-radius:16px;background:#ffffff0d;font-size:25px}.ticker{font-weight:950;font-size:17px}.name{color:var(--muted);font-size:13px;margin-top:2px}.price{font-size:28px;font-weight:950;margin-top:15px}.delta{font-size:13px;font-weight:850}.up{color:var(--green)}.down{color:var(--red)}.flat{color:var(--muted)}.trade{display:grid;grid-template-columns:1fr 1fr 1fr;gap:7px;margin-top:13px}.qty{width:100%;border:1px solid var(--line);background:#0e121d;color:#fff;border-radius:12px;padding:10px;min-width:0}.btn{border:0;border-radius:12px;padding:10px 11px;color:white;font-weight:900;cursor:pointer}.buy{background:#138a65}.sell{background:#a83a52}.btn:disabled{opacity:.45}.owned{margin-top:10px;padding-top:10px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.empty{padding:30px;border:1px dashed var(--line);border-radius:20px;color:var(--muted);text-align:center}.list{display:grid;gap:10px}.row{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center;background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:13px}.row small{color:var(--muted)}.positive{color:var(--green)}.negative{color:var(--red)}.notice{display:none;padding:25px;border:1px dashed var(--line);border-radius:20px;text-align:center;color:var(--muted)}.modal{position:fixed;inset:0;z-index:3000;background:#02040bd9;display:none;align-items:center;justify-content:center;padding:16px}.modal.open{display:flex}.sheet{width:min(680px,100%);max-height:88dvh;overflow:auto;background:#131823;border:1px solid var(--line);border-radius:25px;padding:20px}.close{float:right;border:0;background:#ffffff0d;color:white;width:38px;height:38px;border-radius:12px;font-size:23px}.chart{height:210px;background:#0b0e16;border:1px solid var(--line);border-radius:17px;padding:12px;margin-top:15px}.chart svg{width:100%;height:100%;overflow:visible}.history{display:grid;gap:6px;margin-top:12px}.history div{display:flex;justify-content:space-between;color:var(--muted);font-size:13px}
+@media(max-width:700px){.wrap{width:min(100% - 22px,1180px);padding-top:20px}.hero{align-items:flex-start;flex-direction:column}.summary{grid-template-columns:1fr 1fr}.summary .stat:last-child{grid-column:1/-1}.grid{grid-template-columns:1fr}.trade{grid-template-columns:1fr 1fr}.trade .qty{grid-column:1/-1}}
+</style></head><body>
+<header class="rndm-unified-header" id="rndmUnifiedHeader">
+  <div class="rndm-unified-inner">
+    <a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
+    <nav class="rndm-core-nav" aria-label="Основные разделы">
+      <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
+      <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
+      <a href="random.html" data-rndm-page="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
+      <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
+      <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
+    </nav>
+    <div class="rndm-unified-actions">
+      <button class="rndm-page-action" id="rndmClipAction" type="button" title="Добавить клип" style="display:none!important">＋<span>Клип</span></button>
+      <a class="rndm-account-chip" id="rndmUnifiedAccount" href="profile.html"><span>Профиль</span> 👤</a>
+      <button class="rndm-nav-icon" id="rndmUnifiedTheme" type="button" aria-label="Сменить тему">🌙</button>
+      <button class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button" aria-label="Открыть дополнительное меню">☰</button>
+    </div>
+  </div>
+</header>
+<div class="rndm-nav-backdrop" id="rndmNavBackdrop"></div>
+<aside class="rndm-burger-menu" id="rndmBurgerMenu" aria-label="Дополнительные разделы">
+  <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
+  <div class="rndm-burger-section">Сообщество</div>
+  <div class="rndm-burger-grid">
+    <a href="contacts.html" data-rndm-page="contacts.html"><span class="bi">👥</span>Контакты</a>
+    <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
+    <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
+    <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
+    <a href="explore.html" data-rndm-page="explore.html"><span class="bi">✨</span>Рекомендации</a>
+    <a href="profile.html" data-rndm-page="profile.html"><span class="bi">👤</span>Профиль</a>
+    <a href="about.html" data-rndm-page="about.html"><span class="bi">ℹ️</span>О проекте</a>
+  </div>
+  <div class="rndm-burger-section">Сервисы</div>
+  <div class="rndm-burger-grid">
+    <a href="market.html" data-rndm-page="market.html"><span class="bi">🛍️</span>Market</a>
+    <a href="stocks.html" data-rndm-page="stocks.html"><span class="bi">📈</span>Биржа</a>
+    <a href="bank.html" data-rndm-page="bank.html"><span class="bi">💳</span>Банк</a>
+    <a href="estate.html" data-rndm-page="estate.html"><span class="bi">🏠</span>Квартиры</a>
+    <a href="shop.html" data-rndm-page="shop.html"><span class="bi">⭐</span>Магазин</a>
+    <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
+    <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
+    <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
+  </div>
+
+  <div class="rndm-burger-section">v24 Mega</div>
+  <div class="rndm-burger-grid">
+    <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
+    <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
+    <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
+    <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
+    <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
+    <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
+    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html" hidden aria-hidden="true"><span class="bi">🛡️</span>Админка</a>
+  </div>
+</aside>
+
+<main class="wrap">
+<section class="hero"><div><span class="tag">🎮 ВИРТУАЛЬНЫЙ РЫНОК • ТОЛЬКО ИГРОВЫЕ R₽</span><h1>📈 RNDM Биржа</h1><p>Покупай акции компаний, созданных администрацией RNDM. Цена задаётся админами, сделки проходят мгновенно через игровой баланс.</p></div><a href="bank.html" class="tab" style="text-decoration:none">💳 Банк</a></section>
+<div id="authNotice" class="notice">Чтобы пользоваться биржей, <a href="profile.html" style="color:#9d8cff">войдите в аккаунт</a>.</div>
+<section id="app" style="display:none">
+<div class="summary"><div class="stat"><small>Игровой баланс</small><b id="wallet">—</b></div><div class="stat"><small>Стоимость портфеля</small><b id="portfolioValue">—</b></div><div class="stat"><small>Прибыль / убыток</small><b id="portfolioPnl">—</b></div></div>
+<div class="tabs"><button class="tab active" data-tab="market">📊 Рынок</button><button class="tab" data-tab="portfolio">💼 Портфель</button><button class="tab" data-tab="trades">🧾 Сделки</button></div>
+<section data-pane="market"><div id="stocks" class="grid"></div></section>
+<section data-pane="portfolio" style="display:none"><div id="portfolio" class="list"></div></section>
+<section data-pane="trades" style="display:none"><div id="trades" class="list"></div></section>
+</section></main>
+<div class="modal" id="chartModal"><div class="sheet"><button class="close" id="chartClose">×</button><div id="chartBody"></div></div></div>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.4"></script><script src="rndm-state-sync.js?v=25.1"></script>
+<script>
+(async()=>{
+ const C=RNDMCloud,sb=C.getClient(),me=await C.user(),$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+ if(!me){$('#authNotice').style.display='block';return} $('#app').style.display='block';
+ let assets=[],positions=[],trades=[];
+ const money=n=>new Intl.NumberFormat('ru-RU').format(Math.round(Number(n||0)))+' R₽';
+ const num=n=>new Intl.NumberFormat('ru-RU').format(Number(n||0));
+ const esc=C.esc;
+ const posMap=()=>new Map(positions.map(x=>[x.stock_id,x]));
+ function change(a){const prev=Number(a.previous_price||a.price||1),cur=Number(a.price||0);return prev?((cur-prev)/prev*100):0}
+ function setTab(name){$$('[data-pane]').forEach(x=>x.style.display=x.dataset.pane===name?'block':'none');$$('[data-tab]').forEach(x=>x.classList.toggle('active',x.dataset.tab===name))}
+ $$('[data-tab]').forEach(b=>b.onclick=()=>setTab(b.dataset.tab));
+ async function load(){
+  const [ar,pr,tr,wr]=await Promise.all([
+   sb.from('stock_assets').select('*').order('ticker'),
+   sb.from('stock_positions').select('user_id,stock_id,quantity,average_price,updated_at,stock_assets(id,ticker,name,emoji,price,previous_price,is_active)').eq('user_id',me.id),
+   sb.from('stock_trades').select('id,stock_id,side,quantity,price,total,created_at,stock_assets(ticker,name,emoji)').eq('user_id',me.id).order('created_at',{ascending:false}).limit(100),
+   sb.from('game_wallets').select('balance').eq('user_id',me.id).maybeSingle()
+  ]);
+  if(ar.error){$('#stocks').innerHTML='<div class="empty">'+esc(ar.error.message)+'</div>';return}
+  assets=ar.data||[];positions=pr.data||[];trades=tr.data||[];
+  $('#wallet').textContent=money(wr.data?.balance||0); render();
+ }
+ function render(){
+  const pm=posMap();let value=0,cost=0;
+  positions.forEach(p=>{const a=p.stock_assets;if(!a)return;value+=Number(p.quantity)*Number(a.price);cost+=Number(p.quantity)*Number(p.average_price)});
+  const pnl=value-cost;$('#portfolioValue').textContent=money(value);$('#portfolioPnl').textContent=(pnl>=0?'+':'')+money(pnl);$('#portfolioPnl').className=pnl>0?'positive':pnl<0?'negative':'';
+  $('#stocks').innerHTML=assets.length?assets.map(a=>{const p=pm.get(a.id),d=change(a),cls=d>0?'up':d<0?'down':'flat';return `<article class="stock ${a.is_active?'':'off'}"><div class="stock-head"><button class="icon" data-chart="${a.id}" style="border:0;color:white;cursor:pointer">${esc(a.emoji||'📈')}</button><div><div class="ticker">${esc(a.ticker)}</div><div class="name">${esc(a.name)}</div></div></div><div class="price">${money(a.price)}</div><div class="delta ${cls}">${d>0?'▲':d<0?'▼':'•'} ${Math.abs(d).toFixed(2)}% · было ${money(a.previous_price)}</div><div class="trade"><input class="qty" type="number" min="1" step="1" value="1" id="qty-${a.id}" ${a.is_active?'':'disabled'}><button class="btn buy" data-buy="${a.id}" ${a.is_active?'':'disabled'}>Купить</button><button class="btn sell" data-sell="${a.id}" ${a.is_active&&p?.quantity>0?'':'disabled'}>Продать</button></div><div class="owned">${a.is_active?'🟢 Торги открыты':'⏸ Торги приостановлены'} · У вас: <b>${num(p?.quantity||0)}</b> шт.${p?` · средняя ${money(p.average_price)}`:''}</div></article>`}).join(''):'<div class="empty">Пока нет акций. Администратор может создать первую в Admin Center.</div>';
+  $('#portfolio').innerHTML=positions.length?positions.map(p=>{const a=p.stock_assets,cur=Number(p.quantity)*Number(a?.price||0),spent=Number(p.quantity)*Number(p.average_price||0),pl=cur-spent;return `<div class="row"><div><b>${esc(a?.emoji||'📈')} ${esc(a?.ticker||'')} · ${esc(a?.name||'')}</b><br><small>${num(p.quantity)} шт. · средняя ${money(p.average_price)} · сейчас ${money(a?.price)}</small></div><b class="${pl>0?'positive':pl<0?'negative':''}">${pl>=0?'+':''}${money(pl)}</b></div>`}).join(''):'<div class="empty">Портфель пуст.</div>';
+  $('#trades').innerHTML=trades.length?trades.map(t=>`<div class="row"><div><b>${t.side==='buy'?'🟢 Покупка':'🔴 Продажа'} · ${esc(t.stock_assets?.ticker||'')}</b><br><small>${new Date(t.created_at).toLocaleString('ru-RU')} · ${num(t.quantity)} шт. × ${money(t.price)}</small></div><b>${money(t.total)}</b></div>`).join(''):'<div class="empty">Сделок пока нет.</div>';
+ }
+ async function trade(id,side){const q=Math.floor(Number(document.getElementById('qty-'+id)?.value||0));if(!q||q<1)return alert('Укажи количество');const a=assets.find(x=>x.id===id);if(!confirm(`${side==='buy'?'Купить':'Продать'} ${q} шт. ${a?.ticker} по ${money(a?.price)}?`))return;const {data,error}=await sb.rpc('trade_stock',{p_stock:id,p_side:side,p_quantity:q});if(error)return alert(error.message);await load()}
+ $('#stocks').addEventListener('click',e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.buy)return trade(b.dataset.buy,'buy');if(b.dataset.sell)return trade(b.dataset.sell,'sell');if(b.dataset.chart)return showChart(b.dataset.chart)});
+ async function showChart(id){const a=assets.find(x=>x.id===id);const {data,error}=await sb.from('stock_price_history').select('price,created_at').eq('stock_id',id).order('created_at',{ascending:true}).limit(80);if(error)return alert(error.message);const h=data||[];let svg='<div class="empty">Истории пока мало</div>';if(h.length>1){const vals=h.map(x=>Number(x.price)),min=Math.min(...vals),max=Math.max(...vals),range=Math.max(1,max-min);const pts=vals.map((v,i)=>`${(i/(vals.length-1)*100).toFixed(2)},${(100-(v-min)/range*88-6).toFixed(2)}`).join(' ');svg=`<div class="chart"><svg viewBox="0 0 100 100" preserveAspectRatio="none"><polyline points="${pts}" fill="none" stroke="currentColor" stroke-width="2.2" vector-effect="non-scaling-stroke"/></svg></div>`}$('#chartBody').innerHTML=`<h2>${esc(a?.emoji||'📈')} ${esc(a?.ticker||'')} · ${esc(a?.name||'')}</h2><div class="price">${money(a?.price)}</div>${svg}<div class="history">${h.slice(-12).reverse().map(x=>`<div><span>${new Date(x.created_at).toLocaleString('ru-RU')}</span><b>${money(x.price)}</b></div>`).join('')}</div>`;$('#chartModal').classList.add('open')}
+ $('#chartClose').onclick=()=>$('#chartModal').classList.remove('open');$('#chartModal').onclick=e=>{if(e.target===$('#chartModal'))$('#chartModal').classList.remove('open')};
+ await load();
+ sb.channel('stocks-live-v254').on('postgres_changes',{event:'*',schema:'public',table:'stock_assets'},()=>load()).subscribe();
+})();
+</script>
+<script src="rndm-shell.js?v=25.5"></script></body></html>
