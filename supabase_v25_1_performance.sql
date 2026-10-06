@@ -1,0 +1,46 @@
+-- Backup of RNDM v25.1 performance changes.
+-- Already applied directly to the connected Rndm Supabase project.
+
+create index if not exists admin_audit_actor_idx on public.admin_audit(actor_id);
+create index if not exists admin_audit_target_user_idx on public.admin_audit(target_user_id);
+create index if not exists clip_comments_user_idx on public.clip_comments(user_id);
+create index if not exists clip_likes_user_idx on public.clip_likes(user_id);
+create index if not exists clips_user_idx on public.clips(user_id);
+create index if not exists conversation_members_user_idx on public.conversation_members(user_id);
+create index if not exists conversations_created_by_idx on public.conversations(created_by);
+create index if not exists event_rsvps_user_idx on public.event_rsvps(user_id);
+create index if not exists friendships_addressee_idx on public.friendships(addressee);
+create index if not exists game_loans_user_idx on public.game_loans(user_id);
+create index if not exists marketplace_favorites_user_idx on public.marketplace_favorites(user_id);
+create index if not exists marketplace_listings_seller_idx on public.marketplace_listings(seller_id);
+create index if not exists message_reactions_conversation_idx on public.message_reactions(conversation_id);
+create index if not exists message_reactions_user_idx on public.message_reactions(user_id);
+create index if not exists messages_reply_to_idx on public.messages(reply_to);
+create index if not exists messages_sender_idx on public.messages(sender_id);
+create index if not exists notifications_user_created_idx on public.notifications(user_id, created_at desc);
+create index if not exists owned_properties_property_idx on public.owned_properties(property_id);
+create index if not exists random_queue_conversation_idx on public.random_queue(conversation_id);
+create index if not exists random_queue_matched_user_idx on public.random_queue(matched_user_id);
+create index if not exists reports_moderator_idx on public.reports(moderator_id);
+create index if not exists reports_reporter_idx on public.reports(reporter_id);
+create index if not exists reports_target_user_idx on public.reports(target_user_id);
+create index if not exists rndm_channel_comments_user_idx on public.rndm_channel_comments(user_id);
+create index if not exists rndm_channel_posts_author_idx on public.rndm_channel_posts(author_id);
+create index if not exists rndm_channel_reactions_user_idx on public.rndm_channel_reactions(user_id);
+create index if not exists rndm_channel_subscriptions_user_idx on public.rndm_channel_subscriptions(user_id);
+create index if not exists rndm_channels_owner_idx on public.rndm_channels(owner_id);
+create index if not exists rndm_events_owner_idx on public.rndm_events(owner_id);
+create index if not exists rndm_follows_followee_idx on public.rndm_follows(followee_id);
+create index if not exists rndm_video_comments_user_idx on public.rndm_video_comments(user_id);
+create index if not exists rndm_video_likes_user_idx on public.rndm_video_likes(user_id);
+create index if not exists rndm_videos_user_idx on public.rndm_videos(user_id);
+create index if not exists stories_user_idx on public.stories(user_id);
+create index if not exists story_reactions_user_idx on public.story_reactions(user_id);
+create index if not exists story_views_user_idx on public.story_views(user_id);
+create index if not exists typing_states_user_idx on public.typing_states(user_id);
+create index if not exists notifications_user_unread_created_idx on public.notifications(user_id,is_read,created_at desc);
+create index if not exists messages_conversation_created_desc_idx on public.messages(conversation_id,created_at desc,id desc);
+create index if not exists random_queue_waiting_joined_idx on public.random_queue(status,joined_at) where status='waiting';
+create index if not exists marketplace_status_created_idx on public.marketplace_listings(status,created_at desc);
+create index if not exists stories_expires_created_idx on public.stories(expires_at,created_at desc);
+create index if not exists referrals_referrer_idx on public.referrals(referrer_id,created_at desc);

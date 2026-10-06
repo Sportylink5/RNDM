@@ -58,7 +58,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
 }
 </style>
 
-</head><body>
+<link rel="stylesheet" href="rndm-shell.css?v=25.3"></head><body>
 
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
   <div class="rndm-unified-inner">
@@ -121,7 +121,7 @@ const toast=(m)=>{const t=document.querySelector('#toast');t.textContent=m;t.cla
 
 const xpEl=document.querySelector('#gameXP');function xp(n=0){let x=+(localStorage.getItem('rndm-xp-v1')||0)+n;localStorage.setItem('rndm-xp-v1',x);localStorage.setItem('rndm-xp-v13',x);xpEl.textContent='XP '+x;if(n)toast('+'+n+' XP 🎮');return x}xp();let rt=null,rs='idle',startAt=0;const pad=document.querySelector('#reactPad'),rstat=document.querySelector('#reactStatus');const best=()=>localStorage.getItem('rndm-game-reaction-best');function showBest(){rstat.textContent='Рекорд: '+(best()?best()+' мс':'—')}showBest();pad.onclick=()=>{if(rs==='idle'||rs==='done'||rs==='bad'){rs='wait';pad.className='reaction-pad';pad.textContent='Жди зелёный…';rt=setTimeout(()=>{rs='go';startAt=performance.now();pad.classList.add('ready');pad.textContent='ЖМИ!'},900+Math.random()*2400)}else if(rs==='wait'){clearTimeout(rt);rs='bad';pad.className='reaction-pad bad';pad.textContent='Слишком рано 😅';setTimeout(()=>{pad.textContent='Нажми, чтобы начать';showBest()},800)}else if(rs==='go'){const ms=Math.round(performance.now()-startAt);rs='done';pad.className='reaction-pad';pad.textContent=ms+' мс';let b=+(best()||9999);if(ms<b){localStorage.setItem('rndm-game-reaction-best',ms);xp(10);toast('Новый рекорд! ⚡')}showBest()}};let target=1+Math.floor(Math.random()*100),tries=0;function newGuess(){target=1+Math.floor(Math.random()*100);tries=0;document.querySelector('#guessTries').textContent=0;document.querySelector('#guessStatus').textContent='Новое число загадано'}document.querySelector('#guessBtn').onclick=()=>{const v=+document.querySelector('#guessInput').value;if(v<1||v>100)return toast('Введите число 1–100');tries++;document.querySelector('#guessTries').textContent=tries;if(v===target){document.querySelector('#guessStatus').textContent='Угадал! 🎉 Было '+target;xp(Math.max(3,15-tries));setTimeout(newGuess,1200)}else document.querySelector('#guessStatus').textContent=v<target?'Больше ⬆️':'Меньше ⬇️'};document.querySelector('#guessNew').onclick=newGuess;let wins=+(localStorage.getItem('rndm-game-rps-wins')||0);document.querySelector('#rpsWins').textContent=wins;const beats={rock:'scissors',scissors:'paper',paper:'rock'},icons={rock:'✊',scissors:'✌️',paper:'✋'};document.querySelectorAll('[data-rps]').forEach(b=>b.onclick=()=>{const me=b.dataset.rps,arr=['rock','scissors','paper'],cpu=arr[Math.floor(Math.random()*3)];let msg;if(me===cpu)msg='Ничья '+icons[cpu];else if(beats[me]===cpu){wins++;localStorage.setItem('rndm-game-rps-wins',wins);document.querySelector('#rpsWins').textContent=wins;msg='Победа! '+icons[me]+' > '+icons[cpu];if(wins%5===0)xp(5)}else msg='Проигрыш '+icons[cpu]+' > '+icons[me];document.querySelector('#rpsStatus').textContent=msg});
 </script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25"></script><script src="rndm-state-sync.js?v=25"></script><script id="rndm-unified-nav-script">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.2"></script><script src="rndm-state-sync.js?v=25.1"></script><script id="rndm-unified-nav-script">
 (()=>{
   const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
   const core=new Set(['index.html','random.html','chat.html','channels.html','clips.html']);
@@ -146,4 +146,4 @@ const xpEl=document.querySelector('#gameXP');function xp(n=0){let x=+(localStora
 </script>
 
 <script id="rndm-v24-guard">(async()=>{try{if(!window.RNDMCloud?.configured?.())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);if(!p)return;if(p.is_banned&&(!p.banned_until||new Date(p.banned_until)>new Date())&&!location.pathname.endsWith('/banned.html')){location.href='banned.html';return}if(['owner','admin','moderator'].includes(p.app_role)){document.querySelectorAll('.v24-admin-link').forEach(x=>{x.hidden=false;x.setAttribute('aria-hidden','false');x.classList.add('show')});const a=document.getElementById('rndmUnifiedAccount');if(a)a.innerHTML=`<span>@${RNDMCloud.esc(p.username||'я')} ${p.app_role==='owner'?'👑':p.app_role==='admin'?'🛡️':'🔧'}</span> 👤`}}catch(e){}})();</script>
-</body></html>
+<script src="rndm-shell.js?v=25.3"></script></body></html>

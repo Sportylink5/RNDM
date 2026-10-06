@@ -56,7 +56,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
 }
 </style>
 
-</head><body>
+<link rel="stylesheet" href="rndm-shell.css?v=25.3"></head><body>
 
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
   <div class="rndm-unified-inner">
@@ -124,7 +124,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
  <section class="card"><div class="side-head"><h2>Входящие заявки</h2></div><div class="list" id="incoming"></div></section>
  <section class="card"><div class="side-head"><h2>Мои контакты</h2></div><div class="list" id="friendsList"></div></section>
 </div>
-</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html"><b>💬</b>Чаты</a><a href="contacts.html" class="on"><b>👥</b>Контакты</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25"></script><script src="rndm-state-sync.js?v=25"></script><script>
+</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html"><b>💬</b>Чаты</a><a href="contacts.html" class="on"><b>👥</b>Контакты</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.2"></script><script src="rndm-state-sync.js?v=25.1"></script><script>
 (async()=>{const C=RNDMCloud,sb=C.getClient(),esc=C.esc;q=s=>document.querySelector(s);q('#notConfigured').style.display=C.configured()?'none':'block';if(!sb)return;const me=await C.user();if(!me){q('#authNeeded').style.display='block';return}const mp=await C.profile(me.id);q('#topAccount').textContent='@'+(mp?.username||'я');C.heartbeat();
 async function profileMap(ids){if(!ids.length)return{};const {data}=await sb.from('profiles').select('*').in('id',[...new Set(ids)]);return Object.fromEntries((data||[]).map(p=>[p.id,p]))}
 function avatar(p){return p?.avatar_url?`<img src="${esc(p.avatar_url)}">`:esc((p?.display_name||p?.username||'?')[0].toUpperCase())}
@@ -132,7 +132,7 @@ async function load(){const {data:f,error}=await sb.from('friendships').select('
  const accepted=(f||[]).filter(x=>x.status==='accepted');q('#friendsList').innerHTML=accepted.length?accepted.map(x=>{const oid=x.requester===me.id?x.addressee:x.requester,p=pm[oid],online=p&&Date.now()-new Date(p.last_seen).getTime()<70000;return `<div class="row"><div class="avatar">${avatar(p)}</div><div class="row-main"><div class="row-title">${esc(p?.display_name||'')} ${online?'<span class="online-dot"></span>':''}</div><div class="row-sub">@${esc(p?.username||'')}</div></div><button class="icon-btn" data-chat="${oid}">💬</button><button class="icon-btn" data-remove="${x.id}">×</button></div>`}).join(''):'<div class="empty">Добавьте первого друга через поиск</div>';
  document.querySelectorAll('[data-accept]').forEach(b=>b.onclick=async()=>{const {error}=await sb.rpc('accept_friend_request',{request_id:+b.dataset.accept});if(error)alert(error.message);load()});document.querySelectorAll('[data-remove]').forEach(b=>b.onclick=async()=>{if(confirm('Удалить заявку/контакт?')){await sb.from('friendships').delete().eq('id',+b.dataset.remove);load()}});document.querySelectorAll('[data-chat]').forEach(b=>b.onclick=async()=>{const {data,error}=await sb.rpc('get_or_create_direct',{other:b.dataset.chat});if(error)return alert(error.message);location.href='chat.html?chat='+data});}
 q('#searchBtn').onclick=search;q('#searchUser').onkeydown=e=>{if(e.key==='Enter')search()};async function search(){const s=q('#searchUser').value.trim().replace(/^@/,'');if(s.length<2)return;let {data,error}=await sb.from('profiles').select('*').neq('id',me.id).or(`username.ilike.%${s}%,display_name.ilike.%${s}%`).limit(20);if(error){q('#searchResults').innerHTML='<div class="error">'+esc(error.message)+'</div>';return}q('#searchResults').innerHTML=(data||[]).length?`<div class="list">${data.map(p=>`<div class="row"><div class="avatar">${avatar(p)}</div><div class="row-main"><div class="row-title">${esc(p.display_name)}</div><div class="row-sub">@${esc(p.username)} · ${esc(p.bio||'')}</div></div><button class="icon-btn" data-add="${p.id}">＋</button><button class="icon-btn" data-chat="${p.id}">💬</button></div>`).join('')}</div>`:'<div class="muted">Никого не найдено</div>';q('#searchResults').querySelectorAll('[data-add]').forEach(b=>b.onclick=async()=>{const {error}=await sb.rpc('send_friend_request',{other:b.dataset.add});alert(error?'Ошибка: '+error.message:'Заявка отправлена ✓');load()});q('#searchResults').querySelectorAll('[data-chat]').forEach(b=>b.onclick=async()=>{const {data,error}=await sb.rpc('get_or_create_direct',{other:b.dataset.chat});if(error)return alert(error.message);location.href='chat.html?chat='+data})}
-await load();sb.channel('friends-live').on('postgres_changes',{event:'*',schema:'public',table:'friendships'},load).subscribe();setInterval(()=>C.heartbeat(),30000);
+await load();sb.channel('friends-live').on('postgres_changes',{event:'*',schema:'public',table:'friendships'},load).subscribe();setInterval(()=>C.heartbeat(),60000);
 })();
 </script>
 <script id="rndm-unified-nav-script">
@@ -160,4 +160,4 @@ await load();sb.channel('friends-live').on('postgres_changes',{event:'*',schema:
 </script>
 
 <script id="rndm-v24-guard">(async()=>{try{if(!window.RNDMCloud?.configured?.())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);if(!p)return;if(p.is_banned&&(!p.banned_until||new Date(p.banned_until)>new Date())&&!location.pathname.endsWith('/banned.html')){location.href='banned.html';return}if(['owner','admin','moderator'].includes(p.app_role)){document.querySelectorAll('.v24-admin-link').forEach(x=>{x.hidden=false;x.setAttribute('aria-hidden','false');x.classList.add('show')});const a=document.getElementById('rndmUnifiedAccount');if(a)a.innerHTML=`<span>@${RNDMCloud.esc(p.username||'я')} ${p.app_role==='owner'?'👑':p.app_role==='admin'?'🛡️':'🔧'}</span> 👤`}}catch(e){}})();</script>
-</body></html>
+<script src="rndm-shell.js?v=25.3"></script></body></html>
