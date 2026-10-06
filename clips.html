@@ -301,60 +301,7 @@ img{max-width:100%}
 <meta name="apple-mobile-web-app-title" content="RNDM Chat">
 <meta name="format-detection" content="telephone=no">
 
-<style id="rndm-unified-nav-style">
-/* === RNDM v21 unified navigation === */
-body > header:not(.rndm-unified-header){display:none!important}
-nav.mobile-bottom-nav,nav.mobile,nav.mobile-nav,nav.bottom,.mobile-more-sheet,.mobile-more-backdrop{display:none!important}
-.rndm-unified-header{
-  position:sticky!important;top:0!important;z-index:2147483000!important;width:100%!important;
-  background:rgba(10,12,20,.92)!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.09)!important;
-  backdrop-filter:blur(20px) saturate(145%)!important;-webkit-backdrop-filter:blur(20px) saturate(145%)!important;
-  box-shadow:0 10px 35px rgba(0,0,0,.18)!important;color:#f5f7ff!important;
-  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
-}
-body.light .rndm-unified-header{background:rgba(249,250,255,.94)!important;border-bottom-color:rgba(22,25,40,.1)!important;color:#171925!important}
-.rndm-unified-inner{max-width:1480px!important;margin:0 auto!important;min-height:66px!important;padding:8px 18px!important;display:flex!important;align-items:center!important;gap:14px!important;box-sizing:border-box!important}
-.rndm-unified-brand{display:flex!important;align-items:center!important;gap:10px!important;color:inherit!important;text-decoration:none!important;white-space:nowrap!important;flex:0 0 auto!important;font-weight:900!important;letter-spacing:-.02em!important}
-.rndm-unified-logo{width:38px!important;height:38px!important;border-radius:13px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#7657ff,#3f8cff)!important;color:#fff!important;font-size:19px!important;box-shadow:0 8px 24px rgba(104,84,255,.32)!important}
-.rndm-unified-brandtext{font-size:17px!important}.rndm-live-dot{font-size:9px!important;color:#36e6a1!important;margin-left:3px!important;vertical-align:top!important}
-.rndm-core-nav{display:flex!important;align-items:center!important;gap:5px!important;flex:1 1 auto!important;min-width:0!important;overflow-x:auto!important;scrollbar-width:none!important;-webkit-overflow-scrolling:touch!important}
-.rndm-core-nav::-webkit-scrollbar{display:none!important}
-.rndm-core-nav a{display:flex!important;align-items:center!important;gap:7px!important;min-height:40px!important;padding:0 12px!important;border-radius:12px!important;color:#aeb4c9!important;text-decoration:none!important;font-size:13px!important;font-weight:760!important;white-space:nowrap!important;border:1px solid transparent!important;box-sizing:border-box!important;transition:.18s ease!important}
-.rndm-core-nav a:hover{background:rgba(255,255,255,.06)!important;color:#fff!important}
-.rndm-core-nav a.active{color:#fff!important;background:linear-gradient(135deg,rgba(118,87,255,.95),rgba(63,140,255,.9))!important;box-shadow:0 7px 20px rgba(92,83,255,.22)!important}
-body.light .rndm-core-nav a{color:#555c72!important}body.light .rndm-core-nav a:hover{background:#eef0f7!important;color:#171925!important}body.light .rndm-core-nav a.active{color:#fff!important}
-.rndm-unified-actions{display:flex!important;align-items:center!important;gap:7px!important;margin-left:auto!important;flex:0 0 auto!important}
-.rndm-nav-icon,.rndm-account-chip,.rndm-page-action{height:40px!important;border:1px solid rgba(255,255,255,.1)!important;background:rgba(255,255,255,.055)!important;color:#eef1ff!important;border-radius:12px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;text-decoration:none!important;font:750 13px/1 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;cursor:pointer!important;box-sizing:border-box!important}
-.rndm-nav-icon{width:40px!important;padding:0!important;font-size:19px!important}.rndm-account-chip{padding:0 11px!important}.rndm-page-action{padding:0 12px!important;background:linear-gradient(135deg,#7657ff,#3f8cff)!important;color:#fff!important;border:0!important}
-body.light .rndm-nav-icon,body.light .rndm-account-chip{background:#fff!important;border-color:#dfe2ec!important;color:#272a38!important}
-.rndm-burger-button.active{outline:2px solid rgba(118,87,255,.72)!important;outline-offset:1px!important}
-.rndm-nav-backdrop{position:fixed!important;inset:0!important;background:rgba(0,0,0,.44)!important;z-index:2147482998!important;opacity:0!important;pointer-events:none!important;transition:.18s ease!important}
-.rndm-nav-backdrop.open{opacity:1!important;pointer-events:auto!important}
-.rndm-burger-menu{position:fixed!important;z-index:2147482999!important;right:max(14px,env(safe-area-inset-right))!important;top:74px!important;width:min(430px,calc(100vw - 28px))!important;max-height:calc(100dvh - 90px)!important;overflow:auto!important;padding:13px!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:22px!important;background:rgba(16,18,29,.985)!important;color:#f5f7ff!important;box-shadow:0 25px 80px rgba(0,0,0,.48)!important;backdrop-filter:blur(25px)!important;-webkit-backdrop-filter:blur(25px)!important;opacity:0!important;transform:translateY(-8px) scale(.985)!important;pointer-events:none!important;transition:.18s ease!important;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
-body.light .rndm-burger-menu{background:rgba(250,251,255,.99)!important;border-color:#e0e3ed!important;color:#181a27!important}
-.rndm-burger-menu.open{opacity:1!important;transform:none!important;pointer-events:auto!important}
-.rndm-burger-head{display:flex!important;align-items:center!important;justify-content:space-between!important;padding:2px 3px 11px!important}.rndm-burger-head b{font-size:17px!important}.rndm-burger-close{width:34px!important;height:34px!important;border-radius:11px!important;border:1px solid rgba(255,255,255,.11)!important;background:rgba(255,255,255,.06)!important;color:inherit!important;font-size:20px!important;cursor:pointer!important}
-body.light .rndm-burger-close{background:#fff!important;border-color:#dfe2ec!important}
-.rndm-burger-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
-.rndm-burger-grid a{min-height:82px!important;padding:10px 6px!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:16px!important;background:rgba(255,255,255,.045)!important;color:inherit!important;text-decoration:none!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:6px!important;text-align:center!important;font-size:11px!important;font-weight:760!important;box-sizing:border-box!important}
-.rndm-burger-grid a .bi{font-size:24px!important}.rndm-burger-grid a.active{background:rgba(118,87,255,.18)!important;border-color:rgba(118,87,255,.7)!important;box-shadow:inset 0 0 0 1px rgba(118,87,255,.18)!important}
-body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!important}.rndm-burger-section{font-size:10px!important;text-transform:uppercase!important;letter-spacing:.11em!important;color:#8990a8!important;font-weight:900!important;margin:14px 3px 8px!important}
-.rndm-unified-header *{box-sizing:border-box!important}
-@media(max-width:900px){
-  .rndm-unified-inner{min-height:0!important;padding:8px 10px 7px!important;gap:8px!important;flex-wrap:wrap!important}
-  .rndm-unified-brand{order:1!important}.rndm-unified-actions{order:2!important;margin-left:auto!important}.rndm-core-nav{order:3!important;flex:0 0 100%!important;width:100%!important;padding:1px 0 0!important;gap:5px!important}
-  .rndm-core-nav a{min-height:36px!important;padding:0 10px!important;font-size:12px!important;border-radius:11px!important}
-  .rndm-account-chip span{display:none!important}.rndm-account-chip{width:40px!important;padding:0!important}.rndm-page-action span{display:none!important}.rndm-page-action{width:40px!important;padding:0!important;font-size:18px!important}
-  .rndm-burger-menu{top:105px!important;max-height:calc(100dvh - 118px)!important}
-}
-@media(max-width:430px){
- .rndm-unified-brandtext{font-size:15px!important}.rndm-unified-logo{width:36px!important;height:36px!important;border-radius:12px!important}
- .rndm-core-nav a{padding:0 9px!important;gap:5px!important}.rndm-core-nav .ni{font-size:15px!important}.rndm-core-nav .nl{font-size:11px!important}
- .rndm-burger-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}.rndm-burger-grid a{min-height:75px!important}
-}
-</style>
-
-</head><body class="clips-body">
+<link rel="stylesheet" href="rndm-shell.css?v=26"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="rndm-v26.css?v=26"></head><body class="clips-body">
 
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
   <div class="rndm-unified-inner">
@@ -390,29 +337,32 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
   <div class="rndm-burger-section">Сервисы</div>
   <div class="rndm-burger-grid">
     <a href="market.html" data-rndm-page="market.html"><span class="bi">🛍️</span>Market</a>
+    <a href="stocks.html" data-rndm-page="stocks.html"><span class="bi">📈</span>Биржа</a>
     <a href="bank.html" data-rndm-page="bank.html"><span class="bi">💳</span>Банк</a>
     <a href="estate.html" data-rndm-page="estate.html"><span class="bi">🏠</span>Квартиры</a>
     <a href="shop.html" data-rndm-page="shop.html"><span class="bi">⭐</span>Магазин</a>
     <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
     <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
     <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
-  </div>
+  
 
-  <div class="rndm-burger-section">v24 Mega</div>
-  <div class="rndm-burger-grid">
     <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
     <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
     <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
     <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
     <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
     <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
+    <a href="group-calls.html" data-rndm-page="group-calls.html"><span class="bi">👥</span>Групповой звонок</a>
+    <a href="rooms.html" data-rndm-page="rooms.html"><span class="bi">🗣️</span>Комнаты</a>
+    <a href="season.html" data-rndm-page="season.html"><span class="bi">🏆</span>Сезон</a>
+    <a href="gifts.html" data-rndm-page="gifts.html"><span class="bi">🎁</span>Подарки</a>
     <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html" hidden aria-hidden="true"><span class="bi">🛡️</span>Админка</a>
   </div>
 </aside>
 
 
 <header class="topbar clips-top"><a class="brand" href="index.html"><span class="logo">R</span><span>RNDM Chat</span></a><nav class="nav"><a href="chat.html">Чаты</a><a href="channels.html">Каналы</a><a class="active" href="clips.html">Clips ▶</a><a href="activity.html">Активность</a><a href="profile.html">Профиль</a></nav><button class="btn purple small" id="uploadClip">＋ Добавить клип</button><input id="clipFile" type="file" accept="video/*" hidden><button class="theme-toggle" id="themeToggle">🌙</button></header>
-<main class="clips-layout"><section class="clips-intro"><p class="eyebrow">RNDM CLIPS 2.0</p><h1>Смотри. Реагируй. Создавай.</h1><p>Прокручивай вертикальную ленту. Лайки, комментарии, подписки и сохранения остаются на устройстве.</p><div id="userClipPreview" class="user-clip-preview hidden"></div><div class="clips-tip">⌨️ Колесо мыши / свайп — следующий клип</div></section><section class="clips-phone"><div id="clipsFeed" class="clips-feed"></div></section></main>
+<main class="clips-layout"><section class="clips-intro"><p class="eyebrow">RNDM CLIPS 2.0</p><h1>Смотри. Реагируй. Создавай.</h1><p>Прокручивай вертикальную ленту. Лайки, комментарии, подписки и сохранения остаются на устройстве.</p><div id="userClipPreview" class="user-clip-preview hidden"></div><div class="clips-tip">⌨️ Колесо мыши / свайп — следующий клип · удерживай видео — 2×</div></section><section class="clips-phone"><div id="clipsFeed" class="clips-feed"></div></section></main>
 <div class="comments-drawer" id="commentsModal"><div class="drawer-head"><h2 id="commentsTitle">Комментарии</h2><button id="closeComments">✕</button></div><div id="commentsList" class="comments-list"></div><form id="commentForm" class="comment-composer"><input id="commentInput" placeholder="Добавить комментарий…"><button>Отправить</button></form></div>
 <script>
 /* app.js — встроено в страницу */
@@ -838,7 +788,7 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
   });
   function openComments(id){const c=defaultClips.find(x=>x.id===id),s=clipState();s[id]=s[id]||{};const all=[...(c.comments||[]),...(s[id].comments||[])],m=$('#commentsModal');if(!m)return;m.dataset.id=id;$('#commentsTitle').textContent=`Комментарии • ${c.author}`;$('#commentsList').innerHTML=all.length?all.map(x=>`<div class="clip-comment"><b>${x[0]}</b><span>${x[1]}</span></div>`).join(''):'<div class="empty-state">Комментариев пока нет</div>';m.classList.add('open');}
   $('#closeComments')?.addEventListener('click',()=>$('#commentsModal')?.classList.remove('open'));
-  $('#commentForm')?.addEventListener('submit',e=>{e.preventDefault();let v=$('#commentInput').value.trim(),m=$('#commentsModal');if(!v||!m?.dataset.id)return;let s=clipState(),id=m.dataset.id;s[id]=s[id]||{};s[id].comments=s[id].comments||[];s[id].comments.push(['@you',v]);saveClipState(s);$('#commentInput').value='';bump('clipComments');setXP(xp()+3);openComments(id);renderClips()});
+  $('#commentForm')?.addEventListener('submit',e=>{e.preventDefault();let v=$('#commentInput').value.trim(),m=$('#commentsModal');if(!v||!m?.dataset.id)return;let s=clipState(),id=m.dataset.id;s[id]=s[id]||{};s[id].comments=s[id].comments||[];s[id].comments.push(['@'+(loadProfile().nick||'you'),v]);saveClipState(s);$('#commentInput').value='';bump('clipComments');setXP(xp()+3);openComments(id);renderClips()});
   $('#uploadClip')?.addEventListener('click',()=>$('#clipFile')?.click());
   let userClipUrl='';$('#clipFile')?.addEventListener('change',()=>{const f=$('#clipFile').files?.[0];if(!f)return;if(!f.type.startsWith('video/'))return toast('Выберите видео');if(userClipUrl)URL.revokeObjectURL(userClipUrl);userClipUrl=URL.createObjectURL(f);const host=$('#userClipPreview');host.innerHTML=`<video src="${userClipUrl}" controls autoplay muted playsinline></video><div><b>${f.name}</b><br><small>Клип доступен в текущей сессии браузера</small></div>`;host.classList.remove('hidden');bump('clipUploads');setXP(xp()+15);notify('Клип опубликован','Ваш новый клип добавлен в демо-сессию','🎬')});
 
@@ -932,7 +882,7 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
 
 
 <script>(()=>{const h=document.querySelector('.topbar');if(!h||h.querySelector('.account-mini'))return;let db={};try{db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}')}catch{};const u=localStorage.getItem('rndm-session-v17')||'',a=db[u];const link=document.createElement('a');link.href='profile.html#accountCenter';link.className='account-mini'+(a?' on':'');link.innerHTML='<i></i><span>'+(a?'@'+a.username:'Войти')+'</span>';const t=h.querySelector('.theme-toggle');if(t)h.insertBefore(link,t);else h.appendChild(link)})();</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=24.1"></script><script src="rndm-state-sync.js?v=24.1"></script><script>(async()=>{try{if(!RNDMCloud.configured())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);document.querySelectorAll('.account-mini span').forEach(x=>x.textContent='@'+(p?.username||'я'));RNDMCloud.heartbeat()}catch(e){}})();</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=26"></script><script src="rndm-censor.js?v=26"></script><script src="rndm-state-sync.js?v=25.1"></script><script>(async()=>{try{if(!RNDMCloud.configured())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);document.querySelectorAll('.account-mini span').forEach(x=>x.textContent='@'+(p?.username||'я'));RNDMCloud.heartbeat()}catch(e){}})();</script>
 <style>
 /* v20 real cloud Clips */
 .v20-upload-modal{position:fixed;inset:0;z-index:200;background:#04050be8;display:none;align-items:center;justify-content:center;padding:18px}.v20-upload-modal.open{display:flex}.v20-upload-card{width:min(560px,100%);max-height:92dvh;overflow:auto;background:#151821;border:1px solid var(--line);border-radius:26px;padding:18px}.v20-upload-card video{width:100%;max-height:55dvh;background:#000;border-radius:18px}.v20-upload-actions{display:flex;gap:10px;margin-top:12px}.v20-upload-actions button{flex:1}.v20-caption{width:100%;margin-top:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#0e1119;color:white;font:inherit}.real-clip{background:#05060b}.real-clip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:#000}.real-clip .clip-gradient{z-index:1}.real-clip .clip-copy,.real-clip .clip-actions,.real-clip .clip-index{z-index:3}.real-cloud-badge{display:inline-flex;align-items:center;gap:6px;background:#20d79d22;border:1px solid #20d79d55;color:#8bffd9;padding:6px 9px;border-radius:999px;font-size:11px;margin:10px 0}.v20-comment-drawer{position:fixed;right:0;top:0;bottom:0;width:min(94vw,430px);background:#151821;border-left:1px solid var(--line);z-index:220;transform:translateX(105%);transition:.25s;display:grid;grid-template-rows:auto 1fr auto;padding:18px}.v20-comment-drawer.open{transform:none}.v20-comment-list{overflow:auto;padding:12px 0}.v20-comment{padding:11px;border-radius:14px;background:#ffffff08;margin:8px 0}.v20-comment small{color:var(--muted)}.v20-comment-form{display:grid;grid-template-columns:1fr auto;gap:8px}.v20-comment-form input{min-width:0;padding:12px;border-radius:13px;border:1px solid var(--line);background:#0e1119;color:white}.v20-comment-form button{border:0;border-radius:13px;background:#7c5cff;color:white;font-weight:800;padding:0 14px}.v20-cloud-error{padding:14px;border:1px solid #ff6b8050;background:#ff6b8010;border-radius:16px;color:#ffb9c4;margin-top:14px}
@@ -955,51 +905,90 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
   const esc=C.esc;
   const toast=t=>{const d=document.createElement('div');d.className='v15-toast';d.textContent=t;document.body.appendChild(d);setTimeout(()=>d.remove(),2300)};
   const modal=document.createElement('div');modal.className='v20-upload-modal';modal.innerHTML=`<div class="v20-upload-card"><h2 style="margin-top:0">Опубликовать Clip</h2><video id="v20Preview" controls muted playsinline></video><input id="v20Caption" class="v20-caption" maxlength="500" placeholder="Подпись к ролику…"><div class="v20-upload-actions"><button class="btn" id="v20Cancel">Отмена</button><button class="btn purple" id="v20Publish">Опубликовать</button></div><div id="v20UploadStatus" style="margin-top:10px;color:var(--muted)"></div></div>`;document.body.appendChild(modal);
-  const drawer=document.createElement('aside');drawer.className='v20-comment-drawer';drawer.innerHTML=`<div class="drawer-head"><h2 style="margin:0">Комментарии</h2><button id="v20CloseComments">✕</button></div><div id="v20Comments" class="v20-comment-list"></div><form id="v20CommentForm" class="v20-comment-form"><input id="v20CommentText" maxlength="1000" placeholder="Комментарий…"><button>Отправить</button></form>`;document.body.appendChild(drawer);let activeClip=null;
+  const drawer=document.createElement('aside');drawer.className='v20-comment-drawer';drawer.innerHTML=`<div class="drawer-head"><h2 style="margin:0">Комментарии</h2><button id="v20CloseComments">✕</button></div><div id="v20Comments" class="v20-comment-list"></div><form id="v20CommentForm" class="v20-comment-form"><input id="v20CommentText" maxlength="1000" placeholder="Комментарий…"><button>Отправить</button></form>`;document.body.appendChild(drawer);let activeClip=null,replyComment=null;
   document.getElementById('v20CloseComments').onclick=()=>drawer.classList.remove('open');
   btn.onclick=()=>input.click();
   input.onchange=()=>{const f=input.files?.[0];if(!f)return;if(!f.type.startsWith('video/'))return toast('Нужно выбрать видео');if(f.size>100*1024*1024)return toast('Максимум 100 МБ');if(localUrl)URL.revokeObjectURL(localUrl);localUrl=URL.createObjectURL(f);document.getElementById('v20Preview').src=localUrl;document.getElementById('v20Caption').value='';document.getElementById('v20UploadStatus').textContent=`${f.name} • ${(f.size/1024/1024).toFixed(1)} МБ`;modal.classList.add('open')};
   document.getElementById('v20Cancel').onclick=()=>{modal.classList.remove('open');input.value=''};
-  document.getElementById('v20Publish').onclick=async()=>{const f=input.files?.[0];if(!f)return;const publish=document.getElementById('v20Publish'),status=document.getElementById('v20UploadStatus');publish.disabled=true;status.textContent='Загружаем видео в облако…';try{const ext=(f.name.split('.').pop()||'mp4').replace(/[^a-z0-9]/gi,'');const path=`${me.id}/${crypto.randomUUID()}.${ext}`;const up=await sb.storage.from('clips').upload(path,f,{cacheControl:'3600',upsert:false,contentType:f.type});if(up.error)throw up.error;const url=sb.storage.from('clips').getPublicUrl(path).data.publicUrl;status.textContent='Создаём публикацию…';const ins=await sb.from('clips').insert({user_id:me.id,video_url:url,caption:document.getElementById('v20Caption').value.trim()});if(ins.error){await sb.storage.from('clips').remove([path]);throw ins.error}modal.classList.remove('open');input.value='';toast('Clip опубликован 🎬');await load()}catch(e){status.innerHTML=`<span style="color:#ff8395">${esc(e.message)}<br>Если таблицы clips нет — выполни supabase_v20_upgrade.sql.</span>`}finally{publish.disabled=false}};
+  document.getElementById('v20Publish').onclick=async()=>{const f=input.files?.[0];if(!f)return;const publish=document.getElementById('v20Publish'),status=document.getElementById('v20UploadStatus');publish.disabled=true;status.textContent='Загружаем видео в облако…';try{const ext=(f.name.split('.').pop()||'mp4').replace(/[^a-z0-9]/gi,'');const path=`${me.id}/${crypto.randomUUID()}.${ext}`;const up=await sb.storage.from('clips').upload(path,f,{cacheControl:'3600',upsert:false,contentType:f.type});if(up.error)throw up.error;const url=sb.storage.from('clips').getPublicUrl(path).data.publicUrl;status.textContent='Создаём публикацию…';const ins=await sb.from('clips').insert({user_id:me.id,video_url:url,caption:document.getElementById('v20Caption').value.trim(),reply_to_comment:replyComment||null});replyComment=null;if(ins.error){await sb.storage.from('clips').remove([path]);throw ins.error}modal.classList.remove('open');input.value='';toast('Clip опубликован 🎬');await load()}catch(e){status.innerHTML=`<span style="color:#ff8395">${esc(e.message)}<br>Если таблицы clips нет — выполни supabase_v20_upgrade.sql.</span>`}finally{publish.disabled=false}};
   async function load(){
-    const r=await sb.from('clips').select('id,user_id,video_url,caption,created_at,profile:profiles!clips_user_id_fkey(username,display_name,avatar_url)').order('created_at',{ascending:false}).limit(50);
+    const r=await sb.from('clips').select('id,user_id,video_url,caption,created_at,reply_to_comment,profile:profiles!clips_user_id_fkey(username,display_name,avatar_url)').order('created_at',{ascending:false}).limit(50);
     if(r.error){feed.innerHTML=`<div class="v20-cloud-error">Не удалось открыть облачную ленту: ${esc(r.error.message)}<br><b>Выполни supabase_v20_upgrade.sql в Supabase.</b></div>`;return}
     rows=r.data||[];const ids=rows.map(x=>x.id);likeCount={};commentCount={};liked=new Set();
     if(ids.length){const [lr,cr,mr]=await Promise.all([sb.from('clip_likes').select('clip_id').in('clip_id',ids),sb.from('clip_comments').select('clip_id').in('clip_id',ids),sb.from('clip_likes').select('clip_id').eq('user_id',me.id).in('clip_id',ids)]);(lr.data||[]).forEach(x=>likeCount[x.clip_id]=(likeCount[x.clip_id]||0)+1);(cr.data||[]).forEach(x=>commentCount[x.clip_id]=(commentCount[x.clip_id]||0)+1);(mr.data||[]).forEach(x=>liked.add(x.clip_id))}
     render();
   }
-  function render(){feed.innerHTML=rows.length?rows.map((c,i)=>`<article class="clip-slide real-clip" data-real-clip="${c.id}"><video src="${esc(c.video_url)}" loop muted playsinline preload="metadata"></video><div class="clip-gradient"></div><div class="clip-copy"><div class="clip-author"><div class="clip-avatar">${c.profile?.avatar_url?`<img src="${esc(c.profile.avatar_url)}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`:'👤'}</div><b>@${esc(c.profile?.username||'user')}</b>${c.user_id===me.id?'<span class="real-cloud-badge">ваш</span>':''}</div><p>${esc(c.caption||'Без подписи')}</p><small>RNDM original • ${new Date(c.created_at).toLocaleDateString('ru-RU')}</small></div><div class="clip-actions"><button data-r-like="${c.id}">${liked.has(c.id)?'❤️':'🤍'}<small>${likeCount[c.id]||0}</small></button><button data-r-comment="${c.id}">💬<small>${commentCount[c.id]||0}</small></button><button data-r-sound>🔇<small>Звук</small></button><button data-r-share="${c.id}">↗️<small>Поделиться</small></button>${c.user_id===me.id?`<button data-r-delete="${c.id}">🗑️<small>Удалить</small></button>`:''}</div><div class="clip-index">${i+1}/${rows.length}</div></article>`).join(''):`<article class="clip-slide clip-city"><div class="clip-ambient"><span>🎬</span></div><div class="clip-gradient"></div><div class="clip-copy"><h2>Пока нет Clips</h2><p>Нажми «Добавить клип» и стань первым автором.</p></div></article>`;activateVideos()}
+  function render(){feed.innerHTML=rows.length?rows.map((c,i)=>`<article class="clip-slide real-clip" data-real-clip="${c.id}" data-user="${c.user_id}"><video src="${esc(c.video_url)}" loop muted playsinline preload="metadata"></video><div class="clip-gradient"></div><div class="clip-copy"><div class="clip-author"><div class="clip-avatar">${c.profile?.avatar_url?`<img src="${esc(c.profile.avatar_url)}" style="width:100%;height:100%;object-fit:cover;border-radius:50%">`:'👤'}</div><b>@${esc(c.profile?.username||'user')}</b>${c.user_id===me.id?'<span class="real-cloud-badge">ваш</span>':''}</div>${c.reply_to_comment?`<small class="real-cloud-badge">🎥 Ответ на комментарий #${c.reply_to_comment}</small>`:''}<p>${esc(c.caption||'Без подписи')}</p><small>RNDM original • ${new Date(c.created_at).toLocaleDateString('ru-RU')}</small></div><div class="clip-actions"><button data-r-like="${c.id}">${liked.has(c.id)?'❤️':'🤍'}<small>${likeCount[c.id]||0}</small></button><button data-r-comment="${c.id}">💬<small>${commentCount[c.id]||0}</small></button><button data-r-save-cloud="${c.id}">🔖<small>Сохранить</small></button>${c.user_id===me.id?`<button data-r-feature="${c.id}">📌<small>В профиль</small></button>`:''}<button data-r-sound>🔇<small>Звук</small></button><button data-r-share="${c.id}">↗️<small>Поделиться</small></button>${c.user_id===me.id?`<button data-r-delete="${c.id}">🗑️<small>Удалить</small></button>`:''}</div><div class="clip-index">${i+1}/${rows.length}</div></article>`).join(''):`<article class="clip-slide clip-city"><div class="clip-ambient"><span>🎬</span></div><div class="clip-gradient"></div><div class="clip-copy"><h2>Пока нет Clips</h2><p>Нажми «Добавить клип» и стань первым автором.</p></div></article>`;activateVideos()}
   function activateVideos(){const io=new IntersectionObserver(entries=>entries.forEach(x=>{const v=x.target.querySelector('video');if(!v)return;if(x.isIntersecting&&x.intersectionRatio>.65){document.querySelectorAll('.real-clip video').forEach(o=>{if(o!==v)o.pause()});v.play().catch(()=>{})}else v.pause()}),{threshold:[.65]});feed.querySelectorAll('.real-clip').forEach(x=>io.observe(x))}
-  feed.onclick=async e=>{const l=e.target.closest('[data-r-like]');if(l){let id=l.dataset.rLike;if(liked.has(id)){await sb.from('clip_likes').delete().eq('clip_id',id).eq('user_id',me.id)}else{await sb.from('clip_likes').insert({clip_id:id,user_id:me.id})}return load()}const c=e.target.closest('[data-r-comment]');if(c)return openComments(c.dataset.rComment);const snd=e.target.closest('[data-r-sound]');if(snd){const v=snd.closest('.real-clip').querySelector('video');v.muted=!v.muted;snd.childNodes[0].nodeValue=v.muted?'🔇':'🔊';return}const sh=e.target.closest('[data-r-share]');if(sh){const url=location.origin+location.pathname+'#clip-'+sh.dataset.rShare;navigator.share?navigator.share({title:'RNDM Clip',url}).catch(()=>{}):navigator.clipboard?.writeText(url);return toast('Ссылка скопирована')}const del=e.target.closest('[data-r-delete]');if(del&&confirm('Удалить Clip?')){await sb.from('clips').delete().eq('id',del.dataset.rDelete);return load()}};
-  async function openComments(id){activeClip=id;drawer.classList.add('open');const r=await sb.from('clip_comments').select('id,body,created_at,user_id,profile:profiles!clip_comments_user_id_fkey(username,display_name)').eq('clip_id',id).order('created_at');const box=document.getElementById('v20Comments');box.innerHTML=(r.data||[]).length?(r.data||[]).map(x=>`<div class="v20-comment"><b>@${esc(x.profile?.username||'user')}</b><div>${esc(x.body)}</div><small>${C.time(x.created_at)}</small></div>`).join(''):'<div style="color:var(--muted)">Комментариев пока нет.</div>'}
+  feed.onclick=async e=>{const l=e.target.closest('[data-r-like]');if(l){let id=l.dataset.rLike;if(liked.has(id)){await sb.from('clip_likes').delete().eq('clip_id',id).eq('user_id',me.id)}else{await sb.from('clip_likes').insert({clip_id:id,user_id:me.id})}return load()}const c=e.target.closest('[data-r-comment]');if(c)return openComments(c.dataset.rComment);const sv=e.target.closest('[data-r-save-cloud]');if(sv){const id=sv.dataset.rSaveCloud;const {data:cur}=await sb.from('clip_saves').select('clip_id').eq('clip_id',id).eq('user_id',me.id).maybeSingle();if(cur)await sb.from('clip_saves').delete().eq('clip_id',id).eq('user_id',me.id);else await sb.from('clip_saves').insert({clip_id:id,user_id:me.id});toast(cur?'Удалено из сохранённых':'Clip сохранён');return}const ft=e.target.closest('[data-r-feature]');if(ft){const id=ft.dataset.rFeature;const {data:cur}=await sb.from('featured_clips').select('clip_id').eq('clip_id',id).eq('user_id',me.id).maybeSingle();if(cur)await sb.from('featured_clips').delete().eq('clip_id',id).eq('user_id',me.id);else await sb.from('featured_clips').insert({clip_id:id,user_id:me.id,position:0});toast(cur?'Убрано из профиля':'Добавлено в профиль');return}const snd=e.target.closest('[data-r-sound]');if(snd){const v=snd.closest('.real-clip').querySelector('video');v.muted=!v.muted;snd.childNodes[0].nodeValue=v.muted?'🔇':'🔊';return}const sh=e.target.closest('[data-r-share]');if(sh){const url=location.origin+location.pathname+'#clip-'+sh.dataset.rShare;navigator.share?navigator.share({title:'RNDM Clip',url}).catch(()=>{}):navigator.clipboard?.writeText(url);return toast('Ссылка скопирована')}const del=e.target.closest('[data-r-delete]');if(del&&confirm('Удалить Clip?')){await sb.from('clips').delete().eq('id',del.dataset.rDelete);return load()}};
+  async function openComments(id){activeClip=id;drawer.classList.add('open');const r=await sb.from('clip_comments').select('id,body,created_at,user_id,profile:profiles!clip_comments_user_id_fkey(username,display_name,avatar_url)').eq('clip_id',id).order('created_at');const box=document.getElementById('v20Comments');box.innerHTML=(r.data||[]).length?(r.data||[]).map(x=>`<div class="v20-comment"><a class="v26-comment-author" href="profile.html?user=${encodeURIComponent(x.user_id)}">${x.profile?.avatar_url?`<img src="${esc(x.profile.avatar_url)}">`:`<span class="ph">${esc((x.profile?.display_name||x.profile?.username||'?')[0])}</span>`}<div><b>${esc(x.profile?.display_name||'Пользователь')}</b><small>@${esc(x.profile?.username||'user')} · ${C.time(x.created_at)}</small></div></a><div>${esc(x.body)}</div><button class="v26-mini" data-video-reply="${x.id}">🎥 Ответить Clip</button></div>`).join(''):'<div style="color:var(--muted)">Комментариев пока нет.</div>';box.querySelectorAll('[data-video-reply]').forEach(b=>b.onclick=()=>{replyComment=Number(b.dataset.videoReply);drawer.classList.remove('open');input.click();toast('Выбери видео-ответ на комментарий #'+replyComment)})}
   document.getElementById('v20CommentForm').onsubmit=async e=>{e.preventDefault();const i=document.getElementById('v20CommentText'),body=i.value.trim();if(!body||!activeClip)return;const r=await sb.from('clip_comments').insert({clip_id:activeClip,user_id:me.id,body});if(r.error)return alert(r.error.message);i.value='';await openComments(activeClip);load()};
   await load();channel=sb.channel('rndm-clips-v20').on('postgres_changes',{event:'*',schema:'public',table:'clips'},load).on('postgres_changes',{event:'*',schema:'public',table:'clip_likes'},load).on('postgres_changes',{event:'*',schema:'public',table:'clip_comments'},()=>{if(activeClip)openComments(activeClip);load()}).subscribe();
 })();
 </script>
 
-<script id="rndm-unified-nav-script">
+<script id="rndm-clips-hold-2x">
 (()=>{
-  const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-  const core=new Set(['index.html','random.html','chat.html','channels.html','clips.html']);
-  document.querySelectorAll('[data-rndm-page]').forEach(a=>{if((a.getAttribute('data-rndm-page')||'').toLowerCase()===current)a.classList.add('active')});
-  const burger=document.getElementById('rndmBurgerButton'),menu=document.getElementById('rndmBurgerMenu'),backdrop=document.getElementById('rndmNavBackdrop'),close=document.getElementById('rndmBurgerClose');
-  if(!core.has(current)) burger?.classList.add('active');
-  const shut=()=>{menu?.classList.remove('open');backdrop?.classList.remove('open');burger?.setAttribute('aria-expanded','false')};
-  const toggle=()=>{const open=!menu?.classList.contains('open');menu?.classList.toggle('open',open);backdrop?.classList.toggle('open',open);burger?.setAttribute('aria-expanded',open?'true':'false')};
-  burger?.addEventListener('click',toggle);close?.addEventListener('click',shut);backdrop?.addEventListener('click',shut);document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()});
-  const theme=document.getElementById('rndmUnifiedTheme');
-  const syncTheme=()=>{if(theme)theme.textContent=document.body.classList.contains('light')?'☀️':'🌙'};syncTheme();
-  theme?.addEventListener('click',()=>{document.body.classList.toggle('light');localStorage.setItem('rndm-theme',document.body.classList.contains('light')?'light':'dark');syncTheme();const old=document.getElementById('themeToggle');if(old&&old!==theme)old.textContent=theme.textContent});
-  const clipAction=document.getElementById('rndmClipAction');
-  if(current==='clips.html'&&clipAction){clipAction.style.setProperty('display','inline-flex','important');clipAction.addEventListener('click',()=>document.getElementById('uploadClip')?.click())}
-  async function syncAccount(){
-    const link=document.getElementById('rndmUnifiedAccount');if(!link)return;
-    try{if(window.RNDMCloud?.configured?.()){const u=await window.RNDMCloud.user();if(u){const p=await window.RNDMCloud.profile(u.id);const n=p?.username||'я';link.innerHTML=`<span>@${String(n).replace(/[<>&]/g,'')}</span> 👤`;return}}}catch(e){}
-    try{const db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}'),id=localStorage.getItem('rndm-session-v17')||'',a=db[id];if(a?.username)link.innerHTML=`<span>@${String(a.username).replace(/[<>&]/g,'')}</span> 👤`}catch(e){}
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(syncAccount,120));else setTimeout(syncAccount,120);
+  const feed=document.getElementById('clipsFeed');
+  if(!feed)return;
+  let timer=0,activeVideo=null,badge=null,startX=0,startY=0,holding=false;
+
+  const findVideo=(target)=>{
+    if(target?.closest?.('button,a,input,textarea,select')) return null;
+    const slide=target?.closest?.('.clip-slide');
+    return slide?.querySelector?.('video')||null;
+  };
+  const clearTimer=()=>{if(timer){clearTimeout(timer);timer=0}};
+  const stop=()=>{
+    clearTimer();holding=false;
+    if(activeVideo){activeVideo.playbackRate=1;activeVideo.defaultPlaybackRate=1;activeVideo=null}
+    if(badge){badge.classList.remove('show');const old=badge;badge=null;setTimeout(()=>old.remove(),140)}
+  };
+  const showBadge=(v)=>{
+    badge?.remove();
+    const host=v.closest('.clip-slide')||v.parentElement;if(!host)return;
+    badge=document.createElement('div');badge.className='rndm-speed-badge';badge.innerHTML='⏩ 2×';
+    host.appendChild(badge);requestAnimationFrame(()=>badge?.classList.add('show'));
+  };
+  const start=(v)=>{
+    if(!v)return;
+    clearTimer();
+    timer=setTimeout(()=>{
+      activeVideo=v;holding=true;
+      v.defaultPlaybackRate=2;v.playbackRate=2;
+      v.play().catch(()=>{});
+      showBadge(v);
+      try{navigator.vibrate?.(12)}catch{}
+    },120);
+  };
+
+  feed.addEventListener('touchstart',e=>{
+    const t=e.touches?.[0],v=findVideo(e.target);if(!t||!v)return;
+    stop();startX=t.clientX;startY=t.clientY;start(v);
+  },{passive:true});
+  feed.addEventListener('touchmove',e=>{
+    const t=e.touches?.[0];if(!t)return;
+    const dist=Math.hypot(t.clientX-startX,t.clientY-startY);
+    if(!holding&&dist>18){clearTimer();return}
+    if(holding&&dist>34){stop();return}
+    if(holding&&e.cancelable)e.preventDefault();
+  },{passive:false});
+  feed.addEventListener('touchend',stop,{passive:true});
+  feed.addEventListener('touchcancel',stop,{passive:true});
+
+  feed.addEventListener('pointerdown',e=>{
+    if(e.pointerType!=='mouse'||e.button!==0)return;
+    const v=findVideo(e.target);if(!v)return;
+    stop();startX=e.clientX;startY=e.clientY;start(v);
+  });
+  feed.addEventListener('pointermove',e=>{
+    if(e.pointerType!=='mouse')return;
+    if(!holding&&Math.hypot(e.clientX-startX,e.clientY-startY)>14)clearTimer();
+  });
+  window.addEventListener('pointerup',e=>{if(e.pointerType==='mouse')stop()});
+  window.addEventListener('blur',stop);
+  document.addEventListener('visibilitychange',()=>{if(document.hidden)stop()});
+  feed.addEventListener('contextmenu',e=>{if(findVideo(e.target))e.preventDefault()});
 })();
 </script>
-
-<script id="rndm-v24-guard">(async()=>{try{if(!window.RNDMCloud?.configured?.())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);if(!p)return;if(p.is_banned&&(!p.banned_until||new Date(p.banned_until)>new Date())&&!location.pathname.endsWith('/banned.html')){location.href='banned.html';return}if(['owner','admin','moderator'].includes(p.app_role)){document.querySelectorAll('.v24-admin-link').forEach(x=>{x.hidden=false;x.setAttribute('aria-hidden','false');x.classList.add('show')});const a=document.getElementById('rndmUnifiedAccount');if(a)a.innerHTML=`<span>@${RNDMCloud.esc(p.username||'я')} ${p.app_role==='owner'?'👑':p.app_role==='admin'?'🛡️':'🔧'}</span> 👤`}}catch(e){}})();</script>
-</body></html>
+<script src="rndm-shell.js?v=26"></script><script src="rndm-v26.js?v=26"></script><script src="rndm-v26-extra.js?v=26"></script></body></html>

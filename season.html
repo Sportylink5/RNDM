@@ -1,0 +1,57 @@
+<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#7c5cff"><title>Сезон — RNDM Chat</title><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="rndm-shell.css?v=26"><link rel="stylesheet" href="rndm-v26.css?v=26"><style>:root{--bg:#080b14;--panel:#111725;--text:#f7f8ff;--muted:#98a2b9;--line:#283247;--accent:#7c5cff;--accent2:#00d9a6}*{box-sizing:border-box}body{margin:0;min-height:100vh;background:radial-gradient(circle at 20% 0,#17142d,#080b14 48%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}a{color:inherit;text-decoration:none}button,input,select,textarea{font:inherit}.v26page{max-width:1120px;margin:auto;padding:28px 16px 110px}.hero{padding:24px;border:1px solid var(--line);border-radius:26px;background:linear-gradient(135deg,#7c5cff22,#00d9a611);margin-bottom:16px}.hero h1{margin:0 0 8px;font-size:clamp(32px,6vw,58px)}.muted{color:var(--muted)}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.card{border:1px solid var(--line);border-radius:20px;background:var(--panel);padding:16px}.btn{border:1px solid var(--line);background:#1a2334;color:#fff;padding:10px 13px;border-radius:12px;font-weight:800;cursor:pointer}.btn.primary{border:0;background:linear-gradient(135deg,var(--accent),var(--accent2));color:#071016}.list{display:grid;gap:9px}.row{display:flex;gap:10px;align-items:center;padding:11px;border-radius:14px;background:#ffffff08}.row .grow{flex:1;min-width:0}.row small{display:block;color:var(--muted);margin-top:3px}.field{display:grid;gap:6px;margin:10px 0}.field input,.field select,.field textarea{padding:11px;border-radius:12px;border:1px solid var(--line);background:#0c1320;color:#fff}.progress{height:10px;border-radius:99px;background:#ffffff12;overflow:hidden}.progress i{display:block;height:100%;background:linear-gradient(90deg,var(--accent),var(--accent2))}@media(max-width:720px){.grid{grid-template-columns:1fr}.v26page{padding:16px 10px 100px}}</style></head><body><header class="rndm-unified-header" id="rndmUnifiedHeader">
+  <div class="rndm-unified-inner">
+    <a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
+    <nav class="rndm-core-nav" aria-label="Основные разделы">
+      <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
+      <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
+      <a href="random.html" data-rndm-page="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
+      <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
+      <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
+    </nav>
+    <div class="rndm-unified-actions">
+      <button class="rndm-page-action" id="rndmClipAction" type="button" title="Добавить клип" style="display:none!important">＋<span>Клип</span></button>
+      <a class="rndm-account-chip" id="rndmUnifiedAccount" href="profile.html"><span>Профиль</span> 👤</a>
+      <button class="rndm-nav-icon" id="rndmUnifiedTheme" type="button" aria-label="Сменить тему">🌙</button>
+      <button class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button" aria-label="Открыть дополнительное меню">☰</button>
+    </div>
+  </div>
+</header>
+<div class="rndm-nav-backdrop" id="rndmNavBackdrop"></div>
+<aside class="rndm-burger-menu" id="rndmBurgerMenu" aria-label="Дополнительные разделы">
+  <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
+  <div class="rndm-burger-section">Сообщество</div>
+  <div class="rndm-burger-grid">
+    <a href="contacts.html" data-rndm-page="contacts.html"><span class="bi">👥</span>Контакты</a>
+    <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
+    <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
+    <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
+    <a href="explore.html" data-rndm-page="explore.html"><span class="bi">✨</span>Рекомендации</a>
+    <a href="profile.html" data-rndm-page="profile.html"><span class="bi">👤</span>Профиль</a>
+    <a href="about.html" data-rndm-page="about.html"><span class="bi">ℹ️</span>О проекте</a>
+  </div>
+  <div class="rndm-burger-section">Сервисы</div>
+  <div class="rndm-burger-grid">
+    <a href="market.html" data-rndm-page="market.html"><span class="bi">🛍️</span>Market</a>
+    <a href="stocks.html" data-rndm-page="stocks.html"><span class="bi">📈</span>Биржа</a>
+    <a href="bank.html" data-rndm-page="bank.html"><span class="bi">💳</span>Банк</a>
+    <a href="estate.html" data-rndm-page="estate.html"><span class="bi">🏠</span>Квартиры</a>
+    <a href="shop.html" data-rndm-page="shop.html"><span class="bi">⭐</span>Магазин</a>
+    <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
+    <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
+    <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
+  
+
+    <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
+    <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
+    <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
+    <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
+    <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
+    <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
+    <a href="group-calls.html" data-rndm-page="group-calls.html"><span class="bi">👥</span>Групповой звонок</a>
+    <a href="rooms.html" data-rndm-page="rooms.html"><span class="bi">🗣️</span>Комнаты</a>
+    <a href="season.html" data-rndm-page="season.html"><span class="bi">🏆</span>Сезон</a>
+    <a href="gifts.html" data-rndm-page="gifts.html"><span class="bi">🎁</span>Подарки</a>
+    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html" hidden aria-hidden="true"><span class="bi">🛡️</span>Админка</a>
+  </div>
+</aside><main class="v26page"><section class="hero"><div class="muted">RNDM SEASON</div><h1>🏆 Сезон</h1><p>Выполняй действия в RNDM, набирай сезонный XP и забирай награды.</p></section><section class="card"><div id="seasonInfo"></div><div class="progress"><i id="seasonBar" style="width:0"></i></div><p class="muted" id="seasonXP"></p></section><h2>Награды</h2><div id="rewards" class="grid"></div></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=26"></script><script src="rndm-censor.js?v=26"></script><script src="rndm-shell.js?v=26"></script><script src="rndm-v26.js?v=26"></script><script>
+(async()=>{const C=RNDMCloud,sb=C.getClient(),me=await C.user();if(!me)return;const {data:s}=await sb.from('seasons').select('*').eq('is_active',true).order('starts_at',{ascending:false}).limit(1).maybeSingle();if(!s){document.querySelector('#seasonInfo').textContent='Нет активного сезона';return}let {data:p}=await sb.from('season_progress').select('*').eq('season_id',s.id).eq('user_id',me.id).maybeSingle();p=p||{xp:0,premium:false,claimed_levels:[]};document.querySelector('#seasonInfo').innerHTML=`<h2>${C.esc(s.title)}</h2><p>${C.esc(s.description)}</p><span class="muted">До ${new Date(s.ends_at).toLocaleDateString('ru-RU')}</span><div style="margin-top:12px">${p.premium?'<span class="tag">💎 Premium Pass активен</span>':'<button class="btn primary" id="buyPremiumPass">💎 Premium Pass · 500 ⭐</button>'}</div>`;if(!p.premium){const bp=document.querySelector('#buyPremiumPass');if(bp)bp.onclick=async()=>{if(!confirm('Купить Premium Pass за 500 ⭐?'))return;const {error}=await sb.rpc('buy_season_premium');if(error)alert(error.message);else location.reload()}};document.querySelector('#seasonBar').style.width=Math.min(100,(p.xp%100))+'%';document.querySelector('#seasonXP').textContent=`${p.xp} XP · уровень ${Math.floor(p.xp/100)+1}`;const {data:r}=await sb.from('season_rewards').select('*').eq('season_id',s.id).order('level');document.querySelector('#rewards').innerHTML=(r||[]).map(x=>{const need=x.level*100,claimed=(p.claimed_levels||[]).includes(x.level),rw=p.premium?x.premium_reward:x.free_reward;return `<article class="card"><h3>Уровень ${x.level}</h3><p>${C.esc(rw?.label||'Награда')}</p><button class="btn ${p.xp>=need&&!claimed?'primary':''}" data-level="${x.level}" ${p.xp<need||claimed?'disabled':''}>${claimed?'Получено ✓':p.xp>=need?'Забрать':need+' XP'}</button></article>`}).join('');document.querySelectorAll('[data-level]').forEach(b=>b.onclick=async()=>{const {error}=await sb.rpc('claim_season_level',{p_level:+b.dataset.level});if(error)alert(error.message);else location.reload()})})();</script><script src="rndm-v26-extra.js?v=26"></script></body></html>

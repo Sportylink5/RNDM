@@ -1,4 +1,4 @@
-// RNDM v24.1 — FAST cloud state sync.
+// RNDM v25.1 — FAST cloud state sync with cross-page session cache.
 // One SELECT + at most one UPSERT instead of dozens of sequential requests.
 (()=>{
   const KEYS = [
@@ -14,6 +14,19 @@
   const pending=new Map();
   let flushTimer=null;
   const originalSet=Storage.prototype.setItem;
+  const CACHE_KEY='rndm-state-cache-v251';
+  const CACHE_TTL=30000;
+
+  function getCache(uid){
+    try{
+      const x=JSON.parse(sessionStorage.getItem(CACHE_KEY)||'null');
+      if(x && x.user_id===uid && (Date.now()-Number(x.at||0))<CACHE_TTL && Array.isArray(x.rows)) return x;
+    }catch(e){}
+    return null;
+  }
+  function putCache(uid,rows){
+    try{sessionStorage.setItem(CACHE_KEY,JSON.stringify({user_id:uid,at:Date.now(),rows:rows||[]}))}catch(e){}
+  }
 
   function decode(raw){
     if(raw===null||raw===undefined) return null;
@@ -31,7 +44,14 @@
     try{
       const sb=RNDMCloud.getClient(),u=await RNDMCloud.user(); if(!sb||!u)return;
       const now=new Date().toISOString();
-      await sb.from('user_state').upsert(batch.map(([key,value])=>({user_id:u.id,key:'ls:'+key,value,updated_at:now})),{onConflict:'user_id,key'});
+      const rows=batch.map(([key,value])=>({user_id:u.id,key:'ls:'+key,value,updated_at:now}));
+      const {error}=await sb.from('user_state').upsert(rows,{onConflict:'user_id,key'});
+      if(!error){
+        const cached=getCache(u.id);
+        if(cached){
+          const m=new Map(cached.rows.map(r=>[r.key,r])); rows.forEach(r=>m.set(r.key,r)); putCache(u.id,[...m.values()]);
+        }
+      }
     }catch(e){}
   }
 
@@ -53,8 +73,16 @@
       const sb=RNDMCloud.getClient(),u=await RNDMCloud.user(); if(!sb||!u){ready=true;return}
       pulling=true;
       const cloudKeys=KEYS.map(k=>'ls:'+k);
-      const {data,error}=await sb.from('user_state').select('key,value,updated_at').eq('user_id',u.id).in('key',cloudKeys);
-      if(error) throw error;
+      let data=null;
+      const cached=getCache(u.id);
+      if(cached){
+        data=cached.rows;
+      }else{
+        const res=await sb.from('user_state').select('key,value,updated_at').eq('user_id',u.id).in('key',cloudKeys);
+        if(res.error) throw res.error;
+        data=res.data||[];
+        putCache(u.id,data);
+      }
       const map=new Map((data||[]).map(r=>[String(r.key).slice(3),r.value]));
       const missing=[];
       const now=new Date().toISOString();
@@ -67,7 +95,10 @@
         }
       }
       if(missing.length){
-        await sb.from('user_state').upsert(missing,{onConflict:'user_id,key'});
+        const {error}=await sb.from('user_state').upsert(missing,{onConflict:'user_id,key'});
+        if(!error){
+          const merged=new Map((data||[]).map(r=>[r.key,r])); missing.forEach(r=>merged.set(r.key,r)); putCache(u.id,[...merged.values()]);
+        }
       }
       pulling=false; ready=true;
       document.dispatchEvent(new CustomEvent('rndm-cloud-state-ready'));
