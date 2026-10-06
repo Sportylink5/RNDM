@@ -128,7 +128,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
 </div>
 <input type="file" id="fileInput" hidden accept="image/*,video/*,audio/*,.pdf,.zip,.doc,.docx,.txt">
 <div class="modal" id="groupModal"><div class="modal-card"><h2>👥 Новая группа</h2><div class="field"><label>Название</label><input id="groupTitle" maxlength="80" placeholder="Например, Наша группа"></div><div id="groupPeople"></div><div class="toolbar" style="margin-top:16px"><button class="btn" id="createGroup">Создать</button><button class="btn secondary" data-close="#groupModal">Отмена</button></div></div></div>
-</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html" class="on"><b>💬</b>Чаты</a><a href="random.html"><b>🎲</b>Рандом</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=24.1"></script><script src="rndm-state-sync.js?v=24.1"></script><script>
+</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html" class="on"><b>💬</b>Чаты</a><a href="random.html"><b>🎲</b>Рандом</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25"></script><script src="rndm-state-sync.js?v=25"></script><script>
 (async()=>{
 const C=RNDMCloud, sb=C.getClient(), cfg=C.configured();
 const q=s=>document.querySelector(s), esc=C.esc; let me=null,myProfile=null,active=null,activeInfo=null,rt=[],typingTimer=null,lastTypingSent=0,contacts=[];

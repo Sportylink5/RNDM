@@ -433,7 +433,7 @@ body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!im
     <div class="referral-actions"><button class="btn primary" id="shareReferral" type="button">↗️ Поделиться</button><a class="btn ghost" href="profile.html#accountCenter">👤 Аккаунт</a></div>
     <div class="referral-stats"><div><b id="referralCount">0</b><span>приглашено</span></div><div><b id="referralCoins">0</b><span>🪙 заработано</span></div><div><b id="referralStars">0</b><span>⭐ заработано</span></div></div>
   </div>
-  <p class="referral-note" id="referralNote">На GitHub Pages система работает локально. Для синхронизации приглашений между разными телефонами понадобится серверная база данных.</p>
+  <p class="referral-note" id="referralNote">Реферальная система работает через Supabase между разными устройствами. Награда начисляется один раз после входа нового пользователя.</p>
 </div>
 </section></main>
 <footer>RNDM Chat © 2026 • учебный проект</footer><script>
@@ -989,24 +989,16 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
 </script>
 
 
-<script>
-/* ===== RNDM v17 referral ===== */
-(()=>{
- const AKEY='rndm-accounts-v17',SKEY='rndm-session-v17',CAT='rndmCatV2',STAROBJ='rndmStarsV1';
- const $=id=>document.getElementById(id); const db=()=>{try{return JSON.parse(localStorage.getItem(AKEY)||'{}')}catch{return {}}}; const saveDb=x=>localStorage.setItem(AKEY,JSON.stringify(x));
- function starBalance(){try{const x=JSON.parse(localStorage.getItem(STAROBJ)||'null');if(typeof x==='number')return x;if(x&&typeof x.balance==='number')return x.balance}catch{}return Number(localStorage.getItem('rndmStars')||0)}
- function setStarBalance(n){n=Math.max(0,Math.floor(n));localStorage.setItem(STAROBJ,JSON.stringify({balance:n,updated:Date.now()}));localStorage.setItem('rndmStars',String(n));localStorage.setItem('rndm-stars-v1',String(n))}
- function applyPending(a,u,d){let changed=false;if(a.pendingCoins||a.pendingStars){let cat={};try{cat=JSON.parse(localStorage.getItem(CAT)||'{}')}catch{};cat.coins=Number(cat.coins||0)+Number(a.pendingCoins||0);cat.totalCoins=Number(cat.totalCoins||0)+Number(a.pendingCoins||0);cat.totalTaps=Number(cat.totalTaps||0);cat.bestCombo=Number(cat.bestCombo||1);cat.up=cat.up||{power:0,auto:0,combo:0,crit:0,starLuck:0,offline:0};cat.lastSeen=Date.now();localStorage.setItem(CAT,JSON.stringify(cat));if(a.pendingStars)setStarBalance(starBalance()+Number(a.pendingStars||0));const msg=`Начислена реферальная награда: +${a.pendingCoins||0} 🪙, +${a.pendingStars||0} ⭐`;a.pendingCoins=0;a.pendingStars=0;d[u]=a;saveDb(d);$('referralNote').textContent=msg;changed=true}return changed}
- function render(){const d=db(),u=localStorage.getItem(SKEY)||'',a=d[u],on=$('referralLoggedIn'),off=$('referralLoggedOut'),state=$('referralAccountState');if(!a){on.style.display='none';off.style.display='block';state.textContent='Нужен аккаунт';return}applyPending(a,u,d);on.style.display='block';off.style.display='none';state.textContent='@'+a.username;const url=new URL('profile.html',location.href);url.searchParams.set('ref',a.refCode);url.hash='accountCenter';$('referralUrl').value=url.href;$('referralCount').textContent=a.referrals||0;$('referralCoins').textContent=Number(a.referralCoins||0).toLocaleString('ru-RU');$('referralStars').textContent=a.referralStars||0}
- $('copyReferral')?.addEventListener('click',async()=>{const v=$('referralUrl').value;try{await navigator.clipboard.writeText(v);$('referralNote').textContent='Ссылка скопирована ✅'}catch{$('referralUrl').select();document.execCommand('copy');$('referralNote').textContent='Ссылка скопирована ✅'}});
- $('shareReferral')?.addEventListener('click',async()=>{const url=$('referralUrl').value,text='Заходи в RNDM Chat по моей ссылке 🐱';if(navigator.share){try{await navigator.share({title:'RNDM Chat',text,url})}catch{}}else{try{await navigator.clipboard.writeText(url);$('referralNote').textContent='Ссылка скопирована — отправь её другу.'}catch{}}});
- render();
-})();
-</script>
+<script>/* v25 cloud referral loads after Supabase */</script>
 
 
 <script>(()=>{const h=document.querySelector('.topbar');if(!h||h.querySelector('.account-mini'))return;let db={};try{db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}')}catch{};const u=localStorage.getItem('rndm-session-v17')||'',a=db[u];const link=document.createElement('a');link.href='profile.html#accountCenter';link.className='account-mini'+(a?' on':'');link.innerHTML='<i></i><span>'+(a?'@'+a.username:'Войти')+'</span>';const t=h.querySelector('.theme-toggle');if(t)h.insertBefore(link,t);else h.appendChild(link)})();</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=24.1"></script><script src="rndm-state-sync.js?v=24.1"></script><script>(async()=>{try{if(!RNDMCloud.configured())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);document.querySelectorAll('.account-mini span').forEach(x=>x.textContent='@'+(p?.username||'я'));RNDMCloud.heartbeat()}catch(e){}})();</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25"></script><script src="rndm-state-sync.js?v=25"></script><script id="rndm-v25-referrals">
+(async()=>{const $=id=>document.getElementById(id);if(!window.RNDMCloud?.configured?.())return;const sb=RNDMCloud.getClient();const u=await RNDMCloud.user();const on=$('referralLoggedIn'),off=$('referralLoggedOut'),state=$('referralAccountState'),note=$('referralNote');if(!u){if(on)on.style.display='none';if(off)off.style.display='block';if(state)state.textContent='Нужен аккаунт';return}if(on)on.style.display='block';if(off)off.style.display='none';const {data:code,error:ce}=await sb.rpc('ensure_referral_code');if(ce){if(note)note.textContent='Ошибка рефералки: '+ce.message;return}const {data:p,error}=await sb.from('profiles').select('username,referral_count,referral_coins_earned,referral_stars_earned').eq('id',u.id).single();if(error){if(note)note.textContent=error.message;return}if(state)state.textContent='@'+(p.username||'я');const url=new URL('profile.html',location.href);url.searchParams.set('ref',code);url.hash='accountCenter';if($('referralUrl'))$('referralUrl').value=url.href;if($('referralCount'))$('referralCount').textContent=p.referral_count||0;if($('referralCoins'))$('referralCoins').textContent=Number(p.referral_coins_earned||0).toLocaleString('ru-RU');if($('referralStars'))$('referralStars').textContent=p.referral_stars_earned||0;
+$('copyReferral')?.addEventListener('click',async()=>{const v=$('referralUrl').value;try{await navigator.clipboard.writeText(v);note.textContent='Ссылка скопирована ✅'}catch{$('referralUrl').select();document.execCommand('copy');note.textContent='Ссылка скопирована ✅'}});
+$('shareReferral')?.addEventListener('click',async()=>{const url=$('referralUrl').value,text='Заходи в RNDM Chat по моей ссылке 🐱';if(navigator.share){try{await navigator.share({title:'RNDM Chat',text,url})}catch{}}else{try{await navigator.clipboard.writeText(url);note.textContent='Ссылка скопирована — отправь её другу.'}catch{}}});
+})();
+</script><script>(async()=>{try{if(!RNDMCloud.configured())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);document.querySelectorAll('.account-mini span').forEach(x=>x.textContent='@'+(p?.username||'я'));RNDMCloud.heartbeat()}catch(e){}})();</script>
 <script id="rndm-unified-nav-script">
 (()=>{
   const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
