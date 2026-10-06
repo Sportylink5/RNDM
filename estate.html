@@ -1,6 +1,59 @@
 <!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>RNDM Недвижимость</title><style>
 :root{--bg:#090a11;--panel:#151925;--line:#ffffff16;--text:#f7f8ff;--muted:#9ca5b8;--green:#25e1a1;--purple:#7c5cff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0,#2f215b55,transparent 30%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:90px}a{color:inherit;text-decoration:none}.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:14px 20px;background:#090a11eb;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--purple),var(--green));display:grid;place-items:center;font-weight:900}.top nav{margin-left:auto;display:flex;gap:12px;color:var(--muted)}.page{max-width:1180px;margin:auto;padding:28px 20px}.hero{display:flex;justify-content:space-between;align-items:end;gap:18px}.hero h1{font-size:clamp(34px,5vw,58px);margin:0}.hero p,.muted{color:var(--muted)}.wallet{padding:14px 18px;border:1px solid var(--line);border-radius:17px;background:var(--panel);font-weight:900}.tabs{display:flex;gap:8px;margin:22px 0}.tabs button{border:0;border-radius:12px;padding:10px 14px;background:#ffffff0b;color:white}.tabs button.active{background:var(--purple)}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}.visual{height:160px;display:grid;place-items:center;font-size:74px;background:linear-gradient(135deg,#252b42,#151822)}.body{padding:15px}.price{font-size:23px;font-weight:900}.body h3{margin:7px 0}.spec{color:var(--muted);font-size:13px}.btn{border:0;border-radius:13px;padding:11px 14px;background:#ffffff0d;color:white;font-weight:800;cursor:pointer;margin-top:12px}.btn.buy{background:linear-gradient(135deg,var(--green),#79ff77);color:#062117}.owned{outline:2px solid #27e6a455}.notice{padding:13px 15px;background:#ffb34714;border:1px solid #ffb34740;border-radius:16px;color:#ffd18d;margin:15px 0}.mobile{display:none}@media(max-width:760px){.top nav{display:none}.top{padding-top:calc(10px + env(safe-area-inset-top))}.page{padding:20px 14px}.hero{align-items:start;flex-direction:column}.grid{grid-template-columns:1fr}.mobile{position:fixed;display:grid;grid-template-columns:repeat(5,1fr);left:0;right:0;bottom:0;background:#10131df2;border-top:1px solid var(--line);padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:20}.mobile a{text-align:center;font-size:11px;color:var(--muted)}.mobile span{display:block;font-size:22px}.mobile .active{color:white}}</style>
-<link rel="stylesheet" href="rndm-shell.css?v=25.6"></head><body>
+<style id="rndm-unified-nav-style">
+/* === RNDM v21 unified navigation === */
+body > header:not(.rndm-unified-header){display:none!important}
+nav.mobile-bottom-nav,nav.mobile,nav.mobile-nav,nav.bottom,.mobile-more-sheet,.mobile-more-backdrop{display:none!important}
+.rndm-unified-header{
+  position:sticky!important;top:0!important;z-index:2147483000!important;width:100%!important;
+  background:rgba(10,12,20,.92)!important;border:0!important;border-bottom:1px solid rgba(255,255,255,.09)!important;
+  backdrop-filter:blur(20px) saturate(145%)!important;-webkit-backdrop-filter:blur(20px) saturate(145%)!important;
+  box-shadow:0 10px 35px rgba(0,0,0,.18)!important;color:#f5f7ff!important;
+  font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;
+}
+body.light .rndm-unified-header{background:rgba(249,250,255,.94)!important;border-bottom-color:rgba(22,25,40,.1)!important;color:#171925!important}
+.rndm-unified-inner{max-width:1480px!important;margin:0 auto!important;min-height:66px!important;padding:8px 18px!important;display:flex!important;align-items:center!important;gap:14px!important;box-sizing:border-box!important}
+.rndm-unified-brand{display:flex!important;align-items:center!important;gap:10px!important;color:inherit!important;text-decoration:none!important;white-space:nowrap!important;flex:0 0 auto!important;font-weight:900!important;letter-spacing:-.02em!important}
+.rndm-unified-logo{width:38px!important;height:38px!important;border-radius:13px!important;display:grid!important;place-items:center!important;background:linear-gradient(135deg,#7657ff,#3f8cff)!important;color:#fff!important;font-size:19px!important;box-shadow:0 8px 24px rgba(104,84,255,.32)!important}
+.rndm-unified-brandtext{font-size:17px!important}.rndm-live-dot{font-size:9px!important;color:#36e6a1!important;margin-left:3px!important;vertical-align:top!important}
+.rndm-core-nav{display:flex!important;align-items:center!important;gap:5px!important;flex:1 1 auto!important;min-width:0!important;overflow-x:auto!important;scrollbar-width:none!important;-webkit-overflow-scrolling:touch!important}
+.rndm-core-nav::-webkit-scrollbar{display:none!important}
+.rndm-core-nav a{display:flex!important;align-items:center!important;gap:7px!important;min-height:40px!important;padding:0 12px!important;border-radius:12px!important;color:#aeb4c9!important;text-decoration:none!important;font-size:13px!important;font-weight:760!important;white-space:nowrap!important;border:1px solid transparent!important;box-sizing:border-box!important;transition:.18s ease!important}
+.rndm-core-nav a:hover{background:rgba(255,255,255,.06)!important;color:#fff!important}
+.rndm-core-nav a.active{color:#fff!important;background:linear-gradient(135deg,rgba(118,87,255,.95),rgba(63,140,255,.9))!important;box-shadow:0 7px 20px rgba(92,83,255,.22)!important}
+body.light .rndm-core-nav a{color:#555c72!important}body.light .rndm-core-nav a:hover{background:#eef0f7!important;color:#171925!important}body.light .rndm-core-nav a.active{color:#fff!important}
+.rndm-unified-actions{display:flex!important;align-items:center!important;gap:7px!important;margin-left:auto!important;flex:0 0 auto!important}
+.rndm-nav-icon,.rndm-account-chip,.rndm-page-action{height:40px!important;border:1px solid rgba(255,255,255,.1)!important;background:rgba(255,255,255,.055)!important;color:#eef1ff!important;border-radius:12px!important;display:inline-flex!important;align-items:center!important;justify-content:center!important;gap:7px!important;text-decoration:none!important;font:750 13px/1 Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important;cursor:pointer!important;box-sizing:border-box!important}
+.rndm-nav-icon{width:40px!important;padding:0!important;font-size:19px!important}.rndm-account-chip{padding:0 11px!important}.rndm-page-action{padding:0 12px!important;background:linear-gradient(135deg,#7657ff,#3f8cff)!important;color:#fff!important;border:0!important}
+body.light .rndm-nav-icon,body.light .rndm-account-chip{background:#fff!important;border-color:#dfe2ec!important;color:#272a38!important}
+.rndm-burger-button.active{outline:2px solid rgba(118,87,255,.72)!important;outline-offset:1px!important}
+.rndm-nav-backdrop{position:fixed!important;inset:0!important;background:rgba(0,0,0,.44)!important;z-index:2147482998!important;opacity:0!important;pointer-events:none!important;transition:.18s ease!important}
+.rndm-nav-backdrop.open{opacity:1!important;pointer-events:auto!important}
+.rndm-burger-menu{position:fixed!important;z-index:2147482999!important;right:max(14px,env(safe-area-inset-right))!important;top:74px!important;width:min(430px,calc(100vw - 28px))!important;max-height:calc(100dvh - 90px)!important;overflow:auto!important;padding:13px!important;border:1px solid rgba(255,255,255,.1)!important;border-radius:22px!important;background:rgba(16,18,29,.985)!important;color:#f5f7ff!important;box-shadow:0 25px 80px rgba(0,0,0,.48)!important;backdrop-filter:blur(25px)!important;-webkit-backdrop-filter:blur(25px)!important;opacity:0!important;transform:translateY(-8px) scale(.985)!important;pointer-events:none!important;transition:.18s ease!important;font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif!important}
+body.light .rndm-burger-menu{background:rgba(250,251,255,.99)!important;border-color:#e0e3ed!important;color:#181a27!important}
+.rndm-burger-menu.open{opacity:1!important;transform:none!important;pointer-events:auto!important}
+.rndm-burger-head{display:flex!important;align-items:center!important;justify-content:space-between!important;padding:2px 3px 11px!important}.rndm-burger-head b{font-size:17px!important}.rndm-burger-close{width:34px!important;height:34px!important;border-radius:11px!important;border:1px solid rgba(255,255,255,.11)!important;background:rgba(255,255,255,.06)!important;color:inherit!important;font-size:20px!important;cursor:pointer!important}
+body.light .rndm-burger-close{background:#fff!important;border-color:#dfe2ec!important}
+.rndm-burger-grid{display:grid!important;grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:8px!important}
+.rndm-burger-grid a{min-height:82px!important;padding:10px 6px!important;border:1px solid rgba(255,255,255,.08)!important;border-radius:16px!important;background:rgba(255,255,255,.045)!important;color:inherit!important;text-decoration:none!important;display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:6px!important;text-align:center!important;font-size:11px!important;font-weight:760!important;box-sizing:border-box!important}
+.rndm-burger-grid a .bi{font-size:24px!important}.rndm-burger-grid a.active{background:rgba(118,87,255,.18)!important;border-color:rgba(118,87,255,.7)!important;box-shadow:inset 0 0 0 1px rgba(118,87,255,.18)!important}
+body.light .rndm-burger-grid a{background:#fff!important;border-color:#e2e5ee!important}.rndm-burger-section{font-size:10px!important;text-transform:uppercase!important;letter-spacing:.11em!important;color:#8990a8!important;font-weight:900!important;margin:14px 3px 8px!important}
+.rndm-unified-header *{box-sizing:border-box!important}
+@media(max-width:900px){
+  .rndm-unified-inner{min-height:0!important;padding:8px 10px 7px!important;gap:8px!important;flex-wrap:wrap!important}
+  .rndm-unified-brand{order:1!important}.rndm-unified-actions{order:2!important;margin-left:auto!important}.rndm-core-nav{order:3!important;flex:0 0 100%!important;width:100%!important;padding:1px 0 0!important;gap:5px!important}
+  .rndm-core-nav a{min-height:36px!important;padding:0 10px!important;font-size:12px!important;border-radius:11px!important}
+  .rndm-account-chip span{display:none!important}.rndm-account-chip{width:40px!important;padding:0!important}.rndm-page-action span{display:none!important}.rndm-page-action{width:40px!important;padding:0!important;font-size:18px!important}
+  .rndm-burger-menu{top:105px!important;max-height:calc(100dvh - 118px)!important}
+}
+@media(max-width:430px){
+ .rndm-unified-brandtext{font-size:15px!important}.rndm-unified-logo{width:36px!important;height:36px!important;border-radius:12px!important}
+ .rndm-core-nav a{padding:0 9px!important;gap:5px!important}.rndm-core-nav .ni{font-size:15px!important}.rndm-core-nav .nl{font-size:11px!important}
+ .rndm-burger-grid{grid-template-columns:repeat(3,minmax(0,1fr))!important;gap:7px!important}.rndm-burger-grid a{min-height:75px!important}
+}
+</style>
+
+</head><body>
 
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
   <div class="rndm-unified-inner">
@@ -36,15 +89,16 @@
   <div class="rndm-burger-section">Сервисы</div>
   <div class="rndm-burger-grid">
     <a href="market.html" data-rndm-page="market.html"><span class="bi">🛍️</span>Market</a>
-    <a href="stocks.html" data-rndm-page="stocks.html"><span class="bi">📈</span>Биржа</a>
     <a href="bank.html" data-rndm-page="bank.html"><span class="bi">💳</span>Банк</a>
     <a href="estate.html" data-rndm-page="estate.html"><span class="bi">🏠</span>Квартиры</a>
     <a href="shop.html" data-rndm-page="shop.html"><span class="bi">⭐</span>Магазин</a>
     <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
     <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
     <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
-  
+  </div>
 
+  <div class="rndm-burger-section">v24 Mega</div>
+  <div class="rndm-burger-grid">
     <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
     <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
     <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
@@ -55,7 +109,32 @@
   </div>
 </aside>
 
-<header class="top"><a href="index.html" class="logo">R</a><b>RNDM Недвижимость</b><nav><a href="market.html">Market</a><a href="bank.html">Банк</a><a href="profile.html">Профиль</a></nav></header><main class="page"><div class="notice">🏠 Все квартиры и цены здесь виртуальные и относятся только к игровой экономике RNDM.</div><section class="hero"><div><div style="color:#8b75ff;font-weight:900">RNDM ESTATE</div><h1>Квартиры и дома</h1><p>Копи игровую валюту, бери игровой кредит и собирай недвижимость в своём профиле.</p></div><div class="wallet">Баланс: <span id="balance">—</span></div></section><div class="tabs"><button class="active" data-tab="all">В продаже</button><button data-tab="mine">Мои квартиры</button><a class="btn" href="bank.html" style="margin:0">💳 Банк</a></div><div id="auth" style="display:none" class="notice">Сначала <a href="profile.html">войдите в аккаунт</a>.</div><div id="grid" class="grid"></div></main><nav class="mobile"><a href="index.html"><span>⌂</span>Главная</a><a href="market.html"><span>🛍</span>Market</a><a href="bank.html"><span>💳</span>Банк</a><a class="active" href="estate.html"><span>🏠</span>Квартиры</a><a href="profile.html"><span>👤</span>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=25.7"></script><script src="rndm-censor.js?v=25.7"></script><script src="rndm-state-sync.js?v=25.1"></script><script>
+<header class="top"><a href="index.html" class="logo">R</a><b>RNDM Недвижимость</b><nav><a href="market.html">Market</a><a href="bank.html">Банк</a><a href="profile.html">Профиль</a></nav></header><main class="page"><div class="notice">🏠 Все квартиры и цены здесь виртуальные и относятся только к игровой экономике RNDM.</div><section class="hero"><div><div style="color:#8b75ff;font-weight:900">RNDM ESTATE</div><h1>Квартиры и дома</h1><p>Копи игровую валюту, бери игровой кредит и собирай недвижимость в своём профиле.</p></div><div class="wallet">Баланс: <span id="balance">—</span></div></section><div class="tabs"><button class="active" data-tab="all">В продаже</button><button data-tab="mine">Мои квартиры</button><a class="btn" href="bank.html" style="margin:0">💳 Банк</a></div><div id="auth" style="display:none" class="notice">Сначала <a href="profile.html">войдите в аккаунт</a>.</div><div id="grid" class="grid"></div></main><nav class="mobile"><a href="index.html"><span>⌂</span>Главная</a><a href="market.html"><span>🛍</span>Market</a><a href="bank.html"><span>💳</span>Банк</a><a class="active" href="estate.html"><span>🏠</span>Квартиры</a><a href="profile.html"><span>👤</span>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=24.1"></script><script src="rndm-state-sync.js?v=24.1"></script><script>
 (async()=>{const C=RNDMCloud,sb=C.getClient(),me=await C.user(),$=s=>document.querySelector(s);if(!me){$('#auth').style.display='block';return}let props=[],owned=new Set(),mode='all';function fmt(n){return new Intl.NumberFormat('ru-RU').format(Number(n||0))+' R₽'}async function load(){let [{data:p,error:pe},{data:o,error:oe},{data:w,error:we}]=await Promise.all([sb.from('demo_properties').select('*').order('price'),sb.from('owned_properties').select('*').eq('user_id',me.id),sb.from('game_wallets').select('*').eq('user_id',me.id).maybeSingle()]);if(pe||oe||we){$('#grid').innerHTML='<div class="notice">Сначала выполни supabase_v20_upgrade.sql</div>';return}props=p||[];owned=new Set((o||[]).map(x=>x.property_id));$('#balance').textContent=fmt(w?.balance||0);render()}function render(){let arr=mode==='mine'?props.filter(x=>owned.has(x.id)):props;$('#grid').innerHTML=arr.length?arr.map(x=>`<article class="card ${owned.has(x.id)?'owned':''}"><div class="visual">${x.emoji}</div><div class="body"><div class="price">${fmt(x.price)}</div><h3>${C.esc(x.title)}</h3><div class="spec">${C.esc(x.city)} • ${C.esc(x.district)}<br>${x.rooms} комн. • ${x.area} м²</div><p>${C.esc(x.description)}</p>${owned.has(x.id)?'<button class="btn" disabled>✅ Уже ваша</button>':`<button class="btn buy" data-buy="${x.id}" data-price="${x.price}">Купить</button>`}</div></article>`).join(''):'<div class="notice">У вас пока нет квартир.</div>';document.querySelectorAll('[data-buy]').forEach(b=>b.onclick=async()=>{if(!confirm('Купить эту виртуальную квартиру за '+fmt(b.dataset.price)+'?'))return;const {error}=await sb.rpc('buy_demo_property',{property:b.dataset.buy});if(error){if(String(error.message).includes('not enough')){if(confirm('Недостаточно игрового баланса. Открыть банк?'))location.href='bank.html'}else alert(error.message)}else{alert('Квартира куплена 🎉');load()}})}document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{mode=b.dataset.tab;document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));render()});load()})();
 </script>
-<script src="rndm-shell.js?v=25.7"></script></body></html>
+<script id="rndm-unified-nav-script">
+(()=>{
+  const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+  const core=new Set(['index.html','random.html','chat.html','channels.html','clips.html']);
+  document.querySelectorAll('[data-rndm-page]').forEach(a=>{if((a.getAttribute('data-rndm-page')||'').toLowerCase()===current)a.classList.add('active')});
+  const burger=document.getElementById('rndmBurgerButton'),menu=document.getElementById('rndmBurgerMenu'),backdrop=document.getElementById('rndmNavBackdrop'),close=document.getElementById('rndmBurgerClose');
+  if(!core.has(current)) burger?.classList.add('active');
+  const shut=()=>{menu?.classList.remove('open');backdrop?.classList.remove('open');burger?.setAttribute('aria-expanded','false')};
+  const toggle=()=>{const open=!menu?.classList.contains('open');menu?.classList.toggle('open',open);backdrop?.classList.toggle('open',open);burger?.setAttribute('aria-expanded',open?'true':'false')};
+  burger?.addEventListener('click',toggle);close?.addEventListener('click',shut);backdrop?.addEventListener('click',shut);document.addEventListener('keydown',e=>{if(e.key==='Escape')shut()});
+  const theme=document.getElementById('rndmUnifiedTheme');
+  const syncTheme=()=>{if(theme)theme.textContent=document.body.classList.contains('light')?'☀️':'🌙'};syncTheme();
+  theme?.addEventListener('click',()=>{document.body.classList.toggle('light');localStorage.setItem('rndm-theme',document.body.classList.contains('light')?'light':'dark');syncTheme();const old=document.getElementById('themeToggle');if(old&&old!==theme)old.textContent=theme.textContent});
+  const clipAction=document.getElementById('rndmClipAction');
+  if(current==='clips.html'&&clipAction){clipAction.style.setProperty('display','inline-flex','important');clipAction.addEventListener('click',()=>document.getElementById('uploadClip')?.click())}
+  async function syncAccount(){
+    const link=document.getElementById('rndmUnifiedAccount');if(!link)return;
+    try{if(window.RNDMCloud?.configured?.()){const u=await window.RNDMCloud.user();if(u){const p=await window.RNDMCloud.profile(u.id);const n=p?.username||'я';link.innerHTML=`<span>@${String(n).replace(/[<>&]/g,'')}</span> 👤`;return}}}catch(e){}
+    try{const db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}'),id=localStorage.getItem('rndm-session-v17')||'',a=db[id];if(a?.username)link.innerHTML=`<span>@${String(a.username).replace(/[<>&]/g,'')}</span> 👤`}catch(e){}
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',()=>setTimeout(syncAccount,120));else setTimeout(syncAccount,120);
+})();
+</script>
+
+<script id="rndm-v24-guard">(async()=>{try{if(!window.RNDMCloud?.configured?.())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);if(!p)return;if(p.is_banned&&(!p.banned_until||new Date(p.banned_until)>new Date())&&!location.pathname.endsWith('/banned.html')){location.href='banned.html';return}if(['owner','admin','moderator'].includes(p.app_role)){document.querySelectorAll('.v24-admin-link').forEach(x=>{x.hidden=false;x.setAttribute('aria-hidden','false');x.classList.add('show')});const a=document.getElementById('rndmUnifiedAccount');if(a)a.innerHTML=`<span>@${RNDMCloud.esc(p.username||'я')} ${p.app_role==='owner'?'👑':p.app_role==='admin'?'🛡️':'🔧'}</span> 👤`}}catch(e){}})();</script>
+</body></html>
