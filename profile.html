@@ -1,4 +1,5 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#080b14"><title>RNDM Chat — аккаунт</title><style>
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><meta content="#080b14" name="theme-color"/><title>RNDM Chat — аккаунт</title><style>
 :root{--bg:#080b14;--panel:#111725;--panel2:#182132;--text:#f7f8ff;--muted:#98a2b9;--line:#283247;--accent:#7b61ff;--accent2:#28e6b7;--danger:#ff5f75}
 *{box-sizing:border-box}html,body{margin:0;background:radial-gradient(circle at 20% 0,#17142d 0,#080b14 45%);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100%;font-size:16px}a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}.shell{max-width:1260px;margin:auto;padding:18px 18px 110px}.top{display:flex;align-items:center;gap:12px;padding:10px 0 18px;position:sticky;top:0;z-index:20;background:linear-gradient(#080b14f4,#080b14cc 80%,transparent);backdrop-filter:blur(18px)}.logo{width:46px;height:46px;border-radius:15px;background:linear-gradient(135deg,#8d63ff,#21e6b7);display:grid;place-items:center;font-weight:900}.brand{font-size:22px;font-weight:900}.spacer{flex:1}.top a,.top button{border:1px solid var(--line);background:#121827;color:var(--text);border-radius:14px;padding:10px 13px}.grid{display:grid;grid-template-columns:330px minmax(0,1fr);gap:16px;min-height:72dvh}.card{background:linear-gradient(180deg,#121827,#0e1420);border:1px solid var(--line);border-radius:24px;box-shadow:0 20px 50px #0005;overflow:hidden}.side-head,.chat-head{padding:18px;border-bottom:1px solid var(--line)}.side-head h2,.chat-head h2{margin:0 0 5px}.muted{color:var(--muted);font-size:13px}.list{padding:8px;max-height:calc(100dvh - 210px);overflow:auto}.row{display:flex;gap:11px;align-items:center;padding:12px;border-radius:17px;cursor:pointer;border:1px solid transparent}.row:hover,.row.active{background:#1a2233;border-color:#303b51}.avatar{width:44px;height:44px;border-radius:50%;background:linear-gradient(135deg,#7b61ff,#28e6b7);display:grid;place-items:center;overflow:hidden;flex:0 0 auto;font-weight:900}.avatar img{width:100%;height:100%;object-fit:cover}.row-main{min-width:0;flex:1}.row-title{font-weight:800;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.row-sub{font-size:13px;color:var(--muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.badge{background:#7b61ff;padding:3px 8px;border-radius:999px;font-size:11px}.chat{display:flex;flex-direction:column;height:calc(100dvh - 120px);min-height:620px}.chat-head{display:flex;align-items:center;gap:12px}.head-info{min-width:0}.head-actions{margin-left:auto;display:flex;gap:7px}.icon-btn{border:1px solid var(--line);background:#182132;color:#fff;border-radius:12px;padding:9px 12px}.messages{flex:1;overflow:auto;padding:18px;display:flex;flex-direction:column;gap:10px;background:linear-gradient(180deg,#0c111b,#0b1018)}.msg-wrap{display:flex;gap:8px;align-items:flex-end}.msg-wrap.me{justify-content:flex-end}.bubble{max-width:min(75%,620px);padding:11px 13px;border-radius:18px;background:#20293a;border:1px solid #303b51;word-break:break-word}.me .bubble{background:linear-gradient(135deg,#7358f6,#3e80ff);border-color:transparent}.meta{font-size:10px;color:#c5cce0aa;margin-top:5px;text-align:right}.sender{font-size:11px;font-weight:800;color:#a998ff;margin-bottom:3px}.attachment{margin-top:8px;max-width:100%;border-radius:14px;overflow:hidden;background:#0d1422}.attachment img,.attachment video{display:block;max-width:100%;max-height:360px}.file-link{display:flex;gap:9px;align-items:center;padding:12px;background:#151d2a;border-radius:12px}.reactions{display:flex;gap:4px;flex-wrap:wrap;margin-top:6px}.react{border:1px solid #ffffff22;background:#0003;color:#fff;border-radius:999px;padding:3px 7px;font-size:12px}.typing{height:24px;padding:2px 18px;color:#9aa6bf;font-size:12px}.composer{padding:12px;border-top:1px solid var(--line);display:grid;grid-template-columns:auto 1fr auto;gap:8px}.composer textarea{resize:none;max-height:130px;min-height:44px;border:1px solid var(--line);background:#141c2a;color:#fff;border-radius:15px;padding:11px 13px;outline:none}.composer textarea:focus{border-color:#7364ff}.send{border:0;border-radius:15px;padding:0 18px;background:linear-gradient(135deg,#7b61ff,#28e6b7);font-weight:900}.empty{height:100%;display:grid;place-items:center;text-align:center;color:var(--muted);padding:35px}.pill{display:inline-flex;align-items:center;gap:5px;padding:5px 9px;border-radius:999px;background:#1d2739;font-size:12px}.online-dot{width:8px;height:8px;background:#31e6a1;border-radius:50%;display:inline-block}.modal{position:fixed;inset:0;background:#000b;display:none;align-items:center;justify-content:center;padding:18px;z-index:99}.modal.open{display:flex}.modal-card{width:min(560px,100%);max-height:85dvh;overflow:auto;background:#121827;border:1px solid var(--line);border-radius:24px;padding:20px}.field{display:grid;gap:6px;margin:12px 0}.field input,.field textarea,.field select{width:100%;padding:12px;border-radius:13px;border:1px solid var(--line);background:#0d1420;color:#fff}.btn{border:0;background:linear-gradient(135deg,#745bff,#29e5b7);color:#071016;font-weight:900;padding:12px 16px;border-radius:14px;cursor:pointer}.btn.secondary{background:#1a2332;color:#fff;border:1px solid var(--line)}.btn.danger{background:#3b1822;color:#ff98a8;border:1px solid #6b2a3a}.toolbar{display:flex;gap:8px;flex-wrap:wrap}.notice{padding:13px;border-radius:14px;background:#211d36;border:1px solid #493f78;color:#dcd7ff}.error{padding:13px;border-radius:14px;background:#321920;border:1px solid #6d2d3c;color:#ffc2cb}.auth{max-width:680px;margin:30px auto}.auth h1{font-size:36px;margin:5px 0}.tabs{display:flex;gap:7px;margin:16px 0}.tabs button{flex:1}.profile-card{padding:22px;display:grid;gap:16px}.profile-top{display:flex;gap:16px;align-items:center}.profile-top .avatar{width:86px;height:86px;font-size:28px}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.stat{padding:13px;border:1px solid var(--line);border-radius:14px;text-align:center;background:#0d1420}.bottom{display:none}
 @media(max-width:760px){.shell{padding:10px 10px 90px}.top{padding-top:max(8px,env(safe-area-inset-top));}.brand{font-size:19px}.grid{display:block}.sidebar{display:none}.grid.show-list .sidebar{display:block}.grid.show-list .chat-card{display:none}.grid.show-chat .sidebar{display:none}.grid.show-chat .chat-card{display:block}.chat{height:calc(100dvh - 92px);min-height:0}.bubble{max-width:86%}.head-actions .optional{display:none}.bottom{display:grid;grid-template-columns:repeat(5,1fr);position:fixed;bottom:0;left:0;right:0;z-index:40;padding:8px 8px calc(8px + env(safe-area-inset-bottom));background:#0c111bf4;border-top:1px solid #283247;backdrop-filter:blur(18px)}.bottom a{display:grid;place-items:center;gap:3px;color:#a7b0c3;font-size:11px}.bottom b{font-size:20px}.bottom a.on{color:#fff}.auth h1{font-size:29px}.stats{grid-template-columns:1fr 1fr}.desktop-only{display:none}}
@@ -35,122 +36,117 @@
 <style id="rndm-avatar-editor-style">
 .avatar-editor{display:flex;align-items:center;gap:16px;padding:14px;border:1px solid var(--line);border-radius:18px;background:#0d1420}.avatar-preview-button{position:relative;width:92px;height:92px;border-radius:50%;padding:0;border:2px solid #745bff;background:linear-gradient(135deg,#745bff,#29e5b7);overflow:hidden;display:grid;place-items:center;color:#fff;font-size:30px;font-weight:900;cursor:pointer;flex:0 0 auto}.avatar-preview-button img{width:100%;height:100%;object-fit:cover;display:block}.avatar-camera{position:absolute;right:2px;bottom:2px;width:29px;height:29px;border-radius:50%;background:#111827;border:2px solid #fff3;display:grid;place-items:center;font-size:14px}.avatar-actions{display:grid;gap:8px;min-width:0}.avatar-actions .btn{width:max-content}.avatar-uploading{opacity:.65;pointer-events:none}@media(max-width:560px){.avatar-editor{align-items:flex-start}.avatar-preview-button{width:78px;height:78px}.avatar-actions .btn{width:100%}}
 </style>
-<link rel="stylesheet" href="rndm-shell.css?v=26"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="rndm-v26.css?v=26"></head><body>
-
+<link href="rndm-shell.css?v=26.2" rel="stylesheet"/><link href="manifest.webmanifest" rel="manifest"/><link href="rndm-v26.css?v=26.2" rel="stylesheet"/></head><body>
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
-  <div class="rndm-unified-inner">
-    <a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
-    <nav class="rndm-core-nav" aria-label="Основные разделы">
-      <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
-      <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
-      <a href="random.html" data-rndm-page="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
-      <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
-      <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
-    </nav>
-    <div class="rndm-unified-actions">
-      <button class="rndm-page-action" id="rndmClipAction" type="button" title="Добавить клип" style="display:none!important">＋<span>Клип</span></button>
-      <a class="rndm-account-chip" id="rndmUnifiedAccount" href="profile.html"><span>Профиль</span> 👤</a>
-      <button class="rndm-nav-icon" id="rndmUnifiedTheme" type="button" aria-label="Сменить тему">🌙</button>
-      <button class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button" aria-label="Открыть дополнительное меню">☰</button>
-    </div>
-  </div>
+<div class="rndm-unified-inner">
+<a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
+<nav aria-label="Основные разделы" class="rndm-core-nav">
+<a data-rndm-page="index.html" href="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
+<a data-rndm-page="chat.html" href="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
+<a data-rndm-page="random.html" href="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
+<a data-rndm-page="channels.html" href="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
+<a data-rndm-page="clips.html" href="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
+</nav>
+<div class="rndm-unified-actions">
+<button class="rndm-page-action" id="rndmClipAction" style="display:none!important" title="Добавить клип" type="button">＋<span>Клип</span></button>
+<a class="rndm-account-chip" href="profile.html" id="rndmUnifiedAccount"><span>Профиль</span> 👤</a>
+<button aria-label="Сменить тему" class="rndm-nav-icon" id="rndmUnifiedTheme" type="button">🌙</button>
+<button aria-label="Открыть дополнительное меню" class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button">☰</button>
+</div>
+</div>
 </header>
 <div class="rndm-nav-backdrop" id="rndmNavBackdrop"></div>
-<aside class="rndm-burger-menu" id="rndmBurgerMenu" aria-label="Дополнительные разделы">
-  <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
-  <div class="rndm-burger-section">Сообщество</div>
-  <div class="rndm-burger-grid">
-    <a href="contacts.html" data-rndm-page="contacts.html"><span class="bi">👥</span>Контакты</a>
-    <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
-    <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
-    <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
-    <a href="explore.html" data-rndm-page="explore.html"><span class="bi">✨</span>Рекомендации</a>
-    <a href="profile.html" data-rndm-page="profile.html"><span class="bi">👤</span>Профиль</a>
-    <a href="about.html" data-rndm-page="about.html"><span class="bi">ℹ️</span>О проекте</a>
-  </div>
-  <div class="rndm-burger-section">Сервисы</div>
-  <div class="rndm-burger-grid">
-    <a href="market.html" data-rndm-page="market.html"><span class="bi">🛍️</span>Market</a>
-    <a href="stocks.html" data-rndm-page="stocks.html"><span class="bi">📈</span>Биржа</a>
-    <a href="bank.html" data-rndm-page="bank.html"><span class="bi">💳</span>Банк</a>
-    <a href="estate.html" data-rndm-page="estate.html"><span class="bi">🏠</span>Квартиры</a>
-    <a href="shop.html" data-rndm-page="shop.html"><span class="bi">⭐</span>Магазин</a>
-    <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
-    <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
-    <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
-  
-
-    <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
-    <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
-    <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
-    <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
-    <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
-    <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
-    <a href="group-calls.html" data-rndm-page="group-calls.html"><span class="bi">👥</span>Групповой звонок</a>
-    <a href="rooms.html" data-rndm-page="rooms.html"><span class="bi">🗣️</span>Комнаты</a>
-    <a href="season.html" data-rndm-page="season.html"><span class="bi">🏆</span>Сезон</a>
-    <a href="gifts.html" data-rndm-page="gifts.html"><span class="bi">🎁</span>Подарки</a>
-    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html" hidden aria-hidden="true"><span class="bi">🛡️</span>Админка</a>
-  </div>
+<aside aria-label="Дополнительные разделы" class="rndm-burger-menu" id="rndmBurgerMenu">
+<div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
+<div class="rndm-burger-section">Сообщество</div>
+<div class="rndm-burger-grid">
+<a data-rndm-page="contacts.html" href="contacts.html"><span class="bi">👥</span>Контакты</a>
+<a data-rndm-page="friends.html" href="friends.html"><span class="bi">🤝</span>Друзья</a>
+<a data-rndm-page="activity.html" href="activity.html"><span class="bi">🔔</span>Активность</a>
+<a data-rndm-page="videos.html" href="videos.html"><span class="bi">📺</span>Видео</a>
+<a data-rndm-page="explore.html" href="explore.html"><span class="bi">✨</span>Рекомендации</a>
+<a data-rndm-page="profile.html" href="profile.html"><span class="bi">👤</span>Профиль</a>
+<a data-rndm-page="about.html" href="about.html"><span class="bi">ℹ️</span>О проекте</a>
+</div>
+<div class="rndm-burger-section">Сервисы</div>
+<div class="rndm-burger-grid">
+<a data-rndm-page="market.html" href="market.html"><span class="bi">🛍️</span>Market</a>
+<a data-rndm-page="stocks.html" href="stocks.html"><span class="bi">📈</span>Биржа</a>
+<a data-rndm-page="bank.html" href="bank.html"><span class="bi">💳</span>Банк</a>
+<a data-rndm-page="estate.html" href="estate.html"><span class="bi">🏠</span>Квартиры</a>
+<a data-rndm-page="shop.html" href="shop.html"><span class="bi">⭐</span>Магазин</a>
+<a data-rndm-page="paint.html" href="paint.html"><span class="bi">🎨</span>Paint</a>
+<a data-rndm-page="games.html" href="games.html"><span class="bi">🎮</span>Мини-игры</a>
+<a data-rndm-page="cat.html" href="cat.html"><span class="bi">🐱</span>Котик</a>
+<a data-rndm-page="search.html" href="search.html"><span class="bi">🔎</span>Поиск</a>
+<a data-rndm-page="stories.html" href="stories.html"><span class="bi">📖</span>Истории</a>
+<a data-rndm-page="daily.html" href="daily.html"><span class="bi">📅</span>Daily Hub</a>
+<a data-rndm-page="leaderboard.html" href="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
+<a data-rndm-page="events.html" href="events.html"><span class="bi">🎫</span>События</a>
+<a data-rndm-page="calls.html" href="calls.html"><span class="bi">📞</span>Звонки</a>
+<a data-rndm-page="group-calls.html" href="group-calls.html"><span class="bi">👥</span>Групповой звонок</a>
+<a data-rndm-page="rooms.html" href="rooms.html"><span class="bi">🗣️</span>Комнаты</a>
+<a data-rndm-page="season.html" href="season.html"><span class="bi">🏆</span>Сезон</a>
+<a data-rndm-page="gifts.html" href="gifts.html"><span class="bi">🎁</span>Подарки</a>
+<a aria-hidden="true" class="v24-admin-link" data-rndm-page="admin.html" hidden="" href="admin.html"><span class="bi">🛡️</span>Админка</a>
+</div>
 </aside>
-
-<div class="shell"><header class="top"><a href="index.html" class="logo">R</a><div class="brand">RNDM Chat <span style="font-size:11px;color:#31e6a1">LIVE</span></div><div class="spacer"></div><a href="contacts.html" class="desktop-only">Контакты</a><a href="profile.html" id="topAccount">Аккаунт</a></header>
-<div id="notConfigured" class="notice" style="display:none">⚙️ Чтобы аккаунты работали между устройствами, настрой <b>rndm-cloud.js</b> и Supabase по файлу SETUP_REAL_CHAT.txt.</div>
+<div class="shell">
+<div class="notice" id="notConfigured" style="display:none">⚙️ Чтобы аккаунты работали между устройствами, настрой <b>rndm-cloud.js</b> и Supabase по файлу SETUP_REAL_CHAT.txt.</div>
 <section class="card auth" id="authBox">
- <div style="padding:22px"><div style="font-size:45px">👤</div><h1>Аккаунт RNDM</h1><p class="muted">Один аккаунт на телефоне, ПК и любом другом устройстве.</p>
- <div class="tabs"><button class="btn" id="tabLogin">Вход</button><button class="btn secondary" id="tabRegister">Регистрация</button></div>
- <form id="loginForm"><div class="field"><label>Email</label><input id="loginEmail" type="email" required autocomplete="email"></div><div class="field"><label>Пароль</label><input id="loginPassword" type="password" required autocomplete="current-password"></div><button class="btn" style="width:100%">Войти</button></form>
- <form id="registerForm" style="display:none"><div class="field"><label>Имя</label><input id="regName" maxlength="40" required placeholder="Сергей"></div><div class="field"><label>Username</label><input id="regUsername" pattern="[A-Za-z0-9_]{3,24}" required placeholder="sporty_link5"></div><div class="field"><label>Email</label><input id="regEmail" type="email" required></div><div class="field"><label>Пароль (минимум 6 символов)</label><input id="regPassword" type="password" minlength="6" required></div><button class="btn" style="width:100%">Создать аккаунт</button></form><div id="authMessage" style="margin-top:12px"></div></div>
+<div style="padding:22px"><div style="font-size:45px">👤</div><h1>Аккаунт RNDM</h1><p class="muted">Один аккаунт на телефоне, ПК и любом другом устройстве.</p>
+<div class="tabs"><button class="btn" id="tabLogin">Вход</button><button class="btn secondary" id="tabRegister">Регистрация</button></div>
+<form id="loginForm"><div class="field"><label>Email</label><input autocomplete="email" id="loginEmail" required="" type="email"/></div><div class="field"><label>Пароль</label><input autocomplete="current-password" id="loginPassword" required="" type="password"/></div><button class="btn" style="width:100%">Войти</button></form>
+<form id="registerForm" style="display:none"><div class="field"><label>Имя</label><input id="regName" maxlength="40" placeholder="Сергей" required=""/></div><div class="field"><label>Username</label><input id="regUsername" pattern="[A-Za-z0-9_]{3,24}" placeholder="sporty_link5" required=""/></div><div class="field"><label>Email</label><input id="regEmail" required="" type="email"/></div><div class="field"><label>Пароль (минимум 6 символов)</label><input id="regPassword" minlength="6" required="" type="password"/></div><button class="btn" style="width:100%">Создать аккаунт</button></form><div id="authMessage" style="margin-top:12px"></div></div>
 </section>
 <section class="card auth" id="profileBox" style="display:none"><div class="profile-card"><div class="profile-top"><div class="avatar" id="bigAvatar">?</div><div><h1 id="displayName" style="margin:0">Профиль</h1><div class="muted" id="username"></div><div class="pill" id="onlineStatus"><span class="online-dot"></span> в сети</div></div></div>
- 
 <div class="profile-cover" id="profileCoverPreview"><span class="profile-cover-badge">Обложка профиля</span></div>
 <div class="profile-customizer">
-  <h3>🎨 Оформление профиля</h3>
-  <div class="muted">Выбери фон, свою обложку и акцентный цвет. Настройки сохраняются в облаке.</div>
-  <div class="profile-bg-presets" id="profileBgPresets">
-    <button type="button" class="profile-bg-preset" data-preset="violet" title="Фиолетовый" style="background:linear-gradient(135deg,#7b61ff,#2dd4bf)"></button>
-    <button type="button" class="profile-bg-preset" data-preset="sunset" title="Закат" style="background:linear-gradient(135deg,#ff6a88,#ff9a44)"></button>
-    <button type="button" class="profile-bg-preset" data-preset="ocean" title="Океан" style="background:linear-gradient(135deg,#1479ff,#25d7e8)"></button>
-    <button type="button" class="profile-bg-preset" data-preset="night" title="Ночь" style="background:linear-gradient(135deg,#14172a,#5533aa)"></button>
-    <button type="button" class="profile-bg-preset" data-preset="mint" title="Мята" style="background:linear-gradient(135deg,#0f766e,#5eead4)"></button>
-  </div>
-  <div class="profile-custom-row">
-    <button class="btn secondary" type="button" id="coverChoose">🖼 Своя обложка</button>
-    <button class="btn secondary" type="button" id="coverRemove">↩ Убрать фото</button>
-    <input type="file" id="coverFile" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden>
-  </div>
-  <div class="profile-custom-row">
-    <label for="profileAccent"><b>Акцент</b></label>
-    <input id="profileAccent" type="color" value="#7b61ff">
-    <span class="muted">Цвет кнопок и выделений на странице профиля.</span>
-  </div>
-  <button class="btn" type="button" id="saveProfileStyle">Сохранить оформление</button>
+<h3>🎨 Оформление профиля</h3>
+<div class="muted">Выбери фон, свою обложку и акцентный цвет. Настройки сохраняются в облаке.</div>
+<div class="profile-bg-presets" id="profileBgPresets">
+<button class="profile-bg-preset" data-preset="violet" style="background:linear-gradient(135deg,#7b61ff,#2dd4bf)" title="Фиолетовый" type="button"></button>
+<button class="profile-bg-preset" data-preset="sunset" style="background:linear-gradient(135deg,#ff6a88,#ff9a44)" title="Закат" type="button"></button>
+<button class="profile-bg-preset" data-preset="ocean" style="background:linear-gradient(135deg,#1479ff,#25d7e8)" title="Океан" type="button"></button>
+<button class="profile-bg-preset" data-preset="night" style="background:linear-gradient(135deg,#14172a,#5533aa)" title="Ночь" type="button"></button>
+<button class="profile-bg-preset" data-preset="mint" style="background:linear-gradient(135deg,#0f766e,#5eead4)" title="Мята" type="button"></button>
+</div>
+<div class="profile-custom-row">
+<button class="btn secondary" id="coverChoose" type="button">🖼 Своя обложка</button>
+<button class="btn secondary" id="coverRemove" type="button">↩ Убрать фото</button>
+<input accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden="" id="coverFile" type="file"/>
+</div>
+<div class="profile-custom-row">
+<label for="profileAccent"><b>Акцент</b></label>
+<input id="profileAccent" type="color" value="#7b61ff"/>
+<span class="muted">Цвет кнопок и выделений на странице профиля.</span>
+</div>
+<button class="btn" id="saveProfileStyle" type="button">Сохранить оформление</button>
 </div>
 <div class="profile-customizer censorship-settings">
-  <h3>🛡️ Цензура</h3>
-  <div class="muted">Нецензурные слова скрываются звёздочками. Это работает и для старых сообщений/постов — оригинал в базе не удаляется.</div>
-  <label class="profile-custom-row" style="cursor:pointer">
-    <input id="censorshipToggle" type="checkbox" checked style="width:22px;height:22px">
-    <b>Скрывать плохие слова</b>
-  </label>
-  <div class="muted" id="censorshipGlobalState"></div>
+<h3>🛡️ Цензура</h3>
+<div class="muted">Нецензурные слова скрываются звёздочками. Это работает и для старых сообщений/постов — оригинал в базе не удаляется.</div>
+<label class="profile-custom-row" style="cursor:pointer">
+<input checked="" id="censorshipToggle" style="width:22px;height:22px" type="checkbox"/>
+<b>Скрывать плохие слова</b>
+</label>
+<div class="muted" id="censorshipGlobalState"></div>
 </div>
-<div class="stats"><div class="stat"><b id="statFriends">0</b><br><span class="muted">друзей</span></div><div class="stat"><b id="statChats">0</b><br><span class="muted">чатов</span></div><div class="stat"><b id="statMessages">0</b><br><span class="muted">сообщений</span></div></div>
- <div class="field"><label>Имя</label><input id="pName" maxlength="40"></div><div class="field"><label>Username</label><input id="pUsername" maxlength="24"></div><div class="field"><label>О себе</label><textarea id="pBio" rows="3" maxlength="240"></textarea></div><div class="field"><label>Статус</label><select id="pStatus"><option value="online">В сети</option><option value="busy">Не беспокоить</option><option value="away">Недавно</option></select></div><div class="field"><label>Аватар</label>
-  <div class="avatar-editor">
-    <button class="avatar-preview-button" id="avatarPick" type="button" aria-label="Выбрать аватар"><span id="avatarEditPreview">👤</span><span class="avatar-camera">📷</span></button>
-    <div class="avatar-actions">
-      <button class="btn secondary" type="button" id="avatarChoose">📷 Выбрать фото</button>
-      <button class="btn secondary" type="button" id="avatarRemove">🗑 Удалить</button>
-      <div class="muted">JPG, PNG, WebP, GIF или AVIF · до 5 МБ. На телефоне можно выбрать фото из галереи или камеры.</div>
-    </div>
-    <input type="file" id="avatarFile" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden>
-  </div>
+<div class="stats"><div class="stat"><b id="statFriends">0</b><br/><span class="muted">друзей</span></div><div class="stat"><b id="statChats">0</b><br/><span class="muted">чатов</span></div><div class="stat"><b id="statMessages">0</b><br/><span class="muted">сообщений</span></div></div>
+<div class="field"><label>Имя</label><input id="pName" maxlength="40"/></div><div class="field"><label>Username</label><input id="pUsername" maxlength="24"/></div><div class="field"><label>О себе</label><textarea id="pBio" maxlength="240" rows="3"></textarea></div><div class="field"><label>Статус</label><select id="pStatus"><option value="online">В сети</option><option value="busy">Не беспокоить</option><option value="away">Недавно</option></select></div><div class="field"><label>Аватар</label>
+<div class="avatar-editor">
+<button aria-label="Выбрать аватар" class="avatar-preview-button" id="avatarPick" type="button"><span id="avatarEditPreview">👤</span><span class="avatar-camera">📷</span></button>
+<div class="avatar-actions">
+<button class="btn secondary" id="avatarChoose" type="button">📷 Выбрать фото</button>
+<button class="btn secondary" id="avatarRemove" type="button">🗑 Удалить</button>
+<div class="muted">JPG, PNG, WebP, GIF или AVIF · до 5 МБ. На телефоне можно выбрать фото из галереи или камеры.</div>
 </div>
- <div class="toolbar"><button class="btn" id="saveProfile">Сохранить профиль</button><a class="btn secondary" href="chat.html">Открыть чаты</a><button class="btn danger" id="logout">Выйти</button></div><div id="profileMessage"></div>
+<input accept="image/jpeg,image/png,image/webp,image/gif,image/avif" hidden="" id="avatarFile" type="file"/>
+</div>
+</div>
+<div class="toolbar"><button class="btn" id="saveProfile">Сохранить профиль</button><a class="btn secondary" href="chat.html">Открыть чаты</a><button class="btn danger" id="logout">Выйти</button></div><div id="profileMessage"></div>
 </div></section>
-</div><nav class="bottom"><a href="index.html"><b>⌂</b>Главная</a><a href="chat.html"><b>💬</b>Чаты</a><a href="random.html"><b>🎲</b>Рандом</a><a href="clips.html"><b>▶️</b>Clips</a><a href="profile.html" class="on"><b>👤</b>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=26"></script><script src="rndm-censor.js?v=26"></script><script src="rndm-state-sync.js?v=25.1"></script><script>
+</div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=26.2"></script><script src="rndm-censor.js?v=26.2"></script><script src="rndm-state-sync.js?v=25.1"></script><script>
 (async()=>{const C=RNDMCloud,sb=C.getClient(),q=s=>document.querySelector(s),esc=C.esc;q('#notConfigured').style.display=C.configured()?'none':'block';if(!sb){q('#authBox').style.display='block';return}
 const REFKEY='rndm-pending-referral-v25';const refNow=(new URLSearchParams(location.search).get('ref')||'').trim().toUpperCase();if(refNow)localStorage.setItem(REFKEY,refNow);const pendingRef=()=>localStorage.getItem(REFKEY)||(null);
 async function claimPendingReferral(user){const code=pendingRef()||String(user?.user_metadata?.referral_code||'').trim().toUpperCase();if(!code)return null;const {data,error}=await sb.rpc('claim_referral',{ref_code:code});if(error){console.warn('Referral:',error.message);return {error:error.message}}localStorage.removeItem(REFKEY);return data;}
@@ -239,7 +235,7 @@ q('#saveProfileStyle').onclick=async()=>{
 q('#logout').onclick=async()=>{await sb.auth.signOut();location.reload()};
 })();
 </script>
-<section id="v24ProfileCloud" class="v24-card" style="margin:18px 6vw 80px"><h2>✨ Профиль</h2><div id="v24Badges" class="v24-row"></div><p class="v24-muted">Интересы используются в рекомендациях и Random 2.0.</p><div class="v24-row"><input id="v24Interests" class="v24-input" style="flex:1" placeholder="games, music, study"><button id="v24SaveInterests" class="v24-btn primary">Сохранить интересы</button></div></section><script id="v24-profile-script">(async()=>{try{const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);const b=document.getElementById('v24Badges');if(b)b.innerHTML=`<span class="v24-badge ${p.app_role==='owner'?'owner':p.app_role==='admin'?'admin':p.app_role==='moderator'?'mod':''}">${p.app_role==='owner'?'👑 Owner':p.app_role==='admin'?'🛡️ Admin':p.app_role==='moderator'?'🔧 Moderator':'👤 '+p.app_role}</span>${p.is_verified?'<span class="v24-badge ok">✓ Verified</span>':''}${p.is_premium?'<span class="v24-badge">⭐ Premium</span>':''}<span class="v24-badge">🏆 XP ${p.xp||0}</span><span class="v24-badge">⭐ ${p.stars||0}</span><span class="v24-badge">🤝 Rep ${p.reputation||0}</span>`;const {data}=await RNDMCloud.getClient().from('profile_interests').select('interest').eq('user_id',u.id);document.getElementById('v24Interests').value=(data||[]).map(x=>x.interest).join(', ');document.getElementById('v24SaveInterests').onclick=async()=>{const vals=document.getElementById('v24Interests').value.split(',').map(x=>x.trim().toLowerCase()).filter(Boolean).slice(0,12);const c=RNDMCloud.getClient();await c.from('profile_interests').delete().eq('user_id',u.id);if(vals.length){const {error}=await c.from('profile_interests').insert(vals.map(interest=>({user_id:u.id,interest})));if(error)return alert(error.message)}alert('Интересы сохранены')}}catch(e){console.warn(e)}})();</script>
+<section class="v24-card" id="v24ProfileCloud" style="margin:18px 6vw 80px"><h2>✨ Профиль</h2><div class="v24-row" id="v24Badges"></div><p class="v24-muted">Интересы используются в рекомендациях и Random 2.0.</p><div class="v24-row"><input class="v24-input" id="v24Interests" placeholder="games, music, study" style="flex:1"/><button class="v24-btn primary" id="v24SaveInterests">Сохранить интересы</button></div></section><script id="v24-profile-script">(async()=>{try{const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);const b=document.getElementById('v24Badges');if(b)b.innerHTML=`<span class="v24-badge ${p.app_role==='owner'?'owner':p.app_role==='admin'?'admin':p.app_role==='moderator'?'mod':''}">${p.app_role==='owner'?'👑 Owner':p.app_role==='admin'?'🛡️ Admin':p.app_role==='moderator'?'🔧 Moderator':'👤 '+p.app_role}</span>${p.is_verified?'<span class="v24-badge ok">✓ Verified</span>':''}${p.is_premium?'<span class="v24-badge">⭐ Premium</span>':''}<span class="v24-badge">🏆 XP ${p.xp||0}</span><span class="v24-badge">⭐ ${p.stars||0}</span><span class="v24-badge">🤝 Rep ${p.reputation||0}</span>`;const {data}=await RNDMCloud.getClient().from('profile_interests').select('interest').eq('user_id',u.id);document.getElementById('v24Interests').value=(data||[]).map(x=>x.interest).join(', ');document.getElementById('v24SaveInterests').onclick=async()=>{const vals=document.getElementById('v24Interests').value.split(',').map(x=>x.trim().toLowerCase()).filter(Boolean).slice(0,12);const c=RNDMCloud.getClient();await c.from('profile_interests').delete().eq('user_id',u.id);if(vals.length){const {error}=await c.from('profile_interests').insert(vals.map(interest=>({user_id:u.id,interest})));if(error)return alert(error.message)}alert('Интересы сохранены')}}catch(e){console.warn(e)}})();</script>
 <script>
 document.addEventListener('DOMContentLoaded',()=>{
   const toggle=document.getElementById('censorshipToggle');
@@ -256,4 +252,4 @@ document.addEventListener('DOMContentLoaded',()=>{
   toggle.addEventListener('change',()=>window.RNDMCensor?.setUserEnabled?.(toggle.checked));
 });
 </script>
-<script src="rndm-shell.js?v=26"></script><script src="rndm-v26.js?v=26"></script><script src="rndm-v26-extra.js?v=26"></script></body></html>
+<script src="rndm-shell.js?v=26.2"></script><script src="rndm-v26.js?v=26.2"></script><script src="rndm-v26-extra.js?v=26.2"></script></body></html>

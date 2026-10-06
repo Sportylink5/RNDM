@@ -1,65 +1,62 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>RNDM Недвижимость</title><style>
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"/><meta content="width=device-width,initial-scale=1,viewport-fit=cover" name="viewport"/><title>RNDM Недвижимость</title><style>
 :root{--bg:#090a11;--panel:#151925;--line:#ffffff16;--text:#f7f8ff;--muted:#9ca5b8;--green:#25e1a1;--purple:#7c5cff}*{box-sizing:border-box}body{margin:0;background:radial-gradient(circle at 15% 0,#2f215b55,transparent 30%),var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;padding-bottom:90px}a{color:inherit;text-decoration:none}.top{position:sticky;top:0;z-index:20;display:flex;align-items:center;gap:12px;padding:14px 20px;background:#090a11eb;backdrop-filter:blur(18px);border-bottom:1px solid var(--line)}.logo{width:42px;height:42px;border-radius:14px;background:linear-gradient(135deg,var(--purple),var(--green));display:grid;place-items:center;font-weight:900}.top nav{margin-left:auto;display:flex;gap:12px;color:var(--muted)}.page{max-width:1180px;margin:auto;padding:28px 20px}.hero{display:flex;justify-content:space-between;align-items:end;gap:18px}.hero h1{font-size:clamp(34px,5vw,58px);margin:0}.hero p,.muted{color:var(--muted)}.wallet{padding:14px 18px;border:1px solid var(--line);border-radius:17px;background:var(--panel);font-weight:900}.tabs{display:flex;gap:8px;margin:22px 0}.tabs button{border:0;border-radius:12px;padding:10px 14px;background:#ffffff0b;color:white}.tabs button.active{background:var(--purple)}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;overflow:hidden}.visual{height:160px;display:grid;place-items:center;font-size:74px;background:linear-gradient(135deg,#252b42,#151822)}.body{padding:15px}.price{font-size:23px;font-weight:900}.body h3{margin:7px 0}.spec{color:var(--muted);font-size:13px}.btn{border:0;border-radius:13px;padding:11px 14px;background:#ffffff0d;color:white;font-weight:800;cursor:pointer;margin-top:12px}.btn.buy{background:linear-gradient(135deg,var(--green),#79ff77);color:#062117}.owned{outline:2px solid #27e6a455}.notice{padding:13px 15px;background:#ffb34714;border:1px solid #ffb34740;border-radius:16px;color:#ffd18d;margin:15px 0}.mobile{display:none}@media(max-width:760px){.top nav{display:none}.top{padding-top:calc(10px + env(safe-area-inset-top))}.page{padding:20px 14px}.hero{align-items:start;flex-direction:column}.grid{grid-template-columns:1fr}.mobile{position:fixed;display:grid;grid-template-columns:repeat(5,1fr);left:0;right:0;bottom:0;background:#10131df2;border-top:1px solid var(--line);padding:8px 6px calc(8px + env(safe-area-inset-bottom));z-index:20}.mobile a{text-align:center;font-size:11px;color:var(--muted)}.mobile span{display:block;font-size:22px}.mobile .active{color:white}}</style>
-<link rel="stylesheet" href="rndm-shell.css?v=26"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="rndm-v26.css?v=26"></head><body>
-
+<link href="rndm-shell.css?v=26.2" rel="stylesheet"/><link href="manifest.webmanifest" rel="manifest"/><link href="rndm-v26.css?v=26.2" rel="stylesheet"/></head><body>
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
-  <div class="rndm-unified-inner">
-    <a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
-    <nav class="rndm-core-nav" aria-label="Основные разделы">
-      <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
-      <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
-      <a href="random.html" data-rndm-page="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
-      <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
-      <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
-    </nav>
-    <div class="rndm-unified-actions">
-      <button class="rndm-page-action" id="rndmClipAction" type="button" title="Добавить клип" style="display:none!important">＋<span>Клип</span></button>
-      <a class="rndm-account-chip" id="rndmUnifiedAccount" href="profile.html"><span>Профиль</span> 👤</a>
-      <button class="rndm-nav-icon" id="rndmUnifiedTheme" type="button" aria-label="Сменить тему">🌙</button>
-      <button class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button" aria-label="Открыть дополнительное меню">☰</button>
-    </div>
-  </div>
+<div class="rndm-unified-inner">
+<a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
+<nav aria-label="Основные разделы" class="rndm-core-nav">
+<a data-rndm-page="index.html" href="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
+<a data-rndm-page="chat.html" href="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
+<a data-rndm-page="random.html" href="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
+<a data-rndm-page="channels.html" href="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
+<a data-rndm-page="clips.html" href="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
+</nav>
+<div class="rndm-unified-actions">
+<button class="rndm-page-action" id="rndmClipAction" style="display:none!important" title="Добавить клип" type="button">＋<span>Клип</span></button>
+<a class="rndm-account-chip" href="profile.html" id="rndmUnifiedAccount"><span>Профиль</span> 👤</a>
+<button aria-label="Сменить тему" class="rndm-nav-icon" id="rndmUnifiedTheme" type="button">🌙</button>
+<button aria-label="Открыть дополнительное меню" class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button">☰</button>
+</div>
+</div>
 </header>
 <div class="rndm-nav-backdrop" id="rndmNavBackdrop"></div>
-<aside class="rndm-burger-menu" id="rndmBurgerMenu" aria-label="Дополнительные разделы">
-  <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
-  <div class="rndm-burger-section">Сообщество</div>
-  <div class="rndm-burger-grid">
-    <a href="contacts.html" data-rndm-page="contacts.html"><span class="bi">👥</span>Контакты</a>
-    <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
-    <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
-    <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
-    <a href="explore.html" data-rndm-page="explore.html"><span class="bi">✨</span>Рекомендации</a>
-    <a href="profile.html" data-rndm-page="profile.html"><span class="bi">👤</span>Профиль</a>
-    <a href="about.html" data-rndm-page="about.html"><span class="bi">ℹ️</span>О проекте</a>
-  </div>
-  <div class="rndm-burger-section">Сервисы</div>
-  <div class="rndm-burger-grid">
-    <a href="market.html" data-rndm-page="market.html"><span class="bi">🛍️</span>Market</a>
-    <a href="stocks.html" data-rndm-page="stocks.html"><span class="bi">📈</span>Биржа</a>
-    <a href="bank.html" data-rndm-page="bank.html"><span class="bi">💳</span>Банк</a>
-    <a href="estate.html" data-rndm-page="estate.html"><span class="bi">🏠</span>Квартиры</a>
-    <a href="shop.html" data-rndm-page="shop.html"><span class="bi">⭐</span>Магазин</a>
-    <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
-    <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
-    <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
-  
-
-    <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
-    <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
-    <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
-    <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
-    <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
-    <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
-    <a href="group-calls.html" data-rndm-page="group-calls.html"><span class="bi">👥</span>Групповой звонок</a>
-    <a href="rooms.html" data-rndm-page="rooms.html"><span class="bi">🗣️</span>Комнаты</a>
-    <a href="season.html" data-rndm-page="season.html"><span class="bi">🏆</span>Сезон</a>
-    <a href="gifts.html" data-rndm-page="gifts.html"><span class="bi">🎁</span>Подарки</a>
-    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html" hidden aria-hidden="true"><span class="bi">🛡️</span>Админка</a>
-  </div>
+<aside aria-label="Дополнительные разделы" class="rndm-burger-menu" id="rndmBurgerMenu">
+<div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
+<div class="rndm-burger-section">Сообщество</div>
+<div class="rndm-burger-grid">
+<a data-rndm-page="contacts.html" href="contacts.html"><span class="bi">👥</span>Контакты</a>
+<a data-rndm-page="friends.html" href="friends.html"><span class="bi">🤝</span>Друзья</a>
+<a data-rndm-page="activity.html" href="activity.html"><span class="bi">🔔</span>Активность</a>
+<a data-rndm-page="videos.html" href="videos.html"><span class="bi">📺</span>Видео</a>
+<a data-rndm-page="explore.html" href="explore.html"><span class="bi">✨</span>Рекомендации</a>
+<a data-rndm-page="profile.html" href="profile.html"><span class="bi">👤</span>Профиль</a>
+<a data-rndm-page="about.html" href="about.html"><span class="bi">ℹ️</span>О проекте</a>
+</div>
+<div class="rndm-burger-section">Сервисы</div>
+<div class="rndm-burger-grid">
+<a data-rndm-page="market.html" href="market.html"><span class="bi">🛍️</span>Market</a>
+<a data-rndm-page="stocks.html" href="stocks.html"><span class="bi">📈</span>Биржа</a>
+<a data-rndm-page="bank.html" href="bank.html"><span class="bi">💳</span>Банк</a>
+<a data-rndm-page="estate.html" href="estate.html"><span class="bi">🏠</span>Квартиры</a>
+<a data-rndm-page="shop.html" href="shop.html"><span class="bi">⭐</span>Магазин</a>
+<a data-rndm-page="paint.html" href="paint.html"><span class="bi">🎨</span>Paint</a>
+<a data-rndm-page="games.html" href="games.html"><span class="bi">🎮</span>Мини-игры</a>
+<a data-rndm-page="cat.html" href="cat.html"><span class="bi">🐱</span>Котик</a>
+<a data-rndm-page="search.html" href="search.html"><span class="bi">🔎</span>Поиск</a>
+<a data-rndm-page="stories.html" href="stories.html"><span class="bi">📖</span>Истории</a>
+<a data-rndm-page="daily.html" href="daily.html"><span class="bi">📅</span>Daily Hub</a>
+<a data-rndm-page="leaderboard.html" href="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
+<a data-rndm-page="events.html" href="events.html"><span class="bi">🎫</span>События</a>
+<a data-rndm-page="calls.html" href="calls.html"><span class="bi">📞</span>Звонки</a>
+<a data-rndm-page="group-calls.html" href="group-calls.html"><span class="bi">👥</span>Групповой звонок</a>
+<a data-rndm-page="rooms.html" href="rooms.html"><span class="bi">🗣️</span>Комнаты</a>
+<a data-rndm-page="season.html" href="season.html"><span class="bi">🏆</span>Сезон</a>
+<a data-rndm-page="gifts.html" href="gifts.html"><span class="bi">🎁</span>Подарки</a>
+<a aria-hidden="true" class="v24-admin-link" data-rndm-page="admin.html" hidden="" href="admin.html"><span class="bi">🛡️</span>Админка</a>
+</div>
 </aside>
-
-<header class="top"><a href="index.html" class="logo">R</a><b>RNDM Недвижимость</b><nav><a href="market.html">Market</a><a href="bank.html">Банк</a><a href="profile.html">Профиль</a></nav></header><main class="page"><div class="notice">🏠 Все квартиры и цены здесь виртуальные и относятся только к игровой экономике RNDM.</div><section class="hero"><div><div style="color:#8b75ff;font-weight:900">RNDM ESTATE</div><h1>Квартиры и дома</h1><p>Копи игровую валюту, бери игровой кредит и собирай недвижимость в своём профиле.</p></div><div class="wallet">Баланс: <span id="balance">—</span></div></section><div class="tabs"><button class="active" data-tab="all">В продаже</button><button data-tab="mine">Мои квартиры</button><a class="btn" href="bank.html" style="margin:0">💳 Банк</a></div><div id="auth" style="display:none" class="notice">Сначала <a href="profile.html">войдите в аккаунт</a>.</div><div id="grid" class="grid"></div></main><nav class="mobile"><a href="index.html"><span>⌂</span>Главная</a><a href="market.html"><span>🛍</span>Market</a><a href="bank.html"><span>💳</span>Банк</a><a class="active" href="estate.html"><span>🏠</span>Квартиры</a><a href="profile.html"><span>👤</span>Профиль</a></nav><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=26"></script><script src="rndm-censor.js?v=26"></script><script src="rndm-state-sync.js?v=25.1"></script><script>
+<main class="page"><div class="notice">🏠 Все квартиры и цены здесь виртуальные и относятся только к игровой экономике RNDM.</div><section class="hero"><div><div style="color:#8b75ff;font-weight:900">RNDM ESTATE</div><h1>Квартиры и дома</h1><p>Копи игровую валюту, бери игровой кредит и собирай недвижимость в своём профиле.</p></div><div class="wallet">Баланс: <span id="balance">—</span></div></section><div class="tabs"><button class="active" data-tab="all">В продаже</button><button data-tab="mine">Мои квартиры</button><a class="btn" href="bank.html" style="margin:0">💳 Банк</a></div><div class="notice" id="auth" style="display:none">Сначала <a href="profile.html">войдите в аккаунт</a>.</div><div class="grid" id="grid"></div></main><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=26.2"></script><script src="rndm-censor.js?v=26.2"></script><script src="rndm-state-sync.js?v=25.1"></script><script>
 (async()=>{const C=RNDMCloud,sb=C.getClient(),me=await C.user(),$=s=>document.querySelector(s);if(!me){$('#auth').style.display='block';return}let props=[],owned=new Set(),mode='all';function fmt(n){return new Intl.NumberFormat('ru-RU').format(Number(n||0))+' R₽'}async function load(){let [{data:p,error:pe},{data:o,error:oe},{data:w,error:we}]=await Promise.all([sb.from('demo_properties').select('*').order('price'),sb.from('owned_properties').select('*').eq('user_id',me.id),sb.from('game_wallets').select('*').eq('user_id',me.id).maybeSingle()]);if(pe||oe||we){$('#grid').innerHTML='<div class="notice">Сначала выполни supabase_v20_upgrade.sql</div>';return}props=p||[];owned=new Set((o||[]).map(x=>x.property_id));$('#balance').textContent=fmt(w?.balance||0);render()}function render(){let arr=mode==='mine'?props.filter(x=>owned.has(x.id)):props;$('#grid').innerHTML=arr.length?arr.map(x=>`<article class="card ${owned.has(x.id)?'owned':''}"><div class="visual">${x.emoji}</div><div class="body"><div class="price">${fmt(x.price)}</div><h3>${C.esc(x.title)}</h3><div class="spec">${C.esc(x.city)} • ${C.esc(x.district)}<br>${x.rooms} комн. • ${x.area} м²</div><p>${C.esc(x.description)}</p>${owned.has(x.id)?'<button class="btn" disabled>✅ Уже ваша</button>':`<button class="btn buy" data-buy="${x.id}" data-price="${x.price}">Купить</button>`}</div></article>`).join(''):'<div class="notice">У вас пока нет квартир.</div>';document.querySelectorAll('[data-buy]').forEach(b=>b.onclick=async()=>{if(!confirm('Купить эту виртуальную квартиру за '+fmt(b.dataset.price)+'?'))return;const {error}=await sb.rpc('buy_demo_property',{property:b.dataset.buy});if(error){if(String(error.message).includes('not enough')){if(confirm('Недостаточно игрового баланса. Открыть банк?'))location.href='bank.html'}else alert(error.message)}else{alert('Квартира куплена 🎉');load()}})}document.querySelectorAll('[data-tab]').forEach(b=>b.onclick=()=>{mode=b.dataset.tab;document.querySelectorAll('[data-tab]').forEach(x=>x.classList.toggle('active',x===b));render()});load()})();
 </script>
-<script src="rndm-shell.js?v=26"></script><script src="rndm-v26.js?v=26"></script><script src="rndm-v26-extra.js?v=26"></script></body></html>
+<script src="rndm-shell.js?v=26.2"></script><script src="rndm-v26.js?v=26.2"></script><script src="rndm-v26-extra.js?v=26.2"></script></body></html>

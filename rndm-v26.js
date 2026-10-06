@@ -3,7 +3,7 @@
 const ready=fn=>document.readyState==='loading'?document.addEventListener('DOMContentLoaded',fn,{once:true}):fn();
 const esc=s=>window.RNDMCloud?.esc?RNDMCloud.esc(String(s??'')):String(s??'').replace(/[&<>"']/g,'');
 const page=()=>location.pathname.split('/').pop()||'index.html';
-let me=null, profile=null, sb=null, notifCh=null, callCh=null;
+let me=null, profile=null, sb=null, notifCh=null, callCh=null, chatUnreadCh=null;
 function toast(t){let e=document.getElementById('v26Toast');if(!e){e=document.createElement('div');e.id='v26Toast';e.className='v26-toast';document.body.appendChild(e)}e.textContent=t;e.classList.add('show');clearTimeout(e._t);e._t=setTimeout(()=>e.classList.remove('show'),2600)}
 function avatar(p,size=38){const a=p?.avatar_url?`<img src="${esc(p.avatar_url)}" alt="">`:esc((p?.display_name||p?.username||'?').slice(0,1).toUpperCase());return `<span class="v26-avatar" style="width:${size}px;height:${size}px">${a}</span>`}
 async function initIdentity(){if(!window.RNDMCloud?.configured?.())return;sb=RNDMCloud.getClient();me=await RNDMCloud.user();if(!me)return;profile=await RNDMCloud.profile(me.id);}
@@ -12,7 +12,40 @@ async function notifications(){if(!sb||!me)return;let btn=document.getElementByI
  const refresh=async()=>{const {count}=await sb.from('notifications').select('id',{count:'exact',head:true}).eq('user_id',me.id).eq('is_read',false);const c=document.getElementById('v26NotifCount');if(c){c.textContent=count?String(Math.min(99,count)):'';c.hidden=!count}};await refresh();
  notifCh=sb.channel('v26-notifications-'+me.id).on('postgres_changes',{event:'INSERT',schema:'public',table:'notifications',filter:'user_id=eq.'+me.id},payload=>{refresh();const n=payload.new||{};toast(n.title||'Новое уведомление');if(document.hidden&&'Notification'in window&&Notification.permission==='granted'){try{new Notification(n.title||'RNDM',{body:n.body||'',icon:'icon-192.svg'})}catch{}}}).on('postgres_changes',{event:'UPDATE',schema:'public',table:'notifications',filter:'user_id=eq.'+me.id},refresh).subscribe();
 }
-function installPrompt(){if(!('serviceWorker'in navigator))return;navigator.serviceWorker.register('sw.js?v=26').catch(()=>{});window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();window.__rndmInstallPrompt=e;});}
+async function chatUnreadBadge(){
+  if(!sb||!me)return;
+  const ensure=()=>{
+    const links=[...document.querySelectorAll('a[href="chat.html"]')].filter(a=>a.closest('.rndm-core-nav,.rndm-mobile-bottom-nav,.rndm-burger-menu'));
+    for(const a of links){
+      a.classList.add('rndm-chat-link');
+      if(!a.querySelector('.rndm-chat-badge')){
+        const b=document.createElement('b');b.className='rndm-chat-badge';b.hidden=true;a.appendChild(b);
+      }
+    }
+    return links;
+  };
+  const refresh=async()=>{
+    ensure();
+    const {data,error}=await sb.rpc('chat_unread_count');
+    if(error)return;
+    const n=Math.max(0,Number(data||0));
+    document.querySelectorAll('.rndm-chat-badge').forEach(b=>{
+      b.textContent=n>99?'99+':String(n);
+      b.hidden=!n;
+      b.setAttribute('aria-label',n?`${n} непрочитанных сообщений`:'Нет непрочитанных сообщений');
+    });
+  };
+  await refresh();
+  if(chatUnreadCh)try{await sb.removeChannel(chatUnreadCh)}catch{}
+  chatUnreadCh=sb.channel('v26-chat-unread-'+me.id)
+    .on('postgres_changes',{event:'INSERT',schema:'public',table:'messages'},refresh)
+    .on('postgres_changes',{event:'UPDATE',schema:'public',table:'messages'},refresh)
+    .on('postgres_changes',{event:'UPDATE',schema:'public',table:'conversation_members',filter:'user_id=eq.'+me.id},refresh)
+    .subscribe();
+  window.addEventListener('focus',refresh);
+  document.addEventListener('visibilitychange',()=>{if(!document.hidden)refresh()});
+}
+function installPrompt(){if(!('serviceWorker'in navigator))return;navigator.serviceWorker.register('sw.js?v=26.1').catch(()=>{});window.addEventListener('beforeinstallprompt',e=>{e.preventDefault();window.__rndmInstallPrompt=e;});}
 function notificationPermission(){if(!('Notification'in window)||Notification.permission!=='default')return;setTimeout(()=>{const bar=document.createElement('div');bar.className='v26-perm';bar.innerHTML='<span>🔔 Включить уведомления RNDM?</span><button>Включить</button><i>×</i>';document.body.appendChild(bar);bar.querySelector('button').onclick=async()=>{await Notification.requestPermission();bar.remove()};bar.querySelector('i').onclick=()=>bar.remove()},5000)}
 async function incomingCalls(){if(!sb||!me)return;const show=async(inv)=>{if(!inv||inv.status!=='ringing')return;const {data:caller}=await sb.from('profiles').select('id,username,display_name,avatar_url').eq('id',inv.caller_id).maybeSingle();let box=document.getElementById('v26Incoming');if(box)box.remove();box=document.createElement('div');box.id='v26Incoming';box.className='v26-incoming';box.innerHTML=`<div class="v26-call-card">${avatar(caller,56)}<div><small>Входящий ${inv.mode==='audio'?'аудио':'видео'}звонок</small><b>${esc(caller?.display_name||'Пользователь')}</b><span>@${esc(caller?.username||'user')}</span></div><div class="v26-call-actions"><button data-no>Отклонить</button><button class="ok" data-yes>Принять</button></div></div>`;document.body.appendChild(box);box.querySelector('[data-no]').onclick=async()=>{await sb.rpc('respond_call_invite',{p_invite:inv.id,p_accept:false});box.remove()};box.querySelector('[data-yes]').onclick=async()=>{await sb.rpc('respond_call_invite',{p_invite:inv.id,p_accept:true});location.href='calls.html?room='+encodeURIComponent(inv.room_id)+'&invite='+encodeURIComponent(inv.id)};};
  const {data}=await sb.from('call_invites').select('*').eq('callee_id',me.id).eq('status','ringing').order('created_at',{ascending:false}).limit(1);if(data?.[0])show(data[0]);
@@ -63,6 +96,6 @@ async function enhanceAdmin(){if(page()!=='admin.html'||!sb||!me||!profile||!['o
 function enhanceClips(){if(page()!=='clips.html')return;const feed=document.querySelector('#clipsFeed');if(!feed)return;const bar=document.createElement('div');bar.className='v26-clips-tabs';bar.innerHTML='<button data-v26feed="all" class="on">Для вас</button><button data-v26feed="subs">Подписки</button><button data-v26feed="saved">Сохранённые</button><button data-v26feed="history">История</button>';feed.parentElement?.insertBefore(bar,feed);const read=(k,d)=>{try{return JSON.parse(localStorage.getItem(k)||JSON.stringify(d))}catch{return d}};const histKey='rndm-v26-clip-history';const seen=[];const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting&&e.intersectionRatio>.65){const id=e.target.dataset.clip;if(id){let h=read(histKey,[]).filter(x=>x!==id);h.unshift(id);localStorage.setItem(histKey,JSON.stringify(h.slice(0,80)))}}}),{threshold:[.65]});document.querySelectorAll('.clip-slide').forEach(x=>io.observe(x));const apply=mode=>{const following=read('rndm-v15-following',[]),saved=read('rndm-v15-saved-clips',[]),history=read(histKey,[]);document.querySelectorAll('.clip-slide').forEach(sl=>{let show=true;if(mode==='subs'){const author=sl.querySelector('.clip-author b')?.textContent||'';show=following.includes(author)}else if(mode==='saved')show=saved.includes(sl.dataset.clip);else if(mode==='history')show=history.includes(sl.dataset.clip);sl.style.display=show?'':'none'});bar.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.v26feed===mode))};bar.querySelectorAll('button').forEach(b=>b.onclick=()=>apply(b.dataset.v26feed))}
 function installButton(){if(page()!=='profile.html')return;setTimeout(()=>{const root=document.querySelector('main,.shell,.page');if(!root||document.getElementById('v26Install'))return;const s=document.createElement('section');s.className='v26-profile-card';s.innerHTML='<h2>📱 Приложение RNDM</h2><p class="v26-muted">Установи RNDM как приложение на телефон или ПК.</p><button id="v26Install" class="v26-btn">Установить RNDM</button>';root.appendChild(s);s.querySelector('#v26Install').onclick=async()=>{if(window.__rndmInstallPrompt){window.__rndmInstallPrompt.prompt();await window.__rndmInstallPrompt.userChoice;window.__rndmInstallPrompt=null}else toast('На iPhone: Поделиться → На экран «Домой»')}} ,800)}
 
-async function init(){installPrompt();addMenuLinks();await initIdentity();if(!me)return;await Promise.allSettled([notifications(),incomingCalls(),announcement(),decorateProfile(),enhanceCalls(),chatEnhance(),enhanceActivity(),enhanceStocks(),enhanceAdmin()]);enhanceClips();installButton();notificationPermission();}
+async function init(){installPrompt();addMenuLinks();await initIdentity();if(!me)return;await Promise.allSettled([notifications(),chatUnreadBadge(),incomingCalls(),announcement(),decorateProfile(),enhanceCalls(),chatEnhance(),enhanceActivity(),enhanceStocks(),enhanceAdmin()]);enhanceClips();installButton();notificationPermission();}
 window.RNDMV26={toast};ready(init);
 })();

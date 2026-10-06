@@ -1,4 +1,5 @@
-<!doctype html><html lang="ru"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>RNDM Clips</title><style>
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><title>RNDM Clips</title><style>
 :root {
   --bg: #090b14;
   --panel: rgba(255,255,255,.08);
@@ -295,76 +296,70 @@ img{max-width:100%}
 /* v17 account badge */
 .account-mini{display:inline-flex;align-items:center;gap:6px;padding:9px 11px;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--text);font-size:12px;font-weight:800}.account-mini i{width:8px;height:8px;border-radius:50%;background:#777}.account-mini.on i{background:var(--accent2);box-shadow:0 0 10px var(--accent2)}@media(max-width:820px){.account-mini span{display:none}.account-mini{padding:10px}}
 </style>
-<meta name="theme-color" content="#0b0d14">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="RNDM Chat">
-<meta name="format-detection" content="telephone=no">
-
-<link rel="stylesheet" href="rndm-shell.css?v=26"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="rndm-v26.css?v=26"></head><body class="clips-body">
-
+<meta content="#0b0d14" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="RNDM Chat" name="apple-mobile-web-app-title"/>
+<meta content="telephone=no" name="format-detection"/>
+<link href="rndm-shell.css?v=26.2" rel="stylesheet"/><link href="manifest.webmanifest" rel="manifest"/><link href="rndm-v26.css?v=26.2" rel="stylesheet"/></head><body class="clips-body">
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
-  <div class="rndm-unified-inner">
-    <a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
-    <nav class="rndm-core-nav" aria-label="Основные разделы">
-      <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
-      <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
-      <a href="random.html" data-rndm-page="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
-      <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
-      <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
-    </nav>
-    <div class="rndm-unified-actions">
-      <button class="rndm-page-action" id="rndmClipAction" type="button" title="Добавить клип" style="display:none!important">＋<span>Клип</span></button>
-      <a class="rndm-account-chip" id="rndmUnifiedAccount" href="profile.html"><span>Профиль</span> 👤</a>
-      <button class="rndm-nav-icon" id="rndmUnifiedTheme" type="button" aria-label="Сменить тему">🌙</button>
-      <button class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button" aria-label="Открыть дополнительное меню">☰</button>
-    </div>
-  </div>
+<div class="rndm-unified-inner">
+<a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
+<nav aria-label="Основные разделы" class="rndm-core-nav">
+<a data-rndm-page="index.html" href="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
+<a data-rndm-page="chat.html" href="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
+<a data-rndm-page="random.html" href="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
+<a data-rndm-page="channels.html" href="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
+<a data-rndm-page="clips.html" href="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
+</nav>
+<div class="rndm-unified-actions">
+<button class="rndm-page-action" id="rndmClipAction" style="display:none!important" title="Добавить клип" type="button">＋<span>Клип</span></button>
+<a class="rndm-account-chip" href="profile.html" id="rndmUnifiedAccount"><span>Профиль</span> 👤</a>
+<button aria-label="Сменить тему" class="rndm-nav-icon" id="rndmUnifiedTheme" type="button">🌙</button>
+<button aria-label="Открыть дополнительное меню" class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button">☰</button>
+</div>
+</div>
 </header>
 <div class="rndm-nav-backdrop" id="rndmNavBackdrop"></div>
-<aside class="rndm-burger-menu" id="rndmBurgerMenu" aria-label="Дополнительные разделы">
-  <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
-  <div class="rndm-burger-section">Сообщество</div>
-  <div class="rndm-burger-grid">
-    <a href="contacts.html" data-rndm-page="contacts.html"><span class="bi">👥</span>Контакты</a>
-    <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
-    <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
-    <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
-    <a href="explore.html" data-rndm-page="explore.html"><span class="bi">✨</span>Рекомендации</a>
-    <a href="profile.html" data-rndm-page="profile.html"><span class="bi">👤</span>Профиль</a>
-    <a href="about.html" data-rndm-page="about.html"><span class="bi">ℹ️</span>О проекте</a>
-  </div>
-  <div class="rndm-burger-section">Сервисы</div>
-  <div class="rndm-burger-grid">
-    <a href="market.html" data-rndm-page="market.html"><span class="bi">🛍️</span>Market</a>
-    <a href="stocks.html" data-rndm-page="stocks.html"><span class="bi">📈</span>Биржа</a>
-    <a href="bank.html" data-rndm-page="bank.html"><span class="bi">💳</span>Банк</a>
-    <a href="estate.html" data-rndm-page="estate.html"><span class="bi">🏠</span>Квартиры</a>
-    <a href="shop.html" data-rndm-page="shop.html"><span class="bi">⭐</span>Магазин</a>
-    <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
-    <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
-    <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
-  
-
-    <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
-    <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
-    <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
-    <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
-    <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
-    <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
-    <a href="group-calls.html" data-rndm-page="group-calls.html"><span class="bi">👥</span>Групповой звонок</a>
-    <a href="rooms.html" data-rndm-page="rooms.html"><span class="bi">🗣️</span>Комнаты</a>
-    <a href="season.html" data-rndm-page="season.html"><span class="bi">🏆</span>Сезон</a>
-    <a href="gifts.html" data-rndm-page="gifts.html"><span class="bi">🎁</span>Подарки</a>
-    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html" hidden aria-hidden="true"><span class="bi">🛡️</span>Админка</a>
-  </div>
+<aside aria-label="Дополнительные разделы" class="rndm-burger-menu" id="rndmBurgerMenu">
+<div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
+<div class="rndm-burger-section">Сообщество</div>
+<div class="rndm-burger-grid">
+<a data-rndm-page="contacts.html" href="contacts.html"><span class="bi">👥</span>Контакты</a>
+<a data-rndm-page="friends.html" href="friends.html"><span class="bi">🤝</span>Друзья</a>
+<a data-rndm-page="activity.html" href="activity.html"><span class="bi">🔔</span>Активность</a>
+<a data-rndm-page="videos.html" href="videos.html"><span class="bi">📺</span>Видео</a>
+<a data-rndm-page="explore.html" href="explore.html"><span class="bi">✨</span>Рекомендации</a>
+<a data-rndm-page="profile.html" href="profile.html"><span class="bi">👤</span>Профиль</a>
+<a data-rndm-page="about.html" href="about.html"><span class="bi">ℹ️</span>О проекте</a>
+</div>
+<div class="rndm-burger-section">Сервисы</div>
+<div class="rndm-burger-grid">
+<a data-rndm-page="market.html" href="market.html"><span class="bi">🛍️</span>Market</a>
+<a data-rndm-page="stocks.html" href="stocks.html"><span class="bi">📈</span>Биржа</a>
+<a data-rndm-page="bank.html" href="bank.html"><span class="bi">💳</span>Банк</a>
+<a data-rndm-page="estate.html" href="estate.html"><span class="bi">🏠</span>Квартиры</a>
+<a data-rndm-page="shop.html" href="shop.html"><span class="bi">⭐</span>Магазин</a>
+<a data-rndm-page="paint.html" href="paint.html"><span class="bi">🎨</span>Paint</a>
+<a data-rndm-page="games.html" href="games.html"><span class="bi">🎮</span>Мини-игры</a>
+<a data-rndm-page="cat.html" href="cat.html"><span class="bi">🐱</span>Котик</a>
+<a data-rndm-page="search.html" href="search.html"><span class="bi">🔎</span>Поиск</a>
+<a data-rndm-page="stories.html" href="stories.html"><span class="bi">📖</span>Истории</a>
+<a data-rndm-page="daily.html" href="daily.html"><span class="bi">📅</span>Daily Hub</a>
+<a data-rndm-page="leaderboard.html" href="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
+<a data-rndm-page="events.html" href="events.html"><span class="bi">🎫</span>События</a>
+<a data-rndm-page="calls.html" href="calls.html"><span class="bi">📞</span>Звонки</a>
+<a data-rndm-page="group-calls.html" href="group-calls.html"><span class="bi">👥</span>Групповой звонок</a>
+<a data-rndm-page="rooms.html" href="rooms.html"><span class="bi">🗣️</span>Комнаты</a>
+<a data-rndm-page="season.html" href="season.html"><span class="bi">🏆</span>Сезон</a>
+<a data-rndm-page="gifts.html" href="gifts.html"><span class="bi">🎁</span>Подарки</a>
+<a aria-hidden="true" class="v24-admin-link" data-rndm-page="admin.html" hidden="" href="admin.html"><span class="bi">🛡️</span>Админка</a>
+</div>
 </aside>
 
-
-<header class="topbar clips-top"><a class="brand" href="index.html"><span class="logo">R</span><span>RNDM Chat</span></a><nav class="nav"><a href="chat.html">Чаты</a><a href="channels.html">Каналы</a><a class="active" href="clips.html">Clips ▶</a><a href="activity.html">Активность</a><a href="profile.html">Профиль</a></nav><button class="btn purple small" id="uploadClip">＋ Добавить клип</button><input id="clipFile" type="file" accept="video/*" hidden><button class="theme-toggle" id="themeToggle">🌙</button></header>
-<main class="clips-layout"><section class="clips-intro"><p class="eyebrow">RNDM CLIPS 2.0</p><h1>Смотри. Реагируй. Создавай.</h1><p>Прокручивай вертикальную ленту. Лайки, комментарии, подписки и сохранения остаются на устройстве.</p><div id="userClipPreview" class="user-clip-preview hidden"></div><div class="clips-tip">⌨️ Колесо мыши / свайп — следующий клип · удерживай видео — 2×</div></section><section class="clips-phone"><div id="clipsFeed" class="clips-feed"></div></section></main>
-<div class="comments-drawer" id="commentsModal"><div class="drawer-head"><h2 id="commentsTitle">Комментарии</h2><button id="closeComments">✕</button></div><div id="commentsList" class="comments-list"></div><form id="commentForm" class="comment-composer"><input id="commentInput" placeholder="Добавить комментарий…"><button>Отправить</button></form></div>
-<script>
+<main class="clips-layout"><section class="clips-intro"><p class="eyebrow">RNDM CLIPS 2.0</p><h1>Смотри. Реагируй. Создавай.</h1><p>Прокручивай вертикальную ленту. Лайки, комментарии, подписки и сохранения остаются на устройстве.</p><div class="user-clip-preview hidden" id="userClipPreview"></div><div class="clips-tip">⌨️ Колесо мыши / свайп — следующий клип · удерживай видео — 2×</div></section><section class="clips-phone"><div class="clips-feed" id="clipsFeed"></div></section></main>
+<div class="comments-drawer" id="commentsModal"><div class="drawer-head"><h2 id="commentsTitle">Комментарии</h2><button id="closeComments">✕</button></div><div class="comments-list" id="commentsList"></div><form class="comment-composer" id="commentForm"><input id="commentInput" placeholder="Добавить комментарий…"/><button>Отправить</button></form></div>
+<div hidden="" id="rndmClipLegacyHooks" style="display:none!important"><button class="btn purple small" id="uploadClip">＋ Добавить клип</button><input accept="video/*" hidden="" id="clipFile" type="file"/></div><script>
 /* app.js — встроено в страницу */
 const body = document.body;
 const themeToggle = document.getElementById('themeToggle');
@@ -835,54 +830,9 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
 })();
 
 </script>
-<script>
-/* RNDM mobile navigation v16 */
-(()=>{
-  const isMobile=()=>window.matchMedia('(max-width: 820px)').matches;
-  const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-  const morePages=new Set(['contacts.html','friends.html','paint.html','games.html','videos.html','market.html','bank.html','estate.html','cat.html','activity.html','shop.html','profile.html','explore.html','about.html']);
-  const navItems=[
-    ['index.html','⌂','Главная'],
-    ['chat.html','💬','Чаты'],
-    ['clips.html','▶','Clips'],
-    ['channels.html','📣','Каналы']
-  ];
-  const moreItems=[
-    ['contacts.html','👥','Контакты'],['friends.html','🤝','Друзья'],['paint.html','🎨','Paint'],['games.html','🎮','Игры'],['videos.html','📺','Видео'],['market.html','🛍️','Market'],['bank.html','💳','Банк'],['estate.html','🏠','Квартиры'],['cat.html','🐱','Котик'],
-    ['activity.html','🔔','Активность'],['shop.html','⭐','Магазин'],['profile.html','👤','Профиль'],
-    ['explore.html','✨','Ещё'],['about.html','ℹ️','О проекте']
-  ];
-  function ensureTopActions(){
-    const tb=document.querySelector('.topbar'); if(!tb)return;
-    if(!document.getElementById('themeToggle')){
-      const b=document.createElement('button');b.className='theme-toggle';b.id='themeToggle';b.type='button';b.textContent=document.body.classList.contains('light')?'☀️':'🌙';tb.appendChild(b);
-      b.addEventListener('click',()=>{document.body.classList.toggle('light');const light=document.body.classList.contains('light');localStorage.setItem('rndm-theme',light?'light':'dark');b.textContent=light?'☀️':'🌙'});
-    }
-  }
-  function closeMore(){document.getElementById('rndmMoreSheet')?.classList.remove('open');document.getElementById('rndmMoreBackdrop')?.classList.remove('open');document.body.classList.remove('rndm-more-open')}
-  function openMore(){document.getElementById('rndmMoreSheet')?.classList.add('open');document.getElementById('rndmMoreBackdrop')?.classList.add('open');document.body.classList.add('rndm-more-open')}
-  function mount(){
-    if(document.getElementById('rndmMobileNav'))return;
-    ensureTopActions();
-    const nav=document.createElement('nav');nav.id='rndmMobileNav';nav.className='mobile-bottom-nav';nav.setAttribute('aria-label','Основная навигация');
-    nav.innerHTML=navItems.map(([href,icon,label])=>`<a class="mobile-nav-item ${current===href?'active':''}" href="${href}"><span class="mi">${icon}</span><span class="ml">${label}</span></a>`).join('')+
-      `<button class="mobile-nav-item ${morePages.has(current)?'active':''}" id="rndmMoreButton" type="button"><span class="mi">☰</span><span class="ml">Ещё</span></button>`;
-    document.body.appendChild(nav);
-    const backdrop=document.createElement('div');backdrop.id='rndmMoreBackdrop';backdrop.className='mobile-more-backdrop';document.body.appendChild(backdrop);
-    const sheet=document.createElement('section');sheet.id='rndmMoreSheet';sheet.className='mobile-more-sheet';sheet.setAttribute('aria-label','Дополнительные разделы');
-    sheet.innerHTML=`<div class="mobile-more-handle"></div><div class="mobile-more-head"><b>Разделы RNDM</b><button class="mobile-more-close" id="rndmMoreClose" type="button" aria-label="Закрыть">×</button></div><div class="mobile-more-grid">${moreItems.map(([href,icon,label])=>`<a class="${current===href?'active':''}" href="${href}"><span>${icon}</span>${label}</a>`).join('')}</div>`;
-    document.body.appendChild(sheet);
-    document.getElementById('rndmMoreButton')?.addEventListener('click',()=>sheet.classList.contains('open')?closeMore():openMore());
-    document.getElementById('rndmMoreClose')?.addEventListener('click',closeMore);backdrop.addEventListener('click',closeMore);
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMore()});
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();
-})();
-</script>
-
 
 <script>(()=>{const h=document.querySelector('.topbar');if(!h||h.querySelector('.account-mini'))return;let db={};try{db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}')}catch{};const u=localStorage.getItem('rndm-session-v17')||'',a=db[u];const link=document.createElement('a');link.href='profile.html#accountCenter';link.className='account-mini'+(a?' on':'');link.innerHTML='<i></i><span>'+(a?'@'+a.username:'Войти')+'</span>';const t=h.querySelector('.theme-toggle');if(t)h.insertBefore(link,t);else h.appendChild(link)})();</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=26"></script><script src="rndm-censor.js?v=26"></script><script src="rndm-state-sync.js?v=25.1"></script><script>(async()=>{try{if(!RNDMCloud.configured())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);document.querySelectorAll('.account-mini span').forEach(x=>x.textContent='@'+(p?.username||'я'));RNDMCloud.heartbeat()}catch(e){}})();</script>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=26.2"></script><script src="rndm-censor.js?v=26.2"></script><script src="rndm-state-sync.js?v=25.1"></script><script>(async()=>{try{if(!RNDMCloud.configured())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);document.querySelectorAll('.account-mini span').forEach(x=>x.textContent='@'+(p?.username||'я'));RNDMCloud.heartbeat()}catch(e){}})();</script>
 <style>
 /* v20 real cloud Clips */
 .v20-upload-modal{position:fixed;inset:0;z-index:200;background:#04050be8;display:none;align-items:center;justify-content:center;padding:18px}.v20-upload-modal.open{display:flex}.v20-upload-card{width:min(560px,100%);max-height:92dvh;overflow:auto;background:#151821;border:1px solid var(--line);border-radius:26px;padding:18px}.v20-upload-card video{width:100%;max-height:55dvh;background:#000;border-radius:18px}.v20-upload-actions{display:flex;gap:10px;margin-top:12px}.v20-upload-actions button{flex:1}.v20-caption{width:100%;margin-top:10px;padding:12px 14px;border-radius:14px;border:1px solid var(--line);background:#0e1119;color:white;font:inherit}.real-clip{background:#05060b}.real-clip video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;background:#000}.real-clip .clip-gradient{z-index:1}.real-clip .clip-copy,.real-clip .clip-actions,.real-clip .clip-index{z-index:3}.real-cloud-badge{display:inline-flex;align-items:center;gap:6px;background:#20d79d22;border:1px solid #20d79d55;color:#8bffd9;padding:6px 9px;border-radius:999px;font-size:11px;margin:10px 0}.v20-comment-drawer{position:fixed;right:0;top:0;bottom:0;width:min(94vw,430px);background:#151821;border-left:1px solid var(--line);z-index:220;transform:translateX(105%);transition:.25s;display:grid;grid-template-rows:auto 1fr auto;padding:18px}.v20-comment-drawer.open{transform:none}.v20-comment-list{overflow:auto;padding:12px 0}.v20-comment{padding:11px;border-radius:14px;background:#ffffff08;margin:8px 0}.v20-comment small{color:var(--muted)}.v20-comment-form{display:grid;grid-template-columns:1fr auto;gap:8px}.v20-comment-form input{min-width:0;padding:12px;border-radius:13px;border:1px solid var(--line);background:#0e1119;color:white}.v20-comment-form button{border:0;border-radius:13px;background:#7c5cff;color:white;font-weight:800;padding:0 14px}.v20-cloud-error{padding:14px;border:1px solid #ff6b8050;background:#ff6b8010;border-radius:16px;color:#ffb9c4;margin-top:14px}
@@ -926,7 +876,6 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
   await load();channel=sb.channel('rndm-clips-v20').on('postgres_changes',{event:'*',schema:'public',table:'clips'},load).on('postgres_changes',{event:'*',schema:'public',table:'clip_likes'},load).on('postgres_changes',{event:'*',schema:'public',table:'clip_comments'},()=>{if(activeClip)openComments(activeClip);load()}).subscribe();
 })();
 </script>
-
 <script id="rndm-clips-hold-2x">
 (()=>{
   const feed=document.getElementById('clipsFeed');
@@ -991,4 +940,4 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
   feed.addEventListener('contextmenu',e=>{if(findVideo(e.target))e.preventDefault()});
 })();
 </script>
-<script src="rndm-shell.js?v=26"></script><script src="rndm-v26.js?v=26"></script><script src="rndm-v26-extra.js?v=26"></script></body></html>
+<script src="rndm-shell.js?v=26.2"></script><script src="rndm-v26.js?v=26.2"></script><script src="rndm-v26-extra.js?v=26.2"></script></body></html>

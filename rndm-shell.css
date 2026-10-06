@@ -187,3 +187,9 @@ body.light .rndm-burger-menu{background:rgba(249,250,255,.985)!important}
   .rndm-account-chip,.rndm-nav-icon,.rndm-page-action{width:37px!important;height:37px!important;min-height:37px!important}
   .rndm-unified-actions{gap:4px!important}
 }
+
+/* v26.2 hard legacy-shell kill switch */
+body > header.topbar, body > header.top, .shell > header.top,
+body > nav.bottom, body > nav.mobile, body > nav.mobile-nav,
+body > nav.mobile-bottom-nav, body > .mobile-more-sheet, body > .mobile-more-backdrop,
+body > #rndmMobileNav, body > #rndmMoreSheet, body > #rndmMoreBackdrop{display:none!important;visibility:hidden!important;pointer-events:none!important;height:0!important;min-height:0!important;padding:0!important;margin:0!important;border:0!important;overflow:hidden!important}

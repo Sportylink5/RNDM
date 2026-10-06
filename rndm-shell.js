@@ -9,6 +9,37 @@
     const q=s=>document.querySelector(s);
     const qa=s=>[...document.querySelectorAll(s)];
 
+    // v26.2: one UI only. Retired page-level headers/navs are physically removed.
+    // MutationObserver also catches old inline scripts that try to recreate them later.
+    const legacySelectors=[
+      'header.topbar','.shell > header.top','body > header.top','nav.bottom',
+      'nav.mobile-bottom-nav','nav.mobile-nav','nav.mobile',
+      '.mobile-more-sheet','.mobile-more-backdrop'
+    ];
+    const purgeLegacyShell=(scope=document)=>{
+      legacySelectors.forEach(sel=>{
+        try{scope.querySelectorAll?.(sel).forEach(el=>{
+          if(el.closest?.('.rndm-unified-header'))return;
+          el.remove();
+        })}catch{}
+      });
+    };
+    purgeLegacyShell();
+    const legacyObserver=new MutationObserver(records=>{
+      for(const rec of records){
+        for(const node of rec.addedNodes){
+          if(node?.nodeType!==1)continue;
+          purgeLegacyShell(node);
+          try{
+            for(const sel of legacySelectors){
+              if(node.matches?.(sel)&&!node.closest?.('.rndm-unified-header')){node.remove();break}
+            }
+          }catch{}
+        }
+      }
+    });
+    legacyObserver.observe(document.body,{childList:true,subtree:true});
+
     qa('[data-rndm-page]').forEach(a=>{
       a.classList.toggle('active',(a.getAttribute('data-rndm-page')||'').toLowerCase()===current);
     });

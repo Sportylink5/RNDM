@@ -1,4 +1,5 @@
-<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>Котик — RNDM Chat</title><style>
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport"/><title>Котик — RNDM Chat</title><style>
 :root {
   --bg: #090b14;
   --panel: rgba(255,255,255,.08);
@@ -299,91 +300,85 @@ img{max-width:100%}
 /* v17 account badge */
 .account-mini{display:inline-flex;align-items:center;gap:6px;padding:9px 11px;border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--text);font-size:12px;font-weight:800}.account-mini i{width:8px;height:8px;border-radius:50%;background:#777}.account-mini.on i{background:var(--accent2);box-shadow:0 0 10px var(--accent2)}@media(max-width:820px){.account-mini span{display:none}.account-mini{padding:10px}}
 </style>
-<meta name="theme-color" content="#0b0d14">
-<meta name="apple-mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-<meta name="apple-mobile-web-app-title" content="RNDM Chat">
-<meta name="format-detection" content="telephone=no">
-
-<link rel="stylesheet" href="rndm-shell.css?v=26"><link rel="manifest" href="manifest.webmanifest"><link rel="stylesheet" href="rndm-v26.css?v=26"></head><body>
-
+<meta content="#0b0d14" name="theme-color"/>
+<meta content="yes" name="apple-mobile-web-app-capable"/>
+<meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
+<meta content="RNDM Chat" name="apple-mobile-web-app-title"/>
+<meta content="telephone=no" name="format-detection"/>
+<link href="rndm-shell.css?v=26.2" rel="stylesheet"/><link href="manifest.webmanifest" rel="manifest"/><link href="rndm-v26.css?v=26.2" rel="stylesheet"/></head><body>
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
-  <div class="rndm-unified-inner">
-    <a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
-    <nav class="rndm-core-nav" aria-label="Основные разделы">
-      <a href="index.html" data-rndm-page="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
-      <a href="chat.html" data-rndm-page="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
-      <a href="random.html" data-rndm-page="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
-      <a href="channels.html" data-rndm-page="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
-      <a href="clips.html" data-rndm-page="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
-    </nav>
-    <div class="rndm-unified-actions">
-      <button class="rndm-page-action" id="rndmClipAction" type="button" title="Добавить клип" style="display:none!important">＋<span>Клип</span></button>
-      <a class="rndm-account-chip" id="rndmUnifiedAccount" href="profile.html"><span>Профиль</span> 👤</a>
-      <button class="rndm-nav-icon" id="rndmUnifiedTheme" type="button" aria-label="Сменить тему">🌙</button>
-      <button class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button" aria-label="Открыть дополнительное меню">☰</button>
-    </div>
-  </div>
+<div class="rndm-unified-inner">
+<a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
+<nav aria-label="Основные разделы" class="rndm-core-nav">
+<a data-rndm-page="index.html" href="index.html"><span class="ni">⌂</span><span class="nl">Главная</span></a>
+<a data-rndm-page="chat.html" href="chat.html"><span class="ni">💬</span><span class="nl">Чаты</span></a>
+<a data-rndm-page="random.html" href="random.html"><span class="ni">🎲</span><span class="nl">Рандом</span></a>
+<a data-rndm-page="channels.html" href="channels.html"><span class="ni">📣</span><span class="nl">Каналы</span></a>
+<a data-rndm-page="clips.html" href="clips.html"><span class="ni">▶</span><span class="nl">Clips</span></a>
+</nav>
+<div class="rndm-unified-actions">
+<button class="rndm-page-action" id="rndmClipAction" style="display:none!important" title="Добавить клип" type="button">＋<span>Клип</span></button>
+<a class="rndm-account-chip" href="profile.html" id="rndmUnifiedAccount"><span>Профиль</span> 👤</a>
+<button aria-label="Сменить тему" class="rndm-nav-icon" id="rndmUnifiedTheme" type="button">🌙</button>
+<button aria-label="Открыть дополнительное меню" class="rndm-nav-icon rndm-burger-button" id="rndmBurgerButton" type="button">☰</button>
+</div>
+</div>
 </header>
 <div class="rndm-nav-backdrop" id="rndmNavBackdrop"></div>
-<aside class="rndm-burger-menu" id="rndmBurgerMenu" aria-label="Дополнительные разделы">
-  <div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
-  <div class="rndm-burger-section">Сообщество</div>
-  <div class="rndm-burger-grid">
-    <a href="contacts.html" data-rndm-page="contacts.html"><span class="bi">👥</span>Контакты</a>
-    <a href="friends.html" data-rndm-page="friends.html"><span class="bi">🤝</span>Друзья</a>
-    <a href="activity.html" data-rndm-page="activity.html"><span class="bi">🔔</span>Активность</a>
-    <a href="videos.html" data-rndm-page="videos.html"><span class="bi">📺</span>Видео</a>
-    <a href="explore.html" data-rndm-page="explore.html"><span class="bi">✨</span>Рекомендации</a>
-    <a href="profile.html" data-rndm-page="profile.html"><span class="bi">👤</span>Профиль</a>
-    <a href="about.html" data-rndm-page="about.html"><span class="bi">ℹ️</span>О проекте</a>
-  </div>
-  <div class="rndm-burger-section">Сервисы</div>
-  <div class="rndm-burger-grid">
-    <a href="market.html" data-rndm-page="market.html"><span class="bi">🛍️</span>Market</a>
-    <a href="stocks.html" data-rndm-page="stocks.html"><span class="bi">📈</span>Биржа</a>
-    <a href="bank.html" data-rndm-page="bank.html"><span class="bi">💳</span>Банк</a>
-    <a href="estate.html" data-rndm-page="estate.html"><span class="bi">🏠</span>Квартиры</a>
-    <a href="shop.html" data-rndm-page="shop.html"><span class="bi">⭐</span>Магазин</a>
-    <a href="paint.html" data-rndm-page="paint.html"><span class="bi">🎨</span>Paint</a>
-    <a href="games.html" data-rndm-page="games.html"><span class="bi">🎮</span>Мини-игры</a>
-    <a href="cat.html" data-rndm-page="cat.html"><span class="bi">🐱</span>Котик</a>
-  
-
-    <a href="search.html" data-rndm-page="search.html"><span class="bi">🔎</span>Поиск</a>
-    <a href="stories.html" data-rndm-page="stories.html"><span class="bi">📖</span>Истории</a>
-    <a href="daily.html" data-rndm-page="daily.html"><span class="bi">📅</span>Daily Hub</a>
-    <a href="leaderboard.html" data-rndm-page="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
-    <a href="events.html" data-rndm-page="events.html"><span class="bi">🎫</span>События</a>
-    <a href="calls.html" data-rndm-page="calls.html"><span class="bi">📞</span>Звонки</a>
-    <a href="group-calls.html" data-rndm-page="group-calls.html"><span class="bi">👥</span>Групповой звонок</a>
-    <a href="rooms.html" data-rndm-page="rooms.html"><span class="bi">🗣️</span>Комнаты</a>
-    <a href="season.html" data-rndm-page="season.html"><span class="bi">🏆</span>Сезон</a>
-    <a href="gifts.html" data-rndm-page="gifts.html"><span class="bi">🎁</span>Подарки</a>
-    <a href="admin.html" class="v24-admin-link" data-rndm-page="admin.html" hidden aria-hidden="true"><span class="bi">🛡️</span>Админка</a>
-  </div>
+<aside aria-label="Дополнительные разделы" class="rndm-burger-menu" id="rndmBurgerMenu">
+<div class="rndm-burger-head"><b>Все разделы RNDM</b><button class="rndm-burger-close" id="rndmBurgerClose" type="button">×</button></div>
+<div class="rndm-burger-section">Сообщество</div>
+<div class="rndm-burger-grid">
+<a data-rndm-page="contacts.html" href="contacts.html"><span class="bi">👥</span>Контакты</a>
+<a data-rndm-page="friends.html" href="friends.html"><span class="bi">🤝</span>Друзья</a>
+<a data-rndm-page="activity.html" href="activity.html"><span class="bi">🔔</span>Активность</a>
+<a data-rndm-page="videos.html" href="videos.html"><span class="bi">📺</span>Видео</a>
+<a data-rndm-page="explore.html" href="explore.html"><span class="bi">✨</span>Рекомендации</a>
+<a data-rndm-page="profile.html" href="profile.html"><span class="bi">👤</span>Профиль</a>
+<a data-rndm-page="about.html" href="about.html"><span class="bi">ℹ️</span>О проекте</a>
+</div>
+<div class="rndm-burger-section">Сервисы</div>
+<div class="rndm-burger-grid">
+<a data-rndm-page="market.html" href="market.html"><span class="bi">🛍️</span>Market</a>
+<a data-rndm-page="stocks.html" href="stocks.html"><span class="bi">📈</span>Биржа</a>
+<a data-rndm-page="bank.html" href="bank.html"><span class="bi">💳</span>Банк</a>
+<a data-rndm-page="estate.html" href="estate.html"><span class="bi">🏠</span>Квартиры</a>
+<a data-rndm-page="shop.html" href="shop.html"><span class="bi">⭐</span>Магазин</a>
+<a data-rndm-page="paint.html" href="paint.html"><span class="bi">🎨</span>Paint</a>
+<a data-rndm-page="games.html" href="games.html"><span class="bi">🎮</span>Мини-игры</a>
+<a data-rndm-page="cat.html" href="cat.html"><span class="bi">🐱</span>Котик</a>
+<a data-rndm-page="search.html" href="search.html"><span class="bi">🔎</span>Поиск</a>
+<a data-rndm-page="stories.html" href="stories.html"><span class="bi">📖</span>Истории</a>
+<a data-rndm-page="daily.html" href="daily.html"><span class="bi">📅</span>Daily Hub</a>
+<a data-rndm-page="leaderboard.html" href="leaderboard.html"><span class="bi">🏅</span>Рейтинг</a>
+<a data-rndm-page="events.html" href="events.html"><span class="bi">🎫</span>События</a>
+<a data-rndm-page="calls.html" href="calls.html"><span class="bi">📞</span>Звонки</a>
+<a data-rndm-page="group-calls.html" href="group-calls.html"><span class="bi">👥</span>Групповой звонок</a>
+<a data-rndm-page="rooms.html" href="rooms.html"><span class="bi">🗣️</span>Комнаты</a>
+<a data-rndm-page="season.html" href="season.html"><span class="bi">🏆</span>Сезон</a>
+<a data-rndm-page="gifts.html" href="gifts.html"><span class="bi">🎁</span>Подарки</a>
+<a aria-hidden="true" class="v24-admin-link" data-rndm-page="admin.html" hidden="" href="admin.html"><span class="bi">🛡️</span>Админка</a>
+</div>
 </aside>
 
-
-<header class="topbar"><a class="brand" href="index.html"><span class="logo">R</span><span>RNDM Chat</span></a><nav class="nav"><a href="index.html">Главная</a><a href="chat.html">Чаты</a><a href="contacts.html">Контакты</a><a href="random.html">Рандом</a><a href="channels.html">Каналы</a><a href="cat.html" class="active">Котик 🐱</a><a href="shop.html">Магазин</a><a href="profile.html">Профиль</a></nav><button class="theme-toggle" id="themeToggle">🌙</button></header>
 <main class="cat-page cat-v14"><section class="cat-game"><p class="eyebrow">RNDM CAT LAB • v14</p><h1 id="catTitle">Котик-тапалка 🐱</h1><p class="lead">Прокачивай котика, увеличивай силу тапа и строй пассивный доход.</p>
 <div class="cat-rank"><div><b id="catRank">Домашний котик</b><span id="catEvolution">Эволюция 1</span></div><div class="cat-level-pill">LVL <b id="catLevel">1</b></div></div>
 <div class="cat-stats cat-stats-v14"><div><b id="catCoins">0</b><span>🪙 монет</span></div><div><b id="catPerTap">+1</b><span>за тап</span></div><div><b id="catPerSec">0/с</b><span>автодоход</span></div><div><b id="catStars">⭐ 0</b><span>звёзд</span></div></div>
-<button id="catTap" class="cat-button" aria-label="Тапнуть котика"><span class="cat-emoji" id="catEmoji">🐱</span><span class="cat-pop" id="catPop">+1</span></button>
+<button aria-label="Тапнуть котика" class="cat-button" id="catTap"><span class="cat-emoji" id="catEmoji">🐱</span><span class="cat-pop" id="catPop">+1</span></button>
 <div class="cat-progress"><div><span>До следующей эволюции</span><b id="catNextEvolution">500 монет</b></div><div class="cat-track"><i id="catEvolutionBar"></i></div></div><p class="save-note" id="catMessage">Тапай по котику. Прогресс сохраняется автоматически.</p>
 <div class="cat-mini"><span>🔥 Комбо <b id="catCombo">x1</b></span><span>💥 Крит <b id="catCrit">5%</b></span><span>🎁 Бонус ⭐ <b id="catBonus">1%</b></span></div>
 </section>
 <section class="cat-upgrades"><div class="cat-upgrade-head"><div><p class="eyebrow">Прокачка</p><h2>Лаборатория улучшений</h2></div><button class="btn ghost small" id="catReset">Сбросить</button></div><div class="upgrade-grid" id="upgradeGrid"></div><div class="cat-tip">💡 Автотап работает, пока страница открыта. Редкие улучшения покупаются за ⭐, остальные — за 🪙 монеты.</div>
 <div class="referral-card" id="catReferralCard">
-  <div class="referral-head"><div><span class="eyebrow">Приглашай друзей</span><h3>🔗 Реферальная ссылка</h3></div><span class="referral-level" id="referralAccountState">Нужен аккаунт</span></div>
-  <p class="account-note">Друг открывает ссылку → регистрируется → получает бонус. За приглашение: <b>+1000 🪙 и +50 ⭐</b>; другу: <b>+250 🪙 и +25 ⭐</b>.</p>
-  <div id="referralLoggedOut"><a class="btn primary wide" href="profile.html#accountCenter">Создать аккаунт для реферальной ссылки</a></div>
-  <div id="referralLoggedIn" style="display:none">
-    <div class="referral-link"><input id="referralUrl" readonly><button class="btn ghost" id="copyReferral" type="button">📋 Копировать</button></div>
-    <div class="referral-actions"><button class="btn primary" id="shareReferral" type="button">↗️ Поделиться</button><a class="btn ghost" href="profile.html#accountCenter">👤 Аккаунт</a></div>
-    <div class="referral-stats"><div><b id="referralCount">0</b><span>приглашено</span></div><div><b id="referralCoins">0</b><span>🪙 заработано</span></div><div><b id="referralStars">0</b><span>⭐ заработано</span></div></div>
-  </div>
-  <p class="referral-note" id="referralNote">Реферальная система работает через Supabase между разными устройствами. Награда начисляется один раз после входа нового пользователя.</p>
+<div class="referral-head"><div><span class="eyebrow">Приглашай друзей</span><h3>🔗 Реферальная ссылка</h3></div><span class="referral-level" id="referralAccountState">Нужен аккаунт</span></div>
+<p class="account-note">Друг открывает ссылку → регистрируется → получает бонус. За приглашение: <b>+1000 🪙 и +50 ⭐</b>; другу: <b>+250 🪙 и +25 ⭐</b>.</p>
+<div id="referralLoggedOut"><a class="btn primary wide" href="profile.html#accountCenter">Создать аккаунт для реферальной ссылки</a></div>
+<div id="referralLoggedIn" style="display:none">
+<div class="referral-link"><input id="referralUrl" readonly=""/><button class="btn ghost" id="copyReferral" type="button">📋 Копировать</button></div>
+<div class="referral-actions"><button class="btn primary" id="shareReferral" type="button">↗️ Поделиться</button><a class="btn ghost" href="profile.html#accountCenter">👤 Аккаунт</a></div>
+<div class="referral-stats"><div><b id="referralCount">0</b><span>приглашено</span></div><div><b id="referralCoins">0</b><span>🪙 заработано</span></div><div><b id="referralStars">0</b><span>⭐ заработано</span></div></div>
+</div>
+<p class="referral-note" id="referralNote">Реферальная система работает через Supabase между разными устройствами. Награда начисляется один раз после входа нового пользователя.</p>
 </div>
 </section></main>
 <footer>RNDM Chat © 2026 • учебный проект</footer><script>
@@ -893,60 +888,13 @@ if(location.pathname.endsWith('profile.html')){let xp=Number(localStorage.getIte
 })();
 
 </script>
-<script>
-/* RNDM mobile navigation v16 */
-(()=>{
-  const isMobile=()=>window.matchMedia('(max-width: 820px)').matches;
-  const current=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-  const morePages=new Set(['contacts.html','friends.html','paint.html','games.html','videos.html','market.html','bank.html','estate.html','cat.html','activity.html','shop.html','profile.html','explore.html','about.html']);
-  const navItems=[
-    ['index.html','⌂','Главная'],
-    ['chat.html','💬','Чаты'],
-    ['clips.html','▶','Clips'],
-    ['channels.html','📣','Каналы']
-  ];
-  const moreItems=[
-    ['contacts.html','👥','Контакты'],['friends.html','🤝','Друзья'],['paint.html','🎨','Paint'],['games.html','🎮','Игры'],['videos.html','📺','Видео'],['market.html','🛍️','Market'],['bank.html','💳','Банк'],['estate.html','🏠','Квартиры'],['cat.html','🐱','Котик'],
-    ['activity.html','🔔','Активность'],['shop.html','⭐','Магазин'],['profile.html','👤','Профиль'],
-    ['explore.html','✨','Ещё'],['about.html','ℹ️','О проекте']
-  ];
-  function ensureTopActions(){
-    const tb=document.querySelector('.topbar'); if(!tb)return;
-    if(!document.getElementById('themeToggle')){
-      const b=document.createElement('button');b.className='theme-toggle';b.id='themeToggle';b.type='button';b.textContent=document.body.classList.contains('light')?'☀️':'🌙';tb.appendChild(b);
-      b.addEventListener('click',()=>{document.body.classList.toggle('light');const light=document.body.classList.contains('light');localStorage.setItem('rndm-theme',light?'light':'dark');b.textContent=light?'☀️':'🌙'});
-    }
-  }
-  function closeMore(){document.getElementById('rndmMoreSheet')?.classList.remove('open');document.getElementById('rndmMoreBackdrop')?.classList.remove('open');document.body.classList.remove('rndm-more-open')}
-  function openMore(){document.getElementById('rndmMoreSheet')?.classList.add('open');document.getElementById('rndmMoreBackdrop')?.classList.add('open');document.body.classList.add('rndm-more-open')}
-  function mount(){
-    if(document.getElementById('rndmMobileNav'))return;
-    ensureTopActions();
-    const nav=document.createElement('nav');nav.id='rndmMobileNav';nav.className='mobile-bottom-nav';nav.setAttribute('aria-label','Основная навигация');
-    nav.innerHTML=navItems.map(([href,icon,label])=>`<a class="mobile-nav-item ${current===href?'active':''}" href="${href}"><span class="mi">${icon}</span><span class="ml">${label}</span></a>`).join('')+
-      `<button class="mobile-nav-item ${morePages.has(current)?'active':''}" id="rndmMoreButton" type="button"><span class="mi">☰</span><span class="ml">Ещё</span></button>`;
-    document.body.appendChild(nav);
-    const backdrop=document.createElement('div');backdrop.id='rndmMoreBackdrop';backdrop.className='mobile-more-backdrop';document.body.appendChild(backdrop);
-    const sheet=document.createElement('section');sheet.id='rndmMoreSheet';sheet.className='mobile-more-sheet';sheet.setAttribute('aria-label','Дополнительные разделы');
-    sheet.innerHTML=`<div class="mobile-more-handle"></div><div class="mobile-more-head"><b>Разделы RNDM</b><button class="mobile-more-close" id="rndmMoreClose" type="button" aria-label="Закрыть">×</button></div><div class="mobile-more-grid">${moreItems.map(([href,icon,label])=>`<a class="${current===href?'active':''}" href="${href}"><span>${icon}</span>${label}</a>`).join('')}</div>`;
-    document.body.appendChild(sheet);
-    document.getElementById('rndmMoreButton')?.addEventListener('click',()=>sheet.classList.contains('open')?closeMore():openMore());
-    document.getElementById('rndmMoreClose')?.addEventListener('click',closeMore);backdrop.addEventListener('click',closeMore);
-    document.addEventListener('keydown',e=>{if(e.key==='Escape')closeMore()});
-  }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',mount);else mount();
-})();
-</script>
-
 
 <script>/* v25 cloud referral loads after Supabase */</script>
-
-
 <script>(()=>{const h=document.querySelector('.topbar');if(!h||h.querySelector('.account-mini'))return;let db={};try{db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}')}catch{};const u=localStorage.getItem('rndm-session-v17')||'',a=db[u];const link=document.createElement('a');link.href='profile.html#accountCenter';link.className='account-mini'+(a?' on':'');link.innerHTML='<i></i><span>'+(a?'@'+a.username:'Войти')+'</span>';const t=h.querySelector('.theme-toggle');if(t)h.insertBefore(link,t);else h.appendChild(link)})();</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=26"></script><script src="rndm-censor.js?v=26"></script><script src="rndm-state-sync.js?v=25.1"></script><script id="rndm-v25-referrals">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=26.2"></script><script src="rndm-censor.js?v=26.2"></script><script src="rndm-state-sync.js?v=25.1"></script><script id="rndm-v25-referrals">
 (async()=>{const $=id=>document.getElementById(id);if(!window.RNDMCloud?.configured?.())return;const sb=RNDMCloud.getClient();const u=await RNDMCloud.user();const on=$('referralLoggedIn'),off=$('referralLoggedOut'),state=$('referralAccountState'),note=$('referralNote');if(!u){if(on)on.style.display='none';if(off)off.style.display='block';if(state)state.textContent='Нужен аккаунт';return}if(on)on.style.display='block';if(off)off.style.display='none';const {data:code,error:ce}=await sb.rpc('ensure_referral_code');if(ce){if(note)note.textContent='Ошибка рефералки: '+ce.message;return}const {data:p,error}=await sb.from('profiles').select('username,referral_count,referral_coins_earned,referral_stars_earned').eq('id',u.id).single();if(error){if(note)note.textContent=error.message;return}if(state)state.textContent='@'+(p.username||'я');const url=new URL('profile.html',location.href);url.searchParams.set('ref',code);url.hash='accountCenter';if($('referralUrl'))$('referralUrl').value=url.href;if($('referralCount'))$('referralCount').textContent=p.referral_count||0;if($('referralCoins'))$('referralCoins').textContent=Number(p.referral_coins_earned||0).toLocaleString('ru-RU');if($('referralStars'))$('referralStars').textContent=p.referral_stars_earned||0;
 $('copyReferral')?.addEventListener('click',async()=>{const v=$('referralUrl').value;try{await navigator.clipboard.writeText(v);note.textContent='Ссылка скопирована ✅'}catch{$('referralUrl').select();document.execCommand('copy');note.textContent='Ссылка скопирована ✅'}});
 $('shareReferral')?.addEventListener('click',async()=>{const url=$('referralUrl').value,text='Заходи в RNDM Chat по моей ссылке 🐱';if(navigator.share){try{await navigator.share({title:'RNDM Chat',text,url})}catch{}}else{try{await navigator.clipboard.writeText(url);note.textContent='Ссылка скопирована — отправь её другу.'}catch{}}});
 })();
 </script><script>(async()=>{try{if(!RNDMCloud.configured())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);document.querySelectorAll('.account-mini span').forEach(x=>x.textContent='@'+(p?.username||'я'));RNDMCloud.heartbeat()}catch(e){}})();</script>
-<script src="rndm-shell.js?v=26"></script><script src="rndm-v26.js?v=26"></script><script src="rndm-v26-extra.js?v=26"></script></body></html>
+<script src="rndm-shell.js?v=26.2"></script><script src="rndm-v26.js?v=26.2"></script><script src="rndm-v26-extra.js?v=26.2"></script></body></html>
