@@ -1,4 +1,4 @@
-// RNDM v27.6 repair layer: navigation, uploads, channel discussion
+// RNDM v27.7 repair layer: navigation, uploads, channel discussion
 (()=>{
 'use strict';
 const d=document,w=window;
