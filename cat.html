@@ -306,7 +306,7 @@ img{max-width:100%}
 <meta content="black-translucent" name="apple-mobile-web-app-status-bar-style"/>
 <meta content="RNDM Chat" name="apple-mobile-web-app-title"/>
 <meta content="telephone=no" name="format-detection"/>
-<link href="rndm-shell.css?v=26.5" rel="stylesheet"/><link href="manifest.webmanifest" rel="manifest"/><link href="rndm-v26.css?v=26.5" rel="stylesheet"/><link rel="preconnect" href="https://rijqlmrcnshswtoweoai.supabase.co" crossorigin/><link rel="dns-prefetch" href="//rijqlmrcnshswtoweoai.supabase.co"/><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/></head><body>
+<link href="rndm-shell.css?v=27.1" rel="stylesheet"/><link href="manifest.webmanifest" rel="manifest"/><link href="rndm-v26.css?v=27.1" rel="stylesheet"/><link rel="preconnect" href="https://rijqlmrcnshswtoweoai.supabase.co" crossorigin/><link rel="dns-prefetch" href="//rijqlmrcnshswtoweoai.supabase.co"/><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/><link rel="stylesheet" href="rndm-v27.css?v=27.1"></head><body>
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
 <div class="rndm-unified-inner">
 <a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
@@ -381,7 +381,7 @@ img{max-width:100%}
 <p class="referral-note" id="referralNote">Реферальная система работает через Supabase между разными устройствами. Награда начисляется один раз после входа нового пользователя.</p>
 </div>
 </section></main>
-<footer>RNDM Chat © 2026 • учебный проект</footer><script src="rndm-legacy-app.js?v=26.5"></script><script>
+<footer>RNDM Chat © 2026 • учебный проект</footer><script src="rndm-legacy-app.js?v=27.1"></script><script>
 /* cat.js — встроено в страницу */
 (()=>{
 const $=s=>document.querySelector(s), KEY='rndmCatV2', OLD='rndmCatV1', STAR='rndmStarsV1';
@@ -417,13 +417,13 @@ let prev=Date.now();setInterval(()=>{const now=Date.now(),sec=(now-prev)/1000;pr
 window.addEventListener('beforeunload',save);draw();
 })();
 
-</script><script src="rndm-legacy-v13.js?v=26.5"></script><script src="rndm-legacy-v15.js?v=26.5"></script>
+</script><script src="rndm-legacy-v13.js?v=27.1"></script><script src="rndm-legacy-v15.js?v=27.1"></script>
 <script>/* v25 cloud referral loads after Supabase */</script>
 <script>(()=>{const h=document.querySelector('.topbar');if(!h||h.querySelector('.account-mini'))return;let db={};try{db=JSON.parse(localStorage.getItem('rndm-accounts-v17')||'{}')}catch{};const u=localStorage.getItem('rndm-session-v17')||'',a=db[u];const link=document.createElement('a');link.href='profile.html#accountCenter';link.className='account-mini'+(a?' on':'');link.innerHTML='<i></i><span>'+(a?'@'+a.username:'Войти')+'</span>';const t=h.querySelector('.theme-toggle');if(t)h.insertBefore(link,t);else h.appendChild(link)})();</script>
-<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=26.5"></script><script src="rndm-censor.js?v=26.5"></script><script src="rndm-state-sync.js?v=26.5"></script><script id="rndm-v25-referrals">
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=27.1"></script><script src="rndm-censor.js?v=27.1"></script><script src="rndm-state-sync.js?v=27.1"></script><script id="rndm-v25-referrals">
 (async()=>{const $=id=>document.getElementById(id);if(!window.RNDMCloud?.configured?.())return;const sb=RNDMCloud.getClient();const u=await RNDMCloud.user();const on=$('referralLoggedIn'),off=$('referralLoggedOut'),state=$('referralAccountState'),note=$('referralNote');if(!u){if(on)on.style.display='none';if(off)off.style.display='block';if(state)state.textContent='Нужен аккаунт';return}if(on)on.style.display='block';if(off)off.style.display='none';const {data:code,error:ce}=await sb.rpc('ensure_referral_code');if(ce){if(note)note.textContent='Ошибка рефералки: '+ce.message;return}const {data:p,error}=await sb.from('profiles').select('username,referral_count,referral_coins_earned,referral_stars_earned').eq('id',u.id).single();if(error){if(note)note.textContent=error.message;return}if(state)state.textContent='@'+(p.username||'я');const url=new URL('profile.html',location.href);url.searchParams.set('ref',code);url.hash='accountCenter';if($('referralUrl'))$('referralUrl').value=url.href;if($('referralCount'))$('referralCount').textContent=p.referral_count||0;if($('referralCoins'))$('referralCoins').textContent=Number(p.referral_coins_earned||0).toLocaleString('ru-RU');if($('referralStars'))$('referralStars').textContent=p.referral_stars_earned||0;
 $('copyReferral')?.addEventListener('click',async()=>{const v=$('referralUrl').value;try{await navigator.clipboard.writeText(v);note.textContent='Ссылка скопирована ✅'}catch{$('referralUrl').select();document.execCommand('copy');note.textContent='Ссылка скопирована ✅'}});
 $('shareReferral')?.addEventListener('click',async()=>{const url=$('referralUrl').value,text='Заходи в RNDM Chat по моей ссылке 🐱';if(navigator.share){try{await navigator.share({title:'RNDM Chat',text,url})}catch{}}else{try{await navigator.clipboard.writeText(url);note.textContent='Ссылка скопирована — отправь её другу.'}catch{}}});
 })();
 </script><script>(async()=>{try{if(!RNDMCloud.configured())return;const u=await RNDMCloud.user();if(!u)return;const p=await RNDMCloud.profile(u.id);document.querySelectorAll('.account-mini span').forEach(x=>x.textContent='@'+(p?.username||'я'));RNDMCloud.heartbeat()}catch(e){}})();</script>
-<script src="rndm-shell.js?v=26.5"></script><script src="rndm-v26.js?v=26.5"></script><script src="rndm-v26-extra.js?v=26.5"></script><script src="rndm-performance.js?v=26.5"></script><script src="rndm-profiles.js?v=26.5"></script></body></html>
+<script src="rndm-shell.js?v=27.1"></script><script src="rndm-v26.js?v=27.1"></script><script src="rndm-v26-extra.js?v=27.1"></script><script src="rndm-performance.js?v=27.1"></script><script src="rndm-profiles.js?v=27.1"></script><script src="rndm-v27.js?v=27.1"></script></body></html>

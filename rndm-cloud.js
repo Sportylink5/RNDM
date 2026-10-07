@@ -36,7 +36,7 @@ window.RNDMCloud = (() => {
         if(event==='PASSWORD_RECOVERY'){
           try{sessionStorage.setItem('rndm-password-recovery','1')}catch{}
           const page=(location.pathname.split('/').pop()||'index.html').toLowerCase();
-          if(page!=='profile.html'){location.replace('profile.html?recovery=1')}
+          if(page!=='profile.html'&&page!=='reset-password.html'){location.replace('reset-password.html')}
         }
       });
     }
@@ -267,11 +267,26 @@ window.RNDMCloud = (() => {
     return deleteOwnAvatar(url);
   }
 
+
+  async function optimizeUploadImage(file){
+    try{
+      const type=String(file?.type||'').toLowerCase();
+      if(!['image/jpeg','image/png','image/webp'].includes(type)||file.size<700*1024)return file;
+      const bmp=await createImageBitmap(file);const max=1600,scale=Math.min(1,max/Math.max(bmp.width,bmp.height));
+      if(scale>=.99)return file;const c=document.createElement('canvas');c.width=Math.round(bmp.width*scale);c.height=Math.round(bmp.height*scale);
+      c.getContext('2d').drawImage(bmp,0,0,c.width,c.height);bmp.close?.();
+      const outType=type==='image/png'?'image/webp':type;const blob=await new Promise(r=>c.toBlob(r,outType,.84));
+      if(!blob||blob.size>=file.size)return file;const ext=outType==='image/webp'?'.webp':outType==='image/jpeg'?'.jpg':'.png';
+      return new File([blob],String(file.name||'image').replace(/\.[^.]+$/, '')+ext,{type:outType,lastModified:Date.now()});
+    }catch{return file}
+  }
+
   async function upload(bucket,file,prefix='files',maxBytes=100*1024*1024){
     const c=getClient(),u=await user();
     if(!c||!u) throw new Error('Нужно войти в аккаунт');
     if(!file) throw new Error('Файл не выбран');
     if(file.size>maxBytes) throw new Error('Файл слишком большой');
+    file=await optimizeUploadImage(file);
     const safe=String(file.name||'file').replace(/[^a-zA-Z0-9._-]+/g,'_').slice(-120);
     const path=`${u.id}/${prefix}/${crypto.randomUUID()}-${safe}`;
     const {error}=await c.storage.from(bucket).upload(path,file,{contentType:file.type||'application/octet-stream',upsert:false});
@@ -287,7 +302,7 @@ window.RNDMCloud = (() => {
       sessionPromise=null;
       if(!s)profileCache.clear();
       bootstrapMemory=null;bootstrapPromise=null;
-      if(event==='PASSWORD_RECOVERY'){try{sessionStorage.setItem('rndm-password-recovery','1')}catch{};if((location.pathname.split('/').pop()||'').toLowerCase()!=='profile.html')location.replace('profile.html?recovery=1')}
+      if(event==='PASSWORD_RECOVERY'){try{sessionStorage.setItem('rndm-password-recovery','1')}catch{};if(!['profile.html','reset-password.html'].includes((location.pathname.split('/').pop()||'').toLowerCase()))location.replace('reset-password.html')}
       callback?.(event,s);
     });
     return data?.subscription||{unsubscribe(){}};
