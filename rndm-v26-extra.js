@@ -10,8 +10,9 @@ async function identity(){if(!window.RNDMCloud?.configured?.())return false;sb=R
 
 async function maintenance(){
   if(!sb||!me)return;
-  const {data}=await sb.from('app_settings').select('value').eq('key','maintenance_enabled').maybeSingle();
-  const on=data?.value===true||String(data?.value)==='true';
+  const boot=await RNDMCloud.bootstrap?.();
+  let on=boot?.maintenance_enabled===true||String(boot?.maintenance_enabled)==='true';
+  if(!boot){const {data}=await sb.from('app_settings').select('value').eq('key','maintenance_enabled').maybeSingle();on=data?.value===true||String(data?.value)==='true'}
   const staff=['owner','admin','moderator'].includes(profile?.app_role);
   if(!on||staff)return;
   if(document.getElementById('v26Maintenance'))return;
@@ -50,7 +51,7 @@ async function stockExtras(){
   sec.innerHTML='<h2>🏆 Топ инвесторов</h2><div id="v26Investors" class="v26-list"></div><p class="v26-muted">Стоимость портфеля считается по текущим виртуальным ценам RNDM.</p>';
   root.appendChild(sec);
   const {data,error}=await sb.rpc('stock_investor_leaderboard',{p_limit:20});
-  sec.querySelector('#v26Investors').innerHTML=error?`<span class="v26-muted">${esc(error.message)}</span>`:(data||[]).map((x,i)=>`<a class="v26-list-row" href="profile.html?user=${x.user_id}"><b>#${i+1}</b>${x.avatar_url?`<img class="v26-avatar" src="${esc(x.avatar_url)}">`:`<span class="v26-avatar">${esc((x.display_name||x.username||'?')[0])}</span>`}<div style="flex:1"><b>${esc(x.display_name||x.username)}</b><small>@${esc(x.username)}</small></div><strong>${Number(x.portfolio_value||0).toLocaleString('ru-RU')} R₽</strong></a>`).join('')||'<span class="v26-muted">Портфелей пока нет</span>';
+  sec.querySelector('#v26Investors').innerHTML=error?`<span class="v26-muted">${esc(error.message)}</span>`:(data||[]).map((x,i)=>`<a class="v26-list-row" href="profile.html?id=${x.user_id}"><b>#${i+1}</b>${x.avatar_url?`<img class="v26-avatar" src="${esc(x.avatar_url)}">`:`<span class="v26-avatar">${esc((x.display_name||x.username||'?')[0])}</span>`}<div style="flex:1"><b>${esc(x.display_name||x.username)}</b><small>@${esc(x.username)}</small></div><strong>${Number(x.portfolio_value||0).toLocaleString('ru-RU')} R₽</strong></a>`).join('')||'<span class="v26-muted">Портфелей пока нет</span>';
 
   // Add period buttons to the existing stock chart modal and replace chart data on demand.
   const modal=document.getElementById('chartModal');
