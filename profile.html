@@ -37,7 +37,7 @@ body.rndm-public-profile #v24ProfileCloud{display:none!important}
 <style id="rndm-avatar-editor-style">
 .avatar-editor{display:flex;align-items:center;gap:16px;padding:14px;border:1px solid var(--line);border-radius:18px;background:#0d1420}.avatar-preview-button{position:relative;width:92px;height:92px;border-radius:50%;padding:0;border:2px solid #745bff;background:linear-gradient(135deg,#745bff,#29e5b7);overflow:hidden;display:grid;place-items:center;color:#fff;font-size:30px;font-weight:900;cursor:pointer;flex:0 0 auto}.avatar-preview-button img{width:100%;height:100%;object-fit:cover;display:block}.avatar-camera{position:absolute;right:2px;bottom:2px;width:29px;height:29px;border-radius:50%;background:#111827;border:2px solid #fff3;display:grid;place-items:center;font-size:14px}.avatar-actions{display:grid;gap:8px;min-width:0}.avatar-actions .btn{width:max-content}.avatar-uploading{opacity:.65;pointer-events:none}@media(max-width:560px){.avatar-editor{align-items:flex-start}.avatar-preview-button{width:78px;height:78px}.avatar-actions .btn{width:100%}}
 </style>
-<link href="rndm-shell.css?v=27.5" rel="stylesheet"/><link href="manifest.webmanifest" rel="manifest"/><link href="rndm-v26.css?v=27.5" rel="stylesheet"/><link rel="preconnect" href="https://rijqlmrcnshswtoweoai.supabase.co" crossorigin/><link rel="dns-prefetch" href="//rijqlmrcnshswtoweoai.supabase.co"/><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/><link rel="stylesheet" href="rndm-v27.css?v=27.5"></head><body>
+<link href="rndm-shell.css?v=27.6" rel="stylesheet"/><link href="manifest.webmanifest" rel="manifest"/><link href="rndm-v26.css?v=27.6" rel="stylesheet"/><link rel="preconnect" href="https://rijqlmrcnshswtoweoai.supabase.co" crossorigin/><link rel="dns-prefetch" href="//rijqlmrcnshswtoweoai.supabase.co"/><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/><link rel="stylesheet" href="rndm-v27.css?v=27.6"></head><body>
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
 <div class="rndm-unified-inner">
 <a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
@@ -153,7 +153,7 @@ body.rndm-public-profile #v24ProfileCloud{display:none!important}
 </div>
 <div class="toolbar"><button class="btn" id="saveProfile">Сохранить профиль</button><a class="btn secondary" href="chat.html">Открыть чаты</a><button class="btn danger" id="logout">Выйти</button></div><div id="profileMessage"></div>
 </div></section>
-</div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=27.5"></script><script src="rndm-censor.js?v=27.5"></script><script src="rndm-state-sync.js?v=27.5"></script><script>
+</div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=27.6"></script><script src="rndm-censor.js?v=27.6"></script><script src="rndm-state-sync.js?v=27.6"></script><script>
 (async()=>{const C=RNDMCloud,sb=C.getClient(),q=s=>document.querySelector(s),esc=C.esc;q('#notConfigured').style.display=C.configured()?'none':'block';if(!sb){q('#authBox').style.display='block';return}
 const REFKEY='rndm-pending-referral-v25';const refNow=(new URLSearchParams(location.search).get('ref')||'').trim().toUpperCase();if(refNow)localStorage.setItem(REFKEY,refNow);const pendingRef=()=>localStorage.getItem(REFKEY)||(null);
 async function claimPendingReferral(user){const code=pendingRef()||String(user?.user_metadata?.referral_code||'').trim().toUpperCase();if(!code)return null;const {data,error}=await sb.rpc('claim_referral',{ref_code:code});if(error){console.warn('Referral:',error.message);return {error:error.message}}localStorage.removeItem(REFKEY);return data;}
@@ -282,4 +282,4 @@ document.addEventListener('DOMContentLoaded',()=>{
   toggle.addEventListener('change',()=>window.RNDMCensor?.setUserEnabled?.(toggle.checked));
 });
 </script>
-<script src="rndm-profiles.js?v=27.5"></script><script src="rndm-shell.js?v=27.5"></script><script src="rndm-v26.js?v=27.5"></script><script src="rndm-v26-extra.js?v=27.5"></script><script src="rndm-performance.js?v=27.5"></script><script src="rndm-v27.js?v=27.5"></script><script src="rndm-profile-v272.js?v=27.5"></script></body></html>
+<script src="rndm-profiles.js?v=27.6"></script><script src="rndm-shell.js?v=27.6"></script><script src="rndm-v26.js?v=27.6"></script><script src="rndm-v26-extra.js?v=27.6"></script><script src="rndm-performance.js?v=27.6"></script><script src="rndm-v27.js?v=27.6"></script><script src="rndm-profile-v272.js?v=27.6"></script><script src="rndm-repair-v276.js?v=27.6"></script></body></html>

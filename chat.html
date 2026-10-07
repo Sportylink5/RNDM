@@ -8,7 +8,7 @@
 .random-live-launch{display:grid;grid-template-columns:46px 1fr auto;gap:11px;align-items:center;margin:10px 10px 6px;padding:12px;border-radius:17px;border:1px solid rgba(124,92,255,.42);background:linear-gradient(135deg,rgba(124,92,255,.18),rgba(0,229,168,.09));color:inherit;text-decoration:none;box-shadow:0 12px 30px rgba(0,0,0,.12)}
 .random-live-launch .rl-icon{width:46px;height:46px;border-radius:15px;display:grid;place-items:center;font-size:24px;background:linear-gradient(135deg,#7657ff,#24d8b0);box-shadow:0 8px 22px rgba(104,84,255,.28)}
 .random-live-launch b{display:block;font-size:14px}.random-live-launch small{display:block;color:var(--muted,#9aa3b8);font-size:11px;margin-top:3px}.random-live-launch em{font-style:normal;font-size:9px;font-weight:900;color:#42ebb4;border:1px solid rgba(66,235,180,.35);padding:5px 7px;border-radius:999px}
-</style><link href="rndm-shell.css?v=27.5" rel="stylesheet"/><link href="manifest.webmanifest" rel="manifest"/><link href="rndm-v26.css?v=27.5" rel="stylesheet"/><link rel="preconnect" href="https://rijqlmrcnshswtoweoai.supabase.co" crossorigin/><link rel="dns-prefetch" href="//rijqlmrcnshswtoweoai.supabase.co"/><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/><link rel="stylesheet" href="rndm-v27.css?v=27.5"></head><body>
+</style><link href="rndm-shell.css?v=27.6" rel="stylesheet"/><link href="manifest.webmanifest" rel="manifest"/><link href="rndm-v26.css?v=27.6" rel="stylesheet"/><link rel="preconnect" href="https://rijqlmrcnshswtoweoai.supabase.co" crossorigin/><link rel="dns-prefetch" href="//rijqlmrcnshswtoweoai.supabase.co"/><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin/><link rel="stylesheet" href="rndm-v27.css?v=27.6"></head><body>
 <header class="rndm-unified-header" id="rndmUnifiedHeader">
 <div class="rndm-unified-inner">
 <a class="rndm-unified-brand" href="index.html"><span class="rndm-unified-logo">R</span><span class="rndm-unified-brandtext">RNDM Chat <sup class="rndm-live-dot">LIVE</sup></span></a>
@@ -75,7 +75,7 @@
 </div>
 <input accept="image/*,video/*,audio/*,.pdf,.zip,.doc,.docx,.txt" hidden="" id="fileInput" type="file"/>
 <div class="modal" id="groupModal"><div class="modal-card"><h2>👥 Новая группа</h2><div class="field"><label>Название</label><input id="groupTitle" maxlength="80" placeholder="Например, Наша группа"/></div><div id="groupPeople"></div><div class="toolbar" style="margin-top:16px"><button class="btn" id="createGroup">Создать</button><button class="btn secondary" data-close="#groupModal">Отмена</button></div></div></div>
-</div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=27.5"></script><script src="rndm-censor.js?v=27.5"></script><script src="rndm-state-sync.js?v=27.5"></script><script>
+</div><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="rndm-cloud.js?v=27.6"></script><script src="rndm-censor.js?v=27.6"></script><script src="rndm-state-sync.js?v=27.6"></script><script>
 (async()=>{
 const C=RNDMCloud, sb=C.getClient(), cfg=C.configured();
 const q=s=>document.querySelector(s), esc=C.esc; let me=null,myProfile=null,active=null,activeInfo=null,rt=[],typingTimer=null,typingClearTimer=null,lastTypingSent=0,contacts=[];
@@ -137,4 +137,4 @@ try{await loadDialogs();const qs=new URLSearchParams(location.search),cid=qs.get
 sb.channel('dialog-refresh').on('postgres_changes',{event:'*',schema:'public',table:'friendships'},loadDialogs).subscribe();
 })();
 </script>
-<script src="rndm-shell.js?v=27.5"></script><script src="rndm-v26.js?v=27.5"></script><script src="rndm-v26-extra.js?v=27.5"></script><script src="rndm-performance.js?v=27.5"></script><script src="rndm-profiles.js?v=27.5"></script><script src="rndm-v27.js?v=27.5"></script></body></html>
+<script src="rndm-shell.js?v=27.6"></script><script src="rndm-v26.js?v=27.6"></script><script src="rndm-v26-extra.js?v=27.6"></script><script src="rndm-performance.js?v=27.6"></script><script src="rndm-profiles.js?v=27.6"></script><script src="rndm-v27.js?v=27.6"></script><script src="rndm-repair-v276.js?v=27.6"></script></body></html>

@@ -196,3 +196,17 @@ body > #rndmMobileNav, body > #rndmMoreSheet, body > #rndmMoreBackdrop{display:n
 
 /* v26.4 PERFORMANCE UX */
 .rndm-perf-progress{position:fixed;z-index:2147483647;left:0;top:0;width:0;height:3px;pointer-events:none;opacity:1;background:linear-gradient(90deg,var(--accent,#7c5cff),var(--accent2,#00e5a8));box-shadow:0 0 14px rgba(124,92,255,.55);transition:width .35s ease,opacity .25s ease}.rndm-perf-progress.go{width:72%}.rndm-perf-progress.nav{width:88%}.rndm-perf-progress.done{width:100%;opacity:0}.rndm-network-state{position:fixed;z-index:2147483600;left:50%;top:max(10px,env(safe-area-inset-top));transform:translate(-50%,-18px);padding:8px 12px;border-radius:999px;background:rgba(18,20,31,.92);color:#fff;font:700 12px/1.2 Inter,Arial,sans-serif;box-shadow:0 8px 30px rgba(0,0,0,.25);opacity:0;pointer-events:none;transition:.2s ease}.rndm-network-state.show{opacity:1;transform:translate(-50%,0)}.rndm-network-state.offline{background:#a92b42}img{content-visibility:auto} @media(prefers-reduced-motion:reduce){.rndm-perf-progress,.rndm-network-state{transition:none!important}}
+
+/* v27.6 recovery: make mobile navigation physically untouchable by page overlays */
+@media(max-width:820px){
+  .rndm-mobile-bottom-nav{z-index:2147483000!important;pointer-events:auto!important;isolation:isolate!important}
+  .rndm-mobile-bottom-nav a{pointer-events:auto!important;position:relative!important;z-index:2!important;touch-action:manipulation!important}
+}
+.v276-floating-upload{position:fixed;right:14px;bottom:calc(88px + env(safe-area-inset-bottom,0px));z-index:2147482990;border:0;border-radius:16px;padding:12px 15px;background:linear-gradient(135deg,#765dff,#26dfb2);color:#071016;font-weight:900;box-shadow:0 14px 40px #0008;cursor:pointer}
+@media(min-width:821px){.v276-floating-upload{bottom:24px}}
+.v276-toast{position:fixed;left:50%;bottom:100px;z-index:2147483645;transform:translate(-50%,12px);opacity:0;background:#111827;color:#fff;border:1px solid #ffffff22;padding:11px 14px;border-radius:14px;transition:.18s}.v276-toast.show{opacity:1;transform:translate(-50%,0)}
+.v276-channel-talk{margin-top:16px;padding:14px;border-top:1px solid var(--line);background:rgba(255,255,255,.025)}
+.v276-talk-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}.v276-talk-head span{font-size:11px;color:#74efc8;font-weight:900}
+.v276-talk-list{max-height:300px;overflow:auto;display:grid;gap:7px;padding:4px 0 10px}.v276-talk-msg{padding:9px 11px;border-radius:13px;background:var(--panel2);border:1px solid var(--line)}.v276-talk-msg small{color:var(--muted)}
+.v276-talk-form{display:grid;grid-template-columns:1fr auto;gap:8px}.v276-talk-form input{min-width:0;padding:11px 12px;border:1px solid var(--line);border-radius:13px;background:var(--panel2);color:var(--text)}
+.v276-upload-modal{position:fixed;inset:0;z-index:2147483200;background:#000c;display:none;place-items:center;padding:18px}.v276-upload-modal.open{display:grid}.v276-upload-card{width:min(560px,100%);max-height:90dvh;overflow:auto;background:#111827;color:#fff;border:1px solid #ffffff20;border-radius:24px;padding:18px}.v276-upload-card video{width:100%;max-height:50dvh;background:#000;border-radius:16px;margin:8px 0}.v276-upload-card input{width:100%;padding:11px 12px;border-radius:13px;border:1px solid #ffffff20;background:#0c1220;color:#fff}.v276-upload-actions{display:flex;gap:8px;margin-top:12px}.v276-upload-actions>*{flex:1}
