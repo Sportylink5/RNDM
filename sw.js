@@ -1,11 +1,11 @@
 const CACHE='rndm-v27-3-owner-email';
 const CORE=[
   './','./index.html','./profile.html','./reset-password.html','./chat.html','./clips.html',
-  './rndm-shell.css?v=27.3','./rndm-v26.css?v=27.3',
-  './rndm-shell.js?v=27.3','./rndm-v26.js?v=27.3','./rndm-v26-extra.js?v=27.3','./rndm-performance.js?v=27.3',
-  './rndm-cloud.js?v=27.3','./rndm-censor.js?v=27.3','./rndm-state-sync.js?v=27.3',
-  './rndm-legacy-app.js?v=27.3','./rndm-legacy-v13.js?v=27.3','./rndm-legacy-v15.js?v=27.3',
-  './rndm-v27.css?v=27.3','./rndm-v27.js?v=27.3','./rndm-profile-v272.js?v=27.3','./communities.html','./voice.html','./apps.html','./security.html','./icon-192.svg','./icon-512.svg','./manifest.webmanifest'
+  './rndm-shell.css?v=27.5','./rndm-v26.css?v=27.5',
+  './rndm-shell.js?v=27.5','./rndm-v26.js?v=27.5','./rndm-v26-extra.js?v=27.5','./rndm-performance.js?v=27.5',
+  './rndm-cloud.js?v=27.5','./rndm-censor.js?v=27.5','./rndm-state-sync.js?v=27.5',
+  './rndm-legacy-app.js?v=27.5','./rndm-legacy-v13.js?v=27.5','./rndm-legacy-v15.js?v=27.5',
+  './rndm-v27.css?v=27.5','./rndm-v27.js?v=27.5','./rndm-profile-v272.js?v=27.5','./communities.html','./voice.html','./apps.html','./security.html','./icon-192.svg','./icon-512.svg','./manifest.webmanifest'
 ];
 self.addEventListener('install',e=>e.waitUntil(caches.open(CACHE).then(c=>c.addAll(CORE)).then(()=>self.skipWaiting())));
 self.addEventListener('activate',e=>e.waitUntil(caches.keys().then(keys=>Promise.all(keys.filter(k=>k!==CACHE).map(k=>caches.delete(k)))).then(()=>self.clients.claim())));
