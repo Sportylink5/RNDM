@@ -1,4 +1,4 @@
-// RNDM Chat v25.2 — fast Supabase cloud connection + avatars
+// RNDM Chat v26.5 PROFILES — cached bootstrap + recovery + avatars
 // Browser-safe: publishable key only. Never put sb_secret/service_role here.
 window.RNDM_SUPABASE_URL = 'https://rijqlmrcnshswtoweoai.supabase.co';
 window.RNDM_SUPABASE_KEY = 'sb_publishable_Ay6EBRfZx1-Shj1FdMg7ZQ_P61Rii2A';
@@ -9,9 +9,13 @@ window.RNDMCloud = (() => {
   let cachedSession = undefined;
   const profileCache = new Map();
   const profilePromises = new Map();
-  const PROFILE_TTL = 90000;
-  const HEARTBEAT_TTL = 60000;
+  const PROFILE_TTL = 600000;
+  const HEARTBEAT_TTL = 300000;
   let heartbeatPromise = null;
+  let bootstrapPromise = null;
+  let bootstrapMemory = null;
+  const BOOTSTRAP_TTL = 120000;
+  const STATE_TTL = 300000;
 
   const configured = () => /^https:\/\/.+\.supabase\.co$/i.test(window.RNDM_SUPABASE_URL || '') &&
     !!window.RNDM_SUPABASE_KEY && !String(window.RNDM_SUPABASE_KEY).includes('PASTE_');
@@ -24,10 +28,16 @@ window.RNDMCloud = (() => {
         auth:{persistSession:true, autoRefreshToken:true, detectSessionInUrl:true},
         realtime:{params:{eventsPerSecond:10}}
       });
-      client.auth.onAuthStateChange((_event,session)=>{
+      client.auth.onAuthStateChange((event,session)=>{
         cachedSession = session || null;
         sessionPromise = null;
+        bootstrapMemory = null; bootstrapPromise = null;
         if(!session) profileCache.clear();
+        if(event==='PASSWORD_RECOVERY'){
+          try{sessionStorage.setItem('rndm-password-recovery','1')}catch{}
+          const page=(location.pathname.split('/').pop()||'index.html').toLowerCase();
+          if(page!=='profile.html'){location.replace('profile.html?recovery=1')}
+        }
       });
     }
     return client;
@@ -59,6 +69,36 @@ window.RNDMCloud = (() => {
     return data?.user || null;
   }
 
+  function bootstrapStorageKey(uid){ return 'rndm-bootstrap-v264:'+uid; }
+  function readBootstrapStored(uid){
+    try{
+      const x=JSON.parse(sessionStorage.getItem(bootstrapStorageKey(uid))||'null');
+      if(x && (Date.now()-Number(x.at||0))<BOOTSTRAP_TTL) return x;
+    }catch{}
+    return null;
+  }
+  function writeBootstrapStored(uid,data){
+    try{sessionStorage.setItem(bootstrapStorageKey(uid),JSON.stringify({at:Date.now(),data:data||null}))}catch{}
+  }
+  async function bootstrap(force=false){
+    const c=getClient(); if(!c) return null;
+    const s=await session(); const uid=s?.user?.id; if(!uid) return null;
+    if(!force && bootstrapMemory && bootstrapMemory.uid===uid && (Date.now()-bootstrapMemory.at)<BOOTSTRAP_TTL) return bootstrapMemory.data;
+    if(!force){
+      const st=readBootstrapStored(uid);
+      if(st){bootstrapMemory={uid,at:st.at,data:st.data}; if(st.data?.profile){const row={data:st.data.profile,at:Date.now()};profileCache.set(uid,row);writeStoredProfile(uid,row.data)} return st.data;}
+    }
+    if(!force && bootstrapPromise) return bootstrapPromise;
+    bootstrapPromise=c.rpc('rndm_bootstrap').then(({data,error})=>{
+      bootstrapPromise=null;
+      if(error) return null;
+      bootstrapMemory={uid,at:Date.now(),data:data||null}; writeBootstrapStored(uid,data||null);
+      if(data?.profile){const row={data:data.profile,at:Date.now()};profileCache.set(uid,row);writeStoredProfile(uid,row.data)}
+      return data||null;
+    }).catch(()=>{bootstrapPromise=null;return null});
+    return bootstrapPromise;
+  }
+
   function profileStorageKey(uid){ return 'rndm-profile-cache-v251:'+uid; }
   function readStoredProfile(uid){
     try{
@@ -79,6 +119,7 @@ window.RNDMCloud = (() => {
       const stored=readStoredProfile(uid);
       if(stored){ profileCache.set(uid,stored); return stored.data; }
     }
+    if(!force){const ss=await session();if(ss?.user?.id===uid){const b=await bootstrap(false);if(b?.profile)return b.profile;}}
     if(!force && profilePromises.has(uid)) return profilePromises.get(uid);
     const p=c.from('profiles').select('*').eq('id',uid).maybeSingle().then(({data,error})=>{
       profilePromises.delete(uid);
@@ -94,13 +135,26 @@ window.RNDMCloud = (() => {
   function invalidateProfile(uid){
     if(uid){
       profileCache.delete(uid);
-      try{sessionStorage.removeItem(profileStorageKey(uid))}catch(e){}
+      try{sessionStorage.removeItem(profileStorageKey(uid));sessionStorage.removeItem(bootstrapStorageKey(uid))}catch(e){}
+      if(bootstrapMemory?.uid===uid)bootstrapMemory=null;
     }else{
       profileCache.clear();
-      try{Object.keys(sessionStorage).filter(k=>k.startsWith('rndm-profile-cache-v251:')).forEach(k=>sessionStorage.removeItem(k))}catch(e){}
+      try{Object.keys(sessionStorage).filter(k=>k.startsWith('rndm-profile-cache-v251:')||k.startsWith('rndm-bootstrap-v264:')).forEach(k=>sessionStorage.removeItem(k))}catch(e){}
+      bootstrapMemory=null;
     }
   }
   async function myProfile(force=false){ const u=await user(); return u ? profile(u.id,force) : null; }
+
+  async function publicProfile(uid){
+    const c=getClient(); if(!c||!uid) return null;
+    const {data,error}=await c.rpc('get_public_profile',{p_user_id:uid});
+    return error?null:(data||null);
+  }
+  async function publicProfileByUsername(username){
+    const c=getClient(); if(!c||!username) return null;
+    const {data,error}=await c.rpc('get_public_profile_by_username',{p_username:String(username).replace(/^@/,'')});
+    return error?null:(data||null);
+  }
 
   function esc(s=''){
     return String(s).replace(/[&<>\"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','\"':'&quot;',"'":'&#39;'}[m]));
@@ -133,16 +187,24 @@ window.RNDMCloud = (() => {
     return heartbeatPromise;
   }
 
+  function stateCacheKey(uid,key){return 'rndm-state-v263:'+uid+':'+key}
+  function stateCacheRead(uid,key){try{const x=JSON.parse(sessionStorage.getItem(stateCacheKey(uid,key))||'null');if(x&&(Date.now()-Number(x.at||0))<STATE_TTL)return x.data}catch{}return null}
+  function stateCacheWrite(uid,key,data){try{sessionStorage.setItem(stateCacheKey(uid,key),JSON.stringify({at:Date.now(),data:data||null}))}catch{}}
+
   async function stateGet(key){
     const c=getClient(),u=await user(); if(!c||!u)return null;
+    const hit=stateCacheRead(u.id,key); if(hit)return hit;
     const {data,error}=await c.from('user_state').select('value,updated_at').eq('user_id',u.id).eq('key',key).maybeSingle();
     if(error) return null;
+    stateCacheWrite(u.id,key,data||null);
     return data||null;
   }
 
   async function stateSet(key,value){
     const c=getClient(),u=await user(); if(!c||!u)return false;
-    const {error}=await c.from('user_state').upsert({user_id:u.id,key,value,updated_at:new Date().toISOString()},{onConflict:'user_id,key'});
+    const row={user_id:u.id,key,value,updated_at:new Date().toISOString()};
+    const {error}=await c.from('user_state').upsert(row,{onConflict:'user_id,key'});
+    if(!error)stateCacheWrite(u.id,key,{value,updated_at:row.updated_at});
     return !error;
   }
 
@@ -224,10 +286,12 @@ window.RNDMCloud = (() => {
       cachedSession=s||null;
       sessionPromise=null;
       if(!s)profileCache.clear();
+      bootstrapMemory=null;bootstrapPromise=null;
+      if(event==='PASSWORD_RECOVERY'){try{sessionStorage.setItem('rndm-password-recovery','1')}catch{};if((location.pathname.split('/').pop()||'').toLowerCase()!=='profile.html')location.replace('profile.html?recovery=1')}
       callback?.(event,s);
     });
     return data?.subscription||{unsubscribe(){}};
   }
 
-  return {configured,getClient,user,validateUser,session,profile,myProfile,invalidateProfile,esc,time,heartbeat,stateGet,stateSet,upload,uploadAvatar,deleteOwnAvatar,uploadProfileImage,deleteOwnProfileImage,onAuth};
+  return {configured,getClient,user,validateUser,session,bootstrap,profile,myProfile,publicProfile,publicProfileByUsername,invalidateProfile,esc,time,heartbeat,stateGet,stateSet,upload,uploadAvatar,deleteOwnAvatar,uploadProfileImage,deleteOwnProfileImage,onAuth};
 })();

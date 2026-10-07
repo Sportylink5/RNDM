@@ -1,4 +1,4 @@
-// RNDM v25.1 — FAST cloud state sync with cross-page session cache.
+// RNDM v26.3 — FAST cloud state sync with longer cross-page cache.
 // One SELECT + at most one UPSERT instead of dozens of sequential requests.
 (()=>{
   const KEYS = [
@@ -14,8 +14,8 @@
   const pending=new Map();
   let flushTimer=null;
   const originalSet=Storage.prototype.setItem;
-  const CACHE_KEY='rndm-state-cache-v251';
-  const CACHE_TTL=30000;
+  const CACHE_KEY='rndm-state-cache-v263';
+  const CACHE_TTL=300000;
 
   function getCache(uid){
     try{

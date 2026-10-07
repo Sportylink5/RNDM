@@ -85,9 +85,13 @@
     const sb = C?.getClient?.();
     const u = await C?.user?.();
     if (sb) {
-      const {data} = await sb.from('app_settings').select('value').eq('key',GLOBAL_KEY).maybeSingle();
-      if (data && typeof data.value === 'boolean') globalEnabled = data.value;
-      else if (data && data.value != null) globalEnabled = String(data.value) !== 'false';
+      const boot=await C?.bootstrap?.();
+      if (boot && boot.censorship_enabled !== undefined) globalEnabled = boot.censorship_enabled !== false && String(boot.censorship_enabled) !== 'false';
+      else {
+        const {data} = await sb.from('app_settings').select('value').eq('key',GLOBAL_KEY).maybeSingle();
+        if (data && typeof data.value === 'boolean') globalEnabled = data.value;
+        else if (data && data.value != null) globalEnabled = String(data.value) !== 'false';
+      }
     }
     if (u && C?.stateGet) {
       const row = await C.stateGet(USER_KEY);
